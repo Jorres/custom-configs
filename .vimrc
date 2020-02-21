@@ -25,7 +25,7 @@ set sidescroll=10
 " crutch to make auto {
 "
 " }
-inoremap { {<CR>}<Esc>ko
+" inoremap { {<CR>}<Esc>ko
 
 nnoremap tr :NERDTreeFocusToggle
 
@@ -53,6 +53,10 @@ Plugin 'jistr/vim-nerdtree-tabs' " achieving desired behaviour for nerdtree
 Plugin 'mkitt/tabline.vim' " tabs made prettier
 Plugin 'pseewald/anyfold' " language agnostic folder
 Plugin 'chiel92/vim-autoformat' " autoformat upon save
+Plugin 'mhinz/vim-startify'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'aserebryakov/vim-todo-lists'
+Plugin 'sickill/vim-pasta' 
 
 call vundle#end()
 
