@@ -22,15 +22,13 @@ set splitright
 set nowrap
 set sidescroll=10
 
-" crutch to make auto {
-"
-" }
-" inoremap { {<CR>}<Esc>ko
+" vim commands still usable when in russian keyboard
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 nnoremap tr :NERDTreeFocusToggle
 
 " one press splits navigation
-nmap <C-h> <C-w>h 
+nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
@@ -56,7 +54,7 @@ Plugin 'chiel92/vim-autoformat' " autoformat upon save
 Plugin 'mhinz/vim-startify'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'aserebryakov/vim-todo-lists'
-Plugin 'sickill/vim-pasta' 
+Plugin 'sickill/vim-pasta'
 
 call vundle#end()
 
