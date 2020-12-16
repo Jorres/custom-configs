@@ -1,1 +1,1 @@
-cp ~/.config/nvim/coc-settings.json ~/work/custom-configs/nvim-edition/.
+cp -r ~/.config/nvim ~/work/custom-configs/nvim-config

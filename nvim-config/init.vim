@@ -70,8 +70,7 @@ try
 "
 call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
 
-" Use ripgrep in place of "grep"
-call denite#custom#var('grep', 'command', ['rg'])
+" Use ripgrep in place of "grep" call denite#custom#var('grep', 'command', ['rg'])
 
 " Custom options for ripgrep
 "   --vimgrep:  Show results with every match on it's own line
@@ -133,6 +132,9 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction
 
+nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -140,18 +142,6 @@ inoremap <silent><expr> <TAB>
 
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" === NeoSnippet === "
-" Map <C-k> as shortcut to activate snippet if available
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" Load custom snippets from snippets folder
-let g:neosnippet#snippets_directory='~/.config/nvim/snippets'
-
-" Hide conceal markers
-let g:neosnippet#enable_conceal_markers = 0
 
 " === NERDTree === "
 " Show hidden files/directories
@@ -212,6 +202,10 @@ catch
   echo 'Airline not installed. It should work after running :PlugInstall'
 endtry
 
+" === stylishask === "
+" Disable styling on exit, use :Stylishask instead
+let g:stylishask_on_save = 0
+
 " === echodoc === "
 " Enable echodoc on startup
 let g:echodoc#enable_at_startup = 1
@@ -229,6 +223,10 @@ let g:used_javascript_libs = 'underscore,requirejs,chai,jquery'
 
 " === Signify === "
 let g:signify_sign_delete = '-'
+
+" === UltiSnips snippets ===
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+let g:UltiSnipsUsePythonVersion = 3
 
 " activate anyfold and open all folds
 autocmd Filetype * AnyFoldActivate
@@ -252,9 +250,6 @@ set splitbelow
 
 " Don't dispay mode in command line (airilne already shows it)
 set noshowmode
-
-" Set floating window to be slightly transparent
-" set winbl=10
 
 " ============================================================================ "
 " ===                      CUSTOM COLORSCHEME CHANGES                      === "
@@ -284,6 +279,7 @@ endtry
 " ============================================================================ "
 " ===                             KEY MAPPINGS                             === "
 " ============================================================================ "
+"
 
 " === Denite shorcuts === "
 "   ;         - Browser currently open buffers

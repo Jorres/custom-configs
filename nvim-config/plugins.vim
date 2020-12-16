@@ -37,12 +37,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Denite - Fuzzy finding, buffer management
 Plug 'Shougo/denite.nvim'
 
-
-Plug 'tomtom/tcomment_vim' " commenting shortcuts
-
-" Snippet support
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
+" commenting shortcuts
+Plug 'tomtom/tcomment_vim' 
 
 " Print function signatures in echo area
 Plug 'Shougo/echodoc.vim'
@@ -52,20 +48,24 @@ Plug 'Shougo/echodoc.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 
+" === Haskell Plugins === "
+Plug 'neovimhaskell/haskell-vim'
+Plug 'alx741/vim-stylishask'
+
+" === Kotlin Plugins === "
+Plug 'udalov/kotlin-vim'
+
 " === Javascript Plugins === "
 " Typescript syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'
 
-" ReactJS JSX syntax highlighting
-Plug 'mxw/vim-jsx'
-
 " Generate JSDoc commands based on function signature
 Plug 'heavenshell/vim-jsdoc'
 
-" === Syntax Highlighting === "
+" Snippets
+Plug 'sirver/ultisnips'
 
-" Syntax highlighting for nginx
-Plug 'chr4/nginx.vim'
+" === Syntax Highlighting === "
 
 " Syntax highlighting for javascript libraries
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -74,6 +74,9 @@ Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'othree/yajs.vim'
 
 " === UI === "
+" Fancy starting screen
+Plug 'mhinz/vim-startify'
+
 " File explorer
 Plug 'scrooloose/nerdtree'
 
