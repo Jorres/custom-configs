@@ -51,6 +51,8 @@ Plug 'tpope/vim-fugitive'
 " === Haskell Plugins === "
 Plug 'neovimhaskell/haskell-vim'
 Plug 'alx741/vim-stylishask'
+Plug 'mpickering/hlint-refactor-vim'
+
 
 " === Kotlin Plugins === "
 Plug 'udalov/kotlin-vim'

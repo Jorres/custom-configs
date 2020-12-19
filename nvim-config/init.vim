@@ -46,8 +46,26 @@ set noruler
 " Only one line for command line
 set cmdheight=1
 
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=500
+
 " distracts :(
-set nohlsearch
+" set nohlsearch
+" instead of disabling it, let enter disable it when exiting search
+nnoremap <CR> :noh<CR><CR>
+
+" Set show documentation in coc
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Source for show documentation
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " === Completion Settings === "
 

@@ -26,6 +26,8 @@ place .ccls file into the directory with the following content
 
 [Guide to language server](http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/)
 
+Run `stack install hspec-discover` for hie to see test directory.
+
 Put the coc-settings.json into ~/.config/nvim/. or elsewhere, google.
 
 Google further, if needed.
