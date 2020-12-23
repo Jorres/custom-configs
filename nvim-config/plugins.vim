@@ -34,9 +34,6 @@ Plug 'easymotion/vim-easymotion'
 " Intellisense Engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Denite - Fuzzy finding, buffer management
-Plug 'Shougo/denite.nvim'
-
 " commenting shortcuts
 Plug 'tomtom/tcomment_vim' 
 
@@ -50,9 +47,8 @@ Plug 'tpope/vim-fugitive'
 
 " === Haskell Plugins === "
 Plug 'neovimhaskell/haskell-vim'
-Plug 'alx741/vim-stylishask'
 Plug 'mpickering/hlint-refactor-vim'
-
+Plug 'sdiehl/vim-ormolu'
 
 " === Kotlin Plugins === "
 Plug 'udalov/kotlin-vim'
@@ -79,19 +75,21 @@ Plug 'othree/yajs.vim'
 " Fancy starting screen
 Plug 'mhinz/vim-startify'
 
-" File explorer
-Plug 'scrooloose/nerdtree'
+" Fzf-finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+
+" ctags alternative
+Plug 'liuchengxu/vista.vim'
 
 " Colorscheme
-Plug 'mhartington/oceanic-next'
+Plug 'tyrannicaltoucan/vim-deep-space'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Initialize plugin system
 call plug#end()
