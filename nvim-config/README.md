@@ -36,3 +36,8 @@ cradle:
       component: "Cabal"
 ```
 Component names can be found with `stack ide targets`.
+
+### Highlight of matching parentheses
+
+Go on to vim-deep-space.vim, search for `Paren` and replace second arg with `s:gray1`
+
