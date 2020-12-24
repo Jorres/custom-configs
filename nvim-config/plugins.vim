@@ -60,9 +60,6 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Generate JSDoc commands based on function signature
 Plug 'heavenshell/vim-jsdoc'
 
-" Snippets
-Plug 'sirver/ultisnips'
-
 " === Syntax Highlighting === "
 
 " Syntax highlighting for javascript libraries
