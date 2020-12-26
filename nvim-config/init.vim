@@ -8,6 +8,9 @@ source ~/.config/nvim/plugins.vim
 " Remap leader key to ,
 let g:mapleader=','
 
+" Map russian key commands
+:set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
 " Set column where error appears to avoid shift on error
 set signcolumn=yes
 
@@ -69,7 +72,7 @@ set updatetime=500
 
 " distracts :(
 " set nohlsearch
-" instead of disabling it, let enter disable it when exiting search
+" instead of disabling it, hit enter once more when exiting search
 nnoremap <CR> :noh<CR><CR>
 
 " Set show documentation in coc
