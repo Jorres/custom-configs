@@ -75,6 +75,10 @@ set updatetime=500
 " instead of disabling it, hit enter once more when exiting search
 nnoremap <CR> :noh<CR><CR>
 
+" Scrolling by blocks of 4, generally faster
+nnoremap <C-E> 4<C-E>
+nnoremap <C-Y> 4<C-Y>
+
 " Set show documentation in coc
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
