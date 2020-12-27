@@ -6,6 +6,7 @@ echo "Warning, 1-2 levels are making the screen completely black"
 BRIGHTNESS=$1
 
 if [ "$BRIGHTNESS" == "" ]; then
-    sudo su -c "echo $BRIGHTNESS >/sys/class/backlight/intel_backlight/brightness"
+    BRIGHTNESS="20"
 fi
 
+sudo su -c "echo $BRIGHTNESS >/sys/class/backlight/intel_backlight/brightness"
