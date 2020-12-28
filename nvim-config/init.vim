@@ -1,11 +1,6 @@
 scriptencoding utf-8
 source ~/.config/nvim/plugins.vim
 
-" Backup options
-set backup
-set backupext=.bak
-set backupdir=~/.vimbackup
-
 " ============================================================================ "
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
@@ -333,6 +328,9 @@ set relativenumber
 
 " Enable spellcheck for markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell
+
+" Change split separator
+set fillchars+=vert:│
 
 " Set backups
 if has('persistent_undo')
