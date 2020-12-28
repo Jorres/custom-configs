@@ -1,6 +1,11 @@
 scriptencoding utf-8
 source ~/.config/nvim/plugins.vim
 
+" Backup options
+set backup
+set backupext=.bak
+set backupdir=~/.vimbackup
+
 " ============================================================================ "
 " ===                           EDITING OPTIONS                            === "
 " ============================================================================ "
@@ -9,13 +14,19 @@ source ~/.config/nvim/plugins.vim
 let g:mapleader=','
 
 " Map russian key commands
-:set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 " Set column where error appears to avoid shift on error
 set signcolumn=yes
 
-" Disable line numbers
-set nonumber
+" Folding 
+
+set foldlevelstart=99
+
+augroup both_folds
+  au BufReadPre * setlocal foldmethod=syntax
+  au BufWinEnter * if &fdm == 'syntax' | setlocal foldmethod=manual | endif
+augroup END
 
 " Don't show last command
 set noshowcmd
@@ -210,10 +221,6 @@ let g:used_javascript_libs = 'underscore,requirejs,chai,jquery'
 " === Signify === "
 let g:signify_sign_delete = '-'
 
-" activate anyfold and open all folds
-autocmd Filetype * AnyFoldActivate
-set foldlevel=99
-
 " ============================================================================ "
 " ===                                UI                                    === "
 " ============================================================================ "
@@ -320,8 +327,9 @@ set smartcase
 " Automatically re-read file if a change was detected outside of vim
 set autoread
 
-" Enable line numbers
+" Enable hybrid line numbers
 set number
+set relativenumber
 
 " Enable spellcheck for markdown files
 autocmd BufRead,BufNewFile *.md setlocal spell

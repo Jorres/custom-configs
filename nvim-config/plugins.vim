@@ -22,9 +22,6 @@ call plug#begin('~/.config/nvim/plugged')
 
 " === Editing Plugins === "
 
-" language-agnostic folder
-Plug 'pseewald/vim-anyfold'
-
 " auto-close plugin
 Plug 'rstacruz/vim-closer'
 
@@ -37,8 +34,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " commenting shortcuts
 Plug 'tomtom/tcomment_vim' 
 
-" Print function signatures in echo area
-Plug 'Shougo/echodoc.vim'
+" Visual mark display
+Plug 'kshenoy/vim-signature'
 
 " === Git Plugins === "
 " Enable git changes to be shown in sign column
@@ -56,9 +53,6 @@ Plug 'udalov/kotlin-vim'
 " === Javascript Plugins === "
 " Typescript syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim'
-
-" Generate JSDoc commands based on function signature
-Plug 'heavenshell/vim-jsdoc'
 
 " === Syntax Highlighting === "
 
