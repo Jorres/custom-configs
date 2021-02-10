@@ -92,18 +92,6 @@ nnoremap <CR> :noh<CR><CR>
 nnoremap <C-E> 4<C-E>
 nnoremap <C-Y> 4<C-Y>
 
-" Set show documentation in coc
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-" Source for show documentation
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
 " === Completion Settings === "
 
 " Don't give completion messages like 'match 1 of 2'
@@ -114,6 +102,7 @@ set shortmess+=c
 " ===                           PLUGIN SETUP                               === "
 " ============================================================================ "
 
+" Wrap in try/catch to avoid errors on initial install before plugin is available
 try
 " === Denite setup ==="
 " Use ripgrep for searching current directory for files
@@ -124,8 +113,8 @@ try
 "
 call denite#custom#var('file/rec', 'command', ['rg', '--files', '--glob', '!.git'])
 
-" Use ripgrep in place of "grep" call 
-denite#custom#var('grep', 'command', ['rg'])
+" Use ripgrep in place of "grep"
+call denite#custom#var('grep', 'command', ['rg'])
 
 " Custom options for ripgrep
 "   --vimgrep:  Show results with every match on it's own line
@@ -180,12 +169,24 @@ catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
 
- " === Coc.nvim === "
- " use <tab> for trigger completion and navigate to next complete item
- function! s:check_back_space() abort
-   let col = col('.') - 1
-   return !col || getline('.')[col - 1]  =~ '\s'
- endfunction
+" === Coc.nvim === "
+" use <tab> for trigger completion and navigate to next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Set show documentation in coc
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Source for show documentation
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -193,7 +194,6 @@ nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<
 nnoremap <silent> <Leader>v    :Vista!!<CR>
 
 let g:coc_global_extensions = [
-      \ 'coc-perl',
 \ ]
 
 inoremap <silent><expr> <TAB>
