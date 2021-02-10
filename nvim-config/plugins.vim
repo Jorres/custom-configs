@@ -31,6 +31,10 @@ Plug 'easymotion/vim-easymotion'
 " Intellisense Engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Denite - Fuzzy finding, buffer management
+Plug 'Shougo/denite.nvim'
+
+
 " commenting shortcuts
 Plug 'tomtom/tcomment_vim' 
 
@@ -66,9 +70,8 @@ Plug 'othree/yajs.vim'
 " Fancy starting screen
 Plug 'mhinz/vim-startify'
 
-" Fzf-finder
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
+" File explorer
+Plug 'scrooloose/nerdtree'
 
 " ctags alternative
 Plug 'liuchengxu/vista.vim'
@@ -81,6 +84,7 @@ Plug 'vim-airline/vim-airline'
 
 " Icons
 Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Initialize plugin system
 call plug#end()
