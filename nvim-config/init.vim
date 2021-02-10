@@ -131,7 +131,7 @@ call denite#custom#var('grep', 'final_opts', [])
 
 " Remove date from buffer list
 call denite#custom#var('buffer', 'date_format', '')
-
+ 
 " Custom options for Denite
 "   auto_resize             - Auto resize the Denite window height automatically.
 "   prompt                  - Customize denite prompt
@@ -142,11 +142,10 @@ call denite#custom#var('buffer', 'date_format', '')
 "   highlight_matched_char  - Matched characters highlight
 "   highlight_matched_range - matched range highlight
 let s:denite_options = {'default' : {
-\ 'split': 'floating',
 \ 'start_filter': 1,
 \ 'auto_resize': 1,
 \ 'source_names': 'short',
-\ 'prompt': 'λ ',
+\ 'prompt': '> ',
 \ 'highlight_matched_char': 'QuickFixLine',
 \ 'highlight_matched_range': 'Visual',
 \ 'highlight_window_background': 'Visual',
@@ -164,7 +163,9 @@ function! s:profile(opts) abort
   endfor
 endfunction
 
-call s:profile(s:denite_options)
+                    " weirdly enough, I'm using denite as it is 
+" call s:profile(s:denite_options)
+
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
 endtry
