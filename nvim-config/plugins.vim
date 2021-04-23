@@ -66,6 +66,9 @@ Plug 'othree/javascript-libraries-syntax.vim'
 " Improved syntax highlighting and indentation
 Plug 'othree/yajs.vim'
 
+" Syntax highlight for Sass
+Plug 'cakebaker/scss-syntax.vim'
+
 " === UI === "
 " Fancy starting screen
 Plug 'mhinz/vim-startify'

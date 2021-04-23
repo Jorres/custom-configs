@@ -2,6 +2,11 @@
 
 Put the coc-settings.json into ~/.config/nvim/, or your other nvim config path 
 
+### Prettier
+
+`CocInstall coc-prettier`. Then create `.prettierrc` in the root of the project.
+To format your file, run `:Prettier` in vim command line.
+
 ### CCLS
 
 `snap install ccls --classic` - installation of a c++ language server

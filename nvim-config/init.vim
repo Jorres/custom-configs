@@ -202,6 +202,8 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
 "Close preview window when completion is done.
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 " === NERDTree === " 
