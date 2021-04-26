@@ -23,7 +23,10 @@ call plug#begin('~/.config/nvim/plugged')
 " === Editing Plugins === "
 
 " auto-close plugin
-Plug 'rstacruz/vim-closer'
+Plug 'jiangmiao/auto-pairs'
+
+" surrounding plugin
+Plug 'tpope/vim-surround'
 
 " Improved motion in Vim
 Plug 'easymotion/vim-easymotion'
@@ -34,31 +37,25 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Denite - Fuzzy finding, buffer management
 Plug 'Shougo/denite.nvim'
 
-
 " commenting shortcuts
 Plug 'tomtom/tcomment_vim' 
 
-" Visual mark display
+" Display visual marks (`ma`) in separate column
 Plug 'kshenoy/vim-signature'
 
 " === Git Plugins === "
 " Enable git changes to be shown in sign column
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive' no need yet
 
 " === Haskell Plugins === "
-Plug 'neovimhaskell/haskell-vim'
-Plug 'mpickering/hlint-refactor-vim'
-Plug 'sdiehl/vim-ormolu'
-
-" === Kotlin Plugins === "
-Plug 'udalov/kotlin-vim'
-
-" === Javascript Plugins === "
-" Typescript syntax highlighting
-Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'mpickering/hlint-refactor-vim'
+" Plug 'sdiehl/vim-ormolu'
 
 " === Syntax Highlighting === "
+Plug 'udalov/kotlin-vim'
+Plug 'HerringtonDarkholme/yats.vim'
 
 " Syntax highlighting for javascript libraries
 Plug 'othree/javascript-libraries-syntax.vim'
@@ -68,6 +65,9 @@ Plug 'othree/yajs.vim'
 
 " Syntax highlight for Sass
 Plug 'cakebaker/scss-syntax.vim'
+
+" Css shortcuts, need to do katas on these
+Plug 'rstacruz/vim-hyperstyle/'
 
 " === UI === "
 " Fancy starting screen
@@ -79,7 +79,7 @@ Plug 'scrooloose/nerdtree'
 " ctags alternative
 Plug 'liuchengxu/vista.vim'
 
-" Colorscheme
+" Colorschemes
 Plug 'tyrannicaltoucan/vim-deep-space'
 
 " Customized vim status line

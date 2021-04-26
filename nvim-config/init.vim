@@ -326,6 +326,8 @@ endfunction
 " Editor theme
 set background=dark
 try
+  colorscheme neotrix
+catch
   colorscheme deep-space 
 catch
   colorscheme slate
