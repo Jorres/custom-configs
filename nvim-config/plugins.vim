@@ -25,6 +25,9 @@ call plug#begin('~/.config/nvim/plugged')
 " auto-close plugin
 Plug 'jiangmiao/auto-pairs'
 
+" auto close html tags
+Plug 'alvan/vim-closetag'
+
 " surrounding plugin
 Plug 'tpope/vim-surround'
 
