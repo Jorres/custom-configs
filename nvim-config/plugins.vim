@@ -60,6 +60,9 @@ Plug 'mhinz/vim-signify'
 Plug 'udalov/kotlin-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 
+" === weird plugin for rainbow brackets
+Plug 'luochen1990/rainbow'
+
 " Syntax highlighting for javascript libraries
 Plug 'othree/javascript-libraries-syntax.vim'
 
@@ -84,6 +87,7 @@ Plug 'liuchengxu/vista.vim'
 
 " Colorschemes
 Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'cocopon/iceberg.vim'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'

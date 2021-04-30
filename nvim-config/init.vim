@@ -326,7 +326,7 @@ endfunction
 " Editor theme
 set background=dark
 try
-  colorscheme deep-space 
+  colorscheme deep-space
 catch
   colorscheme slate
 endtry
@@ -423,10 +423,12 @@ nmap <C-l> <C-w>l
 "   <leader>dd    - Jump to definition of current symbol
 "   <leader>dr    - Jump to references of current symbol
 "   <leader>dj    - Jump to implementation of current symbol
+"   <leader>dn    - Open refactoring (basically renaming) window
 "   <leader>ds    - Fuzzy search current project symbols
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
+nmap <silent> <leader>dn <Plug>(coc-refactor)
 nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
 
 " === Search shorcuts === "
@@ -490,6 +492,7 @@ set backup
 set noswapfile
 
 let g:fzf_preview_use_dev_icons = 1
+let g:rainbow_active = 1
 
 " Reload icons after init source
 if exists('g:loaded_webdevicons')
