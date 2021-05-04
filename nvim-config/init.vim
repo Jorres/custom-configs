@@ -440,6 +440,9 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 " === Easy-motion shortcuts ==="
 "   <leader>w - Easy-motion highlights first word letters bi-directionally
 map <leader>w <Plug>(easymotion-bd-w)
+map <leader>e <Plug>(easymotion-bd-e)
+map <leader>s <Plug>(easymotion-s)
+map <leader>a <Plug>(easymotion-jumptoanywhere)
 
 " Allows you to save files you opened without write permissions via sudo
 cmap w!! w !sudo tee %
