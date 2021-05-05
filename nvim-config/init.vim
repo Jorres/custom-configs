@@ -436,11 +436,14 @@ map <leader>h :%s///<left><left>
 nmap <silent> <leader>/ :nohlsearch<CR>
 
 " === Easy-motion shortcuts ==="
-"   <leader>w - Easy-motion highlights first word letters bi-directionally
+"   w - beginnings of words, e - ends, s - searches for char, a = union(w, e, camelCase, _)
 map <leader>w <Plug>(easymotion-bd-w)
 map <leader>e <Plug>(easymotion-bd-e)
 map <leader>s <Plug>(easymotion-s)
 map <leader>a <Plug>(easymotion-jumptoanywhere)
+
+autocmd User EasyMotionPromptBegin silent! CocDisable
+autocmd User EasyMotionPromptEnd silent! CocEnable
 
 " Allows you to save files you opened without write permissions via sudo
 cmap w!! w !sudo tee %
@@ -499,6 +502,9 @@ let g:rainbow_active = 1
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
+
+" show custom message after writing to a buffer
+autocmd BufWritePost * redraw | echomsg '                                                       Wanna bet?'
 
 " load changes from vim
 " set runtimepath^=~/.vim runtimepath+=~/.vim/after
