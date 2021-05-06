@@ -381,14 +381,12 @@ nmap <C-l> <C-w>l
 "   <leader>dr    - Jump to references of current symbol
 "   <leader>dj    - Jump to implementation of current symbol
 "   <leader>dn    - Open refactoring (basically renaming) window
-"   <leader>ds    - Fuzzy search current project symbols
 "   <leader>da    - list of possible code actions
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
 nmap <silent> <leader>dn <Plug>(coc-refactor)
 nmap <silent> <leader>da <Plug>(coc-action-codeAction)
-nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
 
 
 " Mappings to select in\around function and in\around
@@ -402,12 +400,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" === Search shorcuts === "
-"   <leader>h - Find and replace
-"   <leader>/ - Claer highlighted search terms while preserving history
-map <leader>h :%s///<left><left>
-nmap <silent> <leader>/ :nohlsearch<CR>
-
 " === Easy-motion shortcuts ==="
 "   w - beginnings of words, e - ends, s - searches for char, a = union(w, e, camelCase, _)
 map <leader>w <Plug>(easymotion-bd-w)
@@ -417,18 +409,6 @@ map <leader>a <Plug>(easymotion-jumptoanywhere)
 
 autocmd User EasyMotionPromptBegin silent! CocDisable
 autocmd User EasyMotionPromptEnd silent! CocEnable
-
-" Allows you to save files you opened without write permissions via sudo
-cmap w!! w !sudo tee %
-
-" === vim-jsdoc shortcuts ==="
-" Generate jsdoc for function under cursor
-nmap <leader>z :JsDoc<CR>
-
-" Delete current visual selection and dump in black hole buffer before pasting
-" Used when you want to paste over something without it getting copied to
-" Vim's default buffer
-vnoremap <leader>p "_dP
 
 " ============================================================================ "
 " ===                                 MISC.                                === "
