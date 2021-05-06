@@ -197,10 +197,20 @@ nnoremap <silent> <Leader>v    :Vista!!<CR>
 let g:coc_global_extensions = [
 \ ]
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+" magic that allows auto-completion on <TAB> and 
+" auto-import on auto-completion
+inoremap <silent><expr> <TAB>    
+      \ pumvisible() ? "\<C-n>" :    
+      \ <SID>check_back_space() ? "\<TAB>" :           
+      \ coc#refresh()               
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"      
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    
+" Check if backspace was just pressed      
+function! s:check_back_space() abort                    
+  let col = col('.') - 1    
+  return !col || getline('.')[col - 1]  =~# '\s'    
+endfunction   
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
@@ -423,10 +433,12 @@ nmap <C-l> <C-w>l
 "   <leader>dj    - Jump to implementation of current symbol
 "   <leader>dn    - Open refactoring (basically renaming) window
 "   <leader>ds    - Fuzzy search current project symbols
+"   <leader>da    - list of possible code actions
 nmap <silent> <leader>dd <Plug>(coc-definition)
 nmap <silent> <leader>dr <Plug>(coc-references)
 nmap <silent> <leader>dj <Plug>(coc-implementation)
 nmap <silent> <leader>dn <Plug>(coc-refactor)
+nmap <silent> <leader>da <Plug>(coc-action-codeAction)
 nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
 
 " === Search shorcuts === "

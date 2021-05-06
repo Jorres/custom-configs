@@ -40,6 +40,10 @@
                     "completionSnippetsOn": true
                 }
             }
+        },
+        "kotlin": {
+            "command": "~/.KotlinLanguageServer/server/build/install/server/bin/kotlin-language-server",
+            "filetypes": ["kotlin"]
         }
     }
 }

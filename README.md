@@ -15,10 +15,10 @@ it is like `cat` but on command line. Search for it to install on your system.
 Use `gnome-tweaks-tool` to remap the Caps-Lock key with ctrl, it would be much easier to delete using `<C-w/h>`, and you do not use Caps-Lock anyway
 It also helps to exit insert mode blazingly fast
 
-### CCLS
+### C++ language server - CCLS
 
 `snap install ccls --classic` - installation of a c++ language server
-place .ccls file into the directory with the following content
+place .ccls file into the directory with the following content, google further
 
 ```
     g++
@@ -26,4 +26,23 @@ place .ccls file into the directory with the following content
     %h %hpp --include=Global.h
     -Iinc
     -DMACRO
+```
+
+### Kotlin language server
+
+Clone language server implementation:
+```
+git clone https://github.com/fwcd/kotlin-language-server ~/.KotlinLanguageServer
+```
+
+Put this into `coc-settings.json`:
+```
+{
+    "languageserver": {
+        "kotlin": {
+            "command": "~/.KotlinLanguageServer/server/build/install/server/bin/kotlin-language-server",
+            "filetypes": ["kotlin"]
+        }
+    }
+}
 ```
