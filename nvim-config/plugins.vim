@@ -82,9 +82,6 @@ Plug 'mhinz/vim-startify'
 " File explorer
 Plug 'scrooloose/nerdtree'
 
-" ctags alternative
-Plug 'liuchengxu/vista.vim'
-
 " Colorschemes
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'cocopon/iceberg.vim'

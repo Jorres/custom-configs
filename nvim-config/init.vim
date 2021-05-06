@@ -131,40 +131,6 @@ call denite#custom#var('grep', 'final_opts', [])
 
 " Remove date from buffer list
 call denite#custom#var('buffer', 'date_format', '')
- 
-" Custom options for Denite
-"   auto_resize             - Auto resize the Denite window height automatically.
-"   prompt                  - Customize denite prompt
-"   direction               - Specify Denite window direction as directly below current pane
-"   winminheight            - Specify min height for Denite window
-"   highlight_mode_insert   - Specify h1-CursorLine in insert mode
-"   prompt_highlight        - Specify color of prompt
-"   highlight_matched_char  - Matched characters highlight
-"   highlight_matched_range - matched range highlight
-let s:denite_options = {'default' : {
-\ 'start_filter': 1,
-\ 'auto_resize': 1,
-\ 'source_names': 'short',
-\ 'prompt': '> ',
-\ 'highlight_matched_char': 'QuickFixLine',
-\ 'highlight_matched_range': 'Visual',
-\ 'highlight_window_background': 'Visual',
-\ 'highlight_filter_background': 'DiffAdd',
-\ 'winrow': 1,
-\ 'vertical_preview': 1
-\ }}
-
-" Loop through denite options and enable them
-function! s:profile(opts) abort
-  for l:fname in keys(a:opts)
-    for l:dopt in keys(a:opts[l:fname])
-      call denite#custom#option(l:fname, l:dopt, a:opts[l:fname][l:dopt])
-    endfor
-  endfor
-endfunction
-
-" weirdly enough, I'm using denite as it is, with no additional settings
-" call s:profile(s:denite_options)
 
 catch
   echo 'Denite not installed. It should work after running :PlugInstall'
@@ -192,10 +158,7 @@ endfunction
 nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 
-nnoremap <silent> <Leader>v    :Vista!!<CR>
-
-let g:coc_global_extensions = [
-\ ]
+let g:coc_global_extensions = []
 
 " magic that allows auto-completion on <TAB> and 
 " auto-import on auto-completion
@@ -227,8 +190,6 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeDirArrowExpandable = '⬏' 
 let g:NERDTreeDirArrowCollapsible = '⬎' 
    
-" Hide certain files
-
 " Wrap in try/catch to avoid errors on initial install before plugin is available
 try
 
@@ -273,18 +234,6 @@ let g:airline#extensions#hunks#enabled=0
 catch
   echo 'Airline not installed. It should work after running :PlugInstall'
 endtry
-
-" === stylishask === "
-" Disable styling on exit, use :Stylishask instead
-let g:stylishask_on_save = 0
-
-" === echodoc === "
-" Enable echodoc on startup
-let g:echodoc#enable_at_startup = 1
-
-" === vim-javascript === "
-" Enable syntax highlighting for JSDoc
-let g:javascript_plugin_jsdoc = 1
 
 " === vim-jsx === "
 " Highlight jsx syntax even in non .jsx files
@@ -440,6 +389,18 @@ nmap <silent> <leader>dj <Plug>(coc-implementation)
 nmap <silent> <leader>dn <Plug>(coc-refactor)
 nmap <silent> <leader>da <Plug>(coc-action-codeAction)
 nnoremap <silent> <leader>ds :<C-u>CocList -I -N --top symbols<CR>
+
+
+" Mappings to select in\around function and in\around
+" class\structure\declaration
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " === Search shorcuts === "
 "   <leader>h - Find and replace

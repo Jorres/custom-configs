@@ -1,6 +1,7 @@
 {
     "suggest.echodocSupport": true,
     "suggest.maxCompleteItemCount": 20,
+    "refactor.openCommand":"split",
     "eslint.filetypes": [
         "javascript",
         "typescript",
