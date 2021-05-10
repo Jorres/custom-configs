@@ -49,7 +49,8 @@ Plug 'kshenoy/vim-signature'
 " === Git Plugins === "
 " Enable git changes to be shown in sign column
 Plug 'mhinz/vim-signify'
-" Plug 'tpope/vim-fugitive' no need yet
+" commands to view nice two-sided diff
+Plug 'tpope/vim-fugitive'
 
 " === Haskell Plugins === "
 " Plug 'neovimhaskell/haskell-vim'
@@ -72,9 +73,6 @@ Plug 'othree/yajs.vim'
 " Syntax highlight for Sass
 Plug 'cakebaker/scss-syntax.vim'
 
-" Css shortcuts, need to do katas on these
-Plug 'rstacruz/vim-hyperstyle/'
-
 " === UI === "
 " Fancy starting screen
 Plug 'mhinz/vim-startify'
@@ -84,7 +82,6 @@ Plug 'scrooloose/nerdtree'
 
 " Colorschemes
 Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'cocopon/iceberg.vim'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'

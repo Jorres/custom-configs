@@ -2,6 +2,11 @@
 
 Place `nvim-config/*` to `~/.config/nvim/*`
 
+Install following requirements for `Denite, Coc` etc. :
+```
+sudo apt install nodejs
+```
+
 ## Additional actions
 
 ### Info on 
