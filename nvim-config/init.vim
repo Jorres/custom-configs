@@ -457,7 +457,7 @@ if exists('g:loaded_webdevicons')
 endif
 
 " show custom message after writing to a buffer
-autocmd BufWritePost * redraw | echomsg '                                                       Wanna bet?'
+autocmd BufWritePost * redraw | echomsg '                                                  Wanna bet?'
 
 " load changes from vim
 " set runtimepath^=~/.vim runtimepath+=~/.vim/after

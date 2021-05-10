@@ -2,10 +2,26 @@
 
 Put the coc-settings.json into ~/.config/nvim/, or your other nvim config path 
 
+Create vim backup dir: (important, otherwise you won't be able to write things without !)
+```
+mkdir -p ~/.local/share/nvim/backup
+sudo apt install nodejs
+```
+
+Run this in vim console, coc extensions:
+```
+CocInstall coc-prettier coc-json coc-eslint coc-tsserver
+```
+
 ### Prettier
 
-`CocInstall coc-prettier`. Then create `.prettierrc` in the root of the project.
+Create `.prettierrc` in the root of the project.
 To format your file, run `:Prettier` in vim command line.
+
+### Highlight of matching parentheses
+
+Go on to vim-deep-space.vim, search for `Paren` and replace second arg with `s:gray1`
+
 
 ### CCLS
 
@@ -41,8 +57,3 @@ cradle:
       component: "Cabal"
 ```
 Component names can be found with `stack ide targets`.
-
-### Highlight of matching parentheses
-
-Go on to vim-deep-space.vim, search for `Paren` and replace second arg with `s:gray1`
-
