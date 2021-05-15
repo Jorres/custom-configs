@@ -92,6 +92,10 @@ nnoremap <CR> :noh<CR><CR>
 nnoremap <C-E> 4<C-E>
 nnoremap <C-Y> 4<C-Y>
 
+" Disable backspace and delete in insert mode
+inoremap <BS> <Nop>
+inoremap <Del> <Nop>
+
 " === Completion Settings === "
 
 " Don't give completion messages like 'match 1 of 2'
