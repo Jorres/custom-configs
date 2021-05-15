@@ -1,1 +1,3 @@
-cp -r ~/.config/nvim/* ~/work/custom-configs/nvim-config
+#!/bin/bash
+cp -r /home/jorres/.config/nvim/* ./nvim-config
+cp /home/jorres/.zshrc ./.zshrc
