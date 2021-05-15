@@ -450,6 +450,8 @@ set noswapfile
 
 let g:fzf_preview_use_dev_icons = 1
 let g:rainbow_active = 1
+let g:python3_host_prog = '/usr/bin/python3'
+let g:session_autosave = 'no'
 
 " Reload icons after init source
 if exists('g:loaded_webdevicons')
@@ -457,7 +459,7 @@ if exists('g:loaded_webdevicons')
 endif
 
 " show custom message after writing to a buffer
-autocmd BufWritePost * redraw | echomsg '                                                  Wanna bet?'
+autocmd BufWritePost * redraw | echomsg '                                                    Wanna bet?'
 
 " load changes from vim
 " set runtimepath^=~/.vim runtimepath+=~/.vim/after

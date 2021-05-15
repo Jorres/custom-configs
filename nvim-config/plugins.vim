@@ -57,6 +57,11 @@ Plug 'tpope/vim-fugitive'
 " Plug 'mpickering/hlint-refactor-vim'
 " Plug 'sdiehl/vim-ormolu'
 
+" Persisting your open tabs, buffers and splits in sessions
+Plug 'xolox/vim-session'
+" A dependency for vim-session
+Plug 'xolox/vim-misc' 
+
 " === Syntax Highlighting === "
 Plug 'udalov/kotlin-vim'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -89,6 +94,7 @@ Plug 'vim-airline/vim-airline'
 " Icons
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
 
 " Initialize plugin system
 call plug#end()
