@@ -37,8 +37,10 @@ Plug 'easymotion/vim-easymotion'
 " Intellisense Engine
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Denite - Fuzzy finding, buffer management
-Plug 'Shougo/denite.nvim'
+" Trying fzf once again
+Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim'
 
 " commenting shortcuts
 Plug 'tomtom/tcomment_vim' 
@@ -87,6 +89,7 @@ Plug 'scrooloose/nerdtree'
 
 " Colorschemes
 Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'morhetz/gruvbox'
 
 " Customized vim status line
 Plug 'vim-airline/vim-airline'
