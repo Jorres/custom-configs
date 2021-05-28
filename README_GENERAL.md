@@ -69,13 +69,14 @@ Clone language server implementation:
 ```
 git clone https://github.com/fwcd/kotlin-language-server ~/.KotlinLanguageServer
 ```
+And execute `./gradlew build` in the server directory.
 
 Put this into `coc-settings.json`:
 ```
 {
     "languageserver": {
         "kotlin": {
-            "command": "~/.KotlinLanguageServer/server/build/install/server/bin/kotlin-language-server",
+            "command": "~/.KotlinLanguageServer/server/build/scripts/server/bin/kotlin-language-server",
             "filetypes": ["kotlin"]
         }
     }
