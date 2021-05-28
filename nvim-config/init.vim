@@ -366,6 +366,8 @@ endif
 
 " show custom message after writing to a buffer
 autocmd BufWritePost * redraw | echomsg '                                                    Wanna bet?'
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " load changes from vim
 " set runtimepath^=~/.vim runtimepath+=~/.vim/after

@@ -20,7 +20,11 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 
-" === Editing Plugins === "
+" distractionless mode
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+ 
+"" === Editing Plugins === "
 
 " auto-close plugin
 Plug 'jiangmiao/auto-pairs'
