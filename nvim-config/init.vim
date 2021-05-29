@@ -34,7 +34,7 @@ augroup END
 set noshowcmd
 
 " Yank and paste with the system clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Hides buffers instead of closing them
 set hidden
