@@ -5,6 +5,16 @@
 Wonderful plugin, replacement for denite with out-of-the-box configs ready. Requires a cool cli tool `bat`, 
 it is like `cat` but on command line. Search for it to install on your system.
 
+### Tmux
+Execute 
+```
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+wget --no-check-certificate \
+https://raw.github.com/richo/battery/master/bin/battery
+```
+to install tmux config prerequisites.
+
 ### Caps lock remapping
 
 Use `gnome-tweaks-tool` to remap the Caps-Lock key with ctrl, it would be much easier to delete using `<C-w/h>`, and you do not use Caps-Lock anyway

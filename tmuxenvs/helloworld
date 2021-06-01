@@ -1,0 +1,26 @@
+#!/bin/bash
+
+SESSION_NAME=helloworld
+START_DIR=~/custom-configs/tmuxenvs/
+
+tmux has-session -t helloworld
+
+if [ $? != 0 ]
+then
+    tmux new-session -s "$SESSION_NAME" -n editor -d
+
+    tmux send-keys -t "$SESSION_NAME" "cd $START_DIR" C-m
+    tmux send-keys -t "$SESSION_NAME" 'nvim' C-m
+    tmux send-keys -t "$SESSION_NAME" ':tabe' C-m
+
+    tmux split-window -v -t "$SESSION_NAME" 
+    tmux select-layout -t "$SESSION_NAME" main-horizontal
+
+    tmux send-keys -t "$SESSION_NAME":1.2 "cd $START_DIR" C-m
+
+    tmux new-window -n console -t "$SESSION_NAME"
+    tmux send-keys -t "$SESSION_NAME":2 "cd $START_DIR" C-m
+
+    tmux select-window -t "$SESSION_NAME":1
+fi
+tmux attach -t "$SESSION_NAME"
