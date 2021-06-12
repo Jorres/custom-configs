@@ -338,7 +338,7 @@ set number
 set relativenumber
 
 " Enable spellcheck for markdown files
-autocmd BufRead,BufNewFile *.md setlocal spell
+" autocmd BufRead,BufNewFile *.md setlocal spell
 
 " Change split separator
 set fillchars+=vert:│
@@ -367,6 +367,9 @@ endif
 autocmd BufWritePost * redraw | echomsg '                                                    Wanna bet?'
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" Ripgrep smart search enable
+let g:rg_command = 'rg --vimgrep -S'
 
 " Calculating equations with ,bc
 vnoremap <leader>bc "ey:call CalcBC()<CR>
