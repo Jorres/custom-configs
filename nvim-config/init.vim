@@ -320,8 +320,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:fzf_layout = {'window': {'width': 1, 'height': 1}}
 nnoremap <leader>t :GFiles<CR>
 nnoremap <leader>gc :GBranches<CR>
-nnoremap <silent> <leader>j :Rg <C-R><C-W><CR>
-nnoremap <silent> <leader>g :Rg
+nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
+nnoremap <silent> <leader>g :Ag
 
 " === Search === "
 " ignore case when searching
