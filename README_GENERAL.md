@@ -2,8 +2,16 @@
 
 ### Info on 
 [fuzzy finding](https://github.com/junegunn/fzf)
-Wonderful plugin, replacement for denite with out-of-the-box configs ready. Requires a cool cli tool `bat`, 
-it is like `cat` but on command line. Search for it to install on your system.
+Wonderful plugin, replacement for denite with out-of-the-box configs ready.
+
+### General dependencies 
+```
+# Command line `cat` alternative with syntax hl
+sudo apt-get install bat 
+
+# Ripgrep alternative, fzf requirement
+sudo apt-get install silversearcher-ag
+```
 
 ### Tmux
 Execute 
