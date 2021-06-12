@@ -1,0 +1,865 @@
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210604T102436Z","tags":["Reading fiction"]}
+txn:
+  type: interval
+  before: {"start":"20210604T102436Z","tags":["Reading fiction"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210604T102436Z","end":"20210604T105831Z","tags":["Reading fiction"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210604T111337Z","tags":["Distributed"]}
+txn:
+  type: interval
+  before: {"start":"20210604T111337Z","tags":["Distributed"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210604T111337Z","end":"20210604T125648Z","tags":["Distributed"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210604T131525Z","tags":["Distributed"]}
+txn:
+  type: interval
+  before: {"start":"20210604T131525Z","tags":["Distributed"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210604T131525Z","end":"20210604T185108Z","tags":["Distributed"]}
+txn:
+  type: interval
+  before: {"start":"20210604T111337Z","end":"20210604T125648Z","tags":["Distributed"]}
+  after: 
+txn:
+  type: interval
+  before: {"start":"20210604T131525Z","end":"20210604T185108Z","tags":["Distributed"]}
+  after: 
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210604T190610Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210604T190610Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210604T190610Z","end":"20210604T201823Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T062812Z","tags":["Drive"]}
+txn:
+  type: interval
+  before: {"start":"20210605T062812Z","tags":["Drive"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T062812Z","end":"20210605T092823Z","tags":["Drive"]}
+txn:
+  type: interval
+  before: {"start":"20210605T062812Z","end":"20210605T092823Z","tags":["Drive"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T062812Z","end":"20210605T092823Z","tags":["Drive"]}
+txn:
+  type: interval
+  before: {"start":"20210605T062812Z","end":"20210605T092823Z","tags":["Drive"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T062812Z","end":"20210605T085823Z","tags":["Drive"]}
+txn:
+  type: interval
+  before: {"start":"20210605T062812Z","end":"20210605T085823Z","tags":["Drive"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T070000Z","end":"20210605T093011Z","tags":["Drive"]}
+txn:
+  type: interval
+  before: {"start":"20210605T070000Z","end":"20210605T093011Z","tags":["Drive"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T070000Z","end":"20210605T090011Z","tags":["Drive"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T093537Z","tags":["Running"]}
+txn:
+  type: interval
+  before: {"start":"20210605T093537Z","tags":["Running"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T093000Z","tags":["Running"]}
+txn:
+  type: interval
+  before: {"start":"20210605T093000Z","tags":["Running"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T093000Z","end":"20210605T103612Z","tags":["Running"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T104403Z","tags":["typing"]}
+txn:
+  type: interval
+  before: {"start":"20210605T104403Z","tags":["typing"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T104403Z","end":"20210605T110406Z","tags":["typing"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T110935Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210605T110935Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T110935Z","end":"20210605T114937Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T115004Z","tags":["Barber"]}
+txn:
+  type: interval
+  before: {"start":"20210605T115004Z","tags":["Barber"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T115004Z","end":"20210605T125758Z","tags":["Barber"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T130641Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210605T130641Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T130641Z","end":"20210605T143404Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T144741Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210605T144741Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T144741Z","end":"20210605T144823Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T150455Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210605T150455Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T150455Z","end":"20210605T170602Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210604T210000Z","end":"20210605T060000Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T171000Z","end":"20210605T173000Z","tags":["configs"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T190000Z","end":"20210605T203000Z","tags":["Switch"]}
+txn:
+  type: interval
+  before: {"start":"20210605T190000Z","end":"20210605T203000Z","tags":["Switch"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T190000Z","end":"20210605T210000Z","tags":["Switch"]}
+txn:
+  type: interval
+  before: {"start":"20210605T190000Z","end":"20210605T210000Z","tags":["Switch"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T183000Z","end":"20210605T203000Z","tags":["Switch"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T203649Z","tags":["auto"]}
+txn:
+  type: interval
+  before: {"start":"20210605T203649Z","tags":["auto"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210605T203649Z","end":"20210605T204651Z","tags":["auto"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T190000Z","end":"20210606T203000Z","tags":["Switch"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T211000Z","end":"20210605T215000Z","tags":["Read SRE"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210605T220000Z","end":"20210606T075000Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: {"start":"20210606T190000Z","end":"20210606T203000Z","tags":["Switch"]}
+  after: 
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T081154Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210606T081154Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210606T081154Z","end":"20210606T084619Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T085300Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210606T085300Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210606T085300Z","end":"20210606T114522Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T115000Z","end":"20210606T125000Z","tags":["Rolls"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T130149Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210606T130149Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210606T130149Z","end":"20210606T141905Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T143817Z","tags":["legkov"]}
+txn:
+  type: interval
+  before: {"start":"20210606T143817Z","tags":["legkov"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210606T143817Z","end":"20210606T194718Z","tags":["legkov"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T194754Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: {"start":"20210606T194754Z","tags":["mdinc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210606T194754Z","end":"20210606T203013Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T205259Z","tags":["Ania"]}
+txn:
+  type: interval
+  before: {"start":"20210606T205259Z","tags":["Ania"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210606T205259Z","end":"20210606T212303Z","tags":["Ania"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T213636Z","tags":["Read","SRE"]}
+txn:
+  type: interval
+  before: {"start":"20210606T213636Z","tags":["Read","SRE"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210606T213636Z","end":"20210606T213643Z","tags":["Read","SRE"]}
+txn:
+  type: interval
+  before: {"start":"20210606T213636Z","end":"20210606T213643Z","tags":["Read","SRE"]}
+  after: 
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T213707Z","tags":["Read SRE"]}
+txn:
+  type: interval
+  before: {"start":"20210606T213707Z","tags":["Read SRE"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210606T213707Z","end":"20210606T215502Z","tags":["Read SRE"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210606T215511Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: {"start":"20210606T215511Z","tags":["Sleep"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210606T215511Z","end":"20210607T035325Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210607T043000Z","end":"20210607T050000Z","tags":["One Piece"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210607T050229Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210607T050229Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210607T053000Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210607T053000Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210607T053000Z","end":"20210607T074258Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210607T085826Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: {"start":"20210607T085826Z","tags":["mdinc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210607T085826Z","end":"20210607T110007Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210607T112703Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210607T112703Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210607T112703Z","end":"20210607T162643Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210607T112703Z","end":"20210607T162643Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210607T112703Z","end":"20210607T132643Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210607T112703Z","end":"20210607T132643Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210607T112703Z","end":"20210607T124643Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210607T181647Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: {"start":"20210607T181647Z","tags":["mdinc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210607T181647Z","end":"20210607T220029Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210608T064249Z","tags":["2:am","Sleep"]}
+txn:
+  type: interval
+  before: {"start":"20210608T064249Z","tags":["2:am","Sleep"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210608T064249Z","end":"20210608T064302Z","tags":["2:am","Sleep"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210608T064402Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: {"start":"20210608T064402Z","tags":["Sleep"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210608T064402Z","end":"20210608T064407Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: {"start":"20210608T064402Z","end":"20210608T064407Z","tags":["Sleep"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210608T064402Z","end":"20210608T144407Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: {"start":"20210608T064402Z","end":"20210608T144407Z","tags":["Sleep"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210607T224000Z","end":"20210608T064005Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210608T091512Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210608T091512Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210608T091512Z","end":"20210608T110734Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210608T091512Z","end":"20210608T110734Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210608T091512Z","end":"20210608T100734Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210608T091512Z","end":"20210608T100734Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210608T091512Z","end":"20210608T092734Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210608T091512Z","end":"20210608T092734Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210608T091512Z","end":"20210608T094734Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210608T110813Z","tags":["legkov"]}
+txn:
+  type: interval
+  before: {"start":"20210608T110813Z","tags":["legkov"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210608T110813Z","end":"20210608T202603Z","tags":["legkov"]}
+txn:
+  type: interval
+  before: {"start":"20210608T110813Z","end":"20210608T202603Z","tags":["legkov"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210608T110813Z","end":"20210608T182603Z","tags":["legkov"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210609T103938Z","tags":["12:00-13:00","mdinc"]}
+txn:
+  type: interval
+  before: {"start":"20210609T103938Z","tags":["12:00-13:00","mdinc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T103938Z","end":"20210609T103951Z","tags":["12:00-13:00","mdinc"]}
+txn:
+  type: interval
+  before: {"start":"20210609T103938Z","end":"20210609T103951Z","tags":["12:00-13:00","mdinc"]}
+  after: 
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210608T211500Z","end":"20210609T070000Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210609T090000Z","end":"20210609T113000Z","tags":["Hiring"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210609T130000Z","end":"20210609T150000Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210609T153229Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210609T153229Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T153229Z","end":"20210609T180706Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210609T153229Z","end":"20210609T180706Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T153229Z","end":"20210609T171706Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210609T180721Z","tags":["Running"]}
+txn:
+  type: interval
+  before: {"start":"20210609T180721Z","tags":["Running"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T180721Z","end":"20210609T180722Z","tags":["Running"]}
+txn:
+  type: interval
+  before: {"start":"20210609T180721Z","end":"20210609T180722Z","tags":["Running"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T180721Z","end":"20210609T183722Z","tags":["Running"]}
+txn:
+  type: interval
+  before: {"start":"20210609T180721Z","end":"20210609T183722Z","tags":["Running"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T173000Z","end":"20210609T180001Z","tags":["Running"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210609T205250Z","tags":["22:00-23:00","mdinc"]}
+txn:
+  type: interval
+  before: {"start":"20210609T205250Z","tags":["22:00-23:00","mdinc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T205250Z","end":"20210609T205302Z","tags":["22:00-23:00","mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210609T190000Z","end":"20210609T200000Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210609T210844Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210609T210844Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T210844Z","end":"20210609T220846Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210609T220915Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: {"start":"20210609T220915Z","tags":["Sleep"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T220915Z","end":"20210610T082302Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: {"start":"20210609T220915Z","end":"20210610T082302Z","tags":["Sleep"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210609T220915Z","end":"20210610T072302Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210610T082319Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210610T082319Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210610T082319Z","end":"20210610T115035Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210610T082319Z","end":"20210610T115035Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210610T082319Z","end":"20210610T105035Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210610T082319Z","end":"20210610T105035Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210610T082319Z","end":"20210610T103035Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210610T110000Z","end":"20210610T120000Z","tags":["ania"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210610T143000Z","end":"20210610T180000Z","tags":["Denis"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210610T180100Z","end":"20210610T184000Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210610T130000Z","end":"20210610T140000Z","tags":["Drive"]}
+txn:
+  type: interval
+  before: {"start":"20210610T180100Z","end":"20210610T184000Z","tags":["mdinc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210610T180100Z","end":"20210610T194000Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: {"start":"20210610T180100Z","end":"20210610T194000Z","tags":["mdinc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210610T180100Z","end":"20210610T204000Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210610T214817Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: {"start":"20210610T214817Z","tags":["Sleep"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210610T214817Z","end":"20210611T074304Z","tags":["Sleep"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T074539Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210611T074539Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T074539Z","end":"20210611T082357Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T082421Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: {"start":"20210611T082421Z","tags":["mdinc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T082421Z","end":"20210611T101511Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T105730Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210611T105730Z","tags":["prod-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T105730Z","end":"20210611T115120Z","tags":["prod-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T120000Z","end":"20210611T124000Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T132204Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210611T132204Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T132204Z","end":"20210611T134745Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T134747Z","tags":["ania"]}
+txn:
+  type: interval
+  before: {"start":"20210611T134747Z","tags":["ania"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T134747Z","end":"20210611T140123Z","tags":["ania"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T140129Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210611T140129Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T140129Z","end":"20210611T140131Z","tags":["distributed-exam"]}
+  type: interval
+  before: 
+  after: {"start":"20210611T140131Z"}
+txn:
+  type: interval
+  before: {"start":"20210611T140131Z"}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T140131Z","end":"20210611T140143Z"}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T140149Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210611T140149Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T140149Z","end":"20210611T140903Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T142554Z","tags":["Running"]}
+txn:
+  type: interval
+  before: {"start":"20210611T142554Z","tags":["Running"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T142554Z","end":"20210611T150844Z","tags":["Running"]}
+txn:
+  type: interval
+  before: {"start":"20210611T140131Z","end":"20210611T140143Z"}
+  after: 
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T151407Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210611T151407Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T151407Z","end":"20210611T160720Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T162625Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210611T162625Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T162625Z","end":"20210611T172212Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T172215Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: {"start":"20210611T172215Z","tags":["mdinc"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T172215Z","end":"20210611T174155Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T175837Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: {"start":"20210611T175837Z","tags":["distributed-exam"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T175837Z","end":"20210611T191304Z","tags":["distributed-exam"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T194500Z","end":"20210611T204500Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T210000Z","end":"20210611T213000Z","tags":["mdinc"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210611T220335Z","tags":["Bed"]}
+txn:
+  type: interval
+  before: {"start":"20210611T220335Z","tags":["Bed"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210611T220335Z","end":"20210612T064714Z","tags":["Bed"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210612T064727Z","tags":["Breakfast"]}
+txn:
+  type: interval
+  before: {"start":"20210612T064727Z","tags":["Breakfast"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210612T064727Z","end":"20210612T072515Z","tags":["Breakfast"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210612T072528Z","tags":["legkov"]}
+txn:
+  type: interval
+  before: {"start":"20210612T072528Z","tags":["legkov"]}
+  after: 
+  type: interval
+  before: 
+  after: {"start":"20210612T072528Z","end":"20210612T084543Z","tags":["legkov"]}
+txn:
+  type: interval
+  before: 
+  after: {"start":"20210612T084545Z","tags":["mdinc"]}
