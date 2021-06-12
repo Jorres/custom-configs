@@ -102,6 +102,16 @@ Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+" You've long been dreaming about box ascii art to create ascii schematics.
+Plug 'vim-scripts/DrawIt'
+
+Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'dhruvasagar/vim-zoom'
+
+" Overrides :Rg command from fzf, outputs to quickfix list. 
+" The older behaviour is replicated by Ag `silver finder` now.
+Plug 'jremmen/vim-ripgrep'
 
 " Initialize plugin system
 call plug#end()

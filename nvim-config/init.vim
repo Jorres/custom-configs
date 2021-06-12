@@ -29,7 +29,6 @@ augroup both_folds
   au BufWinEnter * if &fdm == 'syntax' | setlocal foldmethod=manual | endif
 augroup END
 
-
 " Don't show last command
 set noshowcmd
 
@@ -368,6 +367,36 @@ endif
 autocmd BufWritePost * redraw | echomsg '                                                    Wanna bet?'
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" Calculating equations with ,bc
+vnoremap <leader>bc "ey:call CalcBC()<CR>
+function! CalcBC()
+  let has_equal = 0
+  " remove newlines and trailing spaces
+  let @e = substitute (@e, "\n", "", "g")
+  let @e = substitute (@e, '\s*$', "", "g")
+  " if we end with an equal, strip, and remember for output
+  if @e =~ "=$"
+    let @e = substitute (@e, '=$', "", "")
+    let has_equal = 1
+  endif
+  " sub common func names for bc equivalent
+  let @e = substitute (@e, '\csin\s*(', "s (", "")
+  let @e = substitute (@e, '\ccos\s*(', "c (", "")
+  let @e = substitute (@e, '\catan\s*(', "a (", "")
+  let @e = substitute (@e, "\cln\s*(", "l (", "")
+  " escape chars for shell
+  let @e = escape (@e, '*()')
+  " run bc, strip newline
+  let answer = substitute (system ("echo " . @e . " \| bc -l"), "\n", "", "")
+  " append answer or echo
+  if has_equal == 1
+    normal `>
+    exec "normal a" . answer
+  else
+    echo "answer = " . answer
+  endif
+endfunction
 
 " load changes from vim
 " set runtimepath^=~/.vim runtimepath+=~/.vim/after
