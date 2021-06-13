@@ -70,7 +70,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git zsh-vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -105,8 +105,4 @@ alias etern="python3 ~/hobbies/vim-katas/exercises/project_eternity.py"
 alias vimi="nvim ~/.config/nvim/init.vim"
 alias vimp="nvim ~/.config/nvim/plugins.vim"
 
-set -o vi
-
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /home/jorres/work/mdinc/vader/openapi-generate/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jorres/work/mdinc/vader/openapi-generate/node_modules/tabtab/.completions/electron-forge.zsh
+eval $(thefuck --alias)
