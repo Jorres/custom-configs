@@ -105,4 +105,7 @@ alias etern="python3 ~/hobbies/vim-katas/exercises/project_eternity.py"
 alias vimi="nvim ~/.config/nvim/init.vim"
 alias vimp="nvim ~/.config/nvim/plugins.vim"
 
+# this is fun
+export PASSWORD=proX1ma_li
+
 eval $(thefuck --alias)

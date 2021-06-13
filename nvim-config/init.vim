@@ -56,11 +56,10 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 nmap <leader>bl :ls<CR>
 
 " Quickfix list remaps (ripgrep populates it in an interface unknown to me):
-nmap <C-k> :cnext<CR>
-nmap <C-j> :cprev<CR>
+nmap <leader>, :cnext<CR>
+nmap <leader>. :cprev<CR>
 nmap <C-q> :copen<CR>
- 
- 
+
 " === TAB/Space settings === "
 " Insert spaces when TAB is pressed.
 set expandtab
