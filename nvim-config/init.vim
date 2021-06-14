@@ -406,6 +406,9 @@ function! CalcBC()
   endif
 endfunction
 
+
+map q: <nop>
+
 " load changes from vim
 " set runtimepath^=~/.vim runtimepath+=~/.vim/after
 " let &packpath = &runtimepath

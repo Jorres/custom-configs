@@ -1548,3 +1548,78 @@ time 1623568422
 old [description:"Train autotickets" due:"1623531600" entry:"1623446273" imask:"8" modified:"1623407225" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"4dc3e8de-2153-4b24-9142-8719c8adcfba"]
 new [description:"Train autotickets" due:"1623531600" end:"1623568422" entry:"1623446273" imask:"8" modified:"1623568422" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"completed" uuid:"4dc3e8de-2153-4b24-9142-8719c8adcfba"]
 ---
+time 1623619316
+new [description:"Train typing" due:"1623704400" entry:"1623619316" imask:"16" modified:"1623532059" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"43e503b5-c6ab-4caa-9b34-458eb6d8f68b"]
+---
+time 1623619316
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++-" modified:"1623532059" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++--" modified:"1623619316" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1623619316
+new [description:"Pebble meditation" due:"1623704400" entry:"1623619316" imask:"16" modified:"1623532059" parent:"86dba061-379f-4611-b23b-7b5108dc04ac" project:"daily" recur:"daily" status:"pending" uuid:"8b5e163e-ad2a-4f29-9696-7268d9e5477a"]
+---
+time 1623619316
+old [description:"Pebble meditation" due:"1622322000" entry:"1622301401" mask:"++++++++++++++--" modified:"1623532059" project:"daily" recur:"daily" status:"recurring" uuid:"86dba061-379f-4611-b23b-7b5108dc04ac"]
+new [description:"Pebble meditation" due:"1622322000" entry:"1622301401" mask:"++++++++++++++---" modified:"1623619316" project:"daily" recur:"daily" status:"recurring" uuid:"86dba061-379f-4611-b23b-7b5108dc04ac"]
+---
+time 1623619316
+new [description:"Train autotickets" due:"1623704400" entry:"1623619316" imask:"10" modified:"1623568422" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"a1d6d51c-cfb0-4f35-beff-d529fdebc834"]
+---
+time 1623619316
+old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"+++++++++-" modified:"1623568422" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"+++++++++--" modified:"1623619316" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+---
+time 1623619316
+new [description:"Distr lecture" due:"1623704400" entry:"1623619316" imask:"8" modified:"1623532059" parent:"487d6b9a-3326-492a-878a-0b09af824fab" recur:"daily" status:"pending" until:"1623853725" uuid:"8f2cc4a1-54e0-45f5-8c43-f846b28c28fe"]
+---
+time 1623619316
+old [description:"Distr lecture" due:"1623013200" entry:"1622989725" mask:"+++++++-" modified:"1623532059" recur:"daily" status:"recurring" until:"1623853725" uuid:"487d6b9a-3326-492a-878a-0b09af824fab"]
+new [description:"Distr lecture" due:"1623013200" entry:"1622989725" mask:"+++++++--" modified:"1623619316" recur:"daily" status:"recurring" until:"1623853725" uuid:"487d6b9a-3326-492a-878a-0b09af824fab"]
+---
+time 1623653445
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++--" modified:"1623619316" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++-" modified:"1623653445" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1623653445
+old [description:"Train typing" due:"1623618000" entry:"1623532059" imask:"15" modified:"1623520858" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"173e2dc8-192c-4a16-bd57-5133060cbf6d"]
+new [description:"Train typing" due:"1623618000" end:"1623653445" entry:"1623532059" imask:"15" modified:"1623653445" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"completed" uuid:"173e2dc8-192c-4a16-bd57-5133060cbf6d"]
+---
+time 1623653445
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++-" modified:"1623653445" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++++" modified:"1623653445" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1623653445
+old [description:"Train typing" due:"1623704400" entry:"1623619316" imask:"16" modified:"1623532059" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"43e503b5-c6ab-4caa-9b34-458eb6d8f68b"]
+new [description:"Train typing" due:"1623704400" end:"1623653445" entry:"1623619316" imask:"16" modified:"1623653445" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"completed" uuid:"43e503b5-c6ab-4caa-9b34-458eb6d8f68b"]
+---
+time 1623654007
+old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"+++++++++--" modified:"1623619316" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++-" modified:"1623654007" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+---
+time 1623654007
+old [description:"Train autotickets" due:"1623618000" entry:"1623532059" imask:"9" modified:"1623446273" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"6aaa0e0a-974b-481b-8b7b-fa7f1ad2a481"]
+new [description:"Train autotickets" due:"1623618000" end:"1623654007" entry:"1623532059" imask:"9" modified:"1623654007" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"completed" uuid:"6aaa0e0a-974b-481b-8b7b-fa7f1ad2a481"]
+---
+time 1623654007
+old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++-" modified:"1623654007" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"+++++++++++" modified:"1623654007" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+---
+time 1623654007
+old [description:"Train autotickets" due:"1623704400" entry:"1623619316" imask:"10" modified:"1623568422" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"a1d6d51c-cfb0-4f35-beff-d529fdebc834"]
+new [description:"Train autotickets" due:"1623704400" end:"1623654007" entry:"1623619316" imask:"10" modified:"1623654007" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"completed" uuid:"a1d6d51c-cfb0-4f35-beff-d529fdebc834"]
+---
+time 1623660258
+old [description:"Distr lecture" due:"1623013200" entry:"1622989725" mask:"+++++++--" modified:"1623619316" recur:"daily" status:"recurring" until:"1623853725" uuid:"487d6b9a-3326-492a-878a-0b09af824fab"]
+new [description:"Distr lecture" due:"1623013200" entry:"1622989725" mask:"++++++++-" modified:"1623660258" recur:"daily" status:"recurring" until:"1623853725" uuid:"487d6b9a-3326-492a-878a-0b09af824fab"]
+---
+time 1623660258
+old [description:"Distr lecture" due:"1623618000" entry:"1623532059" imask:"7" modified:"1623516887" parent:"487d6b9a-3326-492a-878a-0b09af824fab" recur:"daily" status:"pending" until:"1623853725" uuid:"0a197d82-3705-4aaf-9b1d-709034cb3cdc"]
+new [description:"Distr lecture" due:"1623618000" end:"1623660258" entry:"1623532059" imask:"7" modified:"1623660258" parent:"487d6b9a-3326-492a-878a-0b09af824fab" recur:"daily" status:"completed" until:"1623853725" uuid:"0a197d82-3705-4aaf-9b1d-709034cb3cdc"]
+---
+time 1623662353
+new [description:"Call granny" entry:"1623662353" modified:"1623662353" status:"pending" tags:"next" uuid:"4d233213-2012-4553-a18e-528485324c3b"]
+---
+time 1623663829
+old [description:"Call granny" entry:"1623662353" modified:"1623662353" status:"pending" tags:"next" uuid:"4d233213-2012-4553-a18e-528485324c3b"]
+new [description:"Call granny" end:"1623663829" entry:"1623662353" modified:"1623663829" status:"completed" tags:"next" uuid:"4d233213-2012-4553-a18e-528485324c3b"]
+---
