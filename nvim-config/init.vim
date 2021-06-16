@@ -368,8 +368,8 @@ if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
 
-" show custom message after writing to a buffer
-autocmd BufWritePost * redraw | echomsg '                                                    Wanna bet?'
+" show custom message after writing to a buffer                                                             
+autocmd BufWritePost * redraw | echomsg '                                                                     Wanna bet?'
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
