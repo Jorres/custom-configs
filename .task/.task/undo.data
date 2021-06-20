@@ -1898,3 +1898,40 @@ time 1624094126
 old [description:"Grandma" due:"1624050000" entry:"1624007871" modified:"1624007871" status:"pending" uuid:"d33b82cf-1a1d-48e2-93e6-7de6623dadf5"]
 new [description:"Grandma" due:"1624050000" end:"1624094126" entry:"1624007871" modified:"1624094126" status:"completed" uuid:"d33b82cf-1a1d-48e2-93e6-7de6623dadf5"]
 ---
+time 1624183456
+new [description:"Train typing" due:"1624222800" entry:"1624183456" imask:"22" modified:"1624051111" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"0c72eb27-4a2d-4a68-ad52-d27ff12583d9"]
+---
+time 1624183456
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++++++++-" modified:"1624051111" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++++++++--" modified:"1624183456" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1624183456
+new [description:"Pebble meditation" due:"1624222800" entry:"1624183456" imask:"22" modified:"1624051111" parent:"86dba061-379f-4611-b23b-7b5108dc04ac" project:"daily" recur:"daily" status:"pending" uuid:"6f878fad-7a47-47ca-afa4-7a09428c530e"]
+---
+time 1624183456
+old [description:"Pebble meditation" due:"1622322000" entry:"1622301401" mask:"++++++++++++++++++++--" modified:"1624051111" project:"daily" recur:"daily" status:"recurring" uuid:"86dba061-379f-4611-b23b-7b5108dc04ac"]
+new [description:"Pebble meditation" due:"1622322000" entry:"1622301401" mask:"++++++++++++++++++++---" modified:"1624183456" project:"daily" recur:"daily" status:"recurring" uuid:"86dba061-379f-4611-b23b-7b5108dc04ac"]
+---
+time 1624183456
+new [description:"Train autotickets" due:"1624222800" entry:"1624183456" imask:"16" modified:"1624094118" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"f3b92309-a862-4008-ba8a-8fe12704e98a"]
+---
+time 1624183456
+old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++" modified:"1624094118" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++-" modified:"1624183456" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+---
+time 1624183600
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++++++++--" modified:"1624183456" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++-" modified:"1624183600" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1624183600
+old [description:"Train typing" due:"1624136400" entry:"1624051111" imask:"21" modified:"1624009193" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"a955478f-7eaa-4e24-94a1-c03633f84de4"]
+new [description:"Train typing" due:"1624136400" end:"1624183600" entry:"1624051111" imask:"21" modified:"1624183600" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"completed" uuid:"a955478f-7eaa-4e24-94a1-c03633f84de4"]
+---
+time 1624183607
+old [description:"Collect Tinkoff merch" entry:"1623430067" modified:"1623430067" status:"pending" uuid:"7f3115ff-f8ff-4ddc-9b6d-8bfc5e0bb1f8"]
+new [description:"Collect Tinkoff merch" end:"1624183607" entry:"1623430067" modified:"1624183607" status:"completed" uuid:"7f3115ff-f8ff-4ddc-9b6d-8bfc5e0bb1f8"]
+---
+time 1624183611
+old [description:"Watch Hydra 2020 UI Thread topic" entry:"1623482932" modified:"1623482932" status:"pending" uuid:"66db1589-ec71-4ed3-94d9-a3dcd0a51d29"]
+new [description:"Watch Hydra 2020 UI Thread topic" end:"1624183611" entry:"1623482932" modified:"1624183611" status:"completed" uuid:"66db1589-ec71-4ed3-94d9-a3dcd0a51d29"]
+---
