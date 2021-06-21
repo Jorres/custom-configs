@@ -1935,3 +1935,15 @@ time 1624183611
 old [description:"Watch Hydra 2020 UI Thread topic" entry:"1623482932" modified:"1623482932" status:"pending" uuid:"66db1589-ec71-4ed3-94d9-a3dcd0a51d29"]
 new [description:"Watch Hydra 2020 UI Thread topic" end:"1624183611" entry:"1623482932" modified:"1624183611" status:"completed" uuid:"66db1589-ec71-4ed3-94d9-a3dcd0a51d29"]
 ---
+time 1624217388
+old [description:"Learn cron, setup some simple task" entry:"1622925425" modified:"1622925425" status:"pending" uuid:"022266f0-c575-4e70-aa50-8c7c68372a23"]
+new [description:"Learn cron, setup some simple task" end:"1624217388" entry:"1622925425" modified:"1624217388" status:"completed" uuid:"022266f0-c575-4e70-aa50-8c7c68372a23"]
+---
+time 1624217393
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++-" modified:"1624183600" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++++++++++" modified:"1624217393" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1624217393
+old [description:"Train typing" due:"1624222800" entry:"1624183456" imask:"22" modified:"1624051111" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"0c72eb27-4a2d-4a68-ad52-d27ff12583d9"]
+new [description:"Train typing" due:"1624222800" end:"1624217393" entry:"1624183456" imask:"22" modified:"1624217393" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"completed" uuid:"0c72eb27-4a2d-4a68-ad52-d27ff12583d9"]
+---
