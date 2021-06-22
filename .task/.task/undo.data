@@ -1947,3 +1947,53 @@ time 1624217393
 old [description:"Train typing" due:"1624222800" entry:"1624183456" imask:"22" modified:"1624051111" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"0c72eb27-4a2d-4a68-ad52-d27ff12583d9"]
 new [description:"Train typing" due:"1624222800" end:"1624217393" entry:"1624183456" imask:"22" modified:"1624217393" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"completed" uuid:"0c72eb27-4a2d-4a68-ad52-d27ff12583d9"]
 ---
+time 1624286264
+new [description:"Train typing" due:"1624309200" entry:"1624286264" imask:"23" modified:"1624217393" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"118fcd29-4a05-4552-a50d-782227cd37c7"]
+---
+time 1624286264
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++++++++++" modified:"1624217393" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++++++++++-" modified:"1624286264" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1624286264
+new [description:"Pebble meditation" due:"1624309200" entry:"1624286264" imask:"23" modified:"1624183456" parent:"86dba061-379f-4611-b23b-7b5108dc04ac" project:"daily" recur:"daily" status:"pending" uuid:"e5b8c7d0-6927-400f-b12c-ff99682aa148"]
+---
+time 1624286264
+old [description:"Pebble meditation" due:"1622322000" entry:"1622301401" mask:"++++++++++++++++++++---" modified:"1624183456" project:"daily" recur:"daily" status:"recurring" uuid:"86dba061-379f-4611-b23b-7b5108dc04ac"]
+new [description:"Pebble meditation" due:"1622322000" entry:"1622301401" mask:"++++++++++++++++++++----" modified:"1624286264" project:"daily" recur:"daily" status:"recurring" uuid:"86dba061-379f-4611-b23b-7b5108dc04ac"]
+---
+time 1624286264
+new [description:"Train autotickets" due:"1624309200" entry:"1624286264" imask:"17" modified:"1624183456" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"842c1e33-7ff4-4cd6-8b53-6c7c1e7989a8"]
+---
+time 1624286264
+old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++-" modified:"1624183456" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++--" modified:"1624286264" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+---
+time 1624286272
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"+++++++++++++++++++++++-" modified:"1624286264" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++++" modified:"1624286272" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1624286272
+old [description:"Train typing" due:"1624309200" entry:"1624286264" imask:"23" modified:"1624217393" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"118fcd29-4a05-4552-a50d-782227cd37c7"]
+new [description:"Train typing" due:"1624309200" end:"1624286272" entry:"1624286264" imask:"23" modified:"1624286272" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"completed" uuid:"118fcd29-4a05-4552-a50d-782227cd37c7"]
+---
+time 1624343964
+new [description:"Train typing" due:"1624395600" entry:"1624343964" imask:"24" modified:"1624286272" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"29b2252f-8f9f-4451-a010-6345400889ba"]
+---
+time 1624343964
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++++" modified:"1624286272" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++++-" modified:"1624343964" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1624343964
+new [description:"Pebble meditation" due:"1624395600" entry:"1624343964" imask:"24" modified:"1624286264" parent:"86dba061-379f-4611-b23b-7b5108dc04ac" project:"daily" recur:"daily" status:"pending" uuid:"f17c969e-0103-4aa2-bca0-5328c25cf669"]
+---
+time 1624343964
+old [description:"Pebble meditation" due:"1622322000" entry:"1622301401" mask:"++++++++++++++++++++----" modified:"1624286264" project:"daily" recur:"daily" status:"recurring" uuid:"86dba061-379f-4611-b23b-7b5108dc04ac"]
+new [description:"Pebble meditation" due:"1622322000" entry:"1622301401" mask:"++++++++++++++++++++-----" modified:"1624343964" project:"daily" recur:"daily" status:"recurring" uuid:"86dba061-379f-4611-b23b-7b5108dc04ac"]
+---
+time 1624343964
+new [description:"Train autotickets" due:"1624395600" entry:"1624343964" imask:"18" modified:"1624286264" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"696b9326-650d-4146-828a-7ed73998f593"]
+---
+time 1624343964
+old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++--" modified:"1624286264" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++---" modified:"1624343964" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+---
