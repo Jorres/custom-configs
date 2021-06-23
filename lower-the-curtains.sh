@@ -9,4 +9,4 @@ if [ "$BRIGHTNESS" == "" ]; then
     BRIGHTNESS="20"
 fi
 
-sudo su -c "echo $BRIGHTNESS >/sys/class/backlight/intel_backlight/brightness"
+sudo su -c "echo 20 >/sys/class/backlight/intel_backlight/brightness"
