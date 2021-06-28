@@ -119,3 +119,9 @@ export NVM_DIR="$HOME/.nvm"
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /home/jorres/work/mdinc/vader.git/development/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jorres/work/mdinc/vader.git/development/node_modules/tabtab/.completions/electron-forge.zsh
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
+
