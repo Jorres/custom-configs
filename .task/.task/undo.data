@@ -2349,3 +2349,31 @@ time 1624865733
 old [description:"Have a run" entry:"1624778774" modified:"1624778774" project:"today" status:"pending" uuid:"189ce007-4dc9-406c-bf78-627159b32164"]
 new [description:"Have a run" end:"1624865733" entry:"1624778774" modified:"1624865733" project:"today" status:"completed" uuid:"189ce007-4dc9-406c-bf78-627159b32164"]
 ---
+time 1624902828
+new [description:"Finish html and publish it as Skyvader repo" entry:"1624902828" modified:"1624902828" project:"today" status:"pending" uuid:"423db148-bf84-4ab3-ac7f-c6f54a0bf66d"]
+---
+time 1624902837
+new [description:"Send test tasks" entry:"1624902837" modified:"1624902837" project:"today" status:"pending" uuid:"c7c3386d-9778-4284-9be3-7ef505ce1cf0"]
+---
+time 1624915111
+old [description:"Finish html and publish it as Skyvader repo" entry:"1624902828" modified:"1624902828" project:"today" status:"pending" uuid:"423db148-bf84-4ab3-ac7f-c6f54a0bf66d"]
+new [description:"Finish html and publish it as Skyvader repo" end:"1624915111" entry:"1624902828" modified:"1624915111" project:"today" status:"completed" uuid:"423db148-bf84-4ab3-ac7f-c6f54a0bf66d"]
+---
+time 1624915111
+old [description:"Send test tasks" entry:"1624902837" modified:"1624902837" project:"today" status:"pending" uuid:"c7c3386d-9778-4284-9be3-7ef505ce1cf0"]
+new [description:"Send test tasks" end:"1624915111" entry:"1624902837" modified:"1624915111" project:"today" status:"completed" uuid:"c7c3386d-9778-4284-9be3-7ef505ce1cf0"]
+---
+time 1624915112
+new [description:"Train typing" due:"1625000400" entry:"1624915112" imask:"31" modified:"1624865716" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"32f94c93-5108-4206-9fe3-9f6f8228473b"]
+---
+time 1624915112
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++++++++++-" modified:"1624865716" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++++++++++--" modified:"1624915112" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1624915112
+new [description:"Train autotickets" due:"1625000400" entry:"1624915112" imask:"25" modified:"1624865716" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"2c4c7ae3-5428-4bd0-b565-b29c838f4a21"]
+---
+time 1624915112
+old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++++++++---" modified:"1624865716" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++++++++----" modified:"1624915112" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+---
