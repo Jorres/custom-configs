@@ -2377,3 +2377,23 @@ time 1624915112
 old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++++++++---" modified:"1624865716" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
 new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++++++++----" modified:"1624915112" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
 ---
+time 1624992061
+new [description:"17:00 - 18:00 Running" entry:"1624992061" modified:"1624992061" status:"pending" uuid:"dabe9f21-a2a0-4bd8-8faf-313c8f626631"]
+---
+time 1625048448
+new [description:"Train typing" due:"1625086800" entry:"1625048448" imask:"32" modified:"1624915112" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"4957084f-ac45-40d4-9057-41e49415d0b5"]
+---
+time 1625048448
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++++++++++--" modified:"1624915112" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++++++++++---" modified:"1625048448" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1625048448
+new [description:"Train autotickets" due:"1625086800" entry:"1625048448" imask:"26" modified:"1624915112" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"f3fe44b9-42dd-413f-9409-f06326ea1b05"]
+---
+time 1625048448
+old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++++++++----" modified:"1624915112" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++++++++-----" modified:"1625048448" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+---
+time 1625048460
+new [description:"Order Raspberry Pi" entry:"1625048460" modified:"1625048460" status:"pending" uuid:"665563a4-c822-40b4-b04c-9c722ffaf2e4"]
+---
