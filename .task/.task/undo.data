@@ -2397,3 +2397,17 @@ new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"+
 time 1625048460
 new [description:"Order Raspberry Pi" entry:"1625048460" modified:"1625048460" status:"pending" uuid:"665563a4-c822-40b4-b04c-9c722ffaf2e4"]
 ---
+time 1625132926
+new [description:"Train typing" due:"1625173200" entry:"1625132926" imask:"33" modified:"1625048448" parent:"e97897d4-c09b-42be-9f18-bc775bcfb0e8" project:"daily" recur:"daily" status:"pending" uuid:"0895120f-1198-4a93-a294-d469b0833557"]
+---
+time 1625132926
+old [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++++++++++---" modified:"1625048448" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+new [description:"Train typing" due:"1622322000" entry:"1622300963" mask:"++++++++++++++++++++++++++++++----" modified:"1625132926" project:"daily" recur:"daily" status:"recurring" uuid:"e97897d4-c09b-42be-9f18-bc775bcfb0e8"]
+---
+time 1625132926
+new [description:"Train autotickets" due:"1625173200" entry:"1625132926" imask:"27" modified:"1625048448" parent:"33a7700e-1849-4f04-ac3e-34d7be51102f" project:"daily" recur:"daily" status:"pending" uuid:"775552c9-3368-437a-a7d8-8fb480376004"]
+---
+time 1625132926
+old [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++++++++-----" modified:"1625048448" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+new [description:"Train autotickets" due:"1622840400" entry:"1622801152" mask:"++++++++++++++++++++++------" modified:"1625132926" project:"daily" recur:"daily" status:"recurring" uuid:"33a7700e-1849-4f04-ac3e-34d7be51102f"]
+---

@@ -113,5 +113,9 @@ Plug 'dhruvasagar/vim-zoom'
 " The older behaviour is replicated by Ag `silver finder` now.
 Plug 'jremmen/vim-ripgrep'
 
+" Snippets engine
+Plug 'SirVer/ultisnips'
+Plug 'mlaursen/vim-react-snippets'
+
 " Initialize plugin system
 call plug#end()
