@@ -1,12 +1,17 @@
 snippet rcm
 import React, { Component } from 'react';
 
-class $1 extends Component {
-    state = {};
+class $1 extends React.Component<{}> {
+    state = {
+
+    };
 
     render() {
-        return null;
-    }
+	return (
+	    <React.Fragment>
+	    </React.Fragment>
+        );
+    };
 }
 
 export default $1;
