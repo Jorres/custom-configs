@@ -117,5 +117,10 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
 
+" Telescope
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+
 " Initialize plugin system
 call plug#end()
