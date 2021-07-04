@@ -686,3 +686,7 @@
 {"description":"Train autotickets","due":"20210701T210000Z","end":"20210701T180132Z","entry":"20210701T094846Z","imask":27,"modified":"20210701T180132Z","parent":"33a7700e-1849-4f04-ac3e-34d7be51102f","project":"daily","recur":"daily","status":"deleted","uuid":"775552c9-3368-437a-a7d8-8fb480376004"}
 {"description":"Figure out PE problems","end":"20210701T180139Z","entry":"20210611T192955Z","modified":"20210701T180139Z","status":"completed","uuid":"4b1e2365-de3e-4f6d-94dc-2d6628febe51"}
 {"description":"17:00 - 18:00 Running","end":"20210701T180142Z","entry":"20210629T184101Z","modified":"20210701T180142Z","status":"completed","uuid":"dabe9f21-a2a0-4bd8-8faf-313c8f626631"}
+{"description":"Call grandma and father","end":"20210703T184518Z","entry":"20210627T072630Z","modified":"20210703T184518Z","project":"today","status":"completed","uuid":"af119aac-ce83-4ea2-8ab8-7f278a7cc819"}
+{"description":"Order Raspberry Pi","end":"20210703T184524Z","entry":"20210630T102100Z","modified":"20210703T184524Z","status":"completed","uuid":"665563a4-c822-40b4-b04c-9c722ffaf2e4"}
+{"description":"Fzf does not work in command-line","entry":"20210703T214133Z","modified":"20210703T214133Z","status":"pending","uuid":"a09a7acd-bad1-4030-be66-9ef6ddfd160d"}
+{"description":"Move to lua nvim","entry":"20210703T214143Z","modified":"20210703T214143Z","status":"pending","uuid":"8460c77e-68d6-479c-8505-b63bdbc71d95"}

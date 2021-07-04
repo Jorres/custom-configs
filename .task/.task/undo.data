@@ -2539,3 +2539,17 @@ time 1625162502
 old [description:"17:00 - 18:00 Running" entry:"1624992061" modified:"1624992061" status:"pending" uuid:"dabe9f21-a2a0-4bd8-8faf-313c8f626631"]
 new [description:"17:00 - 18:00 Running" end:"1625162502" entry:"1624992061" modified:"1625162502" status:"completed" uuid:"dabe9f21-a2a0-4bd8-8faf-313c8f626631"]
 ---
+time 1625337918
+old [description:"Call grandma and father" entry:"1624778790" modified:"1624778790" project:"today" status:"pending" uuid:"af119aac-ce83-4ea2-8ab8-7f278a7cc819"]
+new [description:"Call grandma and father" end:"1625337918" entry:"1624778790" modified:"1625337918" project:"today" status:"completed" uuid:"af119aac-ce83-4ea2-8ab8-7f278a7cc819"]
+---
+time 1625337924
+old [description:"Order Raspberry Pi" entry:"1625048460" modified:"1625048460" status:"pending" uuid:"665563a4-c822-40b4-b04c-9c722ffaf2e4"]
+new [description:"Order Raspberry Pi" end:"1625337924" entry:"1625048460" modified:"1625337924" status:"completed" uuid:"665563a4-c822-40b4-b04c-9c722ffaf2e4"]
+---
+time 1625348493
+new [description:"Fzf does not work in command-line" entry:"1625348493" modified:"1625348493" status:"pending" uuid:"a09a7acd-bad1-4030-be66-9ef6ddfd160d"]
+---
+time 1625348503
+new [description:"Move to lua nvim" entry:"1625348503" modified:"1625348503" status:"pending" uuid:"8460c77e-68d6-479c-8505-b63bdbc71d95"]
+---
