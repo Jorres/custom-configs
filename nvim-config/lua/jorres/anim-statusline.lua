@@ -1,0 +1,12 @@
+-- local windline = require('windline')
+-- windline.setup({
+--   statuslines = {
+--     --- you need define your status line here
+--   }
+-- })
+--
+--
+require('wlsample.airline')
+-- require('wlsample.airline_anim')
+
+-- require('wlsample.wind')

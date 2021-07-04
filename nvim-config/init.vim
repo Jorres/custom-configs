@@ -7,8 +7,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'alvan/vim-closetag'
 " surrounding plugin, cs, ds...
 Plug 'tpope/vim-surround'
-" Intellisense Engine
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " commenting shortcuts, gc, yeah
 Plug 'tomtom/tcomment_vim' 
 " Display visual marks (`ma`) in separate column
@@ -36,7 +34,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'morhetz/gruvbox'
 " Customized vim status line
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 
 " === Fuzzy finder
 Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }
@@ -69,6 +67,11 @@ Plug 'nvim-treesitter/playground'
 Plug 'p00f/nvim-ts-rainbow'
 
 Plug 'glepnir/lspsaga.nvim'
+
+Plug 'ryanoasis/vim-devicons'
+
+" cool animated status line
+Plug 'windwp/windline.nvim'
 
 call plug#end()
 
@@ -224,64 +227,44 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
+nnoremap <silent> K :Lspsaga hover_doc<CR>
+nnoremap <silent> <leader>da <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+nnoremap <silent> <leader>dn :Lspsaga rename<CR>
+nnoremap <silent> <leader>pp :Lspsaga preview_definition<CR>
+
+nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
+nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
+
 " === fzf ===
 let g:fzf_layout = {'window': {'width': 1, 'height': 1}}
 " Ripgrep smart search enable
 let g:rg_command = 'rg --vimgrep -S'
 
-" === Coc.nvim === "
-" use <tab> for trigger completion and navigate to next complete item
-" function! s:check_back_space() abort
-"   let col = col('.') - 1
-"   return !col || getline('.')[col - 1]  =~ '\s'
-" endfunction
-"
-" " Source for show documentation
-" function! s:show_documentation()
-"   if (index(['vim','help'], &filetype) >= 0)
-"     execute 'h '.expand('<cword>')
-"   else
-"     call CocAction('doHover')
-"   endif
-" endfunction
-"
-" " Check if backspace was just pressed      
-" function! s:check_back_space() abort                    
-"   let col = col('.') - 1    
-"   return !col || getline('.')[col - 1]  =~# '\s'    
-" endfunction   
-"
-" command! -nargs=0 Prettier :CocCommand prettier.formatFile
-"
-" "Close preview window when completion is done.
-" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-
-
-" === Vim airline ==== "
-let g:airline_theme='gruvbox'
-" Enable extensions
-let g:airline_extensions = ['branch', 'hunks']
-" Update section z to just have line number
-let g:airline_section_z = airline#section#create(['linenr'])
-" Do not draw separators for empty sections (only for the active window) >
-let g:airline_skip_empty_sections = 1
-" Smartly uniquify buffers names with similar filename, suppressing common parts of paths.
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" Custom setup that removes filetype/whitespace from default vim airline bar
-let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
-" Customize vim airline per filetype
-" 'nerdtree'  - Hide nerdtree status line
-" 'list'      - Only show file type plus current line number out of total
-let g:airline_filetype_overrides = {
-  \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', ''), '' ],
-  \ 'list': [ '%y', '%l/%L'] }
-" Enable powerline fonts, try to fix
-let g:airline_powerline_fonts = 1
-" Enable caching of syntax highlighting groups
-let g:airline_highlighting_cache = 1
-" Don't show git changes to current file in airline
-let g:airline#extensions#hunks#enabled=0
+"" === Vim airline ==== "
+" let g:airline_theme='gruvbox'
+" " Enable extensions
+" let g:airline_extensions = ['branch', 'hunks']
+" " Update section z to just have line number
+" let g:airline_section_z = airline#section#create(['linenr'])
+" " Do not draw separators for empty sections (only for the active window) >
+" let g:airline_skip_empty_sections = 1
+" " Smartly uniquify buffers names with similar filename, suppressing common parts of paths.
+" let g:airline#extensions#tabline#formatter = 'unique_tail'
+" " Custom setup that removes filetype/whitespace from default vim airline bar
+" let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
+" " Customize vim airline per filetype
+" " 'nerdtree'  - Hide nerdtree status line
+" " 'list'      - Only show file type plus current line number out of total
+" let g:airline_filetype_overrides = {
+"   \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', ''), '' ],
+"   \ 'list': [ '%y', '%l/%L'] }
+" " Enable powerline fonts, try to fix
+" let g:airline_powerline_fonts = 1
+" " Enable caching of syntax highlighting groups
+" let g:airline_highlighting_cache = 1
+" " Don't show git changes to current file in airline
+" let g:airline#extensions#hunks#enabled=0
 
 " === NERDTree === " 
 " Show hidden files/directories 

@@ -8,25 +8,18 @@ local on_attach = function(client, bufnr)
 
   local opts = { noremap=true, silent=true }
 
--- " nmap <silent> <leader>dd <Plug>(coc-definition)
--- " nmap <silent> <leader>dr <Plug>(coc-references)
--- " nmap <silent> <leader>dj <Plug>(coc-implementation)
--- " nmap <silent> <leader>dn <Plug>(coc-refactor)
--- " nmap <silent> <leader>da <Plug>(coc-action-codeAction)
-
---Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', '<leader>dD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
   buf_set_keymap('n', '<leader>dd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', '<leader>dj', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap('n', '<leader>dn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', '<leader>da', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap("n", "<leader>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
+
+  -- These ones covered by lspsaga:
+  -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  -- buf_set_keymap('n', '<leader>da', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  -- buf_set_keymap('n', '<leader>dn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
   -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
