@@ -8,7 +8,7 @@ Plug 'alvan/vim-closetag'
 " surrounding plugin, cs, ds...
 Plug 'tpope/vim-surround'
 " Intellisense Engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " commenting shortcuts, gc, yeah
 Plug 'tomtom/tcomment_vim' 
 " Display visual marks (`ma`) in separate column
@@ -23,13 +23,6 @@ Plug 'mhinz/vim-signify'
 " Provides OpenSession and SaveSession
 Plug 'xolox/vim-misc' 
 Plug 'xolox/vim-session'
-
-" === Syntax Highlighting === "
-Plug 'udalov/kotlin-vim' "kotlin
-Plug 'luochen1990/rainbow' "nice rainbow brackets
-Plug 'othree/yajs.vim' "js
-Plug 'HerringtonDarkholme/yats.vim' "ts
-Plug 'cakebaker/scss-syntax.vim' "sass, although... justIFy???
 
 " === UI === "
 " Fancy starting screen
@@ -63,12 +56,23 @@ Plug 'dhruvasagar/vim-zoom'
 " Snippets engine, run :UltiSnips...
 Plug 'SirVer/ultisnips'
 
-"https://github.com/sk1418/HowMuch
+" https://github.com/sk1418/HowMuch
 Plug 'sk1418/HowMuch'
+
+" Latest LSP experiment
+Plug 'hrsh7th/nvim-compe'
+Plug 'neovim/nvim-lspconfig'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+Plug 'p00f/nvim-ts-rainbow'
+
+Plug 'glepnir/lspsaga.nvim'
 
 call plug#end()
 
-" lua require("jorres")
+lua require("jorres")
 
 scriptencoding utf-8
 
@@ -181,15 +185,6 @@ nmap <leader>, :cnext<CR>
 nmap <leader>. :cprev<CR>
 nmap <C-q> :copen<CR>
 
-" magic that allows auto-completion on <TAB> and 
-" auto-import on auto-completion
-inoremap <silent><expr> <TAB>    
-      \ pumvisible() ? "\<C-n>" :    
-      \ <SID>check_back_space() ? "\<TAB>" :           
-      \ coc#refresh()               
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"      
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
 " distracts :( nohlsearch
 " instead of disabling it, hit enter once more when exiting search
 nnoremap <CR> :noh<CR><CR>
@@ -197,9 +192,8 @@ nnoremap <CR> :noh<CR><CR>
 " Scrolling by blocks of 4, generally faster
 nnoremap <C-E> 4<C-E>
 nnoremap <C-Y> 4<C-Y>
-
-" Set show documentation in coc
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+vnoremap <C-E> 4<C-E>
+vnoremap <C-Y> 4<C-Y>
 
 "  <leader>n - Toggle NERDTree on/off
 "  <leader>f - Opens current file location in NERDTree
@@ -212,20 +206,7 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-" === coc.nvim === "
-"   <leader>dd    - Jump to definition of current symbol
-"   <leader>dr    - Jump to references of current symbol
-"   <leader>dj    - Jump to implementation of current symbol
-"   <leader>dn    - Open refactoring (basically renaming) window
-"   <leader>da    - list of possible code actions
-nmap <silent> <leader>dd <Plug>(coc-definition)
-nmap <silent> <leader>dr <Plug>(coc-references)
-nmap <silent> <leader>dj <Plug>(coc-implementation)
-nmap <silent> <leader>dn <Plug>(coc-refactor)
-nmap <silent> <leader>da <Plug>(coc-action-codeAction)
-
 nnoremap <leader>t :GFiles<CR>
-nnoremap <leader>gc :GBranches<CR>
 nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader>g :Ag
 
@@ -236,6 +217,13 @@ let g:UltiSnipsExpandTrigger="<M-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" Autocompletion mapping 
+inoremap <silent><expr> <C-Space> compe#complete()
+inoremap <silent><expr> <CR>      compe#confirm('<CR>')
+inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+
 " === fzf ===
 let g:fzf_layout = {'window': {'width': 1, 'height': 1}}
 " Ripgrep smart search enable
@@ -243,37 +231,37 @@ let g:rg_command = 'rg --vimgrep -S'
 
 " === Coc.nvim === "
 " use <tab> for trigger completion and navigate to next complete item
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-" Source for show documentation
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Check if backspace was just pressed      
-function! s:check_back_space() abort                    
-  let col = col('.') - 1    
-  return !col || getline('.')[col - 1]  =~# '\s'    
-endfunction   
-
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-
-"Close preview window when completion is done.
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~ '\s'
+" endfunction
+"
+" " Source for show documentation
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
+"
+" " Check if backspace was just pressed      
+" function! s:check_back_space() abort                    
+"   let col = col('.') - 1    
+"   return !col || getline('.')[col - 1]  =~# '\s'    
+" endfunction   
+"
+" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+"
+" "Close preview window when completion is done.
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 
 
 " === Vim airline ==== "
 let g:airline_theme='gruvbox'
 " Enable extensions
-let g:airline_extensions = ['branch', 'hunks', 'coc']
+let g:airline_extensions = ['branch', 'hunks']
 " Update section z to just have line number
 let g:airline_section_z = airline#section#create(['linenr'])
 " Do not draw separators for empty sections (only for the active window) >
@@ -311,7 +299,6 @@ autocmd! User GoyoLeave Limelight!
 " Plugin changes to default settings
 
 let g:fzf_preview_use_dev_icons = 1
-let g:rainbow_active = 1
 let g:python3_host_prog = '/usr/bin/python3'
 let g:session_autosave = 'no'
 let g:signify_sign_delete = '-'

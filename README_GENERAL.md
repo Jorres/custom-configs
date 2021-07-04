@@ -1,26 +1,31 @@
-## Nvim configuration 
+## Nvim configuration
 
-### Info on 
+### Info on
+
 [fuzzy finding](https://github.com/junegunn/fzf)
 Wonderful plugin, replacement for denite with out-of-the-box configs ready.
 
-### General dependencies 
+### General dependencies
+
 ```
 # Command line `cat` alternative with syntax hl
-sudo apt-get install bat 
+sudo apt-get install bat
 
 # Ripgrep alternative, fzf requirement
 sudo apt-get install silversearcher-ag
 ```
 
 ### Tmux
-Execute 
+
+Execute
+
 ```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 wget --no-check-certificate \
 https://raw.github.com/richo/battery/master/bin/battery
 ```
+
 to install tmux config prerequisites.
 
 ### Caps lock remapping
@@ -45,15 +50,16 @@ place .ccls file into the directory with the following content
     -Iinc
     -DMACRO
 ```
+
 ### Haskell
 
 [Guide to language server](http://marco-lopes.com/articles/Vim-and-Haskell-in-2019/)
-
 
 Google further, if needed.
 
 Run `stack install hspec-discover` for hie to see test directory.
 You have to put the following in the `hie.yaml` file in the project root:
+
 ```
 cradle:
   stack:
@@ -66,6 +72,7 @@ cradle:
     - path: "./Setup.hs"
       component: "Cabal"
 ```
+
 Component names can be found with `stack ide targets`.
 
 ### C++ language server - CCLS
@@ -84,12 +91,15 @@ place .ccls file into the directory with the following content, google further
 ### Kotlin language server
 
 Clone language server implementation:
+
 ```
 git clone https://github.com/fwcd/kotlin-language-server ~/.KotlinLanguageServer
 ```
+
 And execute `./gradlew build` in the server directory.
 
 Put this into `coc-settings.json`:
+
 ```
 {
     "languageserver": {
