@@ -690,3 +690,17 @@
 {"description":"Order Raspberry Pi","end":"20210703T184524Z","entry":"20210630T102100Z","modified":"20210703T184524Z","status":"completed","uuid":"665563a4-c822-40b4-b04c-9c722ffaf2e4"}
 {"description":"Fzf does not work in command-line","entry":"20210703T214133Z","modified":"20210703T214133Z","status":"pending","uuid":"a09a7acd-bad1-4030-be66-9ef6ddfd160d"}
 {"description":"Move to lua nvim","entry":"20210703T214143Z","modified":"20210703T214143Z","status":"pending","uuid":"8460c77e-68d6-479c-8505-b63bdbc71d95"}
+{"description":"Move to lua nvim","end":"20210709T205615Z","entry":"20210703T214143Z","modified":"20210709T205615Z","status":"completed","uuid":"8460c77e-68d6-479c-8505-b63bdbc71d95"}
+{"description":"Prepare linkedin","end":"20210709T211528Z","entry":"20210531T162955Z","modified":"20210709T211530Z","status":"deleted","tags":["sometime"],"uuid":"a7e58e83-8585-484b-99c1-8be7ede6c149"}
+{"description":"Review github profile","end":"20210709T211530Z","entry":"20210531T163016Z","modified":"20210709T211531Z","status":"deleted","tags":["sometime"],"uuid":"e66fd567-fc27-4dbe-a9bb-3aab8fad1ad0"}
+{"description":"Buy weird sneakers","end":"20210709T211531Z","entry":"20210531T163031Z","modified":"20210709T211531Z","priority":"L","status":"deleted","uuid":"70911924-9e57-48d7-8d7e-adbb86d7af52"}
+{"description":"Transfer Tynan's book","end":"20210709T211531Z","entry":"20210531T163056Z","modified":"20210709T211531Z","status":"deleted","uuid":"fca86665-246a-430b-9405-124340aa949a"}
+{"description":"Create automatic script that loads Ubuntu system","end":"20210709T211531Z","entry":"20210601T193858Z","modified":"20210709T211531Z","status":"deleted","tags":["near"],"uuid":"a9d4dcea-20d4-4c83-80dd-b962b65ddaa2"}
+{"description":"Andrey Breslav Stepik psychology","end":"20210709T211531Z","entry":"20210602T105514Z","modified":"20210709T211531Z","status":"deleted","tags":["sometime"],"uuid":"59dcf3e4-0053-4005-b891-77f8b0782bcd"}
+{"description":"Distr lecture","due":"20210606T210000Z","end":"20210709T211531Z","entry":"20210606T142845Z","mask":"++++++++++-","modified":"20210709T211531Z","recur":"daily","status":"deleted","until":"20210616T142845Z","uuid":"487d6b9a-3326-492a-878a-0b09af824fab"}
+{"description":"Order cable on ali","end":"20210709T211531Z","entry":"20210617T085121Z","modified":"20210709T211531Z","status":"deleted","uuid":"fb1b1dfe-8b91-47be-9f74-3efe2d1126a5"}
+{"description":"Fzf does not work in command-line","end":"20210709T211531Z","entry":"20210703T214133Z","modified":"20210709T211531Z","status":"deleted","uuid":"a09a7acd-bad1-4030-be66-9ef6ddfd160d"}
+{"description":"Find out why subdomain test does not work","entry":"20210709T213855Z","modified":"20210709T213855Z","status":"pending","uuid":"d1b22a0a-6e42-4230-99e1-221cccecfa2f"}
+{"description":"Propose Dima to look for end-to-end login-password forms","entry":"20210709T213932Z","modified":"20210709T213932Z","status":"pending","uuid":"89fa5532-0c56-4e82-8e64-9b050f06cf35"}
+{"description":"Let Gleb handle prettier and format everything","entry":"20210710T154002Z","modified":"20210710T154002Z","status":"pending","uuid":"5d49df34-3109-4ba7-ac14-e5e23fb4ef0c"}
+{"description":"Handle prettier and format everything","entry":"20210710T154002Z","modified":"20210710T154101Z","status":"pending","uuid":"5d49df34-3109-4ba7-ac14-e5e23fb4ef0c"}

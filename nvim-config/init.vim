@@ -30,6 +30,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " File explorer
 Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Colorschemes
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'morhetz/gruvbox'
@@ -72,6 +73,16 @@ Plug 'ryanoasis/vim-devicons'
 
 " cool animated status line
 Plug 'windwp/windline.nvim'
+
+" allows repeating through `.` key complex actions from other plugins
+Plug 'tpope/vim-repeat'
+
+Plug 'prettier/vim-prettier'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lua/popup.nvim'
+
+Plug 'ThePrimeagen/harpoon'
 
 call plug#end()
 
@@ -212,6 +223,8 @@ nmap <C-l> <C-w>l
 nnoremap <leader>t :GFiles<CR>
 nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader>g :Ag
+nnoremap <silent> <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
 
 map q: <nop>
 
@@ -235,36 +248,44 @@ nnoremap <silent> <leader>pp :Lspsaga preview_definition<CR>
 nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
 nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
 
+" terminal mode remaps
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-[> <C-\><C-n>
+tnoremap <M-[> <Esc>
+tnoremap <C-v><Esc> <Esc>
+
+tnoremap <M-h> <c-\><c-n><c-w>h
+tnoremap <M-j> <c-\><c-n><c-w>j
+tnoremap <M-k> <c-\><c-n><c-w>k
+tnoremap <M-l> <c-\><c-n><c-w>l
+" Insert mode:
+inoremap <M-h> <Esc><c-w>h
+inoremap <M-j> <Esc><c-w>j
+inoremap <M-k> <Esc><c-w>k
+inoremap <M-l> <Esc><c-w>l
+" Visual mode:
+vnoremap <M-h> <Esc><c-w>h
+vnoremap <M-j> <Esc><c-w>j
+vnoremap <M-k> <Esc><c-w>k
+vnoremap <M-l> <Esc><c-w>l
+" Normal mode:
+nnoremap <M-h> <c-w>h
+nnoremap <M-j> <c-w>j
+nnoremap <M-k> <c-w>k
+nnoremap <M-l> <c-w>l
+
+let g:tmux_navigator_no_mappings = 1
+
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+
 " === fzf ===
 let g:fzf_layout = {'window': {'width': 1, 'height': 1}}
 " Ripgrep smart search enable
 let g:rg_command = 'rg --vimgrep -S'
-
-
-"" === Vim airline ==== "
-" let g:airline_theme='gruvbox'
-" " Enable extensions
-" let g:airline_extensions = ['branch', 'hunks']
-" " Update section z to just have line number
-" let g:airline_section_z = airline#section#create(['linenr'])
-" " Do not draw separators for empty sections (only for the active window) >
-" let g:airline_skip_empty_sections = 1
-" " Smartly uniquify buffers names with similar filename, suppressing common parts of paths.
-" let g:airline#extensions#tabline#formatter = 'unique_tail'
-" " Custom setup that removes filetype/whitespace from default vim airline bar
-" let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'z', 'warning', 'error']]
-" " Customize vim airline per filetype
-" " 'nerdtree'  - Hide nerdtree status line
-" " 'list'      - Only show file type plus current line number out of total
-" let g:airline_filetype_overrides = {
-"   \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', ''), '' ],
-"   \ 'list': [ '%y', '%l/%L'] }
-" " Enable powerline fonts, try to fix
-" let g:airline_powerline_fonts = 1
-" " Enable caching of syntax highlighting groups
-" let g:airline_highlighting_cache = 1
-" " Don't show git changes to current file in airline
-" let g:airline#extensions#hunks#enabled=0
 
 " === NERDTree === " 
 " Show hidden files/directories 
