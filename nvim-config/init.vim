@@ -192,12 +192,14 @@ endtry
 " show custom message after writing to a buffer                                                             
 " autocmd BufWritePost * redraw | echomsg 'Wanna bet?'
 
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
 " === Mappings ===
 
-" Quickfix list remaps (ripgrep populates it in an interface unknown to me):
-nmap <leader>, :cnext<CR>
-nmap <leader>. :cprev<CR>
-nmap <C-q> :copen<CR>
+" Location list remaps (ripgrep populates it in an interface unknown to me):
+nmap <leader>, :lnext<CR>
+nmap <leader>. :lprev<CR>
+nmap <leader>q :lopen<CR>
 
 " distracts :( nohlsearch
 " instead of disabling it, hit enter once more when exiting search
@@ -225,6 +227,7 @@ nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader>g :Ag
 nnoremap <silent> <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <leader>ll :lua vim.lsp.diagnostic.set_loclist({open_loclist=false})<CR>
 
 map q: <nop>
 
@@ -282,6 +285,20 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
 
+" Errors in Red
+hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
+" Warnings in Yellow
+hi LspDiagnosticsVirtualTextWarning guifg=Yellow ctermfg=Yellow
+" Info and Hints in White
+hi LspDiagnosticsVirtualTextInformation guifg=White ctermfg=White
+hi LspDiagnosticsVirtualTextHint guifg=White ctermfg=White
+
+" Underline the offending code
+hi LspDiagnosticsUnderlineError guifg=NONE ctermfg=NONE cterm=underline gui=underline
+hi LspDiagnosticsUnderlineWarning guifg=NONE ctermfg=NONE cterm=underline gui=underline
+hi LspDiagnosticsUnderlineInformation guifg=NONE ctermfg=NONE cterm=underline gui=underline
+hi LspDiagnosticsUnderlineHint guifg=NONE ctermfg=NONE cterm=underline gui=underline
+
 " === fzf ===
 let g:fzf_layout = {'window': {'width': 1, 'height': 1}}
 " Ripgrep smart search enable
@@ -301,7 +318,8 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " Plugin changes to default settings
-
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
 let g:fzf_preview_use_dev_icons = 1
 let g:python3_host_prog = '/usr/bin/python3'
 let g:session_autosave = 'no'

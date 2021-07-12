@@ -1,5 +1,9 @@
 local nvim_lsp = require('lspconfig')
 
+-- local LspLocationList = function()
+--     vim.lsp.diagnostic.set_loclist({open_loclist = false})
+-- end
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -13,7 +17,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>dD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', '<leader>dd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', '<leader>dj', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap("n", "<leader>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap('n', "<leader>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     buf_set_keymap('n', '<leader>dr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 
     -- These ones covered by lspsaga:
@@ -49,3 +53,16 @@ end
 --         virtual_text = true
 --     }
 -- )
+--
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        -- Enable underline, use default values
+        underline = true,
+        signs = false,
+        -- Enable virtual text only on Warning or above, override spacing to 2
+        virtual_text = {
+            spacing = 2,
+            severity_limit = "Warning",
+        },
+    }
+)
