@@ -84,6 +84,8 @@ Plug 'nvim-lua/popup.nvim'
 
 Plug 'ThePrimeagen/harpoon'
 
+Plug 'justinmk/vim-sneak'
+
 call plug#end()
 
 lua require("jorres")
