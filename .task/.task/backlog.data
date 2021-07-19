@@ -706,3 +706,5 @@
 {"description":"Handle prettier and format everything","entry":"20210710T154002Z","modified":"20210710T154101Z","status":"pending","uuid":"5d49df34-3109-4ba7-ac14-e5e23fb4ef0c"}
 {"description":"Handle prettier and format everything","end":"20210713T135138Z","entry":"20210710T154002Z","modified":"20210713T135138Z","status":"completed","uuid":"5d49df34-3109-4ba7-ac14-e5e23fb4ef0c"}
 {"description":"Compose intro and outro for Violetta tomorrow","entry":"20210715T194837Z","modified":"20210715T194837Z","status":"pending","uuid":"a957ab3b-fc2f-4e8c-a385-38876b60dfd0"}
+{"description":"Compose intro and outro for Violetta tomorrow","end":"20210716T191702Z","entry":"20210715T194837Z","modified":"20210716T191702Z","status":"completed","uuid":"a957ab3b-fc2f-4e8c-a385-38876b60dfd0"}
+{"description":"Communicate with Sergey the BD sensey once BD info is here","entry":"20210716T191735Z","modified":"20210716T191735Z","status":"pending","uuid":"b120f992-093b-40ab-8b70-01fa444b0a6a"}

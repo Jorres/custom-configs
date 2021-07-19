@@ -85,6 +85,7 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'ThePrimeagen/harpoon'
 
 Plug 'justinmk/vim-sneak'
+Plug 'wfxr/minimap.vim'
 
 call plug#end()
 
@@ -327,3 +328,5 @@ let g:python3_host_prog = '/usr/bin/python3'
 let g:session_autosave = 'no'
 let g:signify_sign_delete = '-'
 let g:UltiSnipsEditSplit="vertical"
+let g:minimap_width = 15
+let g:minimap_highlight_range = 1
