@@ -181,7 +181,7 @@ set noswapfile
 " Enable true color support
 set termguicolors
 " Change vertical split character to be a space (essentially hide it)
-set fillchars+=vert:.
+set fillchars+=vert:│
 " Don't dispay mode in command line (airilne already shows it)
 set noshowmode
 " Editor theme
@@ -209,10 +209,10 @@ nmap <leader>q :lopen<CR>
 nnoremap <CR> :noh<CR><CR>
 
 " Scrolling by blocks of 4, generally faster
-nnoremap <C-E> 4<C-E>
-nnoremap <C-Y> 4<C-Y>
-vnoremap <C-E> 4<C-E>
-vnoremap <C-Y> 4<C-Y>
+nnoremap <C-E> 4<C-E>:MinimapRefresh<CR>
+nnoremap <C-Y> 4<C-Y>:MinimapRefresh<CR> 
+vnoremap <C-E> 4<C-E>:MinimapRefresh<CR> 
+vnoremap <C-Y> 4<C-Y>:MinimapRefresh<CR> 
 
 "  <leader>n - Toggle NERDTree on/off
 "  <leader>f - Opens current file location in NERDTree
