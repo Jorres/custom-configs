@@ -209,10 +209,10 @@ nmap <leader>q :lopen<CR>
 nnoremap <CR> :noh<CR><CR>
 
 " Scrolling by blocks of 4, generally faster
-nnoremap <C-E> 4<C-E>:MinimapRefresh<CR>
-nnoremap <C-Y> 4<C-Y>:MinimapRefresh<CR> 
-vnoremap <C-E> 4<C-E>:MinimapRefresh<CR> 
-vnoremap <C-Y> 4<C-Y>:MinimapRefresh<CR> 
+nnoremap <C-E> 4<C-E>
+nnoremap <C-Y> 4<C-Y>
+vnoremap <C-E> 4<C-E>
+vnoremap <C-Y> 4<C-Y>
 
 "  <leader>n - Toggle NERDTree on/off
 "  <leader>f - Opens current file location in NERDTree
@@ -224,6 +224,8 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+
+nmap GGG :q<CR>gt:Goyo 90x20<CR>0zz
 
 nnoremap <leader>t :GFiles<CR>
 nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
