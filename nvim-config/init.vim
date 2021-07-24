@@ -29,8 +29,6 @@ Plug 'junegunn/limelight.vim'
 " File explorer
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'jistr/vim-nerdtree-tabs'
-
                     
 " Colorschemes
 Plug 'tyrannicaltoucan/vim-deep-space'
@@ -213,8 +211,8 @@ vnoremap <C-Y> 4<C-Y>
 
 "  <leader>n - Toggle NERDTree on/off
 "  <leader>f - Opens current file location in NERDTree
-nmap <leader>n <Plug>NERDTreeTabsToggle<CR>
-nmap <leader>f <Plug>NERDTreeTabsFind<CR>
+nmap <leader>n <Plug>NERDTreeToggle<CR>
+nmap <leader>f <Plug>NERDTreeFind<CR>
 
 " Quick window switching
 nmap <C-h> <C-w>h
