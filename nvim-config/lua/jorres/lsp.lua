@@ -37,23 +37,13 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "tsserver" }
+local servers = { "tsserver", "cssls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach, flags = { debounce_text_changes = 150 }
     }
 end
 
--- seems to have no effect, look later at your free time
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
---     vim.lsp.diagnostic.on_publish_diagnostics, {
---         signs = false,
---         underline = false,
---         update_in_insert = false,
---         virtual_text = true
---     }
--- )
---
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         -- Enable underline, use default values
@@ -66,3 +56,4 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         },
     }
 )
+

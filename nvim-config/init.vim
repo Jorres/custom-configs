@@ -8,7 +8,7 @@ Plug 'alvan/vim-closetag'
 " surrounding plugin, cs, ds...
 Plug 'tpope/vim-surround'
 " commenting shortcuts, gc, yeah
-Plug 'tomtom/tcomment_vim' 
+Plug 'tpope/vim-commentary' 
 " Display visual marks (`ma`) in separate column
 Plug 'kshenoy/vim-signature'
 
@@ -23,14 +23,15 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 
 " === UI === "
-" Fancy starting screen
-Plug 'mhinz/vim-startify'
 " distractionless mode
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 " File explorer
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'jistr/vim-nerdtree-tabs'
+
+                    
 " Colorschemes
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'morhetz/gruvbox'
@@ -64,7 +65,7 @@ Plug 'neovim/nvim-lspconfig'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/playground'
+" Plug 'nvim-treesitter/playground'
 Plug 'p00f/nvim-ts-rainbow'
 
 Plug 'glepnir/lspsaga.nvim'
@@ -79,13 +80,10 @@ Plug 'tpope/vim-repeat'
 
 Plug 'prettier/vim-prettier'
 
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-lua/popup.nvim'
-
-Plug 'ThePrimeagen/harpoon'
-
 Plug 'justinmk/vim-sneak'
 Plug 'wfxr/minimap.vim'
+
+Plug 'AndrewRadev/splitjoin.vim'
 
 call plug#end()
 
@@ -133,7 +131,7 @@ set shiftwidth=4
 set nowrap
 
 " Don't highlight current cursor line
-set nocursorline
+" set nocursorline
 
 " Disable line/column number in status line
 " Shows up in preview window when airline is disabled if not
@@ -154,13 +152,12 @@ set ignorecase
 " if the search string has an upper case letter in it, the search will be case sensitive
 set smartcase
 
+" https://stackoverflow.com/questions/2490227/how-does-vims-autoread-work
 " Automatically re-read file if a change was detected outside of vim
 set autoread
 " This reloads files when you re-focus vim
 au FocusGained,WinEnter,BufEnter * :silent! !
 " This saves file when you lose focus on vim
-" https://stackoverflow.com/questions/2490227/how-does-vims-autoread-work
-au FocusLost,WinLeave * :silent! w
 
 " Enable hybrid line numbers
 set number
@@ -216,8 +213,8 @@ vnoremap <C-Y> 4<C-Y>
 
 "  <leader>n - Toggle NERDTree on/off
 "  <leader>f - Opens current file location in NERDTree
-nmap <leader>n :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
+nmap <leader>n <Plug>NERDTreeTabsToggle<CR>
+nmap <leader>f <Plug>NERDTreeTabsFind<CR>
 
 " Quick window switching
 nmap <C-h> <C-w>h
@@ -225,16 +222,10 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-nmap GGG :q<CR>gt:Goyo 90x20<CR>0zz
-
 nnoremap <leader>t :GFiles<CR>
 nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
-nnoremap <silent> <leader>g :Ag
-nnoremap <silent> <leader>h :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nnoremap <leader>a :lua require("harpoon.mark").add_file()<CR>
+nnoremap <silent> <leader>g :Ag 
 nnoremap <leader>ll :lua vim.lsp.diagnostic.set_loclist({open_loclist=false})<CR>
-
-map q: <nop>
 
 " Ultisnips mapping
 let g:UltiSnipsExpandTrigger="<M-j>"
@@ -245,42 +236,39 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+" inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+" inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 nnoremap <silent> K :Lspsaga hover_doc<CR>
 nnoremap <silent> <leader>da <cmd>lua require('lspsaga.codeaction').code_action()<CR>
 nnoremap <silent> <leader>dn :Lspsaga rename<CR>
 nnoremap <silent> <leader>pp :Lspsaga preview_definition<CR>
 
-nnoremap <silent> <C-f> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(1)<CR>
-nnoremap <silent> <C-b> <cmd>lua require('lspsaga.action').smart_scroll_with_saga(-1)<CR>
-
-" terminal mode remaps
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-[> <C-\><C-n>
-tnoremap <M-[> <Esc>
-tnoremap <C-v><Esc> <Esc>
-
-tnoremap <M-h> <c-\><c-n><c-w>h
-tnoremap <M-j> <c-\><c-n><c-w>j
-tnoremap <M-k> <c-\><c-n><c-w>k
-tnoremap <M-l> <c-\><c-n><c-w>l
-" Insert mode:
-inoremap <M-h> <Esc><c-w>h
-inoremap <M-j> <Esc><c-w>j
-inoremap <M-k> <Esc><c-w>k
-inoremap <M-l> <Esc><c-w>l
-" Visual mode:
-vnoremap <M-h> <Esc><c-w>h
-vnoremap <M-j> <Esc><c-w>j
-vnoremap <M-k> <Esc><c-w>k
-vnoremap <M-l> <Esc><c-w>l
-" Normal mode:
-nnoremap <M-h> <c-w>h
-nnoremap <M-j> <c-w>j
-nnoremap <M-k> <c-w>k
-nnoremap <M-l> <c-w>l
+" " terminal mode remaps
+" tnoremap <Esc> <C-\><C-n>
+" tnoremap <C-[> <C-\><C-n>
+" tnoremap <M-[> <Esc>
+" tnoremap <C-v><Esc> <Esc>
+"
+" tnoremap <M-h> <c-\><c-n><c-w>h
+" tnoremap <M-j> <c-\><c-n><c-w>j
+" tnoremap <M-k> <c-\><c-n><c-w>k
+" tnoremap <M-l> <c-\><c-n><c-w>l
+" " Insert mode:
+" inoremap <M-h> <Esc><c-w>h
+" inoremap <M-j> <Esc><c-w>j
+" inoremap <M-k> <Esc><c-w>k
+" inoremap <M-l> <Esc><c-w>l
+" " Visual mode:
+" vnoremap <M-h> <Esc><c-w>h
+" vnoremap <M-j> <Esc><c-w>j
+" vnoremap <M-k> <Esc><c-w>k
+" vnoremap <M-l> <Esc><c-w>l
+" " Normal mode:
+" nnoremap <M-h> <c-w>h
+" nnoremap <M-j> <c-w>j
+" nnoremap <M-k> <c-w>k
+" nnoremap <M-l> <c-w>l
 
 let g:tmux_navigator_no_mappings = 1
 
@@ -323,12 +311,21 @@ autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
 " Plugin changes to default settings
-let g:prettier#autoformat = 1
+let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
 let g:fzf_preview_use_dev_icons = 1
 let g:python3_host_prog = '/usr/bin/python3'
 let g:session_autosave = 'no'
 let g:signify_sign_delete = '-'
 let g:UltiSnipsEditSplit="vertical"
+
 let g:minimap_width = 15
 let g:minimap_highlight_range = 1
+
+let g:closetag_filenames = '*.html,*.jsx,*.tsx'
+let g:closetag_regions =  {
+\ 'typescript.tsx': 'jsxRegion,tsxRegion',
+\ 'javascript.jsx': 'jsxRegion',
+\ }
+let g:session_autoload = 'no'
+

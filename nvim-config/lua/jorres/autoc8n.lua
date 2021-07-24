@@ -5,7 +5,7 @@ require'compe'.setup {
   autocomplete = true;
   debug = false;
   min_length = 2;
-  preselect = 'always';
+  preselect = 'enable';
   throttle_time = 80;
   source_timeout = 200;
   resolve_timeout = 800;
