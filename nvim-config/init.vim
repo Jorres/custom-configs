@@ -190,7 +190,7 @@ endtry
 " show custom message after writing to a buffer                                                             
 " autocmd BufWritePost * redraw | echomsg 'Wanna bet?'
 
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " === Mappings ===
 
