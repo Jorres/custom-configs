@@ -83,6 +83,8 @@ Plug 'wfxr/minimap.vim'
 
 Plug 'AndrewRadev/splitjoin.vim'
 
+Plug 'matze/vim-move'
+
 call plug#end()
 
 lua require("jorres")

@@ -14,3 +14,23 @@ class $1 extends React.Component<{}> {
 
 export default $1;
 endsnippet
+
+snippet blanktest
+import React from 'react';
+
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { yodaMock } from './mocks/yodaMock';
+
+import Root from 'components/root';
+
+describe('$1', () => {
+  beforeAll(() => yodaMock.listen());
+  beforeEach(() => render(<Root />));
+  afterEach(() => yodaMock.resetHandlers());
+  afterAll(() => yodaMock.close());
+
+  test('', async () => {
+  });
+});
+endsnippet
