@@ -227,6 +227,9 @@ nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
 nnoremap <silent> <leader>g :Ag 
 nnoremap <leader>ll :lua vim.lsp.diagnostic.set_loclist({open_loclist=false})<CR>
 
+let @r = 'vasy:redir >> /home/jorres/hobbies/diary/personal/neural.md | silent echon @" | redir END'
+nnoremap <silent> <leader>an @r<CR>
+
 " Ultisnips mapping
 let g:UltiSnipsExpandTrigger="<M-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
