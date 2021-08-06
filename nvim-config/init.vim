@@ -224,7 +224,7 @@ nmap <C-l> <C-w>l
 
 nnoremap <leader>t :GFiles<CR>
 nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
-nnoremap <silent> <leader>g :Ag 
+nnoremap <silent> <leader>g :Ag<C-R> 
 nnoremap <leader>ll :lua vim.lsp.diagnostic.set_loclist({open_loclist=false})<CR>
 
 let @r = 'vasy:redir >> /home/jorres/hobbies/diary/personal/neural.md | silent echon @" | redir END'
