@@ -1,5 +1,6 @@
 require("jorres.lsp")
 require("jorres.autoc8n")
 require("jorres.lspsaga")
-require("jorres.customline")
+require("jorres.lualine")
+-- require("jorres.customline")
 -- require("jorres.treesitter")

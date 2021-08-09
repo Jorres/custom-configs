@@ -70,8 +70,9 @@ Plug 'glepnir/lspsaga.nvim'
 
 Plug 'ryanoasis/vim-devicons'
 
-" cool animated status line
-Plug 'windwp/windline.nvim'
+Plug 'hoob3rt/lualine.nvim'
+" cool animated statusline, for history purposes
+" Plug 'windwp/windline.nvim'
 
 " allows repeating through `.` key complex actions from other plugins
 Plug 'tpope/vim-repeat'
@@ -211,10 +212,8 @@ nnoremap <C-Y> 4<C-Y>
 vnoremap <C-E> 4<C-E>
 vnoremap <C-Y> 4<C-Y>
 
-"  <leader>n - Toggle NERDTree on/off
-"  <leader>f - Opens current file location in NERDTree
-nmap <leader>n <Plug>NERDTreeToggle<CR>
-nmap <leader>f <Plug>NERDTreeFind<CR>
+nmap <silent> <leader>n :NERDTreeToggle<CR>
+nmap <silent> <leader>f :NERDTreeFind<CR>
 
 " Quick window switching
 nmap <C-h> <C-w>h
@@ -280,6 +279,21 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 " nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
+"
+
+nnoremap <silent> Y :vertical resize +5<CR>
+nnoremap <silent> U :vertical resize -5<CR>
+
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
 
 " Errors in Red
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
