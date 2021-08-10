@@ -295,6 +295,14 @@ noremap <leader>8 8gt
 noremap <leader>9 9gt
 noremap <leader>0 :tablast<cr>
 
+" define line highlight color
+highlight LineHighlight ctermbg=Blue guibg=#ffd787 guifg=Black
+
+" highlight the current line
+nnoremap <silent> <Leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
+" clear all the highlighted lines
+nnoremap <silent> <Leader>c :call clearmatches()<CR>
+
 " Errors in Red
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
 " Warnings in Yellow
