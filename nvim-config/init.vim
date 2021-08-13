@@ -86,6 +86,8 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'matze/vim-move'
 
+Plug 'metakirby5/codi.vim'
+
 call plug#end()
 
 lua require("jorres")
