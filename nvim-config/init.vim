@@ -82,6 +82,9 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+" violet color scheme
+Plug 'wadackel/vim-dogrun'
 call plug#end()
 
 lua require("jorres")
@@ -189,7 +192,7 @@ endtry
 " show custom message after writing to a buffer                                                             
 " autocmd BufWritePost * redraw | echomsg 'Wanna bet?'
 
-" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " === Mappings ===
 
@@ -198,18 +201,17 @@ endtry
 " nmap <leader>. :lprev<CR>
 " nmap <leader>q :lopen<CR>
 
-" nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
-" nnoremap <silent> <leader>g :Ag<C-R> 
 " nnoremap <leader>ll :lua vim.lsp.diagnostic.set_loclist({open_loclist=false})<CR>
-" nnoremap <leader>t :GFiles<CR>
-"
-nnoremap <leader>g :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+
+nnoremap <leader>gs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
 nnoremap <leader>t :lua require('telescope.builtin').git_files()<CR>
 
 nnoremap <leader>j :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>b :lua require('jorres.telescope').git_branches()<CR>
 nnoremap <leader>vrc :lua require('jorres.telescope').search_dotfiles()<CR>
+
 " nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 " nnoremap <leader>va :lua require('theprimeagen.telescope').anime_selector()<CR>
 " nnoremap <leader>vc :lua require('theprimeagen.telescope').chat_selector()<CR>

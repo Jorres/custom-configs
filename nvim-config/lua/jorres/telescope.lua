@@ -20,9 +20,13 @@ require('telescope').setup{
         layout_config = {
             horizontal = {
                 mirror = false,
+                height = {padding = 1},
+                width = {padding = 3},
             },
             vertical = {
                 mirror = false,
+                height = {padding = 1},
+                width = {padding = 3},
             },
         },
         file_sorter =  require'telescope.sorters'.get_fzy_sorter,
@@ -30,7 +34,7 @@ require('telescope').setup{
         generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
         winblend = 0,
         border = {},
-        borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+        borderchars = { '─', ' ', '─', ' ', '╭', '╮', '╯', '╰' },
         color_devicons = true,
         use_less = true,
         path_display = {},
