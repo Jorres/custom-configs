@@ -18,10 +18,10 @@ require('telescope').setup{
         sorting_strategy = "descending",
         layout_strategy = "horizontal",
         layout_config = {
-            width_padding = 1,
-            height_padding = 1,
             horizontal = {
                 mirror = false,
+                width_padding = 1,
+                height_padding = 1,
             },
             vertical = {
                 mirror = false,
