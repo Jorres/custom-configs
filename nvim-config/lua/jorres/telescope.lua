@@ -16,8 +16,10 @@ require('telescope').setup{
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "descending",
-        layout_strategy = "flex",
+        layout_strategy = "horizontal",
         layout_config = {
+            width_padding = 1,
+            height_padding = 1,
             horizontal = {
                 mirror = false,
             },
