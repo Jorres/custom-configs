@@ -205,7 +205,7 @@ endtry
 "
 nnoremap <leader>g :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 " nnoremap <leader>f :lua require('telescope.builtin').git_files()<CR>
-nnoremap <Leader>t :lua require('telescope.builtin').file_browser()<CR>
+nnoremap <Leader>t :lua require('telescope.builtin').live_grep()<CR>
 
 nnoremap <leader>j :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
