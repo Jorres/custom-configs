@@ -20,8 +20,6 @@ require('telescope').setup{
         layout_config = {
             horizontal = {
                 mirror = false,
-                width_padding = 1,
-                height_padding = 1,
             },
             vertical = {
                 mirror = false,
