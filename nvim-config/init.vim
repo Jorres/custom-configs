@@ -33,15 +33,6 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Colorschemes
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'morhetz/gruvbox'
-" Customized vim status line
-" Plug 'vim-airline/vim-airline'
-
-" === Fuzzy finder
-Plug 'junegunn/fzf', { 'do' : { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-" Overrides :Rg command from fzf, outputs to quickfix list. 
-" The older behaviour is replicated by Ag `silver finder` now.
-Plug 'jremmen/vim-ripgrep'
 
 " You've long been dreaming about box ascii art to create ascii schematics.
 Plug 'vim-scripts/DrawIt'
@@ -80,14 +71,17 @@ Plug 'tpope/vim-repeat'
 Plug 'prettier/vim-prettier'
 
 Plug 'justinmk/vim-sneak'
-Plug 'wfxr/minimap.vim'
 
 Plug 'AndrewRadev/splitjoin.vim'
 
 Plug 'matze/vim-move'
 
-Plug 'metakirby5/codi.vim'
+Plug 'mattn/emmet-vim'
 
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
 
 lua require("jorres")
@@ -199,10 +193,29 @@ endtry
 
 " === Mappings ===
 
-" Location list remaps (ripgrep populates it in an interface unknown to me):
-nmap <leader>, :lnext<CR>
-nmap <leader>. :lprev<CR>
-nmap <leader>q :lopen<CR>
+" " Location list remaps (ripgrep populates it in an interface unknown to me):
+" nmap <leader>, :lnext<CR>
+" nmap <leader>. :lprev<CR>
+" nmap <leader>q :lopen<CR>
+
+" nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
+" nnoremap <silent> <leader>g :Ag<C-R> 
+" nnoremap <leader>ll :lua vim.lsp.diagnostic.set_loclist({open_loclist=false})<CR>
+" nnoremap <leader>t :GFiles<CR>
+"
+nnoremap <leader>g :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
+" nnoremap <leader>f :lua require('telescope.builtin').git_files()<CR>
+nnoremap <Leader>t :lua require('telescope.builtin').find_files()<CR>
+
+nnoremap <leader>j :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
+nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
+" nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>vrc :lua require('jorres.telescope').search_dotfiles()<CR>
+" nnoremap <leader>va :lua require('theprimeagen.telescope').anime_selector()<CR>
+" nnoremap <leader>vc :lua require('theprimeagen.telescope').chat_selector()<CR>
+" nnoremap <leader>gc :lua require('theprimeagen.telescope').git_branches()<CR>
+" nnoremap <leader>gw :lua require('telescope').extensions.git_worktree.git_worktrees()<CR>
+" nnoremap <leader>gm :lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>
 
 " distracts :( nohlsearch
 " instead of disabling it, hit enter once more when exiting search
@@ -223,10 +236,6 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-nnoremap <leader>t :GFiles<CR>
-nnoremap <silent> <leader>j :Ag <C-R><C-W><CR>
-nnoremap <silent> <leader>g :Ag<C-R> 
-nnoremap <leader>ll :lua vim.lsp.diagnostic.set_loclist({open_loclist=false})<CR>
 
 let @r = 'vasy:redir >> /home/jorres/hobbies/diary/personal/neural.md | silent echon @" | redir END'
 nnoremap <silent> <leader>an @r<CR>
@@ -248,40 +257,12 @@ nnoremap <silent> <leader>da <cmd>lua require('lspsaga.codeaction').code_action(
 nnoremap <silent> <leader>dn :Lspsaga rename<CR>
 nnoremap <silent> <leader>pp :Lspsaga preview_definition<CR>
 
-" " terminal mode remaps
-" tnoremap <Esc> <C-\><C-n>
-" tnoremap <C-[> <C-\><C-n>
-" tnoremap <M-[> <Esc>
-" tnoremap <C-v><Esc> <Esc>
-"
-" tnoremap <M-h> <c-\><c-n><c-w>h
-" tnoremap <M-j> <c-\><c-n><c-w>j
-" tnoremap <M-k> <c-\><c-n><c-w>k
-" tnoremap <M-l> <c-\><c-n><c-w>l
-" " Insert mode:
-" inoremap <M-h> <Esc><c-w>h
-" inoremap <M-j> <Esc><c-w>j
-" inoremap <M-k> <Esc><c-w>k
-" inoremap <M-l> <Esc><c-w>l
-" " Visual mode:
-" vnoremap <M-h> <Esc><c-w>h
-" vnoremap <M-j> <Esc><c-w>j
-" vnoremap <M-k> <Esc><c-w>k
-" vnoremap <M-l> <Esc><c-w>l
-" " Normal mode:
-" nnoremap <M-h> <c-w>h
-" nnoremap <M-j> <c-w>j
-" nnoremap <M-k> <c-w>k
-" nnoremap <M-l> <c-w>l
-
 let g:tmux_navigator_no_mappings = 1
 
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
-" nnoremap <silent> {Previous-Mapping} :TmuxNavigatePrevious<cr>
-"
 
 nnoremap <silent> Y :vertical resize +5<CR>
 nnoremap <silent> U :vertical resize -5<CR>
