@@ -1,0 +1,57 @@
+#!/bin/bash
+
+# This script relies heavily on existing vim sessions set up within vim. 
+
+SESSION_NAME=mdinc
+
+cd ~/work
+
+tmux has-session -t "$SESSION_NAME"
+
+if [ $? != 0 ]
+then
+    tmux new-session -s "$SESSION_NAME" -n starter -d 
+
+    # MDInc docs 
+    tmux new-window -n docs -t "$SESSION_NAME"
+    tmux send-keys -t "$SESSION_NAME":2 "cd ~/work/mdinc/mdinc-docs" C-m
+    tmux split-window -h -t "$SESSION_NAME":2 "nvim"
+    tmux resize-pane -t "$SESSION_NAME":2.2 -L 13
+    tmux send-keys -t "$SESSION_NAME":2.2 ":OpenSession mdinc-docs" C-m
+    tmux send-keys -t "$SESSION_NAME":2.2 C-m
+    tmux split-window -v -t "$SESSION_NAME":2.1
+
+    # # mdinc overview planning
+    # tmux new-window -n board -t "$SESSION_NAME"
+    # tmux send-keys -t "$SESSION_NAME":3 "cd ~/work/mdinc/cto/" C-m
+    # tmux send-keys -t "$SESSION_NAME":3 "taskell" C-m
+
+    tmux new-window -n cto-plans -t "$SESSION_NAME" "nvim"
+    tmux send-keys -t "$SESSION_NAME":3 ":OpenSession cto-plans" C-m
+    tmux send-keys -t "$SESSION_NAME":3 C-m
+
+    # yoda editor + shell
+    tmux new-window -n yoda -t "$SESSION_NAME"
+    tmux send-keys -t "$SESSION_NAME":4 "cd ~/work/mdinc/yoda" C-m
+    tmux split-window -h -t "$SESSION_NAME":4
+    tmux resize-pane -t "$SESSION_NAME":4.2 -L 50
+    tmux send-keys -t "$SESSION_NAME":4.2 "nvim" C-m
+    tmux send-keys -t "$SESSION_NAME":4.2 ":OpenSession yoda" C-m
+
+    # kenobi editor + shell
+    tmux new-window -n kenobi -t "$SESSION_NAME"
+    tmux send-keys -t "$SESSION_NAME":5 "cd ~/work/mdinc/kenobi" C-m
+    tmux split-window -h -t "$SESSION_NAME":5
+    tmux resize-pane -t "$SESSION_NAME":5.2 -L 50
+    tmux send-keys -t "$SESSION_NAME":5.2 "nvim" C-m
+    tmux send-keys -t "$SESSION_NAME":5.2 ":OpenSession kenobi" C-m
+
+    # alderaan editor + shell
+    tmux new-window -n alderaan -t "$SESSION_NAME"
+    tmux send-keys -t "$SESSION_NAME":6 "cd ~/work/mdinc/alderaan" C-m
+    tmux split-window -h -t "$SESSION_NAME":6
+    tmux resize-pane -t "$SESSION_NAME":6.2 -L 50
+    tmux send-keys -t "$SESSION_NAME":6.2 "nvim" C-m
+    tmux send-keys -t "$SESSION_NAME":6.2 ":OpenSession alderaan" C-m
+fi
+tmux attach -t "$SESSION_NAME"

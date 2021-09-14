@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# This script relies heavily on existing vim sessions set up within vim. 
+
+SESSION_NAME=allrounder
+
+cd ~/work
+
+tmux has-session -t "$SESSION_NAME"
+
+if [ $? != 0 ]
+then
+    tmux new-session -s "$SESSION_NAME" -n starter -d 
+
+    # Vim, tmux configs
+    tmux new-window -n configs -t "$SESSION_NAME" "nvim"
+    tmux send-keys -t "$SESSION_NAME":2 ":OpenSession configs" C-m
+    tmux send-keys -t "$SESSION_NAME":2 C-m
+    tmux split-window -h -t "$SESSION_NAME":2
+    tmux resize-pane -t "$SESSION_NAME":2.2 -R 25
+    tmux send-keys -t "$SESSION_NAME":2.2 "cd ~/custom-configs" C-m
+
+    # diary
+    tmux new-window -n diary -t "$SESSION_NAME" "nvim"
+    tmux send-keys -t "$SESSION_NAME":3 ":OpenSession diary" C-m
+    tmux send-keys -t "$SESSION_NAME":3 C-m
+fi
+tmux attach -t "$SESSION_NAME"
