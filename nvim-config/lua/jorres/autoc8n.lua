@@ -4,15 +4,15 @@ require'compe'.setup {
   enabled = true;
   autocomplete = true;
   debug = false;
-  min_length = 2;
+  min_length = 1;
   preselect = 'enable';
-  throttle_time = 80;
+  throttle_time = 200;
   source_timeout = 200;
-  resolve_timeout = 800;
-  incomplete_delay = 400;
-  max_abbr_width = 10;
-  max_kind_width = 10;
-  max_menu_width = 10;
+  resolve_timeout = 500;
+  incomplete_delay = 500;
+  max_abbr_width = 30;
+  max_kind_width = 30;
+  max_menu_width = 30;
 
   documentation = true;
 
@@ -26,6 +26,10 @@ require'compe'.setup {
     ultisnips = true;
     luasnip = true;
     tags = true;
+    -- tabnine = {
+    --     max_num_results = 3;
+    --     show_prediction_strengh = false;
+    -- };
   };
 }
 

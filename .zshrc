@@ -128,3 +128,5 @@ if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/y
 # The next line enables shell command completion for yc.
 if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
 
+
+alias luamake=/home/jorres/hobbies/lua-language-server/3rd/luamake/luamake

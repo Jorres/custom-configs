@@ -85,6 +85,24 @@ Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " violet color scheme
 Plug 'wadackel/vim-dogrun'
+" green color scheme
+Plug 'sainnhe/everforest'
+
+Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
+
+Plug 'hashivim/vim-terraform'
+" A cool diffview, however it messes up with my colorscheme, have to look
+" further
+" Plug 'sindrets/diffview.nvim'
+Plug 'martingms/vipsql'
+
+" An attempt to be professional with debugger enabled
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+
+" A zero-config plugin to give you last used results for telescope by default
+Plug 'tami5/sqlite.lua'
+Plug 'nvim-telescope/telescope-frecency.nvim'
 call plug#end()
 
 lua require("jorres")
@@ -183,6 +201,7 @@ set fillchars+=vert:│
 set noshowmode
 " Editor theme
 set background=dark
+let g:everforest_background = 'hard'
 try
   colorscheme gruvbox
 catch
@@ -206,11 +225,15 @@ autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 nnoremap <leader>gs :lua require('telescope.builtin').grep_string({ search = vim.fn.input("Grep For > ")})<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
 nnoremap <leader>t :lua require('telescope.builtin').git_files()<CR>
+nnoremap <leader>f :Telescope frecency<CR>
+
 
 nnoremap <leader>j :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>b :lua require('jorres.telescope').git_branches()<CR>
 nnoremap <leader>vrc :lua require('jorres.telescope').search_dotfiles()<CR>
+
+nnoremap <leader>pr :Prettier<CR>
 
 " nnoremap <leader>pb :lua require('telescope.builtin').buffers()<CR>
 " nnoremap <leader>va :lua require('theprimeagen.telescope').anime_selector()<CR>
@@ -228,8 +251,8 @@ nnoremap <C-Y> 4<C-Y>
 vnoremap <C-E> 4<C-E>
 vnoremap <C-Y> 4<C-Y>
 
-nmap <silent> <leader>n :NERDTreeToggle<CR>
-nmap <silent> <leader>f :NERDTreeFind<CR>
+nmap <silent> <leader>n :NERDTreeFind<CR>
+" nmap <silent> <leader>f :NERDTreeFind<CR>
 
 " Quick window switching
 nmap <C-h> <C-w>h
@@ -237,8 +260,7 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-
-let @r = 'vasy:redir >> /home/jorres/hobbies/diary/personal/neural.md | silent echon @" | redir END'
+let @r = 'vasy:redir >> /home/jorres/hobbies/lifelog/personal/neural.md | silent echon @" | redir END'
 nnoremap <silent> <leader>an @r<CR>
 
 " Ultisnips mapping
@@ -282,10 +304,22 @@ noremap <leader>0 :tablast<cr>
 " define line highlight color
 highlight LineHighlight ctermbg=Blue guibg=#ffd787 guifg=Black
 
-" highlight the current line
-nnoremap <silent> <Leader>h :call matchadd('LineHighlight', '\%'.line('.').'l')<CR>
-" clear all the highlighted lines
-nnoremap <silent> <Leader>c :call clearmatches()<CR>
+nnoremap <leader>src :source $MYVIMRC<CR>
+nnoremap <leader>plgi :PlugInstall<CR>
+nnoremap <leader>plgc :PlugClean<CR>
+
+" Starts an async psql job, prompting for the psql arguments.
+" Also opens a scratch buffer where output from psql is directed.
+noremap <leader>po :VipsqlOpenSession<CR>
+
+" Terminates psql (happens automatically if the output buffer is closed).
+noremap <silent> <leader>pk :VipsqlCloseSession<CR>
+
+" In normal-mode, prompts for input to psql directly.
+nnoremap <leader>ps :VipsqlShell<CR>
+
+" In visual-mode, sends the selected text to psql.
+vnoremap <leader>ps :VipsqlSendSelection<CR>
 
 " Errors in Red
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
@@ -337,4 +371,10 @@ let g:closetag_regions =  {
 \ 'javascript.jsx': 'jsxRegion',
 \ }
 let g:session_autoload = 'no'
+let g:terraform_fmt_on_save = 1
+let g:terraform_align = 1
 
+" Whether or not to clear the output buffer on each send
+let g:vipsql_auto_clear_enabled = 1
+" What `vim` command to use when opening the output buffer
+let g:vipsql_new_buffer_cmd = "vsplit"
