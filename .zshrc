@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias katas="python3 ~/hobbies/vim-katas/exercises/openvim.py"
 alias etern="python3 ~/hobbies/vim-katas/exercises/project_eternity.py"
+alias lower="sudo /home/jorres/dotfiles/utilities/lower-the-curtains.sh 20"
 
 alias vimi="nvim ~/.config/nvim/init.vim"
 alias vimp="nvim ~/.config/nvim/plugins.vim"
