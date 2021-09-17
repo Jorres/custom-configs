@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
-"0 === Lang-agnostic editing plugins ===
+" === Lang-agnostic editing plugins ===
 Plug 'jiangmiao/auto-pairs' " auto-close brackets plugin
 Plug 'alvan/vim-closetag' " auto close html tags
 Plug 'tpope/vim-surround' " cs<surrounding1><surrounding2> ds<surrounding1>
