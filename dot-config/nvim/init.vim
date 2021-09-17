@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" === Lang-agnostic editing plugins ===
+"0 === Lang-agnostic editing plugins ===
 Plug 'jiangmiao/auto-pairs' " auto-close brackets plugin
 Plug 'alvan/vim-closetag' " auto close html tags
 Plug 'tpope/vim-surround' " cs<surrounding1><surrounding2> ds<surrounding1>
@@ -56,7 +56,6 @@ Plug 'nvim-telescope/telescope-frecency.nvim'
 " === Language specific ===
 Plug 'hashivim/vim-terraform'
 Plug 'martingms/vipsql' "  <leader>po
-Plug 'mattn/emmet-vim' " ???
 
 " === Dependencies ===
 Plug 'tami5/sqlite.lua'
@@ -208,10 +207,10 @@ nnoremap <leader>pr :Prettier<CR>
 nnoremap <CR> :noh<CR><CR>
 
 " Scrolling by blocks of 4, generally faster
-nnoremap <C-E> 4<C-E>
-nnoremap <C-Y> 4<C-Y>
-vnoremap <C-E> 4<C-E>
-vnoremap <C-Y> 4<C-Y>
+" nnoremap <C-E> <C-E><C-E><C-E><C-E>
+" nnoremap <C-Y> <C-Y><C-Y><C-Y><C-Y>
+" vnoremap <C-E> <C-E><C-E><C-E><C-E>
+" vnoremap <C-Y> <C-Y><C-Y><C-Y><C-Y>
 
 nmap <silent> <leader>n :NERDTreeFind<CR>
 " nmap <silent> <leader>f :NERDTreeFind<CR>
@@ -233,7 +232,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " Autocompletion mapping 
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 " inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
 " inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
