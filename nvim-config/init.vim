@@ -1,110 +1,72 @@
 call plug#begin('~/.config/nvim/plugged')
 
-" === lang-agnostic editing plugins ===
-" auto-close brackets plugin
-Plug 'jiangmiao/auto-pairs'
-" auto close html tags
-Plug 'alvan/vim-closetag'
-" surrounding plugin, cs, ds...
-Plug 'tpope/vim-surround'
-" commenting shortcuts, gc, yeah
-Plug 'tpope/vim-commentary' 
-" Display visual marks (`ma`) in separate column
-Plug 'kshenoy/vim-signature'
+" === Lang-agnostic editing plugins ===
+Plug 'jiangmiao/auto-pairs' " auto-close brackets plugin
+Plug 'alvan/vim-closetag' " auto close html tags
+Plug 'tpope/vim-surround' " cs<surrounding1><surrounding2> ds<surrounding1>
+Plug 'b3nj5m1n/kommentary' " visual select + gc
+Plug 'kshenoy/vim-signature' " Display visual marks (`ma`) in separate column
+Plug 'SirVer/ultisnips' " :UltiSnips...
 
-" === Git Plugins === "
-" Global vim :G git manager
-Plug 'tpope/vim-fugitive'
-" Enable git changes to be shown in sign column
-Plug 'mhinz/vim-signify'
+Plug 'prettier/vim-prettier' " :Prettier
+Plug 'justinmk/vim-sneak' " s<letter1><letter2>
+Plug 'tpope/vim-repeat' " zero-config, allows to repeat complex commands
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'matze/vim-move'
+Plug 'sk1418/HowMuch' " https://github.com/sk1418/HowMuch
 
-" Provides OpenSession and SaveSession
-Plug 'xolox/vim-misc' 
-Plug 'xolox/vim-session'
+" === Vim utilities ===
+Plug 'xolox/vim-session' " Provides OpenSession and SaveSession
+
+" === Git ===
+Plug 'tpope/vim-fugitive' " :G
+Plug 'mhinz/vim-signify' " Enable git changes to be shown in sign column
 
 " === UI === "
-" distractionless mode
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim' " distractionless mode
+Plug 'junegunn/limelight.vim' " highlight only current paragraph
+Plug 'hoob3rt/lualine.nvim'
+Plug 'karb94/neoscroll.nvim' " smooth scroll
+
 " File explorer
 Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
                     
-" Colorschemes
-Plug 'tyrannicaltoucan/vim-deep-space'
+" === Colorschemes === "
 Plug 'morhetz/gruvbox'
 
-" You've long been dreaming about box ascii art to create ascii schematics.
-Plug 'vim-scripts/DrawIt'
+" === TMUX === "
+Plug 'christoomey/vim-tmux-navigator' " Allows to use <C-hjkl> to move to/from tmux panes
+Plug 'dhruvasagar/vim-zoom' " Allows to mimic tmux <pref>Z with <C-W>m
 
-" Allows to use <C-hjkl> to move to/from tmux panes
-Plug 'christoomey/vim-tmux-navigator'
-" Allows to mimic tmux <pref>Z with <C-W>m
-Plug 'dhruvasagar/vim-zoom'
-
-" Snippets engine, run :UltiSnips...
-Plug 'SirVer/ultisnips'
-
-" https://github.com/sk1418/HowMuch
-Plug 'sk1418/HowMuch'
-
-" Latest LSP experiment
-Plug 'hrsh7th/nvim-compe'
+" === LSP === 
+Plug 'hrsh7th/nvim-compe'   
 Plug 'neovim/nvim-lspconfig'
-
-" Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-" Plug 'nvim-treesitter/playground'
-Plug 'p00f/nvim-ts-rainbow'
-
 Plug 'glepnir/lspsaga.nvim'
 
-Plug 'ryanoasis/vim-devicons'
+" === Treesitter ===
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'
 
-Plug 'hoob3rt/lualine.nvim'
-" cool animated statusline, for history purposes
-" Plug 'windwp/windline.nvim'
-
-" allows repeating through `.` key complex actions from other plugins
-Plug 'tpope/vim-repeat'
-
-Plug 'prettier/vim-prettier'
-
-Plug 'justinmk/vim-sneak'
-
-Plug 'AndrewRadev/splitjoin.vim'
-
-Plug 'matze/vim-move'
-
-Plug 'mattn/emmet-vim'
-
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
+" === Telescope === 
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
-
-" violet color scheme
-Plug 'wadackel/vim-dogrun'
-" green color scheme
-Plug 'sainnhe/everforest'
-
-Plug 'tzachar/compe-tabnine', { 'do': './install.sh' }
-
-Plug 'hashivim/vim-terraform'
-" A cool diffview, however it messes up with my colorscheme, have to look
-" further
-" Plug 'sindrets/diffview.nvim'
-Plug 'martingms/vipsql'
-
-" An attempt to be professional with debugger enabled
-Plug 'mfussenegger/nvim-dap'
-Plug 'rcarriga/nvim-dap-ui'
-
-" A zero-config plugin to give you last used results for telescope by default
-Plug 'tami5/sqlite.lua'
 Plug 'nvim-telescope/telescope-frecency.nvim'
-call plug#end()
 
+" === Language specific ===
+Plug 'hashivim/vim-terraform'
+Plug 'martingms/vipsql' "  <leader>po
+Plug 'mattn/emmet-vim' " ???
+
+" === Dependencies ===
+Plug 'tami5/sqlite.lua'
+Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'xolox/vim-misc' 
+
+call plug#end()
+                            
 lua require("jorres")
 
 scriptencoding utf-8
