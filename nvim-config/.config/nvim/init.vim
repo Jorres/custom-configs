@@ -27,6 +27,7 @@ Plug 'junegunn/goyo.vim' " distractionless mode
 Plug 'junegunn/limelight.vim' " highlight only current paragraph
 Plug 'hoob3rt/lualine.nvim'
 Plug 'karb94/neoscroll.nvim' " smooth scroll
+Plug 'edluffy/specs.nvim' " cursor jump landing
 
 " File explorer
 Plug 'scrooloose/nerdtree'
