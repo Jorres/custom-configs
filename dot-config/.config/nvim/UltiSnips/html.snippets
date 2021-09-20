@@ -1,0 +1,22 @@
+snippet tmp
+<!doctype html>
+<html lang=en>
+    <head>
+    <meta charset=utf-8>
+    <title>{$2}</title>
+</head>
+<body>
+    <${1:div}>I'm the content</$1>
+</body>
+</html>
+endsnippet
+
+snippet tag
+<${1:div}>
+    Hello world
+</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet hi
+`!p snip.rv = "Hello"`
+endsnippet

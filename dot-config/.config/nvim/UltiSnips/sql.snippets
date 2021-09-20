@@ -1,0 +1,31 @@
+snippet ct
+create table $1 (
+    id int,
+);
+endsnippet
+
+snippet ito
+insert into $1 (,) values (,);
+endsnippet
+
+snippet pk
+alter table $1 
+    add constraint <name> 
+    primary key (,);
+endsnippet
+
+snippet fk
+alter table $1 
+    add constraint $1 
+    foreign key (,) 
+    references <tableName> (,);
+endsnippet
+
+snippet dt
+drop table $1;
+endsnippet
+
+snippet vc
+varchar($1)
+endsnippet
+

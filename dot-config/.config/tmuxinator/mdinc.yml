@@ -1,0 +1,58 @@
+# /home/jorres/.config/tmuxinator/mdinc.yml
+
+name: mdinc
+root: ~/
+
+windows:
+    - starter:
+        - clear
+    - docs: 
+        layout: even-horizontal
+        root: "~/work/mdinc/mdinc-docs"
+        panes:
+            - shell:
+                - clear
+            - nvim:
+                - nvim 
+                - ':OpenSession mdinc-docs'
+                - Enter
+    - cto-plans:
+        layout: even-horizontal
+        root: "~/work/mdinc/cto"
+        panes:
+            - shell:
+                - clear
+            - nvim:
+                - nvim 
+                - ':OpenSession cto-plans'
+                - Enter
+    - yoda:
+        layout: even-horizontal
+        root: "~/work/mdinc/yoda"
+        panes:
+            - shell:
+                - clear
+            - nvim:
+                - nvim 
+                - ':OpenSession yoda'
+                - Enter
+    - yoda:
+        layout: even-horizontal
+        root: "~/work/mdinc/kenobi"
+        panes:
+            - shell:
+                - clear
+            - nvim:
+                - nvim 
+                - ':OpenSession kenobi'
+                - Enter
+    - alderaan:
+        layout: even-horizontal
+        root: "~/work/mdinc/alderaan"
+        panes:
+            - shell:
+                - clear
+            - nvim:
+                - nvim 
+                - ':OpenSession alderaan'
+                - Enter

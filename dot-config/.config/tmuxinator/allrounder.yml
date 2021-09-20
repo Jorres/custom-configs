@@ -1,0 +1,34 @@
+# /home/jorres/.config/tmuxinator/allrounder.yml
+
+name: allrounder
+root: ~/
+
+windows:
+    - starter:
+        - clear
+    - configs:
+        layout: main-vertical
+        root: "~/dotfiles"
+        panes:
+            - nvim: 
+                - nvim
+                - ":OpenSession! configs"
+                - Enter
+            - shell:
+                - clear
+    - university:
+        layout: even-horizontal
+        root: "~/work/uni-codebase"
+        panes:
+            - shell1:
+                - clear
+            - shell2:
+                - clear
+    - lifelog:
+        layout: even-horizontal
+        root: "~/hobbies/lifelog"
+        panes:
+            - nvim: 
+                - nvim
+                - ":OpenSession! diary"
+                - Enter

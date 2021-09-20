@@ -1,8 +1,0 @@
-require("jorres.lsp")
-require("jorres.autoc8n")
-require("jorres.lspsaga")
-require("jorres.lualine")
-require("jorres.telescope")
-require("jorres.smoothscroll")
-require("jorres.cursor-landing")
--- require("jorres.treesitter")
