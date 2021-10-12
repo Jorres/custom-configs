@@ -6,53 +6,102 @@ root: ~/
 windows:
     - starter:
         - clear
-    - docs: 
-        layout: even-horizontal
-        root: "~/work/mdinc/mdinc-docs"
-        panes:
-            - shell:
-                - clear
-            - nvim:
-                - nvim 
-                - ':OpenSession mdinc-docs'
-                - Enter
-    - cto-plans:
+    # - docs: 
+    #     layout: even-horizontal
+    #     root: "~/work/mdinc/mdinc-docs"
+    #     panes:
+    #         - shell:
+    #             - clear
+    #         - nvim:
+    #             - nvim 
+    #             - ':OpenSession mdinc-docs'
+    #             - Enter
+    - plans:
         layout: even-horizontal
         root: "~/work/mdinc/cto"
         panes:
-            - shell:
-                - clear
             - nvim:
                 - nvim 
                 - ':OpenSession cto-plans'
                 - Enter
-    - yoda:
-        layout: even-horizontal
-        root: "~/work/mdinc/yoda"
-        panes:
             - shell:
                 - clear
+    # - yoda:
+    #     layout: even-horizontal
+    #     root: "~/work/mdinc/yoda"
+    #     panes:
+    #         - shell:
+    #             - clear
+    #         - nvim:
+    #             - nvim 
+    #             - ':OpenSession yoda'
+    #             - Enter
+    # - kenobi:
+    #     layout: even-horizontal
+    #     root: "~/work/mdinc/kenobi"
+    #     panes:
+    #         - shell:
+    #             - clear
+    #         - nvim:
+    #             - nvim 
+    #             - ':OpenSession kenobi'
+    #             - Enter
+    - legacy:
+        layout: main-vertical
+        root: "~/work/mdinc/cerebrum-legacy"
+        panes:
             - nvim:
                 - nvim 
-                - ':OpenSession yoda'
+                - ':OpenSession cerebrum-legacy'
                 - Enter
-    - yoda:
-        layout: even-horizontal
-        root: "~/work/mdinc/kenobi"
-        panes:
             - shell:
                 - clear
-            - nvim:
-                - nvim 
-                - ':OpenSession kenobi'
-                - Enter
     - alderaan:
-        layout: even-horizontal
-        root: "~/work/mdinc/alderaan"
+        layout: main-vertical
+        root: "~/work/mdinc/alderaan/"
         panes:
-            - shell:
-                - clear
             - nvim:
                 - nvim 
                 - ':OpenSession alderaan'
                 - Enter
+            - shell:
+                - clear
+    - baby-yoda:
+        layout: even-horizontal
+        root: "~/work/mdinc/keycloak-proxy"
+        panes:
+            - nvim:
+                - nvim 
+                - ':OpenSession babyyoda'
+                - Enter
+            - shell:
+                - clear
+    - ben:
+        layout: even-horizontal
+        root: "~/work/mdinc/ben"
+        panes:
+            - nvim:
+                - nvim 
+                - ':OpenSession ben'
+                - Enter
+            - shell:
+                - clear
+    - yoda:
+        layout: even-horizontal
+        root: "~/work/mdinc/yoda-nest"
+        panes:
+            - nvim:
+                - nvim 
+                - ':OpenSession yoda'
+                - Enter
+            - shell:
+                - clear
+    - sshes:
+        layout: even-horizontal
+        root: "~/work/mdinc/alderaan"
+        panes:
+            - certauth:
+                - sudo openvpn --config ./modules/vpn_gateway/vpn-gateway-data/client1.ovpn
+            - openvpn:
+                - ssh -o IdentitiesOnly=yes -i ./modules/vpn_gateway/vpn-gateway-data/vpn-gateway mdinc-dev@178.154.202.6
+

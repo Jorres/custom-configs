@@ -102,6 +102,7 @@ source $ZSH/oh-my-zsh.sh
 alias katas="python3 ~/hobbies/vim-katas/exercises/openvim.py"
 alias etern="python3 ~/hobbies/vim-katas/exercises/project_eternity.py"
 alias lower="sudo /home/jorres/dotfiles/utilities/lower-the-curtains.sh 20"
+alias lower="sudo /home/jorres/dotfiles/utilities/lower-the-curtains.sh 20"
 
 alias vimi="nvim ~/.config/nvim/init.vim"
 alias vimp="nvim ~/.config/nvim/plugins.vim"
@@ -118,7 +119,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="/home/jorres/Downloads/code-minimap-v0.6.0-x86_64-unknown-linux-gnu:$PATH"
+export PATH="/home/jorres/lua-5.4.3/src/:$PATH"
 
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`

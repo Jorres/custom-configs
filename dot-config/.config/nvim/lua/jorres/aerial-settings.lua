@@ -56,7 +56,7 @@
   -- Can also be specified per-filetype as a map (see below)
   open_automatic = {
     -- use underscore to specify the default behavior
-    ['_']  = true,
+    ['_']  = false,
     -- typescript = false,
     -- rust   = false,
   },

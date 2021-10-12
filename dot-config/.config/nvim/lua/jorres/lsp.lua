@@ -1,4 +1,3 @@
-local nvim_lsp = require('lspconfig')
 local aerial = require('aerial')
 
 -- local LspLocationList = function()
@@ -48,15 +47,6 @@ local on_attach = function(client, bufnr)
     -- buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "tsserver", "cssls" }
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup {
-        on_attach = on_attach, flags = { debounce_text_changes = 150 }
-    }
-end
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
         -- Enable underline, use default values
@@ -70,7 +60,45 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
--- Special treatment for sqlls
+require'lspconfig'.tsserver.setup{
+  on_attach = on_attach,
+}
+
+require'lspconfig'.cssls.setup{
+  on_attach = on_attach,
+}
+
+require'lspconfig'.ccls.setup {
+  init_options = {
+    compilationDatabaseDirectory = "build";
+    index = {
+      threads = 0;
+    };
+    clang = {
+      excludeArgs = { "-frounding-math"} ;
+    };
+  }
+}
+
+
+require'lspconfig'.zeta_note.setup{
+  cmd = {'/home/jorres/.local/bin/zeta-note'},
+  on_attach = on_attach,
+  root_dir = require'lspconfig'.util.root_pattern(".git"),
+  settings = {
+      filetypes = { "md" }
+  }
+}
+
+require'lspconfig'.yamlls.setup{
+    on_attach = on_attach,
+    settings = {
+        yaml = {
+            schemas = { kubernetes = "/*.yaml" },
+        }
+    }
+}
+
 -- Looks like it does not support data definition model... sad
 --[[ require'lspconfig'.sqlls.setup{
   on_attach = on_attach,
@@ -78,8 +106,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   settings = {
   }
 } ]]
-
--- Special treatment for sumneko_lua
 
 local system_name
 if vim.fn.has("mac") == 1 then
@@ -125,3 +151,5 @@ require'lspconfig'.sumneko_lua.setup {
     },
   },
 }
+
+require'lspconfig'.terraformls.setup {}

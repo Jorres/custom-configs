@@ -9,7 +9,8 @@ Plug 'kshenoy/vim-signature' " Display visual marks (`ma`) in separate column
 Plug 'SirVer/ultisnips' " :UltiSnips...
 
 Plug 'prettier/vim-prettier' " :Prettier
-Plug 'justinmk/vim-sneak' " s<letter1><letter2>
+" Plug 'justinmk/vim-sneak' " s<letter1><letter2>
+Plug 'ggandor/lightspeed.nvim'
 Plug 'tpope/vim-repeat' " zero-config, allows to repeat complex commands
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'matze/vim-move'
@@ -34,6 +35,7 @@ Plug 'scrooloose/nerdtree' " File explorer
                     
 " === Colorschemes === "
 Plug 'morhetz/gruvbox'
+Plug 'savq/melange'
 
 " === TMUX === "
 Plug 'christoomey/vim-tmux-navigator' " Allows to use <C-hjkl> to move to/from tmux panes
@@ -58,6 +60,9 @@ Plug 'nvim-telescope/telescope-frecency.nvim'
 Plug 'hashivim/vim-terraform'
 Plug 'martingms/vipsql' "  <leader>po
 
+" === DevOps specific ===
+Plug 'chipsenkbeil/distant.nvim'
+
 " === Dependencies ===
 Plug 'tami5/sqlite.lua'
 Plug 'ryanoasis/vim-devicons'
@@ -67,7 +72,7 @@ Plug 'xolox/vim-misc'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
-                            
+
 lua require("jorres")
 
 scriptencoding utf-8
@@ -164,7 +169,6 @@ set fillchars+=vert:│
 set noshowmode
 " Editor theme
 set background=dark
-let g:everforest_background = 'hard'
 try
   colorscheme gruvbox
 catch
@@ -339,3 +343,13 @@ let g:terraform_align = 1
 let g:vipsql_auto_clear_enabled = 1
 " What `vim` command to use when opening the output buffer
 let g:vipsql_new_buffer_cmd = "vsplit"
+
+
+" Prettier Lua integration
+function PrettierLuaCursor()
+  let save_pos = getpos(".")
+  %! prettier --stdin --parser=lua
+  call setpos('.', save_pos)
+endfunction
+" define custom command
+command PrettierLua call PrettierLuaCursor()
