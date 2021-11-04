@@ -13,12 +13,12 @@ local on_attach = function(client, bufnr)
     aerial.on_attach(client)
     -- Toggle the aerial window with <leader>a
     vim.api.nvim_buf_set_keymap(0, 'n', '<leader>ae', '<cmd>AerialToggle!<CR>', {})
-    -- Jump forwards/backwards with '{' and '}'
-    vim.api.nvim_buf_set_keymap(0, 'n', '{', '<cmd>AerialPrev<CR>', {})
-    vim.api.nvim_buf_set_keymap(0, 'n', '}', '<cmd>AerialNext<CR>', {})
-    -- Jump up the tree with '[[' or ']]'
-    vim.api.nvim_buf_set_keymap(0, 'n', '[[', '<cmd>AerialPrevUp<CR>', {})
-    vim.api.nvim_buf_set_keymap(0, 'n', ']]', '<cmd>AerialNextUp<CR>', {})
+    -- Jump forwards/backwards with '[[' and ']]'
+    vim.api.nvim_buf_set_keymap(0, 'n', '{', '<cmd>AerialPrevUp<CR>', {})
+    vim.api.nvim_buf_set_keymap(0, 'n', '}', '<cmd>AerialNextUp<CR>', {})
+    -- Jump up the tree with '{' or '}'
+    vim.api.nvim_buf_set_keymap(0, 'n', '[[', '<cmd>AerialPrev<CR>', {})
+    vim.api.nvim_buf_set_keymap(0, 'n', ']]', '<cmd>AerialNext<CR>', {})
 
 
     local opts = { noremap=true, silent=true }
@@ -55,7 +55,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
         -- Enable virtual text only on Warning or above, override spacing to 2
         virtual_text = {
             spacing = 2,
-            severity_limit = "Warning",
+            severity_limit = "Error",
         },
     }
 )
@@ -90,14 +90,14 @@ require'lspconfig'.zeta_note.setup{
   }
 }
 
-require'lspconfig'.yamlls.setup{
+--[[ require'lspconfig'.yamlls.setup{
     on_attach = on_attach,
     settings = {
         yaml = {
             schemas = { kubernetes = "/*.yaml" },
         }
     }
-}
+} ]]
 
 -- Looks like it does not support data definition model... sad
 --[[ require'lspconfig'.sqlls.setup{

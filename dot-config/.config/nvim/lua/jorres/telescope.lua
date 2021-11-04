@@ -16,7 +16,7 @@ require('telescope').setup{
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "descending",
-        layout_strategy = "horizontal",
+        layout_strategy = "vertical",
         layout_config = {
             horizontal = {
                 mirror = false,
@@ -25,8 +25,10 @@ require('telescope').setup{
             },
             vertical = {
                 mirror = false,
-                height = {padding = 1},
-                width = {padding = 3},
+                height = {padding = 0},
+                width = {padding = 2},
+                -- preview_height = 10,
+                preview_cutoff = 1
             },
         },
         file_sorter =  require'telescope.sorters'.get_fzy_sorter,
@@ -61,13 +63,12 @@ require('telescope').setup{
     }
 } 
 
-require("telescope").load_extension('frecency')
-
 local M = {}
+
 M.search_dotfiles = function()
     require("telescope.builtin").find_files({
         prompt_title = "< VimRC >",
-        cwd = "~/.config/nvim/",
+        cwd = "~/dotfiles/",
         hidden = true,
     })
 end

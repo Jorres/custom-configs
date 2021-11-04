@@ -1,4 +1,4 @@
-require("vimway-lsp-diag").init({
+require("diaglist").init({
     -- optional settings
     -- below are defaults
 

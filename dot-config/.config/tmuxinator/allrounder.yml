@@ -32,3 +32,13 @@ windows:
                 - nvim
                 - ":OpenSession! diary"
                 - Enter
+    - assisted:
+        root: "~/hobbies/hal-9000"
+        layout: even-horizontal
+        panes:
+            - nvim: 
+                - ./launch-with-dir.sh
+                - ":OpenSession! assisted"
+                - Enter
+            - shell:
+                - clear

@@ -130,5 +130,14 @@ if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/y
 # The next line enables shell command completion for yc.
 if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
 
+DOTFILES_PATH=/home/jorres/dotfiles
 
 alias luamake=/home/jorres/hobbies/lua-language-server/3rd/luamake/luamake
+alias becomeania=$DOTFILES_PATH/utilities/becomeania.sh
+alias becomeegor=$DOTFILES_PATH/utilities/becomeegor.sh
+alias lower=$DOTFILES_PATH/utilities/lower-the-curtains.sh
+alias tfapp="terraform apply --auto-approve"
+alias tfa="terraform apply"
+alias kaf="kubectl apply -f "
+alias kdf="kubectl delete -f "
+alias sourcerc="source ~/.zshrc"
