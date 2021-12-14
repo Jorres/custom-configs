@@ -1,7 +1,8 @@
-require("jorres.colorbuddy")
+-- require("jorres.colorbuddy")
 require("jorres.lsp")
 require("jorres.autoc8n")
-require("jorres.lspsaga")
+require("jorres.trouble")
+-- require("jorres.lspsaga")
 
 require("jorres.filetree")
 require("jorres.statusline")
@@ -11,7 +12,7 @@ require("jorres.telescope")
 require("jorres.smoothscroll")
 require("jorres.cursor-landing")
 require("jorres.aerial-settings")
-require("jorres.auto-lsp-quick-local-fix")
+-- require("jorres.auto-lsp-quick-local-fix")
 
 require("jorres.snippets")
 

@@ -4,21 +4,19 @@ local aerial = require('aerial')
 --     vim.lsp.diagnostic.set_loclist({open_loclist = false})
 -- end
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-    aerial.on_attach(client)
+    aerial.on_attach(client, bufnr)
     -- Toggle the aerial window with <leader>a
-    vim.api.nvim_buf_set_keymap(0, 'n', '<leader>ae', '<cmd>AerialToggle!<CR>', {})
+    buf_set_keymap('n', '<leader>ae', '<cmd>AerialToggle!<CR>', {})
     -- Jump forwards/backwards with '[[' and ']]'
-    vim.api.nvim_buf_set_keymap(0, 'n', '{', '<cmd>AerialPrevUp<CR>', {})
-    vim.api.nvim_buf_set_keymap(0, 'n', '}', '<cmd>AerialNextUp<CR>', {})
+    buf_set_keymap('n', '{', '<cmd>AerialPrevUp<CR>', {})
+    buf_set_keymap('n', '}', '<cmd>AerialNextUp<CR>', {})
     -- Jump up the tree with '{' or '}'
-    vim.api.nvim_buf_set_keymap(0, 'n', '[[', '<cmd>AerialPrev<CR>', {})
-    vim.api.nvim_buf_set_keymap(0, 'n', ']]', '<cmd>AerialNext<CR>', {})
+    buf_set_keymap('n', '[[', '<cmd>AerialPrev<CR>', {})
+    buf_set_keymap('n', ']]', '<cmd>AerialNext<CR>', {})
 
 
     local opts = { noremap=true, silent=true }
@@ -28,13 +26,13 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>dD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', '<leader>dd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', '<leader>dj', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-    buf_set_keymap('n', "<leader>ff", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    buf_set_keymap('n', "<leader>zz", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
     buf_set_keymap('n', '<leader>dr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
 
     -- These ones covered by lspsaga:
-    -- buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>da', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-    -- buf_set_keymap('n', '<leader>dn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+    buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+    buf_set_keymap('n', '<leader>da', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+    buf_set_keymap('n', '<leader>dn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
     -- These ones I do not yet use in my workflow
     -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
@@ -60,15 +58,12 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
-require'lspconfig'.tsserver.setup{
-  on_attach = on_attach,
-}
+require'lspconfig'.tsserver.setup{ on_attach = on_attach, }
 
-require'lspconfig'.cssls.setup{
-  on_attach = on_attach,
-}
+require'lspconfig'.cssls.setup{ on_attach = on_attach, }
 
 require'lspconfig'.ccls.setup {
+  on_attach = on_attach,
   init_options = {
     compilationDatabaseDirectory = "build";
     index = {
@@ -152,4 +147,8 @@ require'lspconfig'.sumneko_lua.setup {
   },
 }
 
-require'lspconfig'.terraformls.setup {}
+require'lspconfig'.terraformls.setup { on_attach = on_attach }
+
+require'lspconfig'.pylsp.setup{ on_attach = on_attach }
+
+require'lspconfig'.rust_analyzer.setup{ on_attach = on_attach }

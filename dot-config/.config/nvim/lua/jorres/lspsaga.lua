@@ -8,7 +8,6 @@
 -- hint_sign = '',
 -- infor_sign = '',
 -- dianostic_header_icon = '   ',
--- code_action_icon = ' ',
 -- code_action_prompt = {
 --   enable = true,
 --   sign = true,
@@ -29,16 +28,16 @@
 -- },
 -- definition_preview_icon = '  '
 -- "single" "double" "round" "plus"
--- border_style = "single"
--- rename_prompt_prefix = '➤',
 -- if you don't use nvim-lspconfig you must pass your server name and
 -- the related filetypes into this table
 -- like server_filetype_map = {metals = {'sbt', 'scala'}}
 -- server_filetype_map = {}
 
--- saga.init_lsp_saga {
---   your custom option here
--- }
+saga.init_lsp_saga {
+    use_saga_diagnostic_sign = false,
+    code_action_icon = '',
+    rename_prompt_prefix = '>',
+    border_style = "single"
+}
 
 -- or --use default config
-saga.init_lsp_saga()

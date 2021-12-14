@@ -61,21 +61,13 @@ windows:
         root: "~/work/mdinc/alderaan/"
         panes:
             - nvim:
-                - nvim 
-                - ':OpenSession alderaan'
+                - nvim .
                 - Enter
             - shell:
                 - clear
-    - baby-yoda:
-        layout: even-horizontal
-        root: "~/work/mdinc/keycloak-proxy"
-        panes:
-            - nvim:
-                - nvim 
-                - ':OpenSession babyyoda'
-                - Enter
-            - shell:
+            - kaminoshell:
                 - clear
+                - cd kamino
     - ben:
         layout: even-horizontal
         root: "~/work/mdinc/ben"
@@ -95,6 +87,17 @@ windows:
                 - ':OpenSession yoda'
                 - Enter
             - shell:
+                - clear
+    - r2d2:
+        layout: even-horizontal
+        root: "~/work/mdinc/r2d2"
+        panes:
+            - nvim:
+                - nvim .
+                - Enter
+            - shell:
+                - clear
+            - kamino:
                 - clear
     - sshes:
         layout: even-horizontal

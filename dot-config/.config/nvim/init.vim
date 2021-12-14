@@ -1,103 +1,10 @@
-call plug#begin('~/.config/nvim/plugged')
-
-" === Lang-agnostic editing plugins ===
-Plug 'jiangmiao/auto-pairs' " auto-close brackets plugin
-Plug 'alvan/vim-closetag' " auto close html tags
-Plug 'tpope/vim-surround' " cs<surrounding1><surrounding2> ds<surrounding1>
-Plug 'b3nj5m1n/kommentary' " visual select + gc
-Plug 'kshenoy/vim-signature' " Display visual marks (`ma`) in separate column
-Plug 'SirVer/ultisnips' " :UltiSnips...
-Plug 'wellle//targets.vim' " Additional text objects: e.g. inside *, inside comma-separated list etc.
-
-Plug 'prettier/vim-prettier' " :Prettier
-Plug 'ggandor/lightspeed.nvim'
-Plug 'tpope/vim-repeat' " zero-config, allows to repeat complex commands
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'matze/vim-move'
-Plug 'sk1418/HowMuch' " https://github.com/sk1418/HowMuch
-Plug 'ThePrimeagen/harpoon' 
-Plug 'L3MON4D3/LuaSnip'
-Plug 'saadparwaiz1/cmp_luasnip'
-
-" === Vim utilities ===
-Plug 'xolox/vim-session' " Provides OpenSession and SaveSession
-Plug 'tversteeg/registers.nvim' " register preview
-
-" === Git ===
-Plug 'tpope/vim-fugitive' " :G
-Plug 'mhinz/vim-signify' " Enable git changes to be shown in sign column
-
-" === UI === "
-Plug 'junegunn/goyo.vim' " distractionless mode
-Plug 'junegunn/limelight.vim' " highlight only current paragraph
-Plug 'hoob3rt/lualine.nvim'
-" Plug 'glepnir/galaxyline.nvim' " someday.. you will write your own
-Plug 'karb94/neoscroll.nvim' " smooth scroll
-Plug 'edluffy/specs.nvim' " cursor jump landing visualization 
-Plug 'stevearc/aerial.nvim' " sideways navigating the file on lsp tags
-Plug 'kyazdani42/nvim-tree.lua' "File explorer
-
-" Looks amazing but does not work for now... Colors are not applied
-" Plug 'nanozuki/tabby.nvim' " tabline
-
-" Now, I do not use this as vimwiki, but does nice markdown 
-" per-line formatting (highlights `` and hides tildas itself)
-Plug 'vimwiki/vimwiki' 
-
-" === Colorschemes === "
-Plug 'morhetz/gruvbox'
-Plug 'savq/melange'
-
-" === TMUX === "
-Plug 'christoomey/vim-tmux-navigator' " Allows to use <C-hjkl> to move to/from tmux panes
-Plug 'dhruvasagar/vim-zoom' " Allows to mimic tmux <pref>Z with <C-W>m
-Plug 'sjl/vitality.vim' " Restore FocusGained, FocusLost
-
-" === LSP === 
-Plug 'neovim/nvim-lspconfig'
-Plug 'onsails/diaglist.nvim'
-Plug 'glepnir/lspsaga.nvim'
-    " completion core and completion sources
-Plug 'hrsh7th/nvim-cmp'   
-Plug 'hrsh7th/cmp-buffer'   
-Plug 'hrsh7th/cmp-path'   
-Plug 'hrsh7th/cmp-nvim-lua'   
-Plug 'hrsh7th/cmp-nvim-lsp'   
-
-" === Treesitter ===
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'p00f/nvim-ts-rainbow'
-
-" === Telescope === 
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzy-native.nvim'
-
-" === Language specific ===
-Plug 'hashivim/vim-terraform'
-Plug 'martingms/vipsql' "  <leader>po
-
-" === DevOps specific ===
-Plug 'chipsenkbeil/distant.nvim'
-
-" === Plugin \ Lua development ===
-Plug 'tjdevries/colorbuddy.nvim'
-
-" === Dependencies ===
-Plug 'tami5/sqlite.lua'
-Plug 'ryanoasis/vim-devicons'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'xolox/vim-misc' 
-Plug 'onsails/lspkind-nvim'
-
-call plug#end()
-
 " migrate these settings later to nvim-tree, once available 
 let g:nvim_tree_special_files = { 'README.md': 0, 'Makefile': 0 } " List of filenames that gets highlighted with NvimTreeSpecialFile
 let g:nvim_tree_show_icons = { 'git': 0, 'folders': 1, 'files': 1, 'folder_arrows': 1 }
 
+lua require("plugins")
 lua require("jorres")
+lua require("packer.luarocks").install_commands()
 
 scriptencoding utf-8
 
@@ -185,19 +92,43 @@ catch
   colorscheme slate
 endtry
 
+hi DiffRemoved ctermfg=12 ctermbg=NONE guibg=NONE
+hi DiffDelete ctermfg=12 ctermbg=NONE guibg=NONE
+
+
 " show custom message after writing to a buffer                                                             
 " autocmd BufWritePost * redraw | echomsg 'Wanna bet?'
 
-autocmd CursorHold * lua require'lspsaga.diagnostic'.show_cursor_diagnostics()
+" autocmd CursorHold * lua require'lspsaga.diagnostic'.show_cursor_diagnostics()
 
 autocmd BufEnter,FocusGained,WinEnter * :NvimTreeRefresh
 
 " === Mappings ===
 
-" " Location list remaps
+tnoremap <c-[> <c-\><c-n>
+nnoremap Y yg_
+
+" Make jumps centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap ! !<c-g>u
+inoremap . .<c-g>u
+inoremap ? ?<c-g>u
+
+" Include relative jumps into jump stack for c-i\c-o
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+"" " Location list remaps
 nmap <leader>, :cnext<CR>
 nmap <leader>. :cprev<CR>
 nmap <leader>q :copen<CR>
+
+nnoremap <leader>f :TroubleToggle<CR>
 
 nnoremap <leader>gs :lua require('telescope.builtin').live_grep{}<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
@@ -221,6 +152,9 @@ nmap <silent> <leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
 nmap <silent> <leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
 nmap <silent> <leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
 nmap <silent> <leader>4 :lua require("harpoon.ui").nav_file(4)<CR>
+nmap <silent> <leader>5 :lua require("harpoon.ui").nav_file(5)<CR>
+nmap <silent> <leader>6 :lua require("harpoon.ui").nav_file(6)<CR>
+nmap <silent> <leader>7 :lua require("harpoon.ui").nav_file(7)<CR>
 
 " Quick window switching
 nmap <C-h> <C-w>h
@@ -228,10 +162,10 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
-nnoremap <silent> K :Lspsaga hover_doc<CR>
-nnoremap <silent> <leader>da <cmd>lua require('lspsaga.codeaction').code_action()<CR>
-nnoremap <silent> <leader>dn :Lspsaga rename<CR>
-nnoremap <silent> <leader>pp :Lspsaga preview_definition<CR>
+" nnoremap <silent> K :Lspsaga hover_doc<CR>
+" nnoremap <silent> <leader>da <cmd>lua require('lspsaga.codeaction').code_action()<CR>
+" nnoremap <silent> <leader>dn :Lspsaga rename<CR>
+" nnoremap <silent> <leader>pp :Lspsaga preview_definition<CR>
 
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
@@ -239,12 +173,11 @@ nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
-nnoremap <silent> Y :vertical resize +5<CR>
-noremap <silent> U :vertical resize -5<CR>
+noremap <silent> U :vertical resize +5<CR>
 
 nnoremap <leader>src :source $MYVIMRC<CR>
-nnoremap <leader>plgi :PlugInstall<CR>
-nnoremap <leader>plgc :PlugClean<CR>
+nnoremap <leader>pki :PackerInstall<CR>
+nnoremap <leader>pkc :PackerClean<CR>
 
 " Starts an async psql job, prompting for the psql arguments.
 " Also opens a scratch buffer where output from psql is directed.

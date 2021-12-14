@@ -91,27 +91,11 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias katas="python3 ~/hobbies/vim-katas/exercises/openvim.py"
 alias etern="python3 ~/hobbies/vim-katas/exercises/project_eternity.py"
-alias lower="sudo /home/jorres/dotfiles/utilities/lower-the-curtains.sh 20"
-alias lower="sudo /home/jorres/dotfiles/utilities/lower-the-curtains.sh 20"
 
-alias vimi="nvim ~/.config/nvim/init.vim"
-alias vimp="nvim ~/.config/nvim/plugins.vim"
-alias recall="~/hobbies/diary/readDay.mjs"
-
-# this is fun
+# this is fun!
 export PASSWORD=proX1ma_li
-
-eval $(thefuck --alias)
 
 export EDITOR='nvim'
 
@@ -119,14 +103,12 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="/home/jorres/lua-5.4.3/src/:$PATH"
 
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /home/jorres/work/mdinc/vader.git/development/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/jorres/work/mdinc/vader.git/development/node_modules/tabtab/.completions/electron-forge.zsh
+export PATH="/home/jorres/lua-5.4.3/src/:$PATH"
+export PATH="/home/jorres/bin/:$PATH"
+
 # The next line updates PATH for Yandex Cloud CLI.
 if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
-
 # The next line enables shell command completion for yc.
 if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
 

@@ -32,13 +32,50 @@ windows:
                 - nvim
                 - ":OpenSession! diary"
                 - Enter
-    - assisted:
-        root: "~/hobbies/hal-9000"
+    # - assisted:
+    #     root: "~/hobbies/hal-9000"
+    #     layout: even-horizontal
+    #     panes:
+    #         - nvim: 
+    #             - ./launch-with-dir.sh
+    #             - ":OpenSession! assisted"
+    #             - Enter
+    #         - shell:
+    #             - clear
+    # - ppo-tracker:
+    #     root: "~/work/uni-codebase/software-design/task-tracker"
+    #     layout: even-horizontal
+    #     panes:
+    #         - nvim: 
+    #             - ":OpenSession! ppo-tracker"
+    #             - Enter
+    #         - shell:
+    #             - clear
+    # - minigrep:
+    #     root: "~/hobbies/learning-rust/minigrep"
+    #     layout: even-horizontal
+    #     panes:
+    #         - nvim: 
+    #             - ":OpenSession! minigrep"
+    #             - Enter
+    #         - shell:
+    #             - clear
+    - diploma:
+        root: "~/work/uni-codebase/diploma-codebase/chain-synthesis"
         layout: even-horizontal
         panes:
             - nvim: 
-                - ./launch-with-dir.sh
-                - ":OpenSession! assisted"
+                - nvim
+                - ",1"
+                - Enter
+            - shell:
+                - clear
+    - moonlander:
+        root: "~/hobbies/moonlander"
+        layout: even-horizontal
+        panes:
+            - nvim: 
+                - nvim first.md
                 - Enter
             - shell:
                 - clear

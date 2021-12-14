@@ -8,5 +8,5 @@ require("diaglist").init({
     -- list in quickfix only diagnostics from clients
     -- attached to a current buffer
     -- if false, all buffers' clients diagnostics is collected
-    buf_clients_only = true,
+    buf_clients_only = false,
 })

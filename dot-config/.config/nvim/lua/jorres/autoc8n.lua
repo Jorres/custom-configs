@@ -51,7 +51,7 @@ cmp.setup {
 
     { name = "nvim_lsp" },
     { name = "path" },
-    { name = "buffer", max_item_count = 4, keyword_length = 5 },
+    { name = "buffer", max_item_count = 4, keyword_length = 3 },
   },
 
   sorting = {
@@ -100,7 +100,8 @@ cmp.setup {
 
   experimental = {
     native_menu = false,
-    ghost_text = true,
+    -- I've found it to be too annoying 
+    ghost_text = false,
   },
 }
 
