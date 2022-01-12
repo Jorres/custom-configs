@@ -1,7 +1,7 @@
 -- require("jorres.colorbuddy")
 require("jorres.lsp")
 require("jorres.autoc8n")
-require("jorres.trouble")
+-- require("jorres.trouble")
 -- require("jorres.lspsaga")
 
 require("jorres.filetree")

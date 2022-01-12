@@ -8,7 +8,7 @@ local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-    aerial.on_attach(client, bufnr)
+    -- aerial.on_attach(client, bufnr)
     -- Toggle the aerial window with <leader>a
     buf_set_keymap('n', '<leader>ae', '<cmd>AerialToggle!<CR>', {})
     -- Jump forwards/backwards with '[[' and ']]'

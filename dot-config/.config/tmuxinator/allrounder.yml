@@ -29,8 +29,7 @@ windows:
         root: "~/hobbies/lifelog"
         panes:
             - nvim: 
-                - nvim
-                - ":OpenSession! diary"
+                - nvim personal/lifelog.md
                 - Enter
     # - assisted:
     #     root: "~/hobbies/hal-9000"

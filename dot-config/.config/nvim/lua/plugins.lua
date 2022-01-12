@@ -60,7 +60,7 @@ return require('packer').startup(function(use, use_rocks)
 
     -- Now, I do not use this as vimwiki, but does nice markdown 
     -- per-line formatting (highlights `` and hides tildas itself)
-    use {opt = false,'vimwiki/vimwiki'} 
+    use {opt = false,'vimwiki/vimwiki'}
 
     -- === Colorschemes === --
     use {opt = false,'morhetz/gruvbox'}
@@ -81,10 +81,11 @@ return require('packer').startup(function(use, use_rocks)
     use {opt = false,'hrsh7th/cmp-path'}   
     use {opt = false,'hrsh7th/cmp-nvim-lua'}   
     use {opt = false,'hrsh7th/cmp-nvim-lsp'}   
-    use {
+    --[[ use {
+     disable = true,
      "folke/trouble.nvim",
      requires = "kyazdani42/nvim-web-devicons"
-}
+    } ]]
 
     -- === Treesitter ===
     use {opt = false,'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
