@@ -11,7 +11,7 @@ require("jorres.tabline")
 require("jorres.telescope")
 require("jorres.smoothscroll")
 require("jorres.cursor-landing")
-require("jorres.aerial-settings")
+-- require("jorres.aerial-settings")
 -- require("jorres.auto-lsp-quick-local-fix")
 
 require("jorres.snippets")

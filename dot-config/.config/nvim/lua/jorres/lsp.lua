@@ -1,4 +1,4 @@
-local aerial = require('aerial')
+-- local aerial = require('aerial')
 
 -- local LspLocationList = function()
 --     vim.lsp.diagnostic.set_loclist({open_loclist = false})
@@ -8,15 +8,15 @@ local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
     -- local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-    -- aerial.on_attach(client, bufnr)
-    -- Toggle the aerial window with <leader>a
-    buf_set_keymap('n', '<leader>ae', '<cmd>AerialToggle!<CR>', {})
-    -- Jump forwards/backwards with '[[' and ']]'
-    buf_set_keymap('n', '{', '<cmd>AerialPrevUp<CR>', {})
-    buf_set_keymap('n', '}', '<cmd>AerialNextUp<CR>', {})
-    -- Jump up the tree with '{' or '}'
-    buf_set_keymap('n', '[[', '<cmd>AerialPrev<CR>', {})
-    buf_set_keymap('n', ']]', '<cmd>AerialNext<CR>', {})
+    -- -- aerial.on_attach(client, bufnr)
+    -- -- Toggle the aerial window with <leader>a
+    -- buf_set_keymap('n', '<leader>ae', '<cmd>AerialToggle!<CR>', {})
+    -- -- Jump forwards/backwards with '[[' and ']]'
+    -- buf_set_keymap('n', '{', '<cmd>AerialPrevUp<CR>', {})
+    -- buf_set_keymap('n', '}', '<cmd>AerialNextUp<CR>', {})
+    -- -- Jump up the tree with '{' or '}'
+    -- buf_set_keymap('n', '[[', '<cmd>AerialPrev<CR>', {})
+    -- buf_set_keymap('n', ']]', '<cmd>AerialNext<CR>', {})
 
 
     local opts = { noremap=true, silent=true }

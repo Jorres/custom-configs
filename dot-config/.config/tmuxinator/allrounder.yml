@@ -11,18 +11,9 @@ windows:
         root: "~/dotfiles"
         panes:
             - nvim: 
-                - nvim
-                - ":OpenSession! configs"
+                - nvim .
                 - Enter
             - shell:
-                - clear
-    - university:
-        layout: even-horizontal
-        root: "~/work/uni-codebase"
-        panes:
-            - shell1:
-                - clear
-            - shell2:
                 - clear
     - lifelog:
         layout: even-horizontal
@@ -60,21 +51,20 @@ windows:
     #         - shell:
     #             - clear
     - diploma:
-        root: "~/work/uni-codebase/diploma-codebase/chain-synthesis"
+        root: "~/work/uni-codebase/diploma-codebase/"
         layout: even-horizontal
         panes:
             - nvim: 
-                - nvim
-                - ",1"
+                - nvim .
                 - Enter
             - shell:
                 - clear
-    - moonlander:
-        root: "~/hobbies/moonlander"
-        layout: even-horizontal
-        panes:
-            - nvim: 
-                - nvim first.md
-                - Enter
-            - shell:
-                - clear
+    # - moonlander:
+    #     root: "~/hobbies/moonlander"
+    #     layout: even-horizontal
+    #     panes:
+    #         - nvim: 
+    #             - nvim first.md
+    #             - Enter
+    #         - shell:
+    #             - clear
