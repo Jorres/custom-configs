@@ -24,6 +24,8 @@ return require('packer').startup(function(use, use_rocks)
     use {opt = false,'kshenoy/vim-signature'} -- Display visual marks (`ma`) in separate column
     use {opt = false,'SirVer/ultisnips'} -- :UltiSnips...
     use {opt = false,'wellle/targets.vim'} -- Additional text objects: e.g. inside *, inside comma-separated list etc.
+    use {opt = false,'godlygeek/tabular'} 
+ 
 
     use {opt = false,'prettier/vim-prettier'} -- :Prettier
     use {opt = false,'ggandor/lightspeed.nvim'}
@@ -98,6 +100,8 @@ return require('packer').startup(function(use, use_rocks)
     -- === Language specific ===
     use {opt = false,'hashivim/vim-terraform'}
     use {opt = false,'martingms/vipsql'} --  <leader>po
+    use {opt = false,'psf/black'} -- Black
+
 
     -- === DevOps specific ===
     use {opt = false,'chipsenkbeil/distant.nvim'}

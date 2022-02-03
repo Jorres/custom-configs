@@ -97,7 +97,7 @@ hi DiffDelete ctermfg=12 ctermbg=NONE guibg=NONE
 
 
 " show custom message after writing to a buffer                                                             
-autocmd BufWritePost * redraw | echomsg 'Wanna bet?'
+" autocmd BufWritePost * redraw | echomsg 'Wanna bet?'
 
 " autocmd CursorHold * lua require'lspsaga.diagnostic'.show_cursor_diagnostics()
 

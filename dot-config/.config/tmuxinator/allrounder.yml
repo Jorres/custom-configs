@@ -50,7 +50,7 @@ windows:
     #             - Enter
     #         - shell:
     #             - clear
-    - diploma:
+    - "diploma ":
         root: "~/work/uni-codebase/diploma-codebase/"
         layout: even-horizontal
         panes:

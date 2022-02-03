@@ -46,16 +46,16 @@ windows:
     #             - nvim 
     #             - ':OpenSession kenobi'
     #             - Enter
-    - legacy:
-        layout: main-vertical
-        root: "~/work/mdinc/cerebrum-legacy"
-        panes:
-            - nvim:
-                - nvim 
-                - ':OpenSession cerebrum-legacy'
-                - Enter
-            - shell:
-                - clear
+    # - legacy:
+    #     layout: main-vertical
+    #     root: "~/work/mdinc/cerebrum-legacy"
+    #     panes:
+    #         - nvim:
+    #             - nvim 
+    #             - ':OpenSession cerebrum-legacy'
+    #             - Enter
+    #         - shell:
+    #             - clear
     - alderaan:
         layout: main-vertical
         root: "~/work/mdinc/alderaan/"
@@ -99,6 +99,15 @@ windows:
                 - clear
             - kamino:
                 - clear
+    - boba:
+        layout: even-horizontal
+        root: "~/work/mdinc/boba"
+        panes:
+            - nvim:
+                - nvim .
+                - Enter
+            - shell:
+                - clear
     - sshes:
         layout: even-horizontal
         root: "~/work/mdinc/alderaan"
@@ -107,4 +116,3 @@ windows:
                 - sudo openvpn --config ./modules/vpn_gateway/vpn-gateway-data/client1.ovpn
             - openvpn:
                 - ssh -o IdentitiesOnly=yes -i ./modules/vpn_gateway/vpn-gateway-data/vpn-gateway mdinc-dev@178.154.202.6
-

@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/auto-pairs",
     url = "https://github.com/jiangmiao/auto-pairs"
   },
+  black = {
+    loaded = true,
+    path = "/home/jorres/.local/share/nvim/site/pack/packer/start/black",
+    url = "https://github.com/psf/black"
+  },
   ["cheat.sh-vim"] = {
     loaded = true,
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/cheat.sh-vim",
@@ -253,6 +258,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/sqlite.lua",
     url = "https://github.com/tami5/sqlite.lua"
+  },
+  tabular = {
+    loaded = true,
+    path = "/home/jorres/.local/share/nvim/site/pack/packer/start/tabular",
+    url = "https://github.com/godlygeek/tabular"
   },
   ["targets.vim"] = {
     loaded = true,
