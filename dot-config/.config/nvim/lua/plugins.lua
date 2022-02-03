@@ -56,6 +56,7 @@ return require('packer').startup(function(use, use_rocks)
     use {opt = false,'kyazdani42/nvim-tree.lua'} --File explorer
     use {opt = false, 'dbeniamine/cheat.sh-vim'} -- Cheat sheet plugin
     use {opt = false, 'azabiong/vim-highlighter'} -- Highlight words on a whim
+    use {opt = false, 'vifm/vifm.vim'} -- Double side file manager
 
     -- Looks amazing but does not work for now... Colors are not applied
     -- use {'nanozuki/tabby.nvim'} -- tabline

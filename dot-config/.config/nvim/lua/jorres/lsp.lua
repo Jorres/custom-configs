@@ -77,7 +77,7 @@ require'lspconfig'.ccls.setup {
 
 
 require'lspconfig'.zeta_note.setup{
-  cmd = {'/home/jorres/.local/bin/zeta-note'},
+  cmd = {'/home/jorres/bin/zeta-note'},
   on_attach = on_attach,
   root_dir = require'lspconfig'.util.root_pattern(".git"),
   settings = {

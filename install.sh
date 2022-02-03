@@ -5,7 +5,9 @@ mkdir -p ~/.local/share/nvim/backup
 stow -D dot-config
 stow -D tmux
 stow -D zsh
+stow -D stow-bin
 
-stow --verbose=5 dot-config
+stow dot-config
 stow tmux
 stow zsh
+stow stow-bin
