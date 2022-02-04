@@ -26,9 +26,7 @@ sudo gem install tmuxinator
 
 # install telegram desktop from Ubuntu Software
 
-# download hack font from here, https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack
-# unpack and open with file manager, click on fonts to install them, and then set the font in the terminal
-
+# Install `nerdfont.ttf` from this repo by clicking on it
 
 # hide dock
 # search for `extensions` app in ubuntu, should be installed. Untick `Ubuntu dock`
@@ -36,15 +34,11 @@ sudo gem install tmuxinator
 
 # LSP servers:
 
-# 1. Zeta-note binary into user/bin
-pip3 install 'python-lsp-server[all]'
-
-# 2. Install node.js, tweak version as required
+# Install node.js, tweak version as required
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
-# 3. Install tsserver
+# Install tsserver
 sudo npm install -g typescript typescript-language-server
-
 
 sudo apt-get install font-manager

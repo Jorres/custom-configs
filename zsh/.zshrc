@@ -130,3 +130,7 @@ fpath=($fpath "/home/jorres/.zfunctions")
 # Set typewritten ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt typewritten
+
+export TYPEWRITTEN_PROMPT_LAYOUT="pure"
+export TYPEWRITTEN_RELATIVE_PATH="adaptive"
+export TYPEWRITTEN_DISABLE_RETURN_CODE="true"

@@ -1,6 +1,7 @@
 " migrate these settings later to nvim-tree, once available 
 let g:nvim_tree_special_files = { 'README.md': 0, 'Makefile': 0 } " List of filenames that gets highlighted with NvimTreeSpecialFile
 let g:nvim_tree_show_icons = { 'git': 0, 'folders': 1, 'files': 1, 'folder_arrows': 1 }
+let g:nvim_tree_indent_markers = 1
 
 lua require("plugins")
 lua require("jorres")
@@ -80,8 +81,31 @@ set noswapfile
 
 
 " === UI ===
-" Enable true color support
 set termguicolors
+function! MyHighlight() abort
+
+hi TelescopeBorder guifg=#202020 guibg=#202020
+hi TelescopeNormal guibg=#202020
+
+hi TelescopePromptTitle guifg=#202020 guibg=#C6393D
+hi TelescopePromptBorder guifg=#303030 guibg=#303030
+hi TelescopePromptNormal guifg=#FFFFFF guibg=#303030
+hi TelescopePromptPrefix guifg=#C6393D guibg=#303030
+
+
+hi TelescopePreviewTitle guifg=#202020 guibg=#393DC6
+
+hi TelescopeResultsTitle guifg=#202020 guibg=#3DC639
+
+hi TelescopeSelection guibg=#404040
+
+endfunction
+
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme * call MyHighlight()
+augroup END
+" Enable true color support
 " Change vertical split character to be a space (essentially hide it)
 set fillchars+=vert:│
 " Editor theme
