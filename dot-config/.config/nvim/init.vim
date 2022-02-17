@@ -98,6 +98,8 @@ hi TelescopeResultsTitle guifg=#252525 guibg=#3DC639
 
 hi TelescopeSelection guibg=#404040
 
+hi VertSplit guifg=Gray
+
 " Errors in Red
 hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
 " Warnings in Yellow
@@ -136,9 +138,6 @@ catch
   colorscheme slate
 endtry
 
-" hi DiffRemoved ctermfg=12 ctermbg=NONE guibg=NONE
-" hi DiffDelete ctermfg=12 ctermbg=NONE guibg=NONE
-
 " show custom message after writing to a buffer                                                             
 " autocmd BufWritePost * redraw | echomsg 'Wanna bet?'
 
@@ -168,18 +167,30 @@ nmap <leader>, :cnext<CR>
 nmap <leader>. :cprev<CR>
 nmap <leader>q :copen<CR>
 
+" Telescope
 nnoremap <leader>gs :lua require('telescope.builtin').live_grep{}<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
 nnoremap <leader>t :lua require('telescope.builtin').git_files()<CR>
 
 nnoremap <leader>j :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
-nnoremap <leader>b :lua require('jorres.telescope').git_branches()<CR>
+nnoremap <leader>br :lua require('jorres.telescope').git_branches()<CR>
 nnoremap <leader>vrc :lua require('jorres.telescope').search_dotfiles()<CR>
+
+" Gitsigns
+nnoremap <silent> <leader>bl :Gitsigns toggle_current_line_blame<CR>
+nnoremap <leader>hs :Gitsigns stage_hunk<CR>
+nnoremap <leader>hr :Gitsigns reset_hunk<CR>
+nnoremap <leader>hu :Gitsigns undo_stage_hunk<CR>
+nnoremap <leader>hp :Gitsigns preview_hunk<CR>
+vnoremap <leader>hs :Gitsigns stage_hunk<CR>
+vnoremap <leader>hr :Gitsigns reset_hunk<CR>
+vnoremap <leader>hu :Gitsigns undo_stage_hunk<CR>
+vnoremap <leader>hp :Gitsigns preview_hunk<CR>
 
 nnoremap <leader>pr :Prettier<CR>
 
-" distracts :( nohlsearch
+" Persistent highlight from hlsearch distracts.
 nnoremap <CR> :noh<CR><CR>
 
 nmap <silent> <leader>n :NvimTreeFindFileToggle<CR>
@@ -199,11 +210,6 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
-
-" nnoremap <silent> K :Lspsaga hover_doc<CR>
-" nnoremap <silent> <leader>da <cmd>lua require('lspsaga.codeaction').code_action()<CR>
-" nnoremap <silent> <leader>dn :Lspsaga rename<CR>
-" nnoremap <silent> <leader>pp :Lspsaga preview_definition<CR>
 
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
