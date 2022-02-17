@@ -9,7 +9,8 @@ telescope.setup{
             '--with-filename',
             '--line-number',
             '--column',
-            '--smart-case'
+            '--smart-case',
+            '--max-filesize=1M'
         },
         prompt_prefix = "  ",
         selection_caret = "   ",
@@ -17,27 +18,11 @@ telescope.setup{
         initial_mode = "insert",
         selection_strategy = "reset",
         sorting_strategy = "ascending",
-        --[[ layout_strategy = "vertical",
-        layout_config = {
-            horizontal = {
-                mirror = false,
-                height = {padding = 1},
-                width = {padding = 3},
-            },
-            vertical = {
-                mirror = false,
-                height = {padding = 0},
-                width = {padding = 2},
-                -- preview_height = 10,
-                preview_cutoff = 1
-            },
-        }, ]]
         layout_strategy = "horizontal",
         layout_config = {
            horizontal = {
               prompt_position = "top",
               preview_width = 0.55,
-              -- results_width = 0.8,
            },
            vertical = {
               mirror = false,
@@ -52,7 +37,6 @@ telescope.setup{
         winblend = 0,
         border = {},
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-        -- borderchars = { "", "", "", "", "", "", "", "" },
         color_devicons = true,
         use_less = true,
         path_display = {"truncate"},
@@ -77,15 +61,7 @@ telescope.setup{
             override_file_sorter = true,
         }
     }
-} 
-
-local extensions = { "themes", "terms" }
-
-pcall(function()
-  for _, ext in ipairs(extensions) do
-     telescope.load_extension(ext)
-  end
-end)
+}
 
 local M = {}
 

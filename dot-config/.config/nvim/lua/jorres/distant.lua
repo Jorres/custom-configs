@@ -1,4 +1,4 @@
---[[ local actions = require('distant.nav.actions')
+local actions = require('distant.nav.actions')
 
 local inner_mdinc_gitlab_ip = "10.2.0.30"
 local mdinc_vpn_car = "178.154.202.6"
@@ -69,4 +69,4 @@ require('distant').setup {
             }
         },
     }
-} ]]
+}

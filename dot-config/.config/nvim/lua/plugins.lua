@@ -24,11 +24,11 @@ return require('packer').startup(function(use, use_rocks)
     use {opt = false,'kshenoy/vim-signature'} -- Display visual marks (`ma`) in separate column
     use {opt = false,'SirVer/ultisnips'} -- :UltiSnips...
     use {opt = false,'wellle/targets.vim'} -- Additional text objects: e.g. inside *, inside comma-separated list etc.
-    use {opt = false,'godlygeek/tabular'} 
+    use {opt = false,'godlygeek/tabular'} -- Adds :Tabularize command
  
 
     use {opt = false,'prettier/vim-prettier'} -- :Prettier
-    use {opt = false,'ggandor/lightspeed.nvim'}
+    use {opt = false,'ggandor/lightspeed.nvim'} 
     use {opt = false,'tpope/vim-repeat'} -- zero-config, allows to repeat complex commands
     use {opt = false,'AndrewRadev/splitjoin.vim'}
     use {opt = false,'matze/vim-move'}
@@ -43,7 +43,12 @@ return require('packer').startup(function(use, use_rocks)
 
     -- === Git ===
     use {opt = false,'tpope/vim-fugitive'} -- :G
-    use {opt = false,'mhinz/vim-signify'} -- Enable git changes to be shown in sign column
+    use { -- Enable git changes to be shown in sign column
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+    }
 
     -- === UI === --
     use {opt = false,'junegunn/goyo.vim'} -- distractionless mode
@@ -52,14 +57,11 @@ return require('packer').startup(function(use, use_rocks)
     -- use {'glepnir/galaxyline.nvim'} -- someday.. you will write your own
     use {opt = false,'karb94/neoscroll.nvim'} -- smooth scroll
     use {opt = false,'edluffy/specs.nvim'} -- cursor jump landing visualization 
-    use {opt = false,'stevearc/aerial.nvim'} -- sideways navigating the file on lsp tags
     use {opt = false,'kyazdani42/nvim-tree.lua'} --File explorer
     use {opt = false, 'dbeniamine/cheat.sh-vim'} -- Cheat sheet plugin
     use {opt = false, 'azabiong/vim-highlighter'} -- Highlight words on a whim
     use {opt = false, 'vifm/vifm.vim'} -- Double side file manager
-
-    -- Looks amazing but does not work for now... Colors are not applied
-    -- use {'nanozuki/tabby.nvim'} -- tabline
+    use {opt = false, 'qxxxb/vim-searchhi'} -- Highlight current hlsearch pattern differently
 
     -- Now, I do not use this as vimwiki, but does nice markdown 
     -- per-line formatting (highlights `` and hides tildas itself)
@@ -68,6 +70,8 @@ return require('packer').startup(function(use, use_rocks)
     -- === Colorschemes === --
     use {opt = false,'morhetz/gruvbox'}
     use {opt = false,'savq/melange'}
+    use {opt = false,'sainnhe/everforest'}
+    use {opt = false,'sainnhe/sonokai'}
 
     -- === TMUX === --
     use {opt = false,'christoomey/vim-tmux-navigator'} -- Allows to use <C-hjkl> to move to/from tmux panes
@@ -76,19 +80,12 @@ return require('packer').startup(function(use, use_rocks)
 
     -- === LSP === 
     use {opt = false,'neovim/nvim-lspconfig'}
-    use {opt = false,'onsails/diaglist.nvim'}
-    use {opt = false,disable=false,'glepnir/lspsaga.nvim'}
     -- completion core and completion sources
     use {opt = false,'hrsh7th/nvim-cmp'}
     use {opt = false,'hrsh7th/cmp-buffer'}   
     use {opt = false,'hrsh7th/cmp-path'}   
     use {opt = false,'hrsh7th/cmp-nvim-lua'}   
     use {opt = false,'hrsh7th/cmp-nvim-lsp'}   
-    --[[ use {
-     disable = true,
-     "folke/trouble.nvim",
-     requires = "kyazdani42/nvim-web-devicons"
-    } ]]
 
     -- === Treesitter ===
     use {opt = false,'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/distant.nvim",
     url = "https://github.com/chipsenkbeil/distant.nvim"
   },
+  everforest = {
+    loaded = true,
+    path = "/home/jorres/.local/share/nvim/site/pack/packer/start/everforest",
+    url = "https://github.com/sainnhe/everforest"
+  },
   ["goyo.vim"] = {
     loaded = true,
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/goyo.vim",
@@ -204,6 +209,11 @@ _G.packer_plugins = {
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-reload"] = {
+    loaded = true,
+    path = "/home/jorres/.local/share/nvim/site/pack/packer/start/nvim-reload",
+    url = "https://github.com/famiu/nvim-reload"
+  },
   ["nvim-tree.lua"] = {
     loaded = true,
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
@@ -243,6 +253,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/registers.nvim",
     url = "https://github.com/tversteeg/registers.nvim"
+  },
+  sonokai = {
+    loaded = true,
+    path = "/home/jorres/.local/share/nvim/site/pack/packer/start/sonokai",
+    url = "https://github.com/sainnhe/sonokai"
   },
   ["specs.nvim"] = {
     loaded = true,
@@ -284,6 +299,11 @@ _G.packer_plugins = {
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/ultisnips",
     url = "https://github.com/SirVer/ultisnips"
   },
+  ["vifm.vim"] = {
+    loaded = true,
+    path = "/home/jorres/.local/share/nvim/site/pack/packer/start/vifm.vim",
+    url = "https://github.com/vifm/vifm.vim"
+  },
   ["vim-closetag"] = {
     loaded = true,
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/vim-closetag",
@@ -323,6 +343,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/jorres/.local/share/nvim/site/pack/packer/start/vim-repeat",
     url = "https://github.com/tpope/vim-repeat"
+  },
+  ["vim-searchhi"] = {
+    loaded = true,
+    path = "/home/jorres/.local/share/nvim/site/pack/packer/start/vim-searchhi",
+    url = "https://github.com/qxxxb/vim-searchhi"
   },
   ["vim-session"] = {
     loaded = true,

@@ -120,11 +120,19 @@ alias luamake=/home/jorres/hobbies/lua-language-server/3rd/luamake/luamake
 alias becomeania=$DOTFILES_PATH/utilities/becomeania.sh
 alias becomeegor=$DOTFILES_PATH/utilities/becomeegor.sh
 alias lower=$DOTFILES_PATH/utilities/lower-the-curtains.sh
+
+alias sourcerc="source ~/.zshrc"
+
 alias tfapp="terraform apply --auto-approve"
 alias tfa="terraform apply"
 alias kaf="kubectl apply -f "
 alias kdf="kubectl delete -f "
-alias sourcerc="source ~/.zshrc"
+
+alias tma="tmuxinator start allrounder"
+alias tmas="tmuxinator stop allrounder"
+alias tmm="tmuxinator start mdinc"
+alias tmms="tmuxinator stop mdinc"
+
 fpath=($fpath "/home/jorres/.zfunctions")
 
 # Set typewritten ZSH as a prompt
@@ -134,3 +142,4 @@ prompt typewritten
 export TYPEWRITTEN_PROMPT_LAYOUT="pure"
 export TYPEWRITTEN_RELATIVE_PATH="adaptive"
 export TYPEWRITTEN_DISABLE_RETURN_CODE="true"
+

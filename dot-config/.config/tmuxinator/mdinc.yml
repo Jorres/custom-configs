@@ -16,16 +16,15 @@ windows:
     #             - nvim 
     #             - ':OpenSession mdinc-docs'
     #             - Enter
-    - plans:
-        layout: even-horizontal
-        root: "~/work/mdinc/cto"
-        panes:
-            - nvim:
-                - nvim 
-                - ':OpenSession cto-plans'
-                - Enter
-            - shell:
-                - clear
+    # - plans:
+    #     layout: even-horizontal
+    #     root: "~/work/mdinc/cto"
+    #     panes:
+    #         - nvim:
+    #             - nvim .
+    #             - Enter
+    #         - shell:
+    #             - clear
     # - yoda:
     #     layout: even-horizontal
     #     root: "~/work/mdinc/yoda"
@@ -73,8 +72,7 @@ windows:
         root: "~/work/mdinc/ben"
         panes:
             - nvim:
-                - nvim 
-                - ':OpenSession ben'
+                - nvim .
                 - Enter
             - shell:
                 - clear
@@ -83,8 +81,7 @@ windows:
         root: "~/work/mdinc/yoda-nest"
         panes:
             - nvim:
-                - nvim 
-                - ':OpenSession yoda'
+                - nvim .
                 - Enter
             - shell:
                 - clear

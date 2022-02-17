@@ -84,41 +84,60 @@ set noswapfile
 set termguicolors
 function! MyHighlight() abort
 
-hi TelescopeBorder guifg=#202020 guibg=#202020
-hi TelescopeNormal guibg=#202020
+hi TelescopeBorder guifg=#252525 guibg=#252525
+hi TelescopeNormal guibg=#252525
 
-hi TelescopePromptTitle guifg=#202020 guibg=#C6393D
+hi TelescopePromptTitle guifg=#252525 guibg=#C6393D
 hi TelescopePromptBorder guifg=#303030 guibg=#303030
 hi TelescopePromptNormal guifg=#FFFFFF guibg=#303030
 hi TelescopePromptPrefix guifg=#C6393D guibg=#303030
 
+hi TelescopePreviewTitle guifg=#252525 guibg=#393DC6
 
-hi TelescopePreviewTitle guifg=#202020 guibg=#393DC6
-
-hi TelescopeResultsTitle guifg=#202020 guibg=#3DC639
+hi TelescopeResultsTitle guifg=#252525 guibg=#3DC639
 
 hi TelescopeSelection guibg=#404040
 
+" Errors in Red
+hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
+" Warnings in Yellow
+hi LspDiagnosticsVirtualTextWarning guifg=Yellow ctermfg=Yellow
+" Info and Hints in White
+hi LspDiagnosticsVirtualTextInformation guifg=White ctermfg=White
+hi LspDiagnosticsVirtualTextHint guifg=White ctermfg=White
+
+" Underline the offending code
+hi LspDiagnosticsUnderlineError guifg=NONE ctermfg=NONE cterm=underline gui=underline
+hi LspDiagnosticsUnderlineWarning guifg=NONE ctermfg=NONE cterm=underline gui=underline
+hi LspDiagnosticsUnderlineInformation guifg=NONE ctermfg=NONE cterm=underline gui=underline
+hi LspDiagnosticsUnderlineHint guifg=NONE ctermfg=NONE cterm=underline gui=underline
+
+hi DiffAdd guifg=Green
+hi DiffDelete guifg=Red guibg=NONE
 endfunction
 
 augroup MyColors
     autocmd!
     autocmd ColorScheme * call MyHighlight()
 augroup END
-" Enable true color support
-" Change vertical split character to be a space (essentially hide it)
+
+" Change splits separator to be a nice vertical bar
 set fillchars+=vert:│
-" Editor theme
+
+" Set colorscheme
 set background=dark
 try
-  colorscheme melange
+  let g:everforest_background = 'hard'
+  let g:sonokai_style = 'andromeda'
+  let g:sonokai_enable_italic = 1
+  let g:sonokai_disable_italic_comment = 1
+  colorscheme sonokai
 catch
   colorscheme slate
 endtry
 
-hi DiffRemoved ctermfg=12 ctermbg=NONE guibg=NONE
-hi DiffDelete ctermfg=12 ctermbg=NONE guibg=NONE
-
+" hi DiffRemoved ctermfg=12 ctermbg=NONE guibg=NONE
+" hi DiffDelete ctermfg=12 ctermbg=NONE guibg=NONE
 
 " show custom message after writing to a buffer                                                             
 " autocmd BufWritePost * redraw | echomsg 'Wanna bet?'
@@ -132,9 +151,6 @@ hi DiffDelete ctermfg=12 ctermbg=NONE guibg=NONE
 tnoremap <c-[> <c-\><c-n>
 nnoremap Y yg_
 
-" Make jumps centered
-nnoremap n nzzzv
-nnoremap N Nzzzv
 nnoremap J mzJ`z
 
 " Undo break points
@@ -147,12 +163,10 @@ inoremap ? ?<c-g>u
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-"" " Location list remaps
+" Location list remaps
 nmap <leader>, :cnext<CR>
 nmap <leader>. :cprev<CR>
 nmap <leader>q :copen<CR>
-
-nnoremap <leader>f :TroubleToggle<CR>
 
 nnoremap <leader>gs :lua require('telescope.builtin').live_grep{}<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
@@ -212,20 +226,6 @@ noremap <silent> <leader>pk :VipsqlCloseSession<CR>
 nnoremap <leader>ps :VipsqlShell<CR>
 " In visual-mode, sends the selected text to psql.
 vnoremap <leader>ps :VipsqlSendSelection<CR>
-
-" Errors in Red
-hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
-" Warnings in Yellow
-hi LspDiagnosticsVirtualTextWarning guifg=Yellow ctermfg=Yellow
-" Info and Hints in White
-hi LspDiagnosticsVirtualTextInformation guifg=White ctermfg=White
-hi LspDiagnosticsVirtualTextHint guifg=White ctermfg=White
-
-" Underline the offending code
-hi LspDiagnosticsUnderlineError guifg=NONE ctermfg=NONE cterm=underline gui=underline
-hi LspDiagnosticsUnderlineWarning guifg=NONE ctermfg=NONE cterm=underline gui=underline
-hi LspDiagnosticsUnderlineInformation guifg=NONE ctermfg=NONE cterm=underline gui=underline
-hi LspDiagnosticsUnderlineHint guifg=NONE ctermfg=NONE cterm=underline gui=underline
 
 " === Goyo ===
 autocmd! User GoyoEnter Limelight

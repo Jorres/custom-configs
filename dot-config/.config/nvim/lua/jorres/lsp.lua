@@ -1,4 +1,4 @@
--- local aerial = require('aerial')
+-- local aerial = require('cerial')
 
 -- local LspLocationList = function()
 --     vim.lsp.diagnostic.set_loclist({open_loclist = false})
@@ -102,19 +102,8 @@ require'lspconfig'.zeta_note.setup{
   }
 } ]]
 
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has('win32') == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
-end
-
-local sumneko_root_path = "/home/jorres/hobbies/lua-language-server"
-local sumneko_binary = sumneko_root_path.."/bin/"..system_name.."/lua-language-server"
+local sumneko_root_path = "/home/jorres/Downloads/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
@@ -138,6 +127,7 @@ require'lspconfig'.sumneko_lua.setup {
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false
       },
       -- Do not send telemetry data containing a randomized but unique identifier
       telemetry = {
