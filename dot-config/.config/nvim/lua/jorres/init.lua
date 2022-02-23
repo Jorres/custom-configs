@@ -1,3 +1,7 @@
+require("globals")
+
+require("jorres.colorbuddy")
+
 require("jorres.lsp")
 require("jorres.autoc8n")
 
@@ -23,3 +27,4 @@ require("jorres.harpoon")
 
 -- One liners:
 require("neoclip").setup()
+
