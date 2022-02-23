@@ -1,7 +1,3 @@
-" migrate these settings later to nvim-tree, once available 
-let g:nvim_tree_special_files = { 'README.md': 0, 'Makefile': 0 } " List of filenames that gets highlighted with NvimTreeSpecialFile
-let g:nvim_tree_show_icons = { 'git': 0, 'folders': 1, 'files': 1, 'folder_arrows': 1 }
-let g:nvim_tree_indent_markers = 1
 
 lua require("plugins")
 lua require("jorres")

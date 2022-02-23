@@ -1,3 +1,7 @@
+SETG("nvim_tree_special_files", {}) 
+SETG("nvim_tree_show_icons", { git = 0, folders= 1, files = 1, folder_arrows = 1 })
+SETG("nvim_tree_indent_markers", 1)
+
 require'nvim-tree'.setup {
   -- disables netrw completely
   disable_netrw       = true,
