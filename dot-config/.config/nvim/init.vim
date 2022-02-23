@@ -175,18 +175,6 @@ nnoremap <leader>br :lua require('jorres.telescope').git_branches()<CR>
 nnoremap <leader>vrc :lua require('jorres.telescope').search_dotfiles()<CR>
 nnoremap <leader>y :lua require('telescope').extensions.neoclip.default()<CR>
 
-" Gitsigns
-nnoremap <silent> <leader>bl :Gitsigns toggle_current_line_blame<CR>
-nnoremap <leader>hs :Gitsigns stage_hunk<CR>
-nnoremap <leader>hr :Gitsigns reset_hunk<CR>
-nnoremap <leader>hu :Gitsigns undo_stage_hunk<CR>
-nnoremap <leader>hp :Gitsigns preview_hunk<CR>
-vnoremap <leader>hs :Gitsigns stage_hunk<CR>
-vnoremap <leader>hr :Gitsigns reset_hunk<CR>
-vnoremap <leader>hu :Gitsigns undo_stage_hunk<CR>
-vnoremap <leader>hp :Gitsigns preview_hunk<CR>
-
-
 " Fugitive
 nnoremap <leader>gfh :0Gclog<CR>
 nnoremap <leader>gq :Gedit<CR>

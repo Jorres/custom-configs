@@ -1,3 +1,15 @@
+local opts = {noremap = true, silent = true}
+
+SETMAP("n", "<leader>bl", ":Gitsigns toggle_current_line_blame<CR>", opts)
+SETMAP("n", "<leader>hs", ":Gitsigns stage_hunk<CR>", opts)
+SETMAP("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
+SETMAP("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", opts)
+SETMAP("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
+SETMAP("n", "<leader>hs", ":Gitsigns stage_hunk<CR>", opts)
+SETMAP("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
+SETMAP("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", opts)
+SETMAP("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
+
 require('gitsigns').setup {
     signs = {
         add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
@@ -7,6 +19,7 @@ require('gitsigns').setup {
         changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
     },
     signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+
     numhl      = false,  -- Toggle with `:Gitsigns toggle_numhl`
     linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
@@ -34,8 +47,5 @@ require('gitsigns').setup {
         relative = 'cursor',
         row = 0,
         col = 1
-    },
-    yadm = {
-        enable = false
     },
 }
