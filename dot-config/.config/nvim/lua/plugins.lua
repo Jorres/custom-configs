@@ -21,11 +21,10 @@ return require('packer').startup(function(use, use_rocks)
     use {'alvan/vim-closetag'} -- auto close html tags
     use {'tpope/vim-surround'} -- cs<surrounding1><surrounding2> ds<surrounding1>
     use {'b3nj5m1n/kommentary'} -- visual select + gc
-    use {'kshenoy/vim-signature'} -- Display visual marks (`ma`) in separate column
     use {'SirVer/ultisnips'} -- :UltiSnips...
     use {'wellle/targets.vim'} -- Additional text objects: e.g. inside *, inside comma-separated list etc.
     use {'godlygeek/tabular'} -- Adds :Tabularize command
- 
+
     use {'prettier/vim-prettier'} -- :Prettier
     use {'ggandor/lightspeed.nvim'} -- Ultimate screen-jumping plugin
     use {'tpope/vim-repeat'} -- zero-config, allows to repeat complex commands
@@ -127,4 +126,8 @@ return require('packer').startup(function(use, use_rocks)
     use {'nvim-lua/plenary.nvim'}
     use {'xolox/vim-misc' }
     use {'onsails/lspkind-nvim'}
+
+
+    -- === Removed due to being unused === 
+    -- use {'kshenoy/vim-signature'} -- Display visual marks (`ma`) in separate column
 end)

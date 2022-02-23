@@ -162,10 +162,11 @@ inoremap ? ?<c-g>u
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-" Location list remaps
-nmap <leader>, :cnext<CR>
-nmap <leader>. :cprev<CR>
-nmap <leader>q :copen<CR>
+" Quickfixlist remaps
+nmap [ :cnext<CR>
+nmap ] :cprev<CR>
+nmap <leader>q :cclose<CR>
+nmap <leader>o :copen 5<CR>
 
 " Telescope
 nnoremap <leader>gs :lua require('telescope.builtin').live_grep{}<CR>
@@ -188,6 +189,11 @@ vnoremap <leader>hs :Gitsigns stage_hunk<CR>
 vnoremap <leader>hr :Gitsigns reset_hunk<CR>
 vnoremap <leader>hu :Gitsigns undo_stage_hunk<CR>
 vnoremap <leader>hp :Gitsigns preview_hunk<CR>
+
+
+" Fugitive
+nnoremap <leader>gfh :0Gclog<CR>
+nnoremap <leader>gq :Gedit<CR>
 
 nnoremap <leader>pr :Prettier<CR>
 
