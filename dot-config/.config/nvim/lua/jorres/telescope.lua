@@ -1,5 +1,6 @@
 local actions = require('telescope.actions')
 local telescope = require('telescope')
+
 telescope.setup{
     defaults = {
         vimgrep_arguments = {
@@ -55,19 +56,14 @@ telescope.setup{
         -- Developer configurations: Not meant for general override
         buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
     },
-    extensions = {
-        fzy_native = {
-            override_generic_sorter = false,
-            override_file_sorter = true,
-        }
-    }
+    extensions = { }
 }
 
 local M = {}
 
 M.search_dotfiles = function()
     require("telescope.builtin").find_files({
-        prompt_title = "< VimRC >",
+        prompt_title = "Dotfiles",
         cwd = "~/dotfiles/",
         hidden = true,
     })

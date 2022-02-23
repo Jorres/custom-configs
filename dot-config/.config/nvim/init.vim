@@ -130,7 +130,7 @@ set fillchars+=vert:│
 set background=dark
 try
   let g:everforest_background = 'hard'
-  let g:sonokai_style = 'andromeda'
+  let g:sonokai_style = 'atlantis'
   let g:sonokai_enable_italic = 1
   let g:sonokai_disable_italic_comment = 1
   colorscheme sonokai
@@ -176,6 +176,7 @@ nnoremap <leader>j :lua require('telescope.builtin').grep_string { search = vim.
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>br :lua require('jorres.telescope').git_branches()<CR>
 nnoremap <leader>vrc :lua require('jorres.telescope').search_dotfiles()<CR>
+nnoremap <leader>y :lua require('telescope').extensions.neoclip.default()<CR>
 
 " Gitsigns
 nnoremap <silent> <leader>bl :Gitsigns toggle_current_line_blame<CR>
@@ -204,6 +205,15 @@ nmap <silent> <leader>4 :lua require("harpoon.ui").nav_file(4)<CR>
 nmap <silent> <leader>5 :lua require("harpoon.ui").nav_file(5)<CR>
 nmap <silent> <leader>6 :lua require("harpoon.ui").nav_file(6)<CR>
 nmap <silent> <leader>7 :lua require("harpoon.ui").nav_file(7)<CR>
+
+" Magma mappings
+nnoremap <silent><expr> <leader>r  :MagmaEvaluateOperator<CR>
+nnoremap <silent>       <leader>rr :MagmaEvaluateLine<CR>
+xnoremap <silent>       <leader>r  :<C-u>MagmaEvaluateVisual<CR>
+nnoremap <silent>       <leader>rc :MagmaReevaluateCell<CR>
+nnoremap <silent>       <leader>rd :MagmaDelete<CR>
+nnoremap <silent>       <leader>ro :MagmaShowOutput<CR>
+let g:magma_automatically_open_output = v:false
 
 " Quick window switching
 nmap <C-h> <C-w>h
