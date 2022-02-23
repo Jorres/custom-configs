@@ -1,12 +1,12 @@
+scriptencoding utf-8
+
+" Remap leader key to ,
+let g:mapleader=','
 
 lua require("plugins")
 lua require("jorres")
 lua require("packer.luarocks").install_commands()
 
-scriptencoding utf-8
-
-" Remap leader key to ,
-let g:mapleader=','
 
 " Map russian key commands
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
@@ -22,9 +22,6 @@ set splitright
 set signcolumn=yes
 
 " set foldmethod=marker
-
-set splitbelow
-set splitright
 
 " Don't show last command
 set noshowcmd
@@ -43,8 +40,7 @@ set shiftwidth=4
 " do not wrap long lines by default
 set nowrap
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
+" Timeout for UI refresh in some cases, default 4000, feels bad
 set updatetime=500
 
 " === Completion Settings === "
@@ -59,7 +55,6 @@ set smartcase
 set autoread
 " This reloads files when you re-focus vim
 au FocusGained,WinEnter,BufEnter * :silent! !
-" This saves file when you lose focus on vim
 
 " Enable hybrid line numbers
 set number
@@ -75,43 +70,16 @@ set backupdir=~/.local/share/nvim/backup " Don't put backups in current dir
 set backup
 set noswapfile
 
-
 " === UI ===
 set termguicolors
 function! MyHighlight() abort
+    lua package.loaded["jorres.colorbuddy"] = nil 
+    lua require("jorres.colorbuddy")
 
-hi TelescopeBorder guifg=#252525 guibg=#252525
-hi TelescopeNormal guibg=#252525
+    hi VertSplit guifg=Gray
 
-hi TelescopePromptTitle guifg=#252525 guibg=#C6393D
-hi TelescopePromptBorder guifg=#303030 guibg=#303030
-hi TelescopePromptNormal guifg=#FFFFFF guibg=#303030
-hi TelescopePromptPrefix guifg=#C6393D guibg=#303030
-
-hi TelescopePreviewTitle guifg=#252525 guibg=#393DC6
-
-hi TelescopeResultsTitle guifg=#252525 guibg=#3DC639
-
-hi TelescopeSelection guibg=#404040
-
-hi VertSplit guifg=Gray
-
-" Errors in Red
-hi LspDiagnosticsVirtualTextError guifg=Red ctermfg=Red
-" Warnings in Yellow
-hi LspDiagnosticsVirtualTextWarning guifg=Yellow ctermfg=Yellow
-" Info and Hints in White
-hi LspDiagnosticsVirtualTextInformation guifg=White ctermfg=White
-hi LspDiagnosticsVirtualTextHint guifg=White ctermfg=White
-
-" Underline the offending code
-hi LspDiagnosticsUnderlineError guifg=NONE ctermfg=NONE cterm=underline gui=underline
-hi LspDiagnosticsUnderlineWarning guifg=NONE ctermfg=NONE cterm=underline gui=underline
-hi LspDiagnosticsUnderlineInformation guifg=NONE ctermfg=NONE cterm=underline gui=underline
-hi LspDiagnosticsUnderlineHint guifg=NONE ctermfg=NONE cterm=underline gui=underline
-
-hi DiffAdd guifg=Green
-hi DiffDelete guifg=Red guibg=NONE
+    hi DiffAdd guifg=Green
+    hi DiffDelete guifg=Red guibg=NONE
 endfunction
 
 augroup MyColors
@@ -134,12 +102,7 @@ catch
   colorscheme slate
 endtry
 
-" show custom message after writing to a buffer                                                             
-" autocmd BufWritePost * redraw | echomsg 'Wanna bet?'
-
-" autocmd CursorHold * lua require'lspsaga.diagnostic'.show_cursor_diagnostics()
-
-" autocmd BufEnter,FocusGained,WinEnter * :NvimTreeRefresh
+autocmd BufEnter,FocusGained,WinEnter * :NvimTreeRefresh
 
 " === Mappings ===
 
@@ -178,7 +141,6 @@ nnoremap <leader>y :lua require('telescope').extensions.neoclip.default()<CR>
 " Fugitive
 nnoremap <leader>gfh :0Gclog<CR>
 nnoremap <leader>gq :Gedit<CR>
-
 nnoremap <leader>pr :Prettier<CR>
 
 " Persistent highlight from hlsearch distracts.
@@ -186,6 +148,8 @@ nnoremap <CR> :noh<CR><CR>
 
 nmap <silent> <leader>n :NvimTreeFindFileToggle<CR>
 
+
+" Harpoon mappings
 nmap <leader>ha :lua require("harpoon.mark").add_file()<CR>
 nmap <silent> <leader>hm :lua require("harpoon.ui").toggle_quick_menu()<CR>
 nmap <silent> <leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
