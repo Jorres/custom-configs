@@ -84,7 +84,6 @@ return require('packer').startup(function(use, use_rocks)
 
     -- === TMUX === --
     use {'christoomey/vim-tmux-navigator'} -- Allows to use <C-hjkl> to move to/from tmux panes
-    use {'dhruvasagar/vim-zoom'} -- Allows to mimic tmux <pref>Z with <C-W>m
     use {'sjl/vitality.vim'} -- Restore FocusGained, FocusLost
 
     -- === LSP === 
