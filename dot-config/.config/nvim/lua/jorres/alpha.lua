@@ -1,4 +1,3 @@
-
 local alpha = require'alpha'
 local dashboard = require'alpha.themes.dashboard'
 dashboard.section.header.val = {
@@ -31,13 +30,7 @@ dashboard.section.buttons.val = {
     dashboard.button( "eh", "  search helptags", ":Telescope help_tags<CR>"),
     dashboard.button( "m", "  launch Magma", ":ene <BAR>:MagmaInit python3<CR>"),
 }
-local handle = io.popen('fortune')
-local fortune = handle:read("*a")
-handle:close()
-dashboard.section.footer.val = fortune
 
 dashboard.config.opts.noautocmd = true
-
-vim.cmd[[autocmd User AlphaReady echo 'ready']]
 
 alpha.setup(dashboard.config)

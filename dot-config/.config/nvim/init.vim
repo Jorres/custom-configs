@@ -7,7 +7,6 @@ lua require("plugins")
 lua require("jorres")
 lua require("packer.luarocks").install_commands()
 
-
 " Map russian key commands
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
@@ -148,26 +147,15 @@ nnoremap <CR> :noh<CR><CR>
 
 nmap <silent> <leader>n :NvimTreeFindFileToggle<CR>
 
-
-" Harpoon mappings
-nmap <leader>ha :lua require("harpoon.mark").add_file()<CR>
-nmap <silent> <leader>hm :lua require("harpoon.ui").toggle_quick_menu()<CR>
-nmap <silent> <leader>1 :lua require("harpoon.ui").nav_file(1)<CR>
-nmap <silent> <leader>2 :lua require("harpoon.ui").nav_file(2)<CR>
-nmap <silent> <leader>3 :lua require("harpoon.ui").nav_file(3)<CR>
-nmap <silent> <leader>4 :lua require("harpoon.ui").nav_file(4)<CR>
-nmap <silent> <leader>5 :lua require("harpoon.ui").nav_file(5)<CR>
-nmap <silent> <leader>6 :lua require("harpoon.ui").nav_file(6)<CR>
-nmap <silent> <leader>7 :lua require("harpoon.ui").nav_file(7)<CR>
-
 " Magma mappings
-nnoremap <silent><expr> <leader>r  :MagmaEvaluateOperator<CR>
-nnoremap <silent>       <leader>rr :MagmaEvaluateLine<CR>
-xnoremap <silent>       <leader>r  :<C-u>MagmaEvaluateVisual<CR>
-nnoremap <silent>       <leader>rc :MagmaReevaluateCell<CR>
-nnoremap <silent>       <leader>rd :MagmaDelete<CR>
-nnoremap <silent>       <leader>ro :MagmaShowOutput<CR>
+nnoremap <silent><expr> <leader>m  :MagmaEvaluateOperator<CR>
+nnoremap <silent>       <leader>mr :MagmaEvaluateLine<CR>
+xnoremap <silent>       <leader>m  :<C-u>MagmaEvaluateVisual<CR>
+nnoremap <silent>       <leader>mc :MagmaReevaluateCell<CR>
+nnoremap <silent>       <leader>md :MagmaDelete<CR>
+nnoremap <silent>       <leader>mo :MagmaShowOutput<CR>
 let g:magma_automatically_open_output = v:false
+
 
 " Quick window switching
 nmap <C-h> <C-w>h
@@ -204,19 +192,18 @@ autocmd! User GoyoLeave Limelight!
 " Plugin changes to default settings
 let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
-let g:python3_host_prog = '/usr/bin/python3'
-let g:signify_sign_delete = '-'
 
-let g:minimap_width = 15
-let g:minimap_highlight_range = 1
+let g:python3_host_prog = '/usr/bin/python3'
 
 let g:closetag_filenames = '*.html,*.jsx,*.tsx'
 let g:closetag_regions =  {
 \ 'typescript.tsx': 'jsxRegion,tsxRegion',
 \ 'javascript.jsx': 'jsxRegion',
 \ }
+
 let g:session_autosave = 'no'
 let g:session_autoload = 'no'
+
 let g:terraform_fmt_on_save = 1
 let g:terraform_align = 1
 

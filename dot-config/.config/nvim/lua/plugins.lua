@@ -44,7 +44,8 @@ return require('packer').startup(function(use, use_rocks)
 
     -- === Vim utilities ===
     use {'xolox/vim-session'} -- Provides OpenSession and SaveSession
-    use {'tversteeg/registers.nvim'} -- register preview
+    use {'gennaro-tedesco/nvim-peekup'} -- register preview
+ 
 
     -- === Git ===
     use {'tpope/vim-fugitive'} -- :G

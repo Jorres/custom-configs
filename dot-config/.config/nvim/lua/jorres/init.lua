@@ -21,6 +21,7 @@ require("jorres.gitsigns")
 -- require("jorres.distant")
 
 require("jorres.harpoon")
+require("jorres.registers")
 
 -- toggle it after nvim 0.7 possibly
 -- require("jorres.treesitter")
