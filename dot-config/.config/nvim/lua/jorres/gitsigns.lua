@@ -10,6 +10,8 @@ SETMAP("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
 SETMAP("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", opts)
 SETMAP("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
 
+SETMAP("n", "<leader>d", ":Gitsigns toggle_deleted<CR>", opts)
+
 require('gitsigns').setup {
     signs = {
         add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
