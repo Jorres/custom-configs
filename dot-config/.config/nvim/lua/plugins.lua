@@ -70,7 +70,7 @@ return require('packer').startup(function(use, use_rocks)
     use { 'qxxxb/vim-searchhi'} -- Highlight current hlsearch pattern differently
     use { 'rcarriga/nvim-notify'} -- Cool notifications!
     use { 'goolord/alpha-nvim' } -- cool startup screen!
-
+    use {'ellisonleao/carbon-now.nvim'} -- take code screenshots!
 
     -- Now, I do not use this as vimwiki, but does nice markdown 
     -- per-line formatting (highlights `` and hides tildas itself)
