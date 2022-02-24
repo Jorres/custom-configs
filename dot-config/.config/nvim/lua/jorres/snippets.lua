@@ -18,6 +18,12 @@ ls.config.set_config {
     enable_autosnippets = true,
 }
 
+SETMAP("i", "<c-f>", "<Esc>:lua require('jorres.snippets').check_jump_forward()<CR>li", {silent = true})
+
+SETMAP("i", "<c-b>", "<Esc>:lua require('jorres.snippets').check_jump_backward()<CR>li", {silent = true})
+
+SETMAP("i", "<c-s>", "<Esc>:lua require('jorres.snippets').check_choice_node()<CR>li", {silent = true})
+
 -- read help on luasnip-snippets
 
 ls.snippets = {
@@ -30,3 +36,25 @@ ls.snippets = {
         s({trig="pf"}, fmt("def {}({}):\n    pass", {i(1, "fname"), i(0, "")}))
     }
 }
+
+local M = {}
+
+M.check_jump_forward = function()
+    if ls.expand_or_jumpable() then
+        ls.expand_or_jump()
+    end
+end
+
+M.check_jump_backward = function()
+    if ls.jumpable(-1) then
+        ls.jump(-1)
+    end
+end
+
+M.check_choice_node = function()
+    if ls.choice_active() then
+        ls.change_choice(1)
+    end
+end
+
+return M
