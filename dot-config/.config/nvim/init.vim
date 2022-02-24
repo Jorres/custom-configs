@@ -138,12 +138,12 @@ nnoremap <leader>vrc :lua require('jorres.telescope').search_dotfiles()<CR>
 nnoremap <leader>y :lua require('telescope').extensions.neoclip.default()<CR>
 
 " Fugitive
-nnoremap <leader>gfh :0Gclog<CR>
-nnoremap <leader>gq :Gedit<CR>
-nnoremap <leader>pr :Prettier<CR>
+nnoremap <leader>gfh <cmd>0Gclog<CR>
+nnoremap <leader>ge <cmd>Gedit<CR>
+nnoremap <leader>pr <cmd>Prettier<CR>
 
 " Persistent highlight from hlsearch distracts.
-nnoremap <CR> :noh<CR><CR>
+nnoremap <silent> <CR> :noh<CR><CR>
 
 nmap <silent> <leader>n :NvimTreeFindFileToggle<CR>
 
