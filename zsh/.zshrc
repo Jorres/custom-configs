@@ -143,3 +143,8 @@ export TYPEWRITTEN_PROMPT_LAYOUT="pure"
 export TYPEWRITTEN_RELATIVE_PATH="adaptive"
 export TYPEWRITTEN_DISABLE_RETURN_CODE="true"
 
+eval "$(zoxide init zsh)"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
