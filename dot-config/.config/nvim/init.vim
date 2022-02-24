@@ -170,8 +170,9 @@ nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 
 noremap <silent> U :vertical resize +5<CR>
+noremap <silent> <leader>u :resize +5<CR>
 
-nnoremap <leader>src :source $MYVIMRC<CR>
+nnoremap <leader>ls :source $MYVIMRC<CR>
 nnoremap <leader>pki :PackerInstall<CR>
 nnoremap <leader>pkc :PackerClean<CR>
 
