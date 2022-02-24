@@ -16,6 +16,8 @@ require("jorres.cursor-landing")
 require("jorres.snippets")
 require("jorres.gitsigns")
 
+require("jorres.carbon")
+
 -- update it, there has been some major update
 -- maybe it will go well afterwards
 -- require("jorres.distant")
