@@ -10,6 +10,8 @@ SETMAP("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
 SETMAP("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", opts)
 SETMAP("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
 
+SETMAP("n", "<leader>hn", ":Gitsigns next_hunk<CR>", opts)
+
 SETMAP("n", "<leader>d", ":Gitsigns toggle_deleted<CR>", opts)
 
 require('gitsigns').setup {
@@ -20,11 +22,12 @@ require('gitsigns').setup {
         topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
         changedelete = {hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
     },
-    signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
 
-    numhl      = false,  -- Toggle with `:Gitsigns toggle_numhl`
+    signcolumn = true,  -- Toggle with `:Gitsigns toggle_signs`
+    numhl      = false, -- Toggle with `:Gitsigns toggle_numhl`
     linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+
     watch_gitdir = {
         interval = 1000,
         follow_files = true

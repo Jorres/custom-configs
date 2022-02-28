@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager
+sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev
 
 # install brave
 
