@@ -32,7 +32,7 @@ set clipboard=unnamedplus
 " Insert spaces when TAB is pressed.
 set expandtab
 " Change number of spaces that a <Tab> counts for during editing ops
-set softtabstop=4
+set tabstop=4
 " Indentation amount for < and > commands.
 set shiftwidth=4
 
@@ -137,6 +137,12 @@ nnoremap <leader>br :lua require('jorres.telescope').git_branches()<CR>
 nnoremap <leader>vrc :lua require('jorres.telescope').search_dotfiles()<CR>
 nnoremap <leader>y :lua require('telescope').extensions.neoclip.default()<CR>
 
+" Keep notes
+nnoremap <leader>kt :GkeepToggle<CR>
+nnoremap <leader>kl :GkeepLogin<CR>
+nnoremap <leader>kb :GkeepBrowse<CR>
+nnoremap <leader>kn :GkeepNew<CR>
+
 " Fugitive
 nnoremap <leader>gfh <cmd>0Gclog<CR>
 nnoremap <leader>ge <cmd>Gedit<CR>
@@ -212,3 +218,6 @@ let g:terraform_align = 1
 let g:vipsql_auto_clear_enabled = 1
 " What `vim` command to use when opening the output buffer
 let g:vipsql_new_buffer_cmd = "vsplit"
+
+set shell=/bin/bash
+

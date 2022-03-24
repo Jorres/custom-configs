@@ -76,6 +76,10 @@ require'lspconfig'.zeta_note.setup{
   }
 }
 
+require'lspconfig'.gopls.setup{
+  on_attach = on_attach,
+}
+
 --[[ require'lspconfig'.yamlls.setup{
     on_attach = on_attach,
     settings = {
@@ -135,6 +139,7 @@ require'lspconfig'.pylsp.setup{ on_attach = on_attach }
 require'lspconfig'.rust_analyzer.setup{ on_attach = on_attach }
 
 require'lspconfig'.kotlin_language_server.setup{
+    on_attach = on_attach,
     cmd = {
         "/home/jorres/bin/kotlin-language-server/server/build/install/server/bin/kotlin-language-server" 
     },

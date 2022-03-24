@@ -34,6 +34,19 @@ ls.snippets = {
     python = {
         s({trig="pmn"}, t({"def main():", "    pass", "", "if __name__  == '__main__':", "    main()"})),
         s({trig="pf"}, fmt("def {}({}):\n    pass", {i(1, "fname"), i(0, "")}))
+    },
+
+    typescript = {
+        s({trig="ecl"}, {
+            t("export class "), i(1, "className"), t({ " {", "" }),
+            t("    "), i(2),
+            t({ "", "}" }), i(0)
+        }),
+        s({trig="tf"}, {
+            t("const "), i(1, "functionName"), t(" = ("), i(2), t(") => {"),
+            t("    "), i(3),
+            t({ "", "}" }), i(0)
+        })
     }
 }
 

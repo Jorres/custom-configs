@@ -29,6 +29,7 @@ return require('packer').startup(function(use, use_rocks)
     use {'ggandor/lightspeed.nvim'} -- Ultimate screen-jumping plugin
     use {'tpope/vim-repeat'} -- zero-config, allows to repeat complex commands
     use {'AndrewRadev/splitjoin.vim'} -- gJ and gS to split\join statements in multiple languages 
+    use {'AndrewRadev/sideways.vim'} -- :SidewaysLeft and :SidewaysRight to swap list items 
     use {'matze/vim-move'} -- Allows to move lines up and down with Alt
     use {'sk1418/HowMuch'} -- https://github.com/sk1418/HowMuch
     use {'ThePrimeagen/harpoon'} -- Keep track of latest files you work with
@@ -45,6 +46,7 @@ return require('packer').startup(function(use, use_rocks)
     -- === Vim utilities ===
     use {'xolox/vim-session'} -- Provides OpenSession and SaveSession
     use {'gennaro-tedesco/nvim-peekup'} -- register preview
+    use {'lambdalisue/suda.vim'} -- reenter sudo editing with :Suda
  
 
     -- === Git ===
@@ -94,6 +96,7 @@ return require('packer').startup(function(use, use_rocks)
     use {'hrsh7th/cmp-path'}   
     use {'hrsh7th/cmp-nvim-lua'}   
     use {'hrsh7th/cmp-nvim-lsp'}   
+    use {'udalov/kotlin-vim'}
 
     -- === Treesitter ===
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -109,9 +112,13 @@ return require('packer').startup(function(use, use_rocks)
     use {'psf/black'} -- Black
     use { 'dccsillag/magma-nvim' } -- Jupyter notebook in vim with picture support!
 
+    -- === Tools ===
+    use {'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
+
 
     -- === DevOps specific ===
-    use {'chipsenkbeil/distant.nvim'}
+    use {'rottencandy/vimkubectl'} -- :Kget
+    use {'chipsenkbeil/distant.nvim'} -- TODO try again, some major update happened, maybe itll work now
 
     -- === Plugin \ Lua development ===
     use {'tjdevries/colorbuddy.nvim'}
