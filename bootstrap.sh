@@ -43,3 +43,6 @@ sudo npm install -g typescript typescript-language-server typewritten prettier
 # Install docker, kubectl and helm
 # Docker is good via this link: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
 # Just google kubectl and helm
+
+# Install ansible
+# Install CopyQ
