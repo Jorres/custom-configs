@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev
+sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat
 
 # install brave
 
@@ -15,8 +15,9 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # clone dotfiles repo, call `./install.sh`
 
+# OPTIONALLY, if you like:
 # this installs zsh vi mode plugin, it is already sourced in zshrc
-git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
+# git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
 
 
 sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
@@ -37,7 +38,7 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Install cool things from npm:
-sudo npm install -g typescript typescript-language-server typewritten prettier
+sudo npm install -g typescript typescript-language-server prettier # typewritten
 
 
 # Install docker, kubectl and helm
@@ -46,3 +47,21 @@ sudo npm install -g typescript typescript-language-server typewritten prettier
 
 # Install ansible
 # Install CopyQ
+# Install K9s and Popeye, however they are available as stow binaries
+# Install starship, zsh wrapper
+
+wget -qO- https://zotero.retorque.re/file/apt-package-archive/install.sh | sudo bash
+sudo apt update
+sudo apt install -y zotero
+
+# Install cpp language server
+# `snap install ccls --classic`
+# place .ccls file into the project root as a marker
+
+
+# This installs cht.sh
+# https://github.com/chubin/cheat.sh#installation
+PATH_DIR="$HOME/bin"  # or another directory on your $PATH
+mkdir -p "$PATH_DIR"
+curl https://cht.sh/:cht.sh > "$PATH_DIR/cht.sh"
+chmod +x "$PATH_DIR/cht.sh"
