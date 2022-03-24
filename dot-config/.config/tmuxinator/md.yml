@@ -1,6 +1,6 @@
-# /home/jorres/.config/tmuxinator/mdinc.yml
+# /home/jorres/.config/tmuxinator/md.yml
 
-name: mdinc
+name: md
 root: ~/
 
 windows:
@@ -67,24 +67,24 @@ windows:
             - kaminoshell:
                 - clear
                 - cd kamino
-    - ben:
-        layout: even-horizontal
-        root: "~/work/mdinc/ben"
-        panes:
-            - nvim:
-                - nvim .
-                - Enter
-            - shell:
-                - clear
-    - yoda:
-        layout: even-horizontal
-        root: "~/work/mdinc/yoda-nest"
-        panes:
-            - nvim:
-                - nvim .
-                - Enter
-            - shell:
-                - clear
+    # - ben:
+    #     layout: even-horizontal
+    #     root: "~/work/mdinc/ben"
+    #     panes:
+    #         - nvim:
+    #             - nvim .
+    #             - Enter
+    #         - shell:
+    #             - clear
+    # - yoda:
+    #     layout: even-horizontal
+    #     root: "~/work/mdinc/yoda-nest"
+    #     panes:
+    #         - nvim:
+    #             - nvim .
+    #             - Enter
+    #         - shell:
+    #             - clear
     - r2d2:
         layout: even-horizontal
         root: "~/work/mdinc/r2d2"
