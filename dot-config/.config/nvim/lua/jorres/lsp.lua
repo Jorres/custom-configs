@@ -133,3 +133,11 @@ require'lspconfig'.terraformls.setup { on_attach = on_attach }
 require'lspconfig'.pylsp.setup{ on_attach = on_attach }
 
 require'lspconfig'.rust_analyzer.setup{ on_attach = on_attach }
+
+require'lspconfig'.kotlin_language_server.setup{
+    cmd = {
+        "/home/jorres/bin/kotlin-language-server/server/build/install/server/bin/kotlin-language-server" 
+    },
+    filetypes = { "kotlin" },
+    root_dir = require'lspconfig'.util.root_pattern("settings.gradle.kts")
+}

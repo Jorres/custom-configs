@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -70,7 +71,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-vi-mode)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -110,9 +111,9 @@ export PATH="/home/jorres/work/uni-codebase/diploma-codebase/aiger/:$PATH"
 export PATH="/home/jorres/work/uni-codebase/diploma-codebase/abc/:$PATH"
 
 # The next line updates PATH for Yandex Cloud CLI.
-if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
+# if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
 # The next line enables shell command completion for yc.
-if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
+# if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
 
 DOTFILES_PATH=/home/jorres/dotfiles
 
@@ -130,21 +131,19 @@ alias kdf="kubectl delete -f "
 
 alias tma="tmuxinator start allrounder"
 alias tmas="tmuxinator stop allrounder"
-alias tmm="tmuxinator start mdinc"
-alias tmms="tmuxinator stop mdinc"
+alias tmm="tmuxinator start md"
+alias tmms="tmuxinator stop md"
+alias pysource="source ./env/bin/activate"
 
-fpath=($fpath "/home/jorres/.zfunctions")
-
-# Set typewritten ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt typewritten
-
-export TYPEWRITTEN_PROMPT_LAYOUT="pure"
-export TYPEWRITTEN_RELATIVE_PATH="adaptive"
-export TYPEWRITTEN_DISABLE_RETURN_CODE="true"
+export JAVA_HOME="/home/jorres/bin/jdk-17.0.2"
+export GO_PATH="/usr/local/go"
+export PATH="$PATH:$GO_PATH/bin"
+export PATH="$PATH:$JAVA_HOME/bin"
 
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
-# Generated for envman. Do not edit.
-[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+# # Generated for envman. Do not edit.
+# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
+# zprof
