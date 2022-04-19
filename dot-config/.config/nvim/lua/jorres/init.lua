@@ -12,6 +12,7 @@ require("jorres.alpha")
 require("jorres.telescope")
 require("jorres.smoothscroll")
 require("jorres.cursor-landing")
+require("jorres.toggleterm")
 
 require("jorres.snippets")
 require("jorres.gitsigns")

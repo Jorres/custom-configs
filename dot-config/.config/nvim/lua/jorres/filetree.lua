@@ -1,17 +1,14 @@
-SETG("nvim_tree_special_files", {}) 
-SETG("nvim_tree_show_icons", { git = 0, folders= 1, files = 1, folder_arrows = 1 })
-SETG("nvim_tree_indent_markers", 1)
-
+SETG("nvim_tree_special_files", {})
 
 -- Brought from readme to switch off some nasty mappings that conflict with my own
 local mappings = {
-  { key = {"<CR>", "o", "<2-LeftMouse>"}, action = "edit" },
+  { key = {"<CR>"}, action = "edit" },
   -- { key = "<C-e>",                        action = "edit_in_place" },
   { key = {"O"},                          action = "edit_no_picker" },
-  { key = {"<2-RightMouse>", "<C-]>"},    action = "cd" },
+  { key = {"<C-c>"},    action = "cd" },
   { key = "<C-v>",                        action = "vsplit" },
   { key = "<C-x>",                        action = "split" },
-  { key = "<C-t>",                        action = "tabnew" },
+  -- { key = "<C-t>",                        action = "tabnew" },
   { key = "<",                            action = "prev_sibling" },
   { key = ">",                            action = "next_sibling" },
   { key = "P",                            action = "parent_node" },
@@ -44,6 +41,11 @@ local mappings = {
 }
 
 require'nvim-tree'.setup {
+  renderer = {
+    indent_markers = {
+      enable = true
+    }
+  },
   -- disables netrw completely
   disable_netrw       = true,
   -- hijack netrw window on startup
@@ -52,9 +54,6 @@ require'nvim-tree'.setup {
   open_on_setup       = false,
   -- will not open on setup if the filetype is in this list
   ignore_ft_on_setup  = {},
-  -- closes neovim automatically when the tree is the last **WINDOW** in the view
-  auto_close          = true,
-
   auto_reload_on_write = true,
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab         = false,
@@ -104,11 +103,11 @@ require'nvim-tree'.setup {
     -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
     height = 30,
     -- Hide the root path of the current folder on top of the tree 
-    hide_root_folder = true,
+    hide_root_folder = false,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     -- if true the tree will resize itself after opening a file
-    auto_resize = true,
+    auto_resize = false,
     mappings = {
       -- custom only false will merge the list with the default mappings
       -- if true, it will only use your list to set the mappings
@@ -130,4 +129,10 @@ require'nvim-tree'.setup {
   git = {
     enable = false,
   },
+
+  actions = {
+    open_file = {
+      resize_window = true
+    }
+  }
 }

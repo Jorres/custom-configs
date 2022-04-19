@@ -3,6 +3,8 @@ scriptencoding utf-8
 " Remap leader key to ,
 let g:mapleader=','
 
+set completeopt="menu,menuone,preview"
+
 lua require("plugins")
 lua require("jorres")
 lua require("packer.luarocks").install_commands()
@@ -32,9 +34,9 @@ set clipboard=unnamedplus
 " Insert spaces when TAB is pressed.
 set expandtab
 " Change number of spaces that a <Tab> counts for during editing ops
-set tabstop=4
+set tabstop=2
 " Indentation amount for < and > commands.
-set shiftwidth=4
+set shiftwidth=2
 
 " do not wrap long lines by default
 set nowrap
@@ -93,15 +95,13 @@ set fillchars+=vert:│
 set background=dark
 try
   let g:everforest_background = 'hard'
-  let g:sonokai_style = 'atlantis'
-  let g:sonokai_enable_italic = 1
-  let g:sonokai_disable_italic_comment = 1
-  colorscheme sonokai
+  " let g:sonokai_style = 'atlantis'
+  " let g:sonokai_enable_italic = 1
+  " let g:sonokai_disable_italic_comment = 1
+  colorscheme everforest
 catch
   colorscheme slate
 endtry
-
-autocmd BufEnter,FocusGained,WinEnter * :NvimTreeRefresh
 
 " === Mappings ===
 
@@ -127,9 +127,9 @@ nmap <leader>q :cclose<CR>
 nmap <leader>o :copen 5<CR>
 
 " Telescope
-nnoremap <leader>gs :lua require('telescope.builtin').live_grep{}<CR>
+nnoremap <leader>gs :lua require('telescope.builtin').live_grep({hidden = true})<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
-nnoremap <leader>t :lua require('telescope.builtin').git_files()<CR>
+nnoremap <leader>t :lua require('telescope.builtin').git_files({hidden=true})<CR>
 
 nnoremap <leader>j :lua require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") }<CR>
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
@@ -162,6 +162,8 @@ nnoremap <silent>       <leader>md :MagmaDelete<CR>
 nnoremap <silent>       <leader>mo :MagmaShowOutput<CR>
 let g:magma_automatically_open_output = v:false
 
+tnoremap <Esc> <C-\><C-n>
+tnoremap <c-[> <C-\><C-n>
 
 " Quick window switching
 nmap <C-h> <C-w>h
@@ -192,6 +194,8 @@ nnoremap <leader>ps :VipsqlShell<CR>
 " In visual-mode, sends the selected text to psql.
 vnoremap <leader>ps :VipsqlSendSelection<CR>
 
+nnoremap <leader><leader>t :TestFile<CR>
+
 " === Goyo ===
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -220,4 +224,3 @@ let g:vipsql_auto_clear_enabled = 1
 let g:vipsql_new_buffer_cmd = "vsplit"
 
 set shell=/bin/bash
-
