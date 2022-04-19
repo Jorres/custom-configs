@@ -30,6 +30,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # install `nerdfont.ttf` from this repo by clicking on it
 
 # hide dock: search for `extensions` app in ubuntu, should be installed. Untick `Ubuntu dock`
+# Optionally, disable alt-tab
 
 
 # Install node.js, tweak version as required
