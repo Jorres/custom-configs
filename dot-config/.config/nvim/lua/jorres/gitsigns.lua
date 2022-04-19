@@ -1,20 +1,18 @@
 local opts = {noremap = true, silent = true}
 
-SETMAP("n", "<leader>bl", ":Gitsigns toggle_current_line_blame<CR>", opts)
-SETMAP("n", "<leader>hs", ":Gitsigns stage_hunk<CR>", opts)
-SETMAP("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
-SETMAP("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", opts)
-SETMAP("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
-SETMAP("n", "<leader>hs", ":Gitsigns stage_hunk<CR>", opts)
-SETMAP("n", "<leader>hr", ":Gitsigns reset_hunk<CR>", opts)
-SETMAP("n", "<leader>hu", ":Gitsigns undo_stage_hunk<CR>", opts)
-SETMAP("n", "<leader>hp", ":Gitsigns preview_hunk<CR>", opts)
+local gitsigns = require'gitsigns'
+ 
+local hunk_prefix = "<leader>h"
 
-SETMAP("n", "<leader>hn", ":Gitsigns next_hunk<CR>", opts)
+vim.keymap.set("n", hunk_prefix .. "s", gitsigns.stage_hunk, opts)
+vim.keymap.set("n", hunk_prefix .. "r", gitsigns.reset_hunk, opts)
+vim.keymap.set("n", hunk_prefix .. "u", gitsigns.undo_stage_hunk, opts)
+vim.keymap.set("n", hunk_prefix .. "p", gitsigns.preview_hunk, opts)
+vim.keymap.set("n", hunk_prefix .. "n", gitsigns.next_hunk, opts)
+vim.keymap.set("n", "<leader>bl", gitsigns.toggle_current_line_blame, opts)
+vim.keymap.set("n", "<leader>d",  gitsigns.toggle_deleted, opts)
 
-SETMAP("n", "<leader>d", ":Gitsigns toggle_deleted<CR>", opts)
-
-require('gitsigns').setup {
+gitsigns.setup {
     signs = {
         add          = {hl = 'GitSignsAdd'   , text = '│', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
         change       = {hl = 'GitSignsChange', text = '│', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},

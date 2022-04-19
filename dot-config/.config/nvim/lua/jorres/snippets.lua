@@ -8,6 +8,7 @@ local i = ls.insert_node
 local f = ls.function_node
 local c = ls.choice_node
 local d = ls.dynamic_node
+local rep = require"luasnip.extras".rep
 
 local fmt = require("luasnip.extras.fmt").fmt
 
@@ -18,15 +19,9 @@ ls.config.set_config {
     enable_autosnippets = true,
 }
 
-SETMAP("i", "<c-f>", "<Esc>:lua require('jorres.snippets').check_jump_forward()<CR>li", {silent = true})
-
-SETMAP("i", "<c-b>", "<Esc>:lua require('jorres.snippets').check_jump_backward()<CR>li", {silent = true})
-
-SETMAP("i", "<c-s>", "<Esc>:lua require('jorres.snippets').check_choice_node()<CR>li", {silent = true})
-
 -- read help on luasnip-snippets
 
-ls.snippets = {
+ls.add_snippets(nil, {
     all = {
 
     },
@@ -47,27 +42,52 @@ ls.snippets = {
             t("    "), i(3),
             t({ "", "}" }), i(0)
         })
+    },
+
+    dockerfile = {
+        -- s({trig="dockerfile"}, {
+        --     t({"FROM "}), i(1, "IMAGE_NAME"), t(":"), i(2, "TAG"),
+        --     t({"", "WORKDIR "}), i(4, "/usr/app"),
+        --     t({"", "COPY . ."}),
+        --     t({"", "RUN echo 'just some shell command'"}),
+        --     t({"", "CMD, ['command', 'arg1', 'arg2']"}),
+        --     t({"", "EXPOSE "}), i(5, "8000"),
+        --     i(0)
+        -- }),
+
+        s({trig="dockerfile-multistage"}, {
+            t({"FROM "}), i(1, "IMAGE_NAME"), t(":"), i(2, "TAG"), t(" as "), i(3, "PHASE_NAME"),
+            t({"", "WORKDIR "}), i(4, "/usr/app"),
+            t({"", "COPY . ."}),
+            t({"", "FROM "}), i(5, "IMAGE_NAME"), t(":"), i(6, "TAG"), t(" as "), i(7, "PHASE_NAME_2"),
+            t({"", "WORKDIR "}), rep(4),
+            t({"", "COPY --from="}), rep(3), t({" "}), rep(4), t({" "}), i(8, {"/usr/app"}),
+            t({"", "RUN echo 'just some shell command'"}),
+            t({"", "CMD command arg1 arg2"}),
+            t({"", "EXPOSE "}), i(9, "8000"),
+            i(0)
+        })
     }
-}
+})
 
-local M = {}
-
-M.check_jump_forward = function()
+local check_jump_forward = function()
     if ls.expand_or_jumpable() then
         ls.expand_or_jump()
     end
 end
 
-M.check_jump_backward = function()
+local check_jump_backward = function()
     if ls.jumpable(-1) then
         ls.jump(-1)
     end
 end
 
-M.check_choice_node = function()
+local check_choice_node = function()
     if ls.choice_active() then
         ls.change_choice(1)
     end
 end
 
-return M
+vim.keymap.set({"i", "s"}, "<c-f>", check_jump_forward, {silent = true})
+vim.keymap.set({"i", "s"}, "<c-b>", check_jump_backward, {silent = true})
+vim.keymap.set({"i", "s"}, "<c-s>", check_choice_node, {silent = true})
