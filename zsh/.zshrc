@@ -142,8 +142,11 @@ export PATH="$PATH:$JAVA_HOME/bin"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(navi widget zsh)"
 
 # # Generated for envman. Do not edit.
 # [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # zprof
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

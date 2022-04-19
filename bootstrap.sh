@@ -67,4 +67,10 @@ mkdir -p "$PATH_DIR"
 curl https://cht.sh/:cht.sh > "$PATH_DIR/cht.sh"
 chmod +x "$PATH_DIR/cht.sh"
 
+# For navi:
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+git config --global credential.helper "cache --timeout=3600"
+
 # Install https://github.com/grwlf/xkb-switch so that language in tmux status line works
