@@ -13,8 +13,6 @@ windows:
             - nvim: 
                 - nvim .
                 - Enter
-            - shell:
-                - clear
     - lifelog:
         layout: even-horizontal
         root: "~/hobbies/lifelog"
@@ -57,14 +55,32 @@ windows:
             - nvim: 
                 - nvim .
                 - Enter
-            - shell:
-                - clear
-    - "diploma todo":
-        root: "~/work/uni-codebase/diploma-codebase/"
+    # - "diploma todo":
+    #     root: "~/work/uni-codebase/diploma-codebase/"
+    #     panes:
+    #         - nvim: 
+    #             - nvim todo.md
+    #             - Enter
+    - "viFm":
+        root: "~/"
         panes:
-            - nvim: 
-                - nvim todo.md
+            - vifm: 
+                - vifm
                 - Enter
+    - "free":
+        root: "~/"
+        panes:
+            - shell: 
+                - clear
+    # - "go-learning":
+    #     root: "~/hobbies/studies/go"
+    #     layout: even-horizontal
+    #     panes:
+    #         - vifm: 
+    #             - nvim .
+    #             - Enter
+    #         - shell:
+    #             - clear
     # - moonlander:
     #     root: "~/hobbies/moonlander"
     #     layout: even-horizontal

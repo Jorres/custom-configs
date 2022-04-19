@@ -6,55 +6,6 @@ root: ~/
 windows:
     - starter:
         - clear
-    # - docs: 
-    #     layout: even-horizontal
-    #     root: "~/work/mdinc/mdinc-docs"
-    #     panes:
-    #         - shell:
-    #             - clear
-    #         - nvim:
-    #             - nvim 
-    #             - ':OpenSession mdinc-docs'
-    #             - Enter
-    # - plans:
-    #     layout: even-horizontal
-    #     root: "~/work/mdinc/cto"
-    #     panes:
-    #         - nvim:
-    #             - nvim .
-    #             - Enter
-    #         - shell:
-    #             - clear
-    # - yoda:
-    #     layout: even-horizontal
-    #     root: "~/work/mdinc/yoda"
-    #     panes:
-    #         - shell:
-    #             - clear
-    #         - nvim:
-    #             - nvim 
-    #             - ':OpenSession yoda'
-    #             - Enter
-    # - kenobi:
-    #     layout: even-horizontal
-    #     root: "~/work/mdinc/kenobi"
-    #     panes:
-    #         - shell:
-    #             - clear
-    #         - nvim:
-    #             - nvim 
-    #             - ':OpenSession kenobi'
-    #             - Enter
-    # - legacy:
-    #     layout: main-vertical
-    #     root: "~/work/mdinc/cerebrum-legacy"
-    #     panes:
-    #         - nvim:
-    #             - nvim 
-    #             - ':OpenSession cerebrum-legacy'
-    #             - Enter
-    #         - shell:
-    #             - clear
     - alderaan:
         layout: main-vertical
         root: "~/work/mdinc/alderaan/"
@@ -62,29 +13,6 @@ windows:
             - nvim:
                 - nvim .
                 - Enter
-            - shell:
-                - clear
-            - kaminoshell:
-                - clear
-                - cd kamino
-    # - ben:
-    #     layout: even-horizontal
-    #     root: "~/work/mdinc/ben"
-    #     panes:
-    #         - nvim:
-    #             - nvim .
-    #             - Enter
-    #         - shell:
-    #             - clear
-    # - yoda:
-    #     layout: even-horizontal
-    #     root: "~/work/mdinc/yoda-nest"
-    #     panes:
-    #         - nvim:
-    #             - nvim .
-    #             - Enter
-    #         - shell:
-    #             - clear
     - r2d2:
         layout: even-horizontal
         root: "~/work/mdinc/r2d2"
@@ -92,10 +20,6 @@ windows:
             - nvim:
                 - nvim .
                 - Enter
-            - shell:
-                - clear
-            - kamino:
-                - clear
     - boba:
         layout: even-horizontal
         root: "~/work/mdinc/boba"
@@ -103,13 +27,11 @@ windows:
             - nvim:
                 - nvim .
                 - Enter
-            - shell:
-                - clear
     - sshes:
         layout: even-horizontal
         root: "~/work/mdinc/alderaan"
         panes:
             - certauth:
-                - sudo openvpn --config ./modules/vpn_gateway/vpn-gateway-data/client1.ovpn
+                - sudo openvpn --config ./modules/vpn_gateway/vpn-gateway-data/client1.ovpn 
             - openvpn:
                 - ssh -o IdentitiesOnly=yes -i ./modules/vpn_gateway/vpn-gateway-data/vpn-gateway mdinc-dev@178.154.202.6
