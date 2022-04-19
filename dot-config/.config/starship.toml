@@ -14,3 +14,14 @@ format = "on [$symbol $branch]($style) "
 symbol = "שּׁ"
 truncation_length = 4
 truncation_symbol = ""
+
+[git_commit]
+commit_hash_length = 6
+tag_disabled = false
+style = "yellow"
+
+[terraform]
+disabled = true
+
+[line_break]
+disabled = true

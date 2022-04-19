@@ -134,6 +134,8 @@ alias tmas="tmuxinator stop allrounder"
 alias tmm="tmuxinator start md"
 alias tmms="tmuxinator stop md"
 alias pysource="source ./env/bin/activate"
+alias k9s="k9s --logoless"
+alias n="nvim ."
 
 export JAVA_HOME="/home/jorres/bin/jdk-17.0.2"
 export GO_PATH="/usr/local/go"

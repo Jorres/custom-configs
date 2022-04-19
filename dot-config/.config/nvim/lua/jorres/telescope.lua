@@ -11,7 +11,8 @@ telescope.setup{
             '--line-number',
             '--column',
             '--smart-case',
-            '--max-filesize=1M'
+            '--max-filesize=1M',
+            '--hidden'
         },
         prompt_prefix = "  ",
         selection_caret = "   ",
@@ -33,7 +34,7 @@ telescope.setup{
            preview_cutoff = 1,
         },
         file_sorter =  require'telescope.sorters'.get_fzy_sorter,
-        file_ignore_patterns = {"node_modules"},
+        file_ignore_patterns = {"%.node_modules/", "%.ccls-cache/", "%.package-lock.json"},
         generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
         winblend = 0,
         border = {},
@@ -56,8 +57,18 @@ telescope.setup{
         -- Developer configurations: Not meant for general override
         buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
     },
-    extensions = { }
+    extensions = {
+      fzf = {
+        fuzzy = true,
+        override_generic_sorter = true,
+        override_file_sorter = true,
+        case_mode = "smart_case",
+      }
+   }
 }
+
+telescope.load_extension('fzf')
+telescope.load_extension('harpoon')
 
 local M = {}
 

@@ -12,6 +12,7 @@ require("jorres.alpha")
 require("jorres.telescope")
 require("jorres.smoothscroll")
 require("jorres.cursor-landing")
+require("jorres.comment")
 require("jorres.toggleterm")
 
 require("jorres.snippets")
@@ -31,4 +32,3 @@ require("jorres.registers")
 
 -- One liners:
 require("neoclip").setup()
-

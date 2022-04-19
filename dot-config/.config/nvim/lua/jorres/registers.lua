@@ -9,4 +9,4 @@ config.geometry["wrap"] = false
 -- Make a PR to allow recoloring) 
 -- Good way to accumulate knowledge for your plugins
 
-SETMAP("n", "<leader>r", ":lua require('nvim-peekup').peekup_open()<CR>", {silent = true})
+vim.keymap.set("n", "<leader>r", require('nvim-peekup').peekup_open, {silent = true})

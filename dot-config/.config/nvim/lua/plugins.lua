@@ -35,6 +35,7 @@ return require('packer').startup(function(use, use_rocks)
     use {'ThePrimeagen/harpoon'} -- Keep track of latest files you work with
     use {'L3MON4D3/LuaSnip'} -- Snippets engine!
     use {'saadparwaiz1/cmp_luasnip'} -- integrates cmp and luasnip
+    use {'ThePrimeagen/refactoring.nvim'}
 
     use { "AckslD/nvim-neoclip.lua",
         requires = {
@@ -73,6 +74,7 @@ return require('packer').startup(function(use, use_rocks)
     use { 'rcarriga/nvim-notify'} -- Cool notifications!
     use { 'goolord/alpha-nvim' } -- cool startup screen!
     use {'ellisonleao/carbon-now.nvim'} -- take code screenshots!
+    use {'akinsho/toggleterm.nvim'} -- toggle terminal per session
 
     -- Now, I do not use this as vimwiki, but does nice markdown 
     -- per-line formatting (highlights `` and hides tildas itself)
@@ -88,15 +90,16 @@ return require('packer').startup(function(use, use_rocks)
     use {'christoomey/vim-tmux-navigator'} -- Allows to use <C-hjkl> to move to/from tmux panes
     use {'sjl/vitality.vim'} -- Restore FocusGained, FocusLost
 
-    -- === LSP === 
+    -- === LSP ===
     use {'neovim/nvim-lspconfig'}
     -- completion core and completion sources
     use {'hrsh7th/nvim-cmp'}
-    use {'hrsh7th/cmp-buffer'}   
-    use {'hrsh7th/cmp-path'}   
-    use {'hrsh7th/cmp-nvim-lua'}   
-    use {'hrsh7th/cmp-nvim-lsp'}   
-    use {'udalov/kotlin-vim'}
+    use {'hrsh7th/cmp-buffer'}
+    use {'hrsh7th/cmp-path'}
+    use {'hrsh7th/cmp-nvim-lua'}
+    use {'hrsh7th/cmp-nvim-lsp'}
+    use {'hrsh7th/cmp-nvim-lsp-signature-help'}
+    use {'andersevenrud/cmp-tmux'}
 
     -- === Treesitter ===
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -104,7 +107,7 @@ return require('packer').startup(function(use, use_rocks)
 
     -- === Telescope === 
     use {'nvim-telescope/telescope.nvim'}
-    use {'nvim-telescope/telescope-fzy-native.nvim'}
+    use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
 
     -- === Language specific ===
     use {'hashivim/vim-terraform'}
@@ -115,15 +118,17 @@ return require('packer').startup(function(use, use_rocks)
     -- === Tools ===
     use {'stevearc/gkeep.nvim', run = ':UpdateRemotePlugins'}
 
-
     -- === DevOps specific ===
-    use {'rottencandy/vimkubectl'} -- :Kget
-    use {'chipsenkbeil/distant.nvim'} -- TODO try again, some major update happened, maybe itll work now
+    -- use {'chipsenkbeil/distant.nvim'} -- TODO try again, some major update happened, maybe itll work now
 
     -- === Plugin \ Lua development ===
     use {'tjdevries/colorbuddy.nvim'}
     use_rocks 'http'
     use_rocks 'lua-cjson'
+
+    -- === Actual programming == 
+    use {'vim-test/vim-test'}
+
 
     -- === Dependencies ===
     use {'tami5/sqlite.lua'}
