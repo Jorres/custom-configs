@@ -100,6 +100,8 @@ return require('packer').startup(function(use, use_rocks)
     use {'hrsh7th/cmp-nvim-lsp'}
     use {'hrsh7th/cmp-nvim-lsp-signature-help'}
     use {'andersevenrud/cmp-tmux'}
+    use {'udalov/kotlin-vim'}
+
 
     -- === Treesitter ===
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}

@@ -223,4 +223,6 @@ let g:vipsql_auto_clear_enabled = 1
 " What `vim` command to use when opening the output buffer
 let g:vipsql_new_buffer_cmd = "vsplit"
 
+autocmd BufEnter,FocusGained,WinEnter * :NvimTreeRefresh
+
 set shell=/bin/bash
