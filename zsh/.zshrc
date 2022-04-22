@@ -137,6 +137,10 @@ alias pysource="source ./env/bin/activate"
 alias k9s="k9s --logoless"
 alias n="nvim ."
 
+alias rgc="rg --files   | rg"
+alias rgh="rg --files ~ | rg"
+alias rgr="sudo rg --files / | rg"
+
 export JAVA_HOME="/home/jorres/bin/jdk-17.0.2"
 export GO_PATH="/usr/local/go"
 export PATH="$PATH:$GO_PATH/bin"
