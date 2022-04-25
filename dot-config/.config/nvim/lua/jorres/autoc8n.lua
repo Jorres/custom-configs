@@ -15,9 +15,9 @@ cmp.setup {
   },
 
   sources = {
+    { name = "nvim_lsp_signature_help" },
     { name = "nvim_lua", max_item_count = 5 },
     { name = "luasnip", max_item_count = 2 },
-    { name = "nvim_lsp_signature_help" },
     { name = "nvim_lsp", max_item_count = 5 },
     {
       name = 'tmux',
@@ -27,7 +27,8 @@ cmp.setup {
         trigger_characters = { '.' },
         trigger_characters_ft = {} -- { filetype = { '.' } }
       },
-      max_item_count = 3
+      max_item_count = 3,
+      keyword_length = 3,
     },
     { name = "path", max_item_count = 3 },
     { name = "buffer", max_item_count = 2, keyword_length = 4 },
