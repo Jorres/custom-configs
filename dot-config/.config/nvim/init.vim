@@ -9,6 +9,11 @@ lua require("plugins")
 lua require("jorres")
 lua require("packer.luarocks").install_commands()
 
+augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua luafile <afile>
+augroup end
+
 " Map russian key commands
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
