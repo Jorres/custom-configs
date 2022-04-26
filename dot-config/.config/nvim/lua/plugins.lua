@@ -113,7 +113,6 @@ return require('packer').startup(function(use, use_rocks)
 
     -- === Language specific ===
     use {'hashivim/vim-terraform'}
-    use {'martingms/vipsql'} --  <leader>po
     use {'psf/black'} -- Black
     use { 'dccsillag/magma-nvim' } -- Jupyter notebook in vim with picture support!
 

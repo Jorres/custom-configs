@@ -181,18 +181,7 @@ noremap <silent> U :vertical resize +5<CR>
 noremap <silent> <leader>u :resize +5<CR>
 
 nnoremap <leader>ls :source $MYVIMRC<CR>
-nnoremap <leader>pki :PackerInstall<CR>
-nnoremap <leader>pkc :PackerClean<CR>
-
-" Starts an async psql job, prompting for the psql arguments.
-" Also opens a scratch buffer where output from psql is directed.
-noremap <leader>po :VipsqlOpenSession<CR>
-" Terminates psql (happens automatically if the output buffer is closed).
-noremap <silent> <leader>pk :VipsqlCloseSession<CR>
-" In normal-mode, prompts for input to psql directly.
-nnoremap <leader>ps :VipsqlShell<CR>
-" In visual-mode, sends the selected text to psql.
-vnoremap <leader>ps :VipsqlSendSelection<CR>
+nnoremap <leader>ps :PackerSync<CR>
 
 nnoremap <leader><leader>t :TestFile<CR>
 
@@ -217,11 +206,6 @@ let g:session_autoload = 'no'
 
 let g:terraform_fmt_on_save = 1
 let g:terraform_align = 1
-
-" Whether or not to clear the output buffer on each send
-let g:vipsql_auto_clear_enabled = 1
-" What `vim` command to use when opening the output buffer
-let g:vipsql_new_buffer_cmd = "vsplit"
 
 autocmd BufEnter,FocusGained,WinEnter * :NvimTreeRefresh
 
