@@ -185,10 +185,10 @@ nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
 noremap <silent> U :vertical resize +5<CR>
 noremap <silent> <leader>u :resize +5<CR>
 
-nnoremap <leader>ls :source $MYVIMRC<CR>
 nnoremap <leader>ps :PackerSync<CR>
 
 nnoremap <leader><leader>t :TestFile<CR>
+nnoremap <leader><leader>x :source %<CR>
 
 " === Goyo ===
 autocmd! User GoyoEnter Limelight
