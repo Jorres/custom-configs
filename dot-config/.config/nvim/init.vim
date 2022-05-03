@@ -43,6 +43,9 @@ set tabstop=2
 " Indentation amount for < and > commands.
 set shiftwidth=2
 
+" one global statusline instead of per-split
+set laststatus=3
+
 " do not wrap long lines by default
 set nowrap
 
