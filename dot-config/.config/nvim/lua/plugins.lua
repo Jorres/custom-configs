@@ -48,6 +48,8 @@ return require('packer').startup(function(use, use_rocks)
     use {'xolox/vim-session'} -- Provides OpenSession and SaveSession
     use {'gennaro-tedesco/nvim-peekup'} -- register preview
     use {'lambdalisue/suda.vim'} -- reenter sudo editing with :Suda
+    use {'nanotee/luv-vimdocs'} -- docs for libuv
+    use {'milisims/nvim-luaref'} -- docs for lua
  
 
     -- === Git ===
@@ -123,6 +125,8 @@ return require('packer').startup(function(use, use_rocks)
     -- use {'chipsenkbeil/distant.nvim'} -- TODO try again, some major update happened, maybe itll work now
 
     -- === Plugin \ Lua development ===
+    use {'/home/jorres/hobbies/plugins/showmethat'}
+
     use {'tjdevries/colorbuddy.nvim'}
     use_rocks 'http'
     use_rocks 'lua-cjson'

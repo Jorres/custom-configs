@@ -14,6 +14,8 @@ augroup packer_user_config
   autocmd BufWritePost plugins.lua luafile <afile>
 augroup end
 
+nnoremap <leader><leader>pt :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>
+
 " Map russian key commands
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
