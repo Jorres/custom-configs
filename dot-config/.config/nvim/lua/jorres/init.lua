@@ -32,3 +32,5 @@ require("jorres.registers")
 
 -- One liners:
 require("neoclip").setup()
+
+vim.notify = require("notify")
