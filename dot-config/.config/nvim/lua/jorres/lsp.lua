@@ -52,17 +52,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
     }
 )
 
-
---[[ lspconfig.yamlls.setup{
-    on_attach = on_attach,
-    settings = {
-        yaml = {
-            schemas = { kubernetes = "/*.yaml" },
-        }
-    }
-} ]]
-
-local sumneko_root_path = "/home/jorres/Downloads/lua-language-server"
+local sumneko_root_path = "/home/jorres/bin/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 local runtime_path = vim.split(package.path, ';')

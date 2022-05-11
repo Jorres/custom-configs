@@ -15,6 +15,7 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use, use_rocks)
+
     use 'wbthomason/packer.nvim'
     -- === Language agnostic editing plugins ===
     use {'jiangmiao/auto-pairs'} -- auto-close brackets plugin
@@ -48,9 +49,9 @@ return require('packer').startup(function(use, use_rocks)
     use {'xolox/vim-session'} -- Provides OpenSession and SaveSession
     use {'gennaro-tedesco/nvim-peekup'} -- register preview
     use {'lambdalisue/suda.vim'} -- reenter sudo editing with :Suda
+
     use {'nanotee/luv-vimdocs'} -- docs for libuv
     use {'milisims/nvim-luaref'} -- docs for lua
- 
 
     -- === Git ===
     use {'tpope/vim-fugitive'} -- :G
@@ -77,10 +78,11 @@ return require('packer').startup(function(use, use_rocks)
     use { 'goolord/alpha-nvim' } -- cool startup screen!
     use {'ellisonleao/carbon-now.nvim'} -- take code screenshots!
     use {'akinsho/toggleterm.nvim'} -- toggle terminal per session
+    use {'lewis6991/nvim-treesitter-context'} -- accumulates function names at the top of the file
 
     -- Now, I do not use this as vimwiki, but does nice markdown 
     -- per-line formatting (highlights `` and hides tildas itself)
-    use {'vimwiki/vimwiki'}
+    -- use {'vimwiki/vimwiki'}
 
     -- === Colorschemes === --
     use {'morhetz/gruvbox'}
@@ -107,6 +109,7 @@ return require('packer').startup(function(use, use_rocks)
 
     -- === Treesitter ===
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'nvim-treesitter/playground'}
     use {'p00f/nvim-ts-rainbow'}
 
     -- === Telescope === 
@@ -147,4 +150,9 @@ return require('packer').startup(function(use, use_rocks)
 
     -- === Removed due to being unused === 
     -- use {'kshenoy/vim-signature'} -- Display visual marks (`ma`) in separate column
+    --
+    --
+    -- use { 'Jorres/best-diff-ever.nvim' } -- if using from GitHub
+    -- use { '/home/jorres/hobbies/plugins/best-diff-ever.nvim' } -- if using locally
 end)
+

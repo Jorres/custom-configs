@@ -27,10 +27,13 @@ require("jorres.carbon")
 require("jorres.harpoon")
 require("jorres.registers")
 
--- toggle it after nvim 0.7 possibly
--- require("jorres.treesitter")
+require("jorres.treesitter")
 
 -- One liners:
 require("neoclip").setup()
 
 vim.notify = require("notify")
+
+--- MY OWN PLUGINS ---
+
+require("showmethat").setup({ })

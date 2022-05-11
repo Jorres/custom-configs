@@ -5,10 +5,6 @@ let g:mapleader=','
 
 set completeopt="menu,menuone,preview"
 
-lua require("plugins")
-lua require("jorres")
-lua require("packer.luarocks").install_commands()
-
 augroup packer_user_config
   autocmd!
   autocmd BufWritePost plugins.lua luafile <afile>
@@ -77,6 +73,7 @@ if has('persistent_undo')
   set undolevels=3000
   set undoreload=10000
 endif
+
 set backupdir=~/.local/share/nvim/backup " Don't put backups in current dir
 set backup
 set noswapfile
@@ -101,13 +98,13 @@ augroup END
 " Change splits separator to be a nice vertical bar
 set fillchars+=vert:│
 
-" Set colorscheme
 set background=dark
 try
   let g:everforest_background = 'hard'
   " let g:sonokai_style = 'atlantis'
   " let g:sonokai_enable_italic = 1
   " let g:sonokai_disable_italic_comment = 1
+  colorscheme " gruvbox
   colorscheme everforest
 catch
   colorscheme slate
@@ -115,9 +112,13 @@ endtry
 
 " === Mappings ===
 
+" quickly exit from the terminal
 tnoremap <c-[> <c-\><c-n>
+
+" make Y behave and yank till the end
 nnoremap Y yg_
 
+" centering screen on the split-join
 nnoremap J mzJ`z
 
 " Undo break points
@@ -134,6 +135,7 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 nmap [ :cnext<CR>
 nmap ] :cprev<CR>
 nmap <leader>q :cclose<CR>
+" open with height 5
 nmap <leader>o :copen 5<CR>
 
 " Telescope
@@ -219,4 +221,8 @@ let g:terraform_align = 1
 
 autocmd BufEnter,FocusGained,WinEnter * :NvimTreeRefresh
 
-set shell=/bin/bash
+lua require("packer.luarocks").install_commands()
+lua require("plugins")
+lua require("jorres")
+
+" set shell=/bin/bash

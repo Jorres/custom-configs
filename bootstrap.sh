@@ -74,3 +74,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 git config --global credential.helper "cache --timeout=3600"
 
 # Install https://github.com/grwlf/xkb-switch so that language in tmux status line works
+
+python3 -m pip install libtmux --user
+
+# This install atuin, do interactively  
+# bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
+# atuin import auto

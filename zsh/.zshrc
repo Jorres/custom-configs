@@ -111,9 +111,9 @@ export PATH="/home/jorres/work/uni-codebase/diploma-codebase/aiger/:$PATH"
 export PATH="/home/jorres/work/uni-codebase/diploma-codebase/abc/:$PATH"
 
 # The next line updates PATH for Yandex Cloud CLI.
-# if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
+if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
 # The next line enables shell command completion for yc.
-# if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
+if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
 
 DOTFILES_PATH=/home/jorres/dotfiles
 
@@ -145,9 +145,11 @@ export JAVA_HOME="/home/jorres/bin/jdk-17.0.2"
 export GO_PATH="/usr/local/go"
 export PATH="$PATH:$GO_PATH/bin"
 export PATH="$PATH:$JAVA_HOME/bin"
+export PATH="$PATH:/home/jorres/aiger"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(atuin init zsh)"
 eval "$(navi widget zsh)"
 
 # # Generated for envman. Do not edit.
@@ -156,3 +158,4 @@ eval "$(navi widget zsh)"
 # zprof
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
