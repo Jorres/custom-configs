@@ -1,7 +1,7 @@
-local lspkind = require"lspkind"
+local lspkind = require "lspkind"
 lspkind.init()
 
-local cmp = require"cmp"
+local cmp = require "cmp"
 
 local luasnip = require("luasnip")
 

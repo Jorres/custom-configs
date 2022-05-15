@@ -1,7 +1,7 @@
 local actions = require('telescope.actions')
 local telescope = require('telescope')
 
-telescope.setup{
+telescope.setup {
   defaults = {
     vimgrep_arguments = {
       'rg',
@@ -33,29 +33,29 @@ telescope.setup{
       height = 0.80,
       preview_cutoff = 1,
     },
-    file_sorter =  require'telescope.sorters'.get_fzy_sorter,
-    file_ignore_patterns = {"%.node_modules/", "%.ccls-cache/", "%.package-lock.json"},
-    generic_sorter =  require'telescope.sorters'.get_generic_fuzzy_sorter,
+    file_sorter = require 'telescope.sorters'.get_fzy_sorter,
+    file_ignore_patterns = { "%.node_modules/", "%.ccls-cache/", "%.package-lock.json" },
+    generic_sorter = require 'telescope.sorters'.get_generic_fuzzy_sorter,
     winblend = 0,
     border = {},
     borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
     color_devicons = true,
     use_less = true,
-    path_display = {"truncate"},
+    path_display = { "truncate" },
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
-    file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-    grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-    qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
+    file_previewer = require 'telescope.previewers'.vim_buffer_cat.new,
+    grep_previewer = require 'telescope.previewers'.vim_buffer_vimgrep.new,
+    qflist_previewer = require 'telescope.previewers'.vim_buffer_qflist.new,
 
-    mappings = { 
-      i = { 
-        ["<C-x>"] = false, 
-        ["<C-q>"] = actions.send_to_qflist 
-      } 
+    mappings = {
+      i = {
+        ["<C-x>"] = false,
+        ["<C-q>"] = actions.send_to_qflist
+      }
     },
 
     -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
+    buffer_previewer_maker = require 'telescope.previewers'.buffer_previewer_maker
   },
   extensions = {
     fzf = {

@@ -10,27 +10,27 @@ end
 require("plugins.packer")
 
 load_list_safely({
--- Core
-"plugins.colorbuddy",
-"plugins.lsp",
-"plugins.autoc8n",
-"plugins.treesitter",
-"plugins.snippets",
-"plugins.comment",
+  -- Core
+  "plugins.colorbuddy",
+  "plugins.lsp",
+  "plugins.autoc8n",
+  "plugins.treesitter",
+  "plugins.snippets",
+  "plugins.comment",
 
--- UI
-"plugins.telescope",
-"plugins.filetree",
-"plugins.alpha",
-"plugins.statusline",
-"plugins.smoothscroll",
-"plugins.cursor-landing",
-"plugins.toggleterm",
-"plugins.which-key",
-"plugins.gitsigns",
-"plugins.carbon",
-"plugins.harpoon",
-"plugins.indent-blanks",
+  -- UI
+  "plugins.telescope",
+  "plugins.filetree",
+  "plugins.alpha",
+  "plugins.statusline",
+  "plugins.smoothscroll",
+  "plugins.cursor-landing",
+  "plugins.toggleterm",
+  "plugins.which-key",
+  "plugins.gitsigns",
+  "plugins.carbon",
+  "plugins.harpoon",
+  "plugins.indent-blanks",
 })
 
 -- Try this later
@@ -38,4 +38,4 @@ load_list_safely({
 
 --- MY OWN PLUGINS ---
 
-require("showmethat").setup({ })
+require("showmethat").setup({})

@@ -20,7 +20,7 @@ setter({
   ["<leader><leader>lt"] = function()
     require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))
   end,
-}, {"n"})
+}, { "n" })
 
 
 -- Exit from terminal mode comfortably
@@ -56,7 +56,7 @@ setter({
   ["<leader>u"] = ":resize +5<CR>",
   -- Source current file
   ["<leader><leader>x"] = ":source %<CR>",
-}, {"n"})
+}, { "n" })
 
 -- Include relative jumps into jump stack for c-i\c-o
 -- Figure out how to use vim.v.count with that
@@ -77,7 +77,7 @@ setter({
   ["<C-j>"] = ":TmuxNavigateDown<cr>",
   ["<C-k>"] = ":TmuxNavigateUp<cr>",
   ["<C-l>"] = ":TmuxNavigateRight<cr>",
-}, {"n", "i", "v"})
+}, { "n", "i", "v" })
 
 -- Packer
 set({ "n" }, "<leader>ps", ":PackerSync<CR>", default_opt)
@@ -96,7 +96,7 @@ setter({
 -- Carbon
 setter({
   [leader .. "pic"] = require("carbon-now").create_snippet
-}, {"v"})
+}, { "v" })
 
 -- Harpoon
 local harpoon_pref = leader .. "h"

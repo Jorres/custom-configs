@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "c",
     "lua",
@@ -11,9 +11,9 @@ require'nvim-treesitter.configs'.setup {
     "html",
     "css",
     "rust",
-    "bash", 
+    "bash",
     "markdown",
-    "cpp", 
+    "cpp",
     "dockerfile",
     "java",
     "kotlin",
@@ -22,7 +22,7 @@ require'nvim-treesitter.configs'.setup {
     "vim"
   },
   sync_install = true,
-  ignore_install = { },
+  ignore_install = {},
   highlight = {
     enable = true,
     disable = { "markdown" },
@@ -46,8 +46,8 @@ require'nvim-treesitter.configs'.setup {
   },
   rainbow = {
     enable = true,
-    disable = {"markdown"},
-    extended_mode = true,  -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    disable = { "markdown" },
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
     max_file_lines = 5000, -- Do not enable for files with more than n lines, int
   },
   playground = {
@@ -69,4 +69,3 @@ require'nvim-treesitter.configs'.setup {
     },
   }
 }
-

@@ -1,4 +1,4 @@
- require("toggleterm").setup{
+require("toggleterm").setup {
   open_mapping = [[<c-t>]],
   direction = "float",
   -- -- size can be a number or function which is passed the current terminal
