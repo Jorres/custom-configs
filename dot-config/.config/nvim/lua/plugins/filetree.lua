@@ -1,4 +1,4 @@
-vim.cmd [[ let g:nvim_tree_special_files = { 'init.lua': 1 } ]]
+vim.cmd [[ let g:nvim_tree_special_files = { 'init.lua': 1, 'packer.lua': 1 } ]]
 
 -- Brought from readme to switch off some nasty mappings that conflict with my own
 local mappings = {

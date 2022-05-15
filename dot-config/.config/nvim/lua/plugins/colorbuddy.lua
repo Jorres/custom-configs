@@ -22,7 +22,3 @@ Group.new("TelescopeSelection", nil, colors.myclr7, nil)
 
 Group.new("HarpoonBorder", colors.myclr1, colors.myclr1, nil)
 Group.new("HarpoonWindow", nil, colors.myclr1, nil)
-
---[[ Group.new("VertSplit" guifg=Gray
-Group.new("DiffAdd" guifg=Green
-Group.new("DiffDelete" guifg=Red guibg=NONE ]]
