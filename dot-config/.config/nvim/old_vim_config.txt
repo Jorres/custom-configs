@@ -1,7 +1,7 @@
 scriptencoding utf-8
 
 " Remap leader key to ,
-let g:mapleader=','
+" let g:mapleader=','
 
 set completeopt="menu,menuone,preview"
 
@@ -25,13 +25,12 @@ set splitright
 " Set column where error appears to avoid shift on error
 set signcolumn=yes
 
-" set foldmethod=marker
-
 " Don't show last command
 set noshowcmd
 
 " Yank and paste with the system clipboard
 set clipboard=unnamedplus
+
 
 " === TAB/Space settings === "
 " Insert spaces when TAB is pressed.
@@ -44,11 +43,13 @@ set shiftwidth=2
 " one global statusline instead of per-split
 set laststatus=3
 
+
 " do not wrap long lines by default
 set nowrap
 
 " Timeout for UI refresh in some cases, default 4000, feels bad
 set updatetime=500
+
 
 " === Completion Settings === "
 set shortmess+=c
@@ -56,6 +57,7 @@ set shortmess+=c
 set ignorecase
 " if the search string has an upper case letter in it, the search will be case sensitive
 set smartcase
+
 
 " https://stackoverflow.com/questions/2490227/how-does-vims-autoread-work
 " Automatically re-read file if a change was detected outside of vim
@@ -66,6 +68,20 @@ au FocusGained,WinEnter,BufEnter * :silent! !
 " Enable hybrid line numbers
 set number
 set relativenumber
+
+set background=dark
+try
+  let g:everforest_background = 'hard'
+  " let g:sonokai_style = 'atlantis'
+  " let g:sonokai_enable_italic = 1
+  " let g:sonokai_disable_italic_comment = 1
+  colorscheme " gruvbox
+  colorscheme everforest
+catch
+  colorscheme slate
+endtry
+
+
 
 " Set backups
 if has('persistent_undo')
@@ -78,8 +94,8 @@ set backupdir=~/.local/share/nvim/backup " Don't put backups in current dir
 set backup
 set noswapfile
 
+
 " === UI ===
-set termguicolors
 function! MyHighlight() abort
     lua package.loaded["jorres.colorbuddy"] = nil 
     lua require("jorres.colorbuddy")
@@ -98,17 +114,6 @@ augroup END
 " Change splits separator to be a nice vertical bar
 set fillchars+=vert:│
 
-set background=dark
-try
-  let g:everforest_background = 'hard'
-  " let g:sonokai_style = 'atlantis'
-  " let g:sonokai_enable_italic = 1
-  " let g:sonokai_disable_italic_comment = 1
-  colorscheme " gruvbox
-  colorscheme everforest
-catch
-  colorscheme slate
-endtry
 
 " === Mappings ===
 
@@ -138,6 +143,7 @@ nmap <leader>q :cclose<CR>
 " open with height 5
 nmap <leader>o :copen 5<CR>
 
+
 " Telescope
 nnoremap <leader>gs :lua require('telescope.builtin').live_grep({hidden = true})<CR>
 nnoremap <leader>gc :lua require('telescope.builtin').git_commits()<CR>
@@ -147,32 +153,15 @@ nnoremap <leader>j :lua require('telescope.builtin').grep_string { search = vim.
 nnoremap <leader>vh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>br :lua require('jorres.telescope').git_branches()<CR>
 nnoremap <leader>vrc :lua require('jorres.telescope').search_dotfiles()<CR>
-nnoremap <leader>y :lua require('telescope').extensions.neoclip.default()<CR>
-
-" Keep notes
-nnoremap <leader>kt :GkeepToggle<CR>
-nnoremap <leader>kl :GkeepLogin<CR>
-nnoremap <leader>kb :GkeepBrowse<CR>
-nnoremap <leader>kn :GkeepNew<CR>
 
 " Fugitive
 nnoremap <leader>gfh <cmd>0Gclog<CR>
 nnoremap <leader>ge <cmd>Gedit<CR>
-nnoremap <leader>pr <cmd>Prettier<CR>
 
 " Persistent highlight from hlsearch distracts.
 nnoremap <silent> <CR> :noh<CR><CR>
 
 nmap <silent> <leader>n :NvimTreeFindFileToggle<CR>
-
-" Magma mappings
-nnoremap <silent><expr> <leader>m  :MagmaEvaluateOperator<CR>
-nnoremap <silent>       <leader>mr :MagmaEvaluateLine<CR>
-xnoremap <silent>       <leader>m  :<C-u>MagmaEvaluateVisual<CR>
-nnoremap <silent>       <leader>mc :MagmaReevaluateCell<CR>
-nnoremap <silent>       <leader>md :MagmaDelete<CR>
-nnoremap <silent>       <leader>mo :MagmaShowOutput<CR>
-let g:magma_automatically_open_output = v:false
 
 tnoremap <Esc> <C-\><C-n>
 tnoremap <c-[> <C-\><C-n>
@@ -219,10 +208,13 @@ let g:session_autoload = 'no'
 let g:terraform_fmt_on_save = 1
 let g:terraform_align = 1
 
-autocmd BufEnter,FocusGained,WinEnter * :NvimTreeRefresh
 
-lua require("packer.luarocks").install_commands()
+" lua require("packer.luarocks").install_commands()
+lua require("globals")
 lua require("plugins")
-lua require("jorres")
+" lua require("jorres")
+" lua require("settings")
+lua require("tmp-settings")
+" autocmd BufEnter,FocusGained,WinEnter * :NvimTreeRefresh
 
 " set shell=/bin/bash

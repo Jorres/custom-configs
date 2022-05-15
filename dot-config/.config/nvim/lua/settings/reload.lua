@@ -1,5 +1,7 @@
 local ok, plenary_reload = pcall(require, "plenary.reload")
 
+local reloader = nil
+
 if not ok then
   reloader = require
 else
@@ -19,5 +21,3 @@ R = function(name)
   RELOAD(name)
   return require(name)
 end
-
-SETG = vim.api.nvim_set_var

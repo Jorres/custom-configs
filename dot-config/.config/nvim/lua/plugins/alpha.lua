@@ -28,7 +28,6 @@ dashboard.section.buttons.val = {
     dashboard.button( "q", "  quit NVIM" , ":qa<CR>"),
     dashboard.button( "ec", "  search configs", ":lua require('jorres.telescope').search_dotfiles()<CR>"),
     dashboard.button( "eh", "  search helptags", ":Telescope help_tags<CR>"),
-    dashboard.button( "m", "  launch Magma", ":ene <BAR>:MagmaInit python3<CR>"),
 }
 
 dashboard.config.opts.noautocmd = true

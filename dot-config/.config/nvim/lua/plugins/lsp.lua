@@ -7,7 +7,7 @@ local on_attach = function(client, bufnr)
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     -- <leader>s for lSp! to have it on a different hand instead of ,l! Microing your ergonomics!
-    local pref = "<leader>s"
+    local pref = vim.g.mapleader .. "s"
     buf_set_keymap('n', pref .. 'd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
     buf_set_keymap('n', pref .. 'D', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
     buf_set_keymap('n', pref .. 'i', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
