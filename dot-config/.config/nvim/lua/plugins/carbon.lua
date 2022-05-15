@@ -1,7 +1,5 @@
 local carbon = require('carbon-now')
 
-vim.keymap.set("v", "<leader>pic", carbon.create_snippet, { noremap = true, silent = true})
-
 carbon.setup({
     options = {
         base_url = "https://carbon.now.sh/",

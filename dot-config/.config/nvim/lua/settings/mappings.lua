@@ -35,7 +35,6 @@ setter({
   -- make J behave and stay on the line
   ["J"] = "mzJ`z",
   -- undo break points
-  [","] = ",<c-g>u",
   ["!"] = "!<c-g>u",
   ["."] = ".<c-g>u",
   ["?"] = "?<c-g>u",
