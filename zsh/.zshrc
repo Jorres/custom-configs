@@ -149,7 +149,11 @@ export PATH="$PATH:/home/jorres/aiger"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+
+export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
+bindkey '^ ' _atuin_search_widget
+
 eval "$(navi widget zsh)"
 
 # # Generated for envman. Do not edit.

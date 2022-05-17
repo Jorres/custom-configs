@@ -27,7 +27,11 @@ local options = {
   swapfile = false,
   termguicolors = true,
   fileencoding = "utf-8",
+  foldmethod = "expr",
+  foldexpr = "nvim_treesitter#foldexpr()",
+  -- foldlevelstart = 100,
 }
+
 
 vim.cmd [[set fillchars+=vert:│]]
 

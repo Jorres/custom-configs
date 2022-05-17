@@ -15,13 +15,16 @@ end
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use, use_rocks)
+
+  -- To explore more:
+  use { 'ThePrimeagen/refactoring.nvim' }
+
   use 'wbthomason/packer.nvim'
   -- === Language agnostic editing plugins ===
   use { 'jiangmiao/auto-pairs' } -- auto-close brackets plugin
   use { 'alvan/vim-closetag' } -- auto close html tags
   use { 'tpope/vim-surround' } -- cs<surrounding1><surrounding2> ds<surrounding1>
   use { 'b3nj5m1n/kommentary' } -- visual select + gc
-  use { 'SirVer/ultisnips' } -- :UltiSnips...
   use { 'wellle/targets.vim' } -- Additional text objects: e.g. inside *, inside comma-separated list etc.
   use { 'godlygeek/tabular' } -- Adds :Tabularize command
 
@@ -30,11 +33,10 @@ return require('packer').startup(function(use, use_rocks)
   use { 'tpope/vim-repeat' } -- zero-config, allows to repeat complex commands
   use { 'AndrewRadev/splitjoin.vim' } -- gJ and gS to split\join statements in multiple languages 
   use { 'AndrewRadev/sideways.vim' } -- :SidewaysLeft and :SidewaysRight to swap list items 
-  -- use {'matze/vim-move'} -- Allows to move lines up and down with Alt
+  use {'matze/vim-move'} -- Allows to move lines up and down with Alt
   use { 'sk1418/HowMuch' } -- https://github.com/sk1418/HowMuch
   use { 'ThePrimeagen/harpoon' } -- Keep track of latest files you work with
   use { 'L3MON4D3/LuaSnip' } -- Snippets engine!
-  use { 'ThePrimeagen/refactoring.nvim' }
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' } -- reenter sudo editing with :Suda
@@ -68,7 +70,8 @@ return require('packer').startup(function(use, use_rocks)
   use { 'akinsho/toggleterm.nvim' } -- toggle terminal per session
   use { 'lewis6991/nvim-treesitter-context' } -- accumulates context at the 1-2 lines of the file
   use { 'folke/which-key.nvim' }
-  use { 'lukas-reineke/indent-blankline.nvim' }
+  use { 'lukas-reineke/indent-blankline.nvim' } -- draws small symbols for indentation
+  use {'folke/twilight.nvim'}
 
 
   -- === Colorschemes === --
@@ -119,11 +122,9 @@ return require('packer').startup(function(use, use_rocks)
 
   -- === Dependencies ===
   use { 'tami5/sqlite.lua' }
-  use { 'ryanoasis/vim-devicons' }
   use { 'kyazdani42/nvim-web-devicons' }
   use { 'nvim-lua/popup.nvim' }
   use { 'nvim-lua/plenary.nvim' }
-  use { 'xolox/vim-misc' }
   use { 'onsails/lspkind-nvim' }
 
   -- === Removed due to being unused ===

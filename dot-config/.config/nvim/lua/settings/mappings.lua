@@ -56,6 +56,8 @@ setter({
   ["<leader>u"] = ":resize +5<CR>",
   -- Source current file
   ["<leader><leader>x"] = ":source %<CR>",
+  -- use one button for folding
+  [";"] = "za"
 }, { "n" })
 
 -- Include relative jumps into jump stack for c-i\c-o

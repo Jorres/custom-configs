@@ -31,6 +31,7 @@ load_list_safely({
   "plugins.carbon",
   "plugins.harpoon",
   "plugins.indent-blanks",
+  "plugins.twilight",
 })
 
 -- Try this later

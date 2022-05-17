@@ -8,26 +8,26 @@ dashboard.section.header.val = {
   -- [[|___|  / \___  > \____/   \_/  |__||__|_|  / ]],
   -- [[     \/      \/                          \/  ]],
   --
-  -- [[  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ ]],
-  -- [[  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒ ]],
-  -- [[ ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░ ]],
-  -- [[ ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██  ]],
-  -- [[ ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒ ]],
-  -- [[ ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░ ]],
-  -- [[ ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░ ]],
-  -- [[    ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░    ]],
-  -- [[          ░    ░  ░    ░ ░        ░   ░         ░    ]],
-  -- [[                                 ░                   ]]
-  [[      ___  __              ]],
-  [[|\ | |__  /  \ \  / |  |\/|]],
-  [[| \| |___ \__/  \/  |  |  |]],
+  [[  ███▄    █ ▓█████  ▒█████   ██▒   █▓ ██▓ ███▄ ▄███▓ ]],
+  [[  ██ ▀█   █ ▓█   ▀ ▒██▒  ██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒ ]],
+  [[ ▓██  ▀█ ██▒▒███   ▒██░  ██▒ ▓██  █▒░▒██▒▓██    ▓██░ ]],
+  [[ ▓██▒  ▐▌██▒▒▓█  ▄ ▒██   ██░  ▒██ █░░░██░▒██    ▒██  ]],
+  [[ ▒██░   ▓██░░▒████▒░ ████▓▒░   ▒▀█░  ░██░▒██▒   ░██▒ ]],
+  [[ ░ ▒░   ▒ ▒ ░░ ▒░ ░░ ▒░▒░▒░    ░ ▐░  ░▓  ░ ▒░   ░  ░ ]],
+  [[ ░ ░░   ░ ▒░ ░ ░  ░  ░ ▒ ▒░    ░ ░░   ▒ ░░  ░      ░ ]],
+  [[    ░   ░ ░    ░   ░ ░ ░ ▒       ░░   ▒ ░░      ░    ]],
+  [[          ░    ░  ░    ░ ░        ░   ░         ░    ]],
+  [[                                 ░                   ]]
+  -- [[      ___  __              ]],
+  -- [[|\ | |__  /  \ \  / |  |\/|]],
+  -- [[| \| |___ \__/  \/  |  |  |]],
 
 }
 dashboard.section.buttons.val = {
-  dashboard.button("en", "  new file", ":ene <BAR> startinsert <CR>"),
-  dashboard.button("q", "  quit NVIM", ":qa<CR>"),
-  dashboard.button("ec", "  search configs", ":lua require('jorres.telescope').search_dotfiles()<CR>"),
-  dashboard.button("eh", "  search helptags", ":Telescope help_tags<CR>"),
+  dashboard.button("1", "  new file", ":ene <BAR> startinsert <CR>"),
+  dashboard.button("2", "  quit NVIM", ":qa<CR>"),
+  dashboard.button("3", "  search configs", ":lua require('plugins.telescope').search_dotfiles()<CR>"),
+  dashboard.button("4", "  search helptags", ":Telescope help_tags<CR>"),
 }
 
 dashboard.config.opts.noautocmd = true
