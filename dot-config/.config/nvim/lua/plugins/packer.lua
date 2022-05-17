@@ -113,8 +113,9 @@ return require('packer').startup(function(use, use_rocks)
   -- use {'chipsenkbeil/distant.nvim'} -- TODO try again, some major update happened, maybe itll work now
 
   -- === Plugin \ Lua development ===
-  use { '/home/jorres/hobbies/plugins/showmethat' }
   use { 'tjdevries/colorbuddy.nvim' }
+  use { '/home/jorres/hobbies/plugins/showmethat' }
+  use { '/home/jorres/hobbies/plugins/academy.nvim' }
 
   -- === Actual programming ==
   use { 'vim-test/vim-test' }

@@ -65,7 +65,13 @@ windows:
         root: "~/"
         panes:
             - vifm: 
-                - vifm
+                - vifm .
+                - Enter
+    - "academy":
+        root: "/home/jorres/hobbies/plugins/academy.nvim"
+        panes:
+            - nvim: 
+                - nvim .
                 - Enter
     - "free":
         root: "~/"

@@ -41,3 +41,4 @@ load_list_safely({
 --- MY OWN PLUGINS ---
 
 require("showmethat").setup({})
+require("academy.prototyping").setup()
