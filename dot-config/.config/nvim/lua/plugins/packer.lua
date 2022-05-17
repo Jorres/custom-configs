@@ -33,7 +33,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'tpope/vim-repeat' } -- zero-config, allows to repeat complex commands
   use { 'AndrewRadev/splitjoin.vim' } -- gJ and gS to split\join statements in multiple languages 
   use { 'AndrewRadev/sideways.vim' } -- :SidewaysLeft and :SidewaysRight to swap list items 
-  use {'matze/vim-move'} -- Allows to move lines up and down with Alt
+  use { 'matze/vim-move' } -- Allows to move lines up and down with Alt
   use { 'sk1418/HowMuch' } -- https://github.com/sk1418/HowMuch
   use { 'ThePrimeagen/harpoon' } -- Keep track of latest files you work with
   use { 'L3MON4D3/LuaSnip' } -- Snippets engine!
@@ -54,8 +54,6 @@ return require('packer').startup(function(use, use_rocks)
   }
 
   -- === UI === --
-  use { 'junegunn/goyo.vim' } -- distractionless mode
-  use { 'junegunn/limelight.vim' } -- highlight only current paragraph
   use { 'hoob3rt/lualine.nvim' }
   -- use { 'glepnir/galaxyline.nvim' } -- someday.. you will write your own
   use { 'karb94/neoscroll.nvim' } -- smooth scroll
@@ -71,7 +69,8 @@ return require('packer').startup(function(use, use_rocks)
   use { 'lewis6991/nvim-treesitter-context' } -- accumulates context at the 1-2 lines of the file
   use { 'folke/which-key.nvim' }
   use { 'lukas-reineke/indent-blankline.nvim' } -- draws small symbols for indentation
-  use {'folke/twilight.nvim'}
+  use { 'folke/zen-mode.nvim' }
+  use { 'folke/twilight.nvim' }
 
 
   -- === Colorschemes === --

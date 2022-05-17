@@ -135,7 +135,7 @@ alias tmm="tmuxinator start md"
 alias tmms="tmuxinator stop md"
 alias pysource="source ./env/bin/activate"
 alias k9s="k9s --logoless"
-alias n="nvim ."
+alias n="nvim"
 
 alias rgc="rg --files   | rg"
 alias rgh="rg --files ~ | rg"

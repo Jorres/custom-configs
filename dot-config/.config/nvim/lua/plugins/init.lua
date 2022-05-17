@@ -32,6 +32,7 @@ load_list_safely({
   "plugins.harpoon",
   "plugins.indent-blanks",
   "plugins.twilight",
+  "plugins.zen-mode"
 })
 
 -- Try this later

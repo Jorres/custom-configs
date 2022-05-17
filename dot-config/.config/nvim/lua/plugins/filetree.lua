@@ -3,17 +3,14 @@ vim.cmd [[ let g:nvim_tree_special_files = { 'init.lua': 1, 'packer.lua': 1 } ]]
 -- Brought from readme to switch off some nasty mappings that conflict with my own
 local mappings = {
   { key = { "<CR>" }, action = "edit" },
-  -- { key = "<C-e>",                        action = "edit_in_place" },
   { key = { "O" }, action = "edit_no_picker" },
   { key = { "<C-c>" }, action = "cd" },
   { key = "<C-v>", action = "vsplit" },
   { key = "<C-x>", action = "split" },
-  -- { key = "<C-t>",                        action = "tabnew" },
   { key = "<", action = "prev_sibling" },
   { key = ">", action = "next_sibling" },
   { key = "P", action = "parent_node" },
   { key = "<BS>", action = "close_node" },
-  -- { key = "<Tab>",                        action = "preview" },
   { key = "K", action = "first_sibling" },
   { key = "J", action = "last_sibling" },
   { key = "I", action = "toggle_ignored" },
@@ -37,7 +34,6 @@ local mappings = {
   { key = "q", action = "close" },
   { key = "g?", action = "toggle_help" },
   { key = "W", action = "collapse_all" },
-  -- { key = "S",                            action = "search_node" }
 }
 
 require 'nvim-tree'.setup {
@@ -56,7 +52,7 @@ require 'nvim-tree'.setup {
   ignore_ft_on_setup   = {},
   auto_reload_on_write = true,
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
-  open_on_tab          = false,
+  open_on_tab          = true,
   -- hijack the cursor in the tree to put it at the start of the filename
   hijack_cursor        = true,
   -- updates the root directory of the tree on `DirChanged` (when you run `:cd` usually)
@@ -96,7 +92,7 @@ require 'nvim-tree'.setup {
     -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
     height = 30,
     -- Hide the root path of the current folder on top of the tree
-    hide_root_folder = false,
+    hide_root_folder = true,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     mappings = {

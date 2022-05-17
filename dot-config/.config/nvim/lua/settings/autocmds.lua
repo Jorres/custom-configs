@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 local folding_group = vim.api.nvim_create_augroup("managing folds", {clear = true})
-vim.api.nvim_create_autocmd({"BufReadPost", "FileReadPost", "BufEnter"}, {
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {
   pattern = { "*" },
   command = "normal zR",
   group = folding_group
@@ -27,4 +27,16 @@ vim.api.nvim_create_autocmd({"BufReadPost", "FileReadPost", "BufWritePost", "Fil
   pattern = { "*.tf", "*.tfvars" },
   callback = vim.lsp.buf.formatting,
   group = terraform_group
+})
+
+local lifelog_group = vim.api.nvim_create_augroup("auto zen mode", {clear = true})
+vim.api.nvim_create_autocmd({"BufWinEnter"}, {
+  pattern = { "I.md", "II.md", "III.md" },
+  callback = function ()
+    vim.schedule(function ()
+      require("nvim-tree.view").close()
+      vim.cmd [[ ZenMode ]]
+    end)
+  end,
+  group = lifelog_group
 })
