@@ -10,7 +10,7 @@ local silence = function(mapping)
 end
 
 local unsilence = function(mapping, previous)
-  vim.keymap.set({ "n" }, mapping, previous, {})
+  vim.keymap.set({ "n" }, mapping, previous, {silent = true})
 end
 
 local opts = {
