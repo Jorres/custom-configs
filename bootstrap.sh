@@ -80,3 +80,8 @@ python3 -m pip install libtmux --user
 # This install atuin, do interactively  
 # bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
 # atuin import auto
+
+# Installing a very clean, easy to use and good looking top alternative
+sudo add-apt-repository ppa:bashtop-monitor/bashtop
+sudo apt update
+sudo apt install bashtop
