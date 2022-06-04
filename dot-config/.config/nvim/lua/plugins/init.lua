@@ -42,6 +42,4 @@ load_list_safely({
 -- require("plugins.distant")
 
 --- MY OWN PLUGINS ---
-
-require("showmethat").setup({})
-require("academy.prototyping").setup()
+-- require("academy.prototyping").setup()

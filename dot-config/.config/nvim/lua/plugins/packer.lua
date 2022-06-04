@@ -118,7 +118,7 @@ return require('packer').startup(function(use, use_rocks)
   use { '/home/jorres/hobbies/plugins/showmethat' }
   use { '/home/jorres/hobbies/plugins/academy.nvim' }
 
-  -- === Actual programming ==
+  -- === Actual programming ===
   use { 'vim-test/vim-test' }
 
   -- === neovim as PDE ===

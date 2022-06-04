@@ -161,3 +161,9 @@ setter({
 -- zm browse_media
 -- zC :CalendarT
 -- #  show_tags
+
+-- ShowMeThat
+local showmethat = require("showmethat")
+
+set("n", leader .. "sh", showmethat.show)
+set("n", leader .. "sk", showmethat.kill_all)
