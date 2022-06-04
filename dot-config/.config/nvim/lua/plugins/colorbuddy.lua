@@ -22,3 +22,13 @@ Group.new("TelescopeSelection", nil, colors.myclr7, nil)
 
 Group.new("HarpoonBorder", colors.myclr1, colors.myclr1, nil)
 Group.new("HarpoonWindow", nil, colors.myclr1, nil)
+
+
+-- Telekasten links and tags
+Color.new("telelink", "#689d6a")
+Group.new("tkLink", colors.telelink, nil, styles.bold + styles.underline)
+Group.new("tkBrackets", colors.gray, nil, nil)
+
+Color.new("teletag", "#d3869B")
+Group.new("tkTagSep", colors.gray, nil, nil)
+Group.new("tkTag", colors.teletag, nil)

@@ -63,12 +63,19 @@ telescope.setup {
       override_generic_sorter = true,
       override_file_sorter = true,
       case_mode = "smart_case",
-    }
+    },
+    -- media_files = {
+    --   -- filetypes whitelist
+    --   -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+    --   filetypes = {"png", "webp", "jpg", "jpeg"},
+    --   find_cmd = "rg" -- find command (defaults to `fd`)
+    -- }
   }
 }
 
 telescope.load_extension('fzf')
 telescope.load_extension('harpoon')
+telescope.load_extension('media_files')
 
 local M = {}
 

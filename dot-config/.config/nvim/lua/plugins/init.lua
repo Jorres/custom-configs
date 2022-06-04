@@ -32,7 +32,10 @@ load_list_safely({
   "plugins.harpoon",
   "plugins.indent-blanks",
   "plugins.twilight",
-  "plugins.zen-mode"
+  "plugins.zen-mode",
+
+  -- PDE
+  "plugins.telekasten"
 })
 
 -- Try this later

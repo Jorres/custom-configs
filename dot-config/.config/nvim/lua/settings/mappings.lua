@@ -113,3 +113,36 @@ for i = 1, 8, 1 do
     require "harpoon.ui".nav_file(i)
   end, default_opt)
 end
+-- Telekasten
+
+local kasten_prefix = leader .. "z"
+local telekasten = require'telekasten'
+
+setter({
+  -- [kasten_prefix .. "d"] = telekasten.goto_today,
+  -- [kasten_prefix .. "w"] = telekasten.goto_thisweek,
+  [kasten_prefix .. "f"] = telekasten.follow_link,
+  [kasten_prefix .. "n"] = telekasten.new_note,
+  [kasten_prefix .. "b"] = telekasten.show_backlinks,
+  [kasten_prefix .. "s"] = telekasten.find_notes, -- think 'search'
+  [kasten_prefix .. "#"] = telekasten.show_tags,
+  [kasten_prefix .. "l"] = telekasten.insert_link, -- {i = true}
+  [kasten_prefix .. "im"] = telekasten.insert_img_link, -- {i = true}
+  [kasten_prefix .. "ip"] = telekasten.paste_img_and_link,
+  [kasten_prefix .. "iv"] = telekasten.preview_img,
+  [kasten_prefix .. "c"] = telekasten.show_calendar,
+}, {"n"})
+
+-- zd find_daily_notes
+-- zg search_notes
+-- zw find_weekly_notes
+-- zN new_templated_note
+-- zy yank_notelink
+-- zc show_calendar
+-- zt toggle_todo
+-- zb show_backlinks
+-- zF find_friends
+-- zp preview_img
+-- zm browse_media
+-- zC :CalendarT
+-- #  show_tags
