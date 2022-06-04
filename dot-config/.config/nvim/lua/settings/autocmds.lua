@@ -14,13 +14,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   group = colorscheme_group
 })
 
-local folding_group = vim.api.nvim_create_augroup("managing folds", {clear = true})
-vim.api.nvim_create_autocmd({"BufWinEnter"}, {
-  pattern = { "*" },
-  command = "normal zR",
-  group = folding_group
-})
-
 
 local terraform_group = vim.api.nvim_create_augroup("autoformat terraform", {clear = true})
 vim.api.nvim_create_autocmd({"BufReadPost", "FileReadPost", "BufWritePost", "FileWritePost"}, {

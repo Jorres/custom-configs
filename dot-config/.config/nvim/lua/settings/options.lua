@@ -29,7 +29,7 @@ local options = {
   fileencoding = "utf-8",
   foldmethod = "expr",
   foldexpr = "nvim_treesitter#foldexpr()",
-  -- foldlevelstart = 100,
+  foldlevelstart = 100,
 }
 
 
