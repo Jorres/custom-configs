@@ -22,7 +22,6 @@ setter({
   end,
 }, { "n" })
 
-
 -- Exit from terminal mode comfortably
 setter({
   ["<c-[>"] = "<c-\\><c-n>",
@@ -113,6 +112,22 @@ for i = 1, 8, 1 do
     require "harpoon.ui".nav_file(i)
   end, default_opt)
 end
+
+
+-- Gitsigns
+local gitsigns = require'gitsigns'
+
+local hunk_prefix = leader .. "h"
+setter({
+  [hunk_prefix .. "s"] = gitsigns.stage_hunk,
+  [hunk_prefix .. "r"] = gitsigns.reset_hunk,
+  [hunk_prefix .. "u"] = gitsigns.undo_stage_hunk,
+  [hunk_prefix .. "p"] = gitsigns.preview_hunk,
+  [hunk_prefix .. "n"] = gitsigns.next_hunk,
+  [leader .. "bl"] = gitsigns.toggle_current_line_blame,
+  [leader .. "d"] =  gitsigns.toggle_deleted,
+}, {"n"})
+
 -- Telekasten
 
 local kasten_prefix = leader .. "z"
