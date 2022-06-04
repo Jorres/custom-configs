@@ -71,6 +71,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'lukas-reineke/indent-blankline.nvim' } -- draws small symbols for indentation
   use { 'folke/zen-mode.nvim' }
   use { 'folke/twilight.nvim' }
+  use {'jbyuki/venn.nvim'}
 
 
   -- === Colorschemes === --

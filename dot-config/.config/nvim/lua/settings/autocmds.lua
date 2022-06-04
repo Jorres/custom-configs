@@ -14,13 +14,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   group = colorscheme_group
 })
 
-
-local terraform_group = vim.api.nvim_create_augroup("autoformat terraform", {clear = true})
-vim.api.nvim_create_autocmd({"BufReadPost", "FileReadPost", "BufWritePost", "FileWritePost"}, {
-  pattern = { "*.tf", "*.tfvars" },
-  callback = vim.lsp.buf.formatting,
-  group = terraform_group
-})
+-- local terraform_group = vim.api.nvim_create_augroup("autoformat terraform", {clear = true})
+-- vim.api.nvim_create_autocmd({"BufReadPost", "FileReadPost", "BufWritePost", "FileWritePost"}, {
+--   pattern = { "*.tf", "*.tfvars" },
+--   callback = vim.lsp.buf.formatting,
+--   group = terraform_group
+-- })
 
 local lifelog_group = vim.api.nvim_create_augroup("auto zen mode", {clear = true})
 vim.api.nvim_create_autocmd({"BufWinEnter"}, {

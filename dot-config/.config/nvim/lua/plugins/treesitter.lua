@@ -5,7 +5,7 @@ require 'nvim-treesitter.configs'.setup {
     "javascript",
     "typescript",
     "tsx",
-    "yaml",
+    -- "yaml", -- disabling this since no support for Go templates
     "json",
     "go",
     "html",
@@ -19,7 +19,8 @@ require 'nvim-treesitter.configs'.setup {
     "kotlin",
     "latex",
     "python",
-    "vim"
+    "vim",
+    "svelte"
   },
   sync_install = true,
   ignore_install = {},
