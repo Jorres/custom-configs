@@ -1,6 +1,7 @@
 vim.cmd [[ let g:nvim_tree_special_files = { 'init.lua': 1, 'packer.lua': 1 } ]]
 
 -- Brought from readme to switch off some nasty mappings that conflict with my own
+
 local mappings = {
   { key = { "<CR>" }, action = "edit" },
   { key = { "O" }, action = "edit_no_picker" },
@@ -40,7 +41,8 @@ require 'nvim-tree'.setup {
   renderer             = {
     indent_markers = {
       enable = true
-    }
+    },
+    special_files = { 'init.lua', 'packer.lua' }
   },
   -- disables netrw completely
   disable_netrw        = true,
