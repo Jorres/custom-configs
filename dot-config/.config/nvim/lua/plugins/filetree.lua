@@ -1,5 +1,3 @@
-vim.cmd [[ let g:nvim_tree_special_files = { 'init.lua': 1, 'packer.lua': 1 } ]]
-
 -- Brought from readme to switch off some nasty mappings that conflict with my own
 
 local mappings = {
@@ -42,7 +40,7 @@ require 'nvim-tree'.setup {
     indent_markers = {
       enable = true
     },
-    special_files = { 'init.lua', 'packer.lua' }
+    special_files = { 'init.lua', 'packer.lua', 'entrypoint.md' }
   },
   -- disables netrw completely
   disable_netrw        = true,
