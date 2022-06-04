@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat
+sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools
 
 # install brave
 
@@ -85,3 +85,7 @@ python3 -m pip install libtmux --user
 sudo add-apt-repository ppa:bashtop-monitor/bashtop
 sudo apt update
 sudo apt install bashtop
+
+
+# A more sleek email client than Thunderbird
+sudo snap install mailspring
