@@ -1,0 +1,7 @@
+% awk
+
+# Get nth column from 
+awk '{print $<col_number>}'
+
+# Get nth column by separator from 
+awk -F '<separator>' '{print $<col_number>}'

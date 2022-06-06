@@ -1,0 +1,5 @@
+% archive, zip, tar, unzip, untar
+
+# Unzip a simple zip archive
+unzip <archive> -d <destination_name>
+$ archive: ls -lah | grep "zip" | awk '{print $9}' 
