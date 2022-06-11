@@ -1,6 +1,22 @@
 local actions = require('telescope.actions')
 local telescope = require('telescope')
 
+local previewers = require('telescope.previewers')
+
+local new_maker = function(filepath, bufnr, opts)
+  opts = opts or {}
+
+  filepath = vim.fn.expand(filepath)
+  vim.loop.fs_stat(filepath, function(_, stat)
+    if not stat then return end
+    if stat.size > 100000 then
+      return
+    else
+      previewers.buffer_previewer_maker(filepath, bufnr, opts)
+    end
+  end)
+end
+
 telescope.setup {
   defaults = {
     vimgrep_arguments = {
@@ -11,7 +27,7 @@ telescope.setup {
       '--line-number',
       '--column',
       '--smart-case',
-      '--max-filesize=1M',
+      '--max-filesize=500K',
       '--hidden'
     },
     prompt_prefix = "  ",
@@ -49,33 +65,17 @@ telescope.setup {
 
     mappings = {
       i = {
-        ["<C-x>"] = false,
         ["<C-q>"] = actions.send_to_qflist
       }
     },
 
-    -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require 'telescope.previewers'.buffer_previewer_maker
+    buffer_previewer_maker = new_maker
   },
   extensions = {
-    fzf = {
-      fuzzy = true,
-      override_generic_sorter = true,
-      override_file_sorter = true,
-      case_mode = "smart_case",
-    },
-    -- media_files = {
-    --   -- filetypes whitelist
-    --   -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-    --   filetypes = {"png", "webp", "jpg", "jpeg"},
-    --   find_cmd = "rg" -- find command (defaults to `fd`)
-    -- }
   }
 }
 
-telescope.load_extension('fzf')
 telescope.load_extension('harpoon')
-telescope.load_extension('media_files')
 
 local M = {}
 
