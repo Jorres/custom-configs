@@ -37,6 +37,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'sk1418/HowMuch' } -- https://github.com/sk1418/HowMuch
   use { 'ThePrimeagen/harpoon' } -- Keep track of latest files you work with
   use { 'L3MON4D3/LuaSnip' } -- Snippets engine!
+  use { 'tpope/vim-abolish' }
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' } -- reenter sudo editing with :Suda
@@ -95,6 +96,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'andersevenrud/cmp-tmux' }
   use { 'saadparwaiz1/cmp_luasnip' }
+  use { 'j-hui/fidget.nvim' }
 
 
   -- === Treesitter ===

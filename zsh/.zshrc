@@ -146,6 +146,7 @@ export GO_PATH="/usr/local/go"
 export PATH="$PATH:$GO_PATH/bin"
 export PATH="$PATH:$JAVA_HOME/bin"
 export PATH="$PATH:/home/jorres/aiger"
+export PATH="$PATH:/home/jorres/hobbies/tree-sitter-academy_markup/node_modules/tree-sitter-cli"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"

@@ -30,6 +30,8 @@ local options = {
   foldmethod = "expr",
   foldexpr = "nvim_treesitter#foldexpr()",
   foldlevelstart = 100,
+  equalalways = false,
+  lazyredraw = true,
 }
 
 

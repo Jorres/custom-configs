@@ -1,28 +1,30 @@
 local lspconfig = require 'lspconfig'
 
 local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
-  local opts = { noremap = true, silent = true }
+  local opts = { 
+    noremap = true, 
+    silent = true, 
+    buffer = bufnr 
+  }
+  local set = vim.keymap.set
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   -- <leader>s for lSp! to have it on a different hand instead of ,l! Microing your ergonomics!
   local pref = vim.g.mapleader .. "s"
-  buf_set_keymap('n', pref .. 'd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', pref .. 'D', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', pref .. 'i', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', pref .. 'r', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  set('n', pref .. 'd', ':Telescope lsp_definitions<CR>', opts)
+  set('n', pref .. 'i', ':Telescope lsp_implementations<CR>', opts)
+  set('n', pref .. 'r', ':Telescope lsp_references<CR>', opts)
 
-  buf_set_keymap('n', pref .. 'f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
-  buf_set_keymap('n', pref .. 'a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-  buf_set_keymap('n', pref .. 'n', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  set('n', pref .. 'f', vim.lsp.buf.formatting, opts)
+  set('n', pref .. 'a', vim.lsp.buf.code_action, opts)
+  set('n', pref .. 'n', vim.lsp.buf.rename, opts)
+  set('n', 'K', vim.lsp.buf.hover, opts)
 
   local diagnostic_pref = 'd'
 
-  buf_set_keymap('n', diagnostic_pref .. 'k', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-  buf_set_keymap('n', diagnostic_pref .. 'j', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap('n', diagnostic_pref .. 'l', '<cmd>Telescope diagnostics', opts)
+  set('n', diagnostic_pref .. 'k', vim.lsp.diagnostic.goto_prev, opts)
+  set('n', diagnostic_pref .. 'j', vim.lsp.diagnostic.goto_next, opts)
+  set('n', diagnostic_pref .. 'l', ':Telescope diagnostics<CR>', opts)
 
 
   -- These ones I'd like to have:
@@ -35,7 +37,7 @@ local on_attach = function(client, bufnr)
   -- These ones I do not yet use in my workflow
   -- buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
   -- buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-  -- buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  -- buf_set_keymap('n', '<space>wl', '<cmd>lua P(vim.lsp.buf.list_workspace_folders())<CR>', opts)
   -- buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
 end
 
@@ -76,16 +78,6 @@ lspconfig.ccls.setup {
   }
 }
 
-
-lspconfig.zeta_note.setup {
-  cmd = { '/home/jorres/bin/zeta-note' },
-  on_attach = on_attach,
-  root_dir = lspconfig.util.root_pattern(".git"),
-  settings = {
-    filetypes = { "md" }
-  }
-}
-
 lspconfig.gopls.setup {
   on_attach = on_attach,
 }
@@ -103,7 +95,7 @@ lspconfig.sumneko_lua.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { 'vim' },
+        globals = { 'vim', 'text', 'for_node', 'indent', 'newline' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files

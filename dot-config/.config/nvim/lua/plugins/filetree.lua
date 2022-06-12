@@ -6,8 +6,8 @@ local mappings = {
   { key = { "<C-c>" }, action = "cd" },
   { key = "<C-v>", action = "vsplit" },
   { key = "<C-x>", action = "split" },
-  { key = "<", action = "prev_sibling" },
-  { key = ">", action = "next_sibling" },
+  -- { key = "<", action = "prev_sibling" },
+  -- { key = ">", action = "next_sibling" },
   { key = "P", action = "parent_node" },
   { key = "<BS>", action = "close_node" },
   { key = "K", action = "first_sibling" },
@@ -26,8 +26,8 @@ local mappings = {
   { key = "y", action = "copy_name" },
   { key = "Y", action = "copy_path" },
   { key = "gy", action = "copy_absolute_path" },
-  { key = "[c", action = "prev_git_item" },
-  { key = "]c", action = "next_git_item" },
+  -- { key = "[c", action = "prev_git_item" },
+  -- { key = "]c", action = "next_git_item" },
   { key = "-", action = "dir_up" },
   { key = "s", action = "system_open" },
   { key = "q", action = "close" },
@@ -36,9 +36,15 @@ local mappings = {
 }
 
 require 'nvim-tree'.setup {
+  reload_on_bufenter = true,
   renderer             = {
+    add_trailing = false,
+    group_empty = true,
+    highlight_git = false,
+    highlight_opened_files = "none",
+    root_folder_modifier = ":~",
     indent_markers = {
-      enable = true
+      enable = true,
     },
     special_files = { 'init.lua', 'packer.lua', 'entrypoint.md' }
   },
@@ -87,6 +93,7 @@ require 'nvim-tree'.setup {
   },
 
   view = {
+    adaptive_size = true,
     -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
     width = 30,
     -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
@@ -95,6 +102,7 @@ require 'nvim-tree'.setup {
     hide_root_folder = true,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
+    preserve_window_proportions = true,
     mappings = {
       -- custom only false will merge the list with the default mappings
       -- if true, it will only use your list to set the mappings
@@ -119,7 +127,11 @@ require 'nvim-tree'.setup {
 
   actions = {
     open_file = {
-      resize_window = true
+      resize_window = false
     }
-  }
+  },
+  hijack_directories = {
+    enable = true,
+    auto_open = true,
+  },
 }

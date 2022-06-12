@@ -1,4 +1,5 @@
 local set = vim.keymap.set
+local del = vim.keymap.del
 local leader = vim.g.mapleader
 
 local default_opt = {
@@ -35,11 +36,16 @@ setter({
   ["J"] = "mzJ`z",
   -- undo break points
   ["!"] = "!<c-g>u",
-  ["."] = ".<c-g>u",
   ["?"] = "?<c-g>u",
   -- quickfixlist remaps
-  ["["] = ":cnext<CR>",
-  ["]"] = ":cprev<CR>",
+  ["["] = function() 
+    pcall(del, {"n", "i", "v"}, "[%")
+    vim.cmd("cnext")
+  end,
+  ["]"] = function() 
+    pcall(del, {"n", "i", "v"}, "]%")
+    vim.cmd("cprev")
+  end,
   ["<leader>q"] = ":cclose<CR>",
   -- open quickfixlist with height 5
   ["<leader>o"] = ":copen 5<CR>",
@@ -146,6 +152,7 @@ setter({
   [kasten_prefix .. "ip"] = telekasten.paste_img_and_link,
   [kasten_prefix .. "iv"] = telekasten.preview_img,
   [kasten_prefix .. "c"] = telekasten.show_calendar,
+  [kasten_prefix .. "r"] = telekasten.rename_note,
 }, {"n"})
 
 -- zd find_daily_notes
@@ -167,3 +174,8 @@ local showmethat = require("showmethat")
 
 set("n", leader .. "sh", showmethat.show)
 set("n", leader .. "sk", showmethat.kill_all)
+
+
+-- Clear the built-in ones that I don't really use and that hinder my experience
+pcall(del, {"n", "i", "v"}, "[%")
+pcall(del, {"n", "i", "v"}, "]%")

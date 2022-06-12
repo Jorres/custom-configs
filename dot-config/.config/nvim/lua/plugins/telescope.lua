@@ -65,6 +65,7 @@ telescope.setup {
 
     mappings = {
       i = {
+        ["<Esc>"] = actions.close,
         ["<C-q>"] = actions.send_to_qflist
       }
     },

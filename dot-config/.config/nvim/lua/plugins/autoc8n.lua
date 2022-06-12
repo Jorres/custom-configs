@@ -12,6 +12,12 @@ cmp.setup {
     ["<c-y>"] = cmp.mapping.confirm {
       select = true,
     },
+    -- I use moonlander, okay? I have my arrow keys where I want them
+    -- and they are super easy to reach. Regular keyboards users will
+    -- suffer. But by default <C-n> and <C-p> are already defined
+    -- for selecting options of the completion menu. Use them as well!
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<Down>"] = cmp.mapping.select_next_item(),
   },
 
   sources = {

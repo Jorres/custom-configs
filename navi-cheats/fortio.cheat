@@ -1,0 +1,4 @@
+% fortio
+
+# General fortio http spam
+fortio load -qps <queries_per_second> -t <seconds_to_run>s -timeout <timeout_seconds>s <target_site>

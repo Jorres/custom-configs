@@ -1,7 +1,7 @@
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "c",
-    "lua",
+    -- "lua",
     "javascript",
     "typescript",
     "tsx",
@@ -69,4 +69,20 @@ require 'nvim-treesitter.configs'.setup {
       show_help = '?',
     },
   }
+}
+
+local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
+ft_to_parser.telekasten = "markdown"
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.academy_markup = {
+  install_info = {
+    url = "/home/jorres/hobbies/tree-sitter-academy_markup", -- local path or git repo
+    files = {"src/parser.c"},
+    -- optional entries:
+    branch = "master", -- default branch in case of git repo if different from master
+    generate_requires_npm = false, -- if stand-alone parser without npm dependencies
+    requires_generate_from_grammar = true, -- if folder contains pre-generated src/parser.c
+  },
+  filetype = "academy_markup", -- if filetype does not match the parser name
 }

@@ -48,13 +48,13 @@ windows:
     #             - Enter
     #         - shell:
     #             - clear
-    - "diploma ":
-        root: "~/work/uni-codebase/diploma-codebase/"
-        layout: even-horizontal
-        panes:
-            - nvim: 
-                - nvim .
-                - Enter
+    # - "diploma ":
+    #     root: "~/work/uni-codebase/diploma-codebase/"
+    #     layout: even-horizontal
+    #     panes:
+    #         - nvim: 
+    #             - nvim .
+    #             - Enter
     # - "diploma todo":
     #     root: "~/work/uni-codebase/diploma-codebase/"
     #     panes:

@@ -26,8 +26,9 @@ vim.api.nvim_create_autocmd({"BufWinEnter"}, {
   pattern = { "I.md", "II.md", "III.md" },
   callback = function ()
     vim.schedule(function ()
-      require("nvim-tree.view").close()
+      pcall(require("nvim-tree.view").close)
       vim.cmd [[ ZenMode ]]
+      vim.cmd [[ set filetype=telekasten ]]
     end)
   end,
   group = lifelog_group

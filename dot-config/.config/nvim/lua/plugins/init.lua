@@ -33,9 +33,11 @@ load_list_safely({
   "plugins.indent-blanks",
   "plugins.twilight",
   "plugins.zen-mode",
+  "plugins.lsp-fidget",
 
   -- PDE
-  "plugins.telekasten"
+  "plugins.telekasten",
+  "plugins.ascii-drawing"
 })
 
 -- Try this later

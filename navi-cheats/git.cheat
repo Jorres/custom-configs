@@ -1,0 +1,5 @@
+% git
+
+# View patches of file diff over history
+git log -p -- <filename>
+$ filename: rg --files 
