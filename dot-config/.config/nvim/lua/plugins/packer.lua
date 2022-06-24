@@ -38,6 +38,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'ThePrimeagen/harpoon' } -- Keep track of latest files you work with
   use { 'L3MON4D3/LuaSnip' } -- Snippets engine!
   use { 'tpope/vim-abolish' } -- :Subvert, coerce to various cases
+  use { 'mbbill/undotree' } -- Visualize undotree
   -- A true blessing. Set shiftwidth to what the buffer is using
   -- instead of hardcoded 2 or hardcoded 4.
   use { 'NMAC427/guess-indent.nvim' }
@@ -49,7 +50,6 @@ return require('packer').startup(function(use, use_rocks)
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' } -- reenter sudo editing with :Suda
-
   use { 'nanotee/luv-vimdocs' } -- docs for libuv
   use { 'milisims/nvim-luaref' } -- docs for lua
 
@@ -81,7 +81,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'lukas-reineke/indent-blankline.nvim' } -- draws small symbols for indentation
   use { 'folke/zen-mode.nvim' }
   use { 'folke/twilight.nvim' }
-  use {'jbyuki/venn.nvim'}
+  use { 'jbyuki/venn.nvim' }
 
 
   -- === Colorschemes === --
@@ -134,9 +134,12 @@ return require('packer').startup(function(use, use_rocks)
   use { 'vim-test/vim-test' }
 
   -- === neovim as PDE ===
-  use {'renerocksai/calendar-vim'}
-  use {'renerocksai/telekasten.nvim'}
-  use {'mzlogin/vim-markdown-toc'}
+  -- use { 'renerocksai/calendar-vim' }
+  use { 'renerocksai/telekasten.nvim' }
+
+  -- === Misc ===
+  use { 'fladson/vim-kitty' }
+
 
   -- === Dependencies ===
   use { 'tami5/sqlite.lua' }
@@ -144,6 +147,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'nvim-lua/popup.nvim' }
   use { 'nvim-lua/plenary.nvim' }
   use { 'onsails/lspkind-nvim' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
 
   -- === Removed due to being unused ===
   -- use { 'Jorres/best-diff-ever.nvim' } -- if using from GitHub

@@ -71,6 +71,7 @@ require 'nvim-treesitter.configs'.setup {
   }
 }
 
+-- TODO does not work for some reason :( unable to do folds
 local ft_to_parser = require"nvim-treesitter.parsers".filetype_to_parsername
 ft_to_parser.telekasten = "markdown"
 

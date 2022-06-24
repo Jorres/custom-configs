@@ -32,10 +32,12 @@ local options = {
   foldlevelstart = 100,
   equalalways = false,
   lazyredraw = true,
+  mouse = "a"
 }
 
 
 vim.cmd [[set fillchars+=vert:│]]
+vim.cmd [[let g:HowMuch_no_mappings = 1]]
 
 vim.opt.shortmess:append("c")
 

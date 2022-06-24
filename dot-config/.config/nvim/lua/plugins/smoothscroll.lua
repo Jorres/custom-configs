@@ -12,6 +12,10 @@ require('neoscroll').setup({
 })
 
 require('neoscroll.config').set_mappings({
-  ['<C-Y>'] = { 'scroll', { '-5', 'false', '50' } },
-  ['<C-E>'] = { 'scroll', { '5', 'false', '50' } }
+  ['<C-Y>'] = { 'scroll', { '-5', 'false', '40' } },
+  ['<C-E>'] = { 'scroll', { '5', 'false', '40' } },
+  -- The following looks very nice, but you actually don't want to wait three seconds
+  -- if you want to look at file's end
+  -- ['gg']    = {'scroll', {'-2*vim.api.nvim_buf_line_count(0)', 'true', '50'}},
+  -- ['G']     = {'scroll', {'2*vim.api.nvim_buf_line_count(0)', 'true', '50'}}
 })

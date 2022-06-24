@@ -29,6 +29,12 @@ setter({
   ["<Esc>"] = "<c-\\><c-n>"
 }, { "t" })
 
+-- This allows to paste and delete without spoiling
+-- what is in my primary register.
+setter({ ["<leader>p"] = "\"_dP" }, { "x" })
+setter({ ["<leader>d"] = "\"_d" }, { "n" })
+setter({ ["<leader>d"] = "\"_d" }, { "v" })
+
 setter({
   -- make Y behave and yank till the end
   ["Y"] = "yg",
@@ -38,12 +44,12 @@ setter({
   ["!"] = "!<c-g>u",
   ["?"] = "?<c-g>u",
   -- quickfixlist remaps
-  ["["] = function() 
-    pcall(del, {"n", "i", "v"}, "[%")
+  ["["] = function()
+    pcall(del, { "n", "i", "v" }, "[%")
     vim.cmd("cnext")
   end,
-  ["]"] = function() 
-    pcall(del, {"n", "i", "v"}, "]%")
+  ["]"] = function()
+    pcall(del, { "n", "i", "v" }, "]%")
     vim.cmd("cprev")
   end,
   ["<leader>q"] = ":cclose<CR>",
@@ -62,7 +68,7 @@ setter({
   -- Source current file
   ["<leader><leader>x"] = ":source %<CR>",
   -- use one button for folding
-  [";"] = "za"
+  [";"] = "za",
 }, { "n" })
 
 -- Include relative jumps into jump stack for c-i\c-o
@@ -74,8 +80,12 @@ vim.cmd [[nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j']]
 -- Fugitive
 set({ "n" }, "<leader>gfh", ":0Gclog<CR>", default_opt)
 set({ "n" }, "<leader>ge", ":Gedit<CR>", default_opt)
+
 -- NvimTree
 set({ "n" }, "<leader>n", ":NvimTreeFindFileToggle<CR>", default_opt)
+
+-- ZenMode
+set({ "n" }, "<leader>zm", ":ZenMode<CR>", default_opt)
 
 -- Integrating with tmux
 -- vim.opt["tmux_navigator_no_mappings"] = 1
@@ -87,7 +97,7 @@ setter({
 }, { "n", "i", "v" })
 
 -- Packer
-set({ "n" }, "<leader>ps", ":PackerSync<CR>", default_opt)
+set({ "n" }, "<leader>Ps", ":PackerSync<CR>", default_opt)
 
 -- Telescope
 setter({
@@ -102,7 +112,7 @@ setter({
 
 -- Carbon
 setter({
-  [leader .. "pic"] = require("carbon-now").create_snippet
+  [leader .. "Pi"] = require("carbon-now").create_snippet
 }, { "v" })
 
 -- Harpoon
@@ -121,7 +131,7 @@ end
 
 
 -- Gitsigns
-local gitsigns = require'gitsigns'
+local gitsigns = require 'gitsigns'
 
 local hunk_prefix = leader .. "h"
 setter({
@@ -131,13 +141,13 @@ setter({
   [hunk_prefix .. "p"] = gitsigns.preview_hunk,
   [hunk_prefix .. "n"] = gitsigns.next_hunk,
   [leader .. "bl"] = gitsigns.toggle_current_line_blame,
-  [leader .. "d"] =  gitsigns.toggle_deleted,
-}, {"n"})
+  -- [leader .. "d"] =  gitsigns.toggle_deleted,
+}, { "n" })
 
 -- Telekasten
 
 local kasten_prefix = leader .. "z"
-local telekasten = require'telekasten'
+local telekasten = require 'telekasten'
 
 setter({
   -- [kasten_prefix .. "d"] = telekasten.goto_today,
@@ -153,7 +163,7 @@ setter({
   [kasten_prefix .. "iv"] = telekasten.preview_img,
   [kasten_prefix .. "c"] = telekasten.show_calendar,
   [kasten_prefix .. "r"] = telekasten.rename_note,
-}, {"n"})
+}, { "n" })
 
 -- zd find_daily_notes
 -- zg search_notes
@@ -174,8 +184,3 @@ local showmethat = require("showmethat")
 
 set("n", leader .. "sh", showmethat.show)
 set("n", leader .. "sk", showmethat.kill_all)
-
-
--- Clear the built-in ones that I don't really use and that hinder my experience
-pcall(del, {"n", "i", "v"}, "[%")
-pcall(del, {"n", "i", "v"}, "]%")

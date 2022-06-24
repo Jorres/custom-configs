@@ -95,7 +95,7 @@ lspconfig.sumneko_lua.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = { 'vim', 'text', 'for_node', 'indent', 'newline' },
+        globals = { 'vim', 'text', 'for_node', 'indent', 'newline', 'list', 'random_words', 'awesome' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files

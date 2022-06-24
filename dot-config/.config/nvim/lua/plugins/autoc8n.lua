@@ -12,7 +12,7 @@ cmp.setup {
     ["<c-y>"] = cmp.mapping.confirm {
       select = true,
     },
-    -- I use moonlander, okay? I have my arrow keys where I want them
+    -- I use moonlander keyboard, okay? I have my arrow keys where I want them
     -- and they are super easy to reach. Regular keyboards users will
     -- suffer. But by default <C-n> and <C-p> are already defined
     -- for selecting options of the completion menu. Use them as well!
@@ -21,8 +21,8 @@ cmp.setup {
   },
 
   sources = {
-    { name = "nvim_lsp_signature_help" },
-    { name = "nvim_lua", max_item_count = 5 },
+    -- { name = "nvim_lsp_signature_help" },
+    { name = "nvim_lua", max_item_count = 5, filetype = "lua" },
     { name = "luasnip", max_item_count = 2 },
     { name = "nvim_lsp", max_item_count = 5 },
     {
