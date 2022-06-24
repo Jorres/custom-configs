@@ -1,0 +1,4 @@
+% helm
+
+# View default values of a chart
+helm show values <chart_name>
