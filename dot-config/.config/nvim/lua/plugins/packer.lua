@@ -28,7 +28,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'wellle/targets.vim' } -- Additional text objects: e.g. inside *, inside comma-separated list etc.
   use { 'godlygeek/tabular' } -- Adds :Tabularize command
 
-  use { 'prettier/vim-prettier' } -- :Prettier
+  use { 'MunifTanjim/prettier.nvim' } -- :Prettier
   use { 'ggandor/lightspeed.nvim' } -- Ultimate screen-jumping plugin
   use { 'tpope/vim-repeat' } -- zero-config, allows to repeat complex commands
   use { 'AndrewRadev/splitjoin.vim' } -- gJ and gS to split\join statements in multiple languages 
@@ -37,7 +37,15 @@ return require('packer').startup(function(use, use_rocks)
   use { 'sk1418/HowMuch' } -- https://github.com/sk1418/HowMuch
   use { 'ThePrimeagen/harpoon' } -- Keep track of latest files you work with
   use { 'L3MON4D3/LuaSnip' } -- Snippets engine!
-  use { 'tpope/vim-abolish' }
+  use { 'tpope/vim-abolish' } -- :Subvert, coerce to various cases
+  -- A true blessing. Set shiftwidth to what the buffer is using
+  -- instead of hardcoded 2 or hardcoded 4.
+  use { 'NMAC427/guess-indent.nvim' }
+  -- Submodes
+  use { 'anuvyklack/hydra.nvim',
+    requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
+  }
+
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' } -- reenter sudo editing with :Suda
@@ -46,7 +54,8 @@ return require('packer').startup(function(use, use_rocks)
   use { 'milisims/nvim-luaref' } -- docs for lua
 
   -- === Git ===
-  use { 'tpope/vim-fugitive' } -- :G
+  -- use { 'tpope/vim-fugitive' } -- :G
+  use { 'TimUntersberger/neogit' }
   use { -- Enable git changes to be shown in sign column
     'lewis6991/gitsigns.nvim',
     requires = {

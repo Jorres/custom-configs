@@ -34,9 +34,13 @@ load_list_safely({
   "plugins.twilight",
   "plugins.zen-mode",
   "plugins.lsp-fidget",
+  "plugins.guess-indent",
+  "plugins.neogit",
+  "plugins.hydra",
 
   -- PDE
   "plugins.telekasten",
+  "plugins.prettier",
   "plugins.ascii-drawing"
 })
 
