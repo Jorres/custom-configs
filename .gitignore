@@ -2,3 +2,6 @@
 
 **/packer_compiled.lua
 vifminfo.json
+
+# That is a sub-repo of awesome, and I download it in my bootstrap.sh
+awesome-wm-widgets
