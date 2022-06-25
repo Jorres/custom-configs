@@ -26,17 +26,16 @@ load_list_safely({
   "plugins.smoothscroll",
   "plugins.cursor-landing",
   "plugins.toggleterm",
-  -- "plugins.which-key",
   "plugins.gitsigns",
   "plugins.carbon",
   "plugins.harpoon",
   "plugins.indent-blanks",
-  "plugins.twilight",
   "plugins.zen-mode",
   "plugins.lsp-fidget",
   "plugins.guess-indent",
   "plugins.neogit",
   "plugins.hydra",
+  "plugins.numb",
 
   -- PDE
   "plugins.telekasten",

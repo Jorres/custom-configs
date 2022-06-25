@@ -77,10 +77,8 @@ return require('packer').startup(function(use, use_rocks)
   use { 'ellisonleao/carbon-now.nvim' } -- take code screenshots!
   use { 'akinsho/toggleterm.nvim' } -- toggle terminal per session
   use { 'lewis6991/nvim-treesitter-context' } -- accumulates context at the 1-2 lines of the file
-  use { 'folke/which-key.nvim' }
   use { 'lukas-reineke/indent-blankline.nvim' } -- draws small symbols for indentation
-  use { 'folke/zen-mode.nvim' }
-  use { 'folke/twilight.nvim' }
+  use { 'Pocco81/TrueZen.nvim' }
   use { 'jbyuki/venn.nvim' }
 
 
@@ -106,6 +104,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'andersevenrud/cmp-tmux' }
   use { 'saadparwaiz1/cmp_luasnip' }
   use { 'j-hui/fidget.nvim' }
+  use { 'nacro90/numb.nvim' }
 
 
   -- === Treesitter ===
@@ -138,8 +137,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'renerocksai/telekasten.nvim' }
 
   -- === Misc ===
-  use { 'fladson/vim-kitty' }
-
+  use { 'fladson/vim-kitty' } -- keyword highlighting of kitty.conf
 
   -- === Dependencies ===
   use { 'tami5/sqlite.lua' }
@@ -148,13 +146,4 @@ return require('packer').startup(function(use, use_rocks)
   use { 'nvim-lua/plenary.nvim' }
   use { 'onsails/lspkind-nvim' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
-
-  -- === Removed due to being unused ===
-  -- use { 'Jorres/best-diff-ever.nvim' } -- if using from GitHub
-  -- use { '/home/jorres/hobbies/plugins/best-diff-ever.nvim' } -- if using locally
-  --
-  -- Now, I do not use this as vimwiki, but does nice markdown
-  -- per-line formatting (highlights `` and hides tildas itself)
-  -- UPD: turned to be more confusing than useful
-  -- use {'vimwiki/vimwiki'}
 end)

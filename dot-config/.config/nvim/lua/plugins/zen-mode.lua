@@ -1,70 +1,65 @@
-local breaking = {
-  ["<C-h>"] = ":TmuxNavigateLeft<cr>",
-  ["<C-j>"] = ":TmuxNavigateDown<cr>",
-  ["<C-k>"] = ":TmuxNavigateUp<cr>",
-  ["<C-l>"] = ":TmuxNavigateRight<cr>",
-}
+local true_zen = require "true-zen"
 
-local silence = function(mapping)
-  vim.keymap.set({ "n" }, mapping, function() end, { silent = true, remap = false })
-end
-
-local unsilence = function(mapping, previous)
-  vim.keymap.set({ "n" }, mapping, previous, {silent = true})
-end
-
-local opts = {
-  window = {
-    backdrop = 1, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-    -- height and width can be:
-    -- * an absolute number of cells when > 1
-    -- * a percentage of the width / height of the editor when <= 1
-    -- * a function that returns the width or the height
-    width = 120, -- width of the Zen window
-    height = 1, -- height of the Zen window
-    -- by default, no options are changed for the Zen window
-    -- uncomment any of the options below, or add other vim.wo options you want to apply
-    options = {
-      signcolumn = "no", -- disable signcolumn
-      -- number = false, -- disable number column
-      -- relativenumber = false, -- disable relative numbers
-      -- cursorline = false, -- disable cursorline
-      -- cursorcolumn = false, -- disable cursor column
-      -- foldcolumn = "0", -- disable fold column
-      -- list = false, -- disable whitespace characters
+true_zen.setup {
+  ui = {
+    bottom = {
+      laststatus = 0,
+      ruler = false,
+      showmode = false,
+      showcmd = false,
+      cmdheight = 1,
+    },
+    top = {
+      showtabline = 0,
+    },
+    left = {
+      number = false,
+      relativenumber = false,
+      signcolumn = "no",
     },
   },
-  plugins = {
-    -- disable some global vim options (vim.o...)
-    -- comment the lines to not apply the options
-    options = {
-      enabled = true,
-      ruler = false, -- disables the ruler text in the cmd line area
-      showcmd = false, -- disables the command in the last line of the screen
+  modes = {
+    ataraxis = {
+      top_padding = 1,
+      bottom_padding = 1,
+      ideal_writing_area_width = { 90 },
+      auto_padding = true,
+      keep_default_fold_fillchars = true,
+      custom_bg = { "none", "" },
+      bg_configuration = true,
+      quit = "untoggle",
+      ignore_floating_windows = true,
+      affected_higroups = {
+        NonText = true,
+        FoldColumn = true,
+        ColorColumn = true,
+        VertSplit = true,
+        StatusLine = true,
+        StatusLineNC = true,
+        SignColumn = true,
+      },
     },
-    twilight = { enabled = false }, -- enable to start Twilight when zen mode opens
-    gitsigns = { enabled = false }, -- disables git signs
-    tmux = { enabled = false }, -- disables the tmux statusline
+    focus = {
+      margin_of_error = 5,
+      focus_method = "experimental"
+    },
   },
-  -- callback where you can add custom code when the Zen window opens
-  on_open = function(win)
-    for key, _ in pairs(breaking) do
-      silence(key)
-    end
-  end,
-  -- callback where you can add custom code when the Zen window closes
-  on_close = function()
-    for key, value in pairs(breaking) do
-      unsilence(key, value)
-    end
-  end,
+  integrations = {
+    tmux = false,
+    gitsigns = true,
+    lualine = true,
+  },
+  misc = {
+    on_off_commands = false,
+    ui_elements_commands = false,
+    cursor_by_mode = false,
+  }
 }
-require("zen-mode").setup(opts)
 
-M = {}
-
-M.do_toggle = function()
-  require("zen-mode").toggle(opts)
+true_zen.before_mode_ataraxis_on = function ()
+  pcall(require"nvim-tree".toggle, false, true)
 end
 
-return M
+true_zen.after_mode_ataraxis_off = function ()
+  pcall(require"nvim-tree".toggle, false, true)
+end

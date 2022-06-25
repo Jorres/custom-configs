@@ -109,3 +109,6 @@ cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/appli
 # Update the paths to the kitty and its icon in the kitty.desktop file(s)
 sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
 sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
+
+sudo snap install exercism
+exercism configure --token=f9e912f4-334c-4b73-9566-6c57d33002f5
