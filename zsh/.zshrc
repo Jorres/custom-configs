@@ -118,9 +118,6 @@ if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jor
 DOTFILES_PATH=/home/jorres/dotfiles
 
 alias luamake=/home/jorres/hobbies/lua-language-server/3rd/luamake/luamake
-alias becomeania=$DOTFILES_PATH/utilities/becomeania.sh
-alias becomeegor=$DOTFILES_PATH/utilities/becomeegor.sh
-alias lower=$DOTFILES_PATH/utilities/lower-the-curtains.sh
 
 alias sourcerc="source ~/.zshrc"
 
@@ -145,8 +142,7 @@ export JAVA_HOME="/home/jorres/bin/jdk-17.0.2"
 export GO_PATH="/usr/local/go"
 export PATH="$PATH:$GO_PATH/bin"
 export PATH="$PATH:$JAVA_HOME/bin"
-export PATH="$PATH:/home/jorres/aiger"
-export PATH="$PATH:/home/jorres/hobbies/tree-sitter-academy_markup/node_modules/tree-sitter-cli"
+export PATH="$PATH:$DOTFILES_PATH/utilities"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
@@ -170,4 +166,3 @@ fi
 # zprof
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
