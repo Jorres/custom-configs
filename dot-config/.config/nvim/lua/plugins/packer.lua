@@ -54,8 +54,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'milisims/nvim-luaref' } -- docs for lua
 
   -- === Git ===
-  -- use { 'tpope/vim-fugitive' } -- :G
-  use { 'TimUntersberger/neogit' }
+  use { 'tpope/vim-fugitive' } -- :G
   use { -- Enable git changes to be shown in sign column
     'lewis6991/gitsigns.nvim',
     requires = {

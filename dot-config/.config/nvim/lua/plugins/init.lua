@@ -33,7 +33,6 @@ load_list_safely({
   "plugins.zen-mode",
   "plugins.lsp-fidget",
   "plugins.guess-indent",
-  "plugins.neogit",
   "plugins.hydra",
   "plugins.numb",
 

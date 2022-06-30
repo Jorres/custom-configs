@@ -57,9 +57,11 @@ true_zen.setup {
 }
 
 true_zen.before_mode_ataraxis_on = function ()
-  pcall(require"nvim-tree".toggle, false, true)
+  pcall(require("nvim-tree.view").close)
+  vim.cmd [[ echo ]]
 end
 
 true_zen.after_mode_ataraxis_off = function ()
   pcall(require"nvim-tree".toggle, false, true)
+  vim.cmd [[ echo ]]
 end

@@ -85,7 +85,7 @@ set({ "n" }, "<leader>ge", ":Gedit<CR>", default_opt)
 set({ "n" }, "<leader>n", ":NvimTreeFindFileToggle<CR>", default_opt)
 
 -- ZenMode
-set({ "n" }, "<leader>zm", ":TZAtaraxis<CR>", default_opt)
+set({ "n" }, "<leader>a", ":TZAtaraxis<CR>", default_opt)
 
 -- Integrating with tmux
 -- vim.opt["tmux_navigator_no_mappings"] = 1
