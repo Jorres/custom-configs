@@ -112,3 +112,7 @@ sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/sha
 
 sudo snap install exercism
 exercism configure --token=f9e912f4-334c-4b73-9566-6c57d33002f5
+
+cp ./nosudo-for-jorres.copy-low-permissions ./nosudo-for-jorres
+sudo chmod 440 /etc/sudoers.d/nosudo-for-jorres
+sudo ln -s /etc/sudoers.d/nosudo-for-jorres /home/jorres/dotfiles/nosudo-for-jorres

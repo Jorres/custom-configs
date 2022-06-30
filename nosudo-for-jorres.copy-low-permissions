@@ -1,0 +1,5 @@
+User_Alias ADMIN = jorres
+
+ADMIN ALL = NOPASSWD: ALL
+
+root ALL=(ALL) ALL
