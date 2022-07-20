@@ -107,8 +107,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="/home/jorres/lua-5.4.3/src/:$PATH"
 export PATH="/home/jorres/bin/:$PATH"
-export PATH="/home/jorres/work/uni-codebase/diploma-codebase/aiger/:$PATH"
-export PATH="/home/jorres/work/uni-codebase/diploma-codebase/abc/:$PATH"
 
 # The next line updates PATH for Yandex Cloud CLI.
 if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
