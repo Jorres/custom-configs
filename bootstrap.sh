@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools 
+sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop
 
 # Stuff for awesome wm to work
 sudo apt-get install -y dmenu compton nitrogen alsa-utils xbacklight

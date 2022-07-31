@@ -108,6 +108,13 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="/home/jorres/lua-5.4.3/src/:$PATH"
 export PATH="/home/jorres/bin/:$PATH"
 
+
+export JAVA_HOME="/home/jorres/bin/jdk-17.0.2"
+export GO_PATH="/usr/local/go"
+export PATH="$PATH:$GO_PATH/bin"
+export PATH="$PATH:$JAVA_HOME/bin"
+export PATH="$PATH:$DOTFILES_PATH/utilities"
+
 # The next line updates PATH for Yandex Cloud CLI.
 if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
 # The next line enables shell command completion for yc.
@@ -128,7 +135,9 @@ alias tma="tmuxinator start allrounder"
 alias tmas="tmuxinator stop allrounder"
 alias tmm="tmuxinator start md"
 alias tmms="tmuxinator stop md"
+
 alias pysource="source ./env/bin/activate"
+
 alias k9s="k9s --logoless"
 alias n="nvim"
 
@@ -136,11 +145,6 @@ alias rgc="rg --files   | rg"
 alias rgh="rg --files ~ | rg"
 alias rgr="sudo rg --files / | rg"
 
-export JAVA_HOME="/home/jorres/bin/jdk-17.0.2"
-export GO_PATH="/usr/local/go"
-export PATH="$PATH:$GO_PATH/bin"
-export PATH="$PATH:$JAVA_HOME/bin"
-export PATH="$PATH:$DOTFILES_PATH/utilities"
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
@@ -150,13 +154,6 @@ eval "$(atuin init zsh)"
 bindkey '^ ' _atuin_search_widget
 
 eval "$(navi widget zsh)"
-
-if test -n "$KITTY_INSTALLATION_DIR"; then
-    export KITTY_SHELL_INTEGRATION="enabled"
-    autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
-    kitty-integration
-    unfunction kitty-integration
-fi
 
 # # Generated for envman. Do not edit.
 # [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
