@@ -1,4 +1,5 @@
 # /home/jorres/.config/tmuxinator/allrounder.yml
+#
 
 name: allrounder
 root: ~/
@@ -18,54 +19,7 @@ windows:
         root: "~/hobbies/lifelog"
         panes:
             - nvim: 
-                - nvim personal/lifelog.md
-                - Enter
-    # - assisted:
-    #     root: "~/hobbies/hal-9000"
-    #     layout: even-horizontal
-    #     panes:
-    #         - nvim: 
-    #             - ./launch-with-dir.sh
-    #             - ":OpenSession! assisted"
-    #             - Enter
-    #         - shell:
-    #             - clear
-    # - ppo-tracker:
-    #     root: "~/work/uni-codebase/software-design/task-tracker"
-    #     layout: even-horizontal
-    #     panes:
-    #         - nvim: 
-    #             - ":OpenSession! ppo-tracker"
-    #             - Enter
-    #         - shell:
-    #             - clear
-    # - minigrep:
-    #     root: "~/hobbies/learning-rust/minigrep"
-    #     layout: even-horizontal
-    #     panes:
-    #         - nvim: 
-    #             - ":OpenSession! minigrep"
-    #             - Enter
-    #         - shell:
-    #             - clear
-    # - "diploma ":
-    #     root: "~/work/uni-codebase/diploma-codebase/"
-    #     layout: even-horizontal
-    #     panes:
-    #         - nvim: 
-    #             - nvim .
-    #             - Enter
-    # - "diploma todo":
-    #     root: "~/work/uni-codebase/diploma-codebase/"
-    #     panes:
-    #         - nvim: 
-    #             - nvim todo.md
-    #             - Enter
-    - "viFm":
-        root: "~/"
-        panes:
-            - vifm: 
-                - vifm .
+                - nvim personal/lifelogs/II.md
                 - Enter
     - "academy":
         root: "/home/jorres/hobbies/plugins/academy.nvim"
@@ -73,11 +27,6 @@ windows:
             - nvim: 
                 - nvim .
                 - Enter
-    - "free":
-        root: "~/"
-        panes:
-            - shell: 
-                - clear
     # - "go-learning":
     #     root: "~/hobbies/studies/go"
     #     layout: even-horizontal
@@ -96,3 +45,10 @@ windows:
     #             - Enter
     #         - shell:
     #             - clear
+    - "pos tracker":
+        layout: even-horizontal
+        root: "~/hobbies/lifelog"
+        panes:
+            - nvim: 
+                - nvim personal/positions-tracker.md
+                - Enter

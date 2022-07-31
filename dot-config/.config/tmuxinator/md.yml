@@ -13,20 +13,6 @@ windows:
             - nvim:
                 - nvim .
                 - Enter
-    - r2d2:
-        layout: even-horizontal
-        root: "~/work/mdinc/r2d2"
-        panes:
-            - nvim:
-                - nvim .
-                - Enter
-    - boba:
-        layout: even-horizontal
-        root: "~/work/mdinc/boba"
-        panes:
-            - nvim:
-                - nvim .
-                - Enter
     - sshes:
         layout: even-horizontal
         root: "~/work/mdinc/alderaan"
@@ -34,4 +20,4 @@ windows:
             - certauth:
                 - sudo openvpn --config ./modules/vpn_gateway/vpn-gateway-data/client1.ovpn 
             - openvpn:
-                - ssh -o IdentitiesOnly=yes -i ./modules/vpn_gateway/vpn-gateway-data/vpn-gateway mdinc-dev@178.154.202.6
+                - ssh mdinc-vpn
