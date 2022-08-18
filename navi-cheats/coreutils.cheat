@@ -1,9 +1,9 @@
 % coreutils
 
-# Get processes
+# Get list of processes
 ps aux
 
-# Get processes, wide, more info
+# Get list of processes, wide, more info
 ps auxw
 
 # Pause the process

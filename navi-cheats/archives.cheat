@@ -1,5 +1,9 @@
 % archives
 
+# Zip a folder/directory
+zip -r <what>.zip <what>
+$ what: ls -lah | grep "^d" | awk '{print $9}' 
+
 # Untar a .tar.gz archive
 tar xvf <archive>
 $ archive: ls -lah | grep ".tar.gz" | awk '{print $9}' 
