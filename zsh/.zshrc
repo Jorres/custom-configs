@@ -135,6 +135,8 @@ alias tma="tmuxinator start allrounder"
 alias tmas="tmuxinator stop allrounder"
 alias tmm="tmuxinator start md"
 alias tmms="tmuxinator stop md"
+alias tmy="tmuxinator start yandex"
+alias tmys="tmuxinator stop yandex"
 
 alias pysource="source ./env/bin/activate"
 

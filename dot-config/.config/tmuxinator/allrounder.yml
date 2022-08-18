@@ -21,12 +21,12 @@ windows:
             - nvim: 
                 - nvim personal/lifelogs/II.md
                 - Enter
-    - "academy":
-        root: "/home/jorres/hobbies/plugins/academy.nvim"
-        panes:
-            - nvim: 
-                - nvim .
-                - Enter
+    # - "academy":
+    #     root: "/home/jorres/hobbies/plugins/academy.nvim"
+    #     panes:
+    #         - nvim: 
+    #             - nvim .
+    #             - Enter
     # - "go-learning":
     #     root: "~/hobbies/studies/go"
     #     layout: even-horizontal
@@ -45,10 +45,10 @@ windows:
     #             - Enter
     #         - shell:
     #             - clear
-    - "pos tracker":
+    - "anki":
         layout: even-horizontal
-        root: "~/hobbies/lifelog"
+        root: "~/hobbies/lifelog/anki"
         panes:
             - nvim: 
-                - nvim personal/positions-tracker.md
+                - nvim deck.md
                 - Enter
