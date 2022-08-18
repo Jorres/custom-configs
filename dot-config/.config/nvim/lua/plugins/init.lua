@@ -17,6 +17,7 @@ load_list_safely({
   "plugins.treesitter",
   "plugins.snippets",
   "plugins.comment",
+  "plugins.notify",
 
   -- UI
   "plugins.telescope",

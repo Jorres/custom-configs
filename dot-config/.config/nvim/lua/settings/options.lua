@@ -25,7 +25,6 @@ local options = {
   backupdir = "/home/jorres/.local/share/nvim/backup",
   backup = true,
   swapfile = false,
-  termguicolors = true,
   fileencoding = "utf-8",
   foldmethod = "expr",
   foldexpr = "nvim_treesitter#foldexpr()",
