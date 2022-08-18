@@ -32,3 +32,5 @@ Group.new("tkBrackets", colors.gray, nil, nil)
 Color.new("teletag", "#d3869B")
 Group.new("tkTagSep", colors.gray, nil, nil)
 Group.new("tkTag", colors.teletag, nil)
+
+vim.cmd[[ highlight EndOfBuffer guifg=bg ]]
