@@ -36,6 +36,7 @@ load_list_safely({
   "plugins.guess-indent",
   "plugins.hydra",
   "plugins.numb",
+  "plugins.diffview",
 
   -- PDE
   "plugins.telekasten",

@@ -61,6 +61,7 @@ return require('packer').startup(function(use, use_rocks)
       'nvim-lua/plenary.nvim'
     },
   }
+  use { 'sindrets/diffview.nvim' }
 
   -- === UI === --
   use { 'hoob3rt/lualine.nvim' }
