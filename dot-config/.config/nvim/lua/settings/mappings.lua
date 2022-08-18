@@ -86,6 +86,7 @@ set({ "n" }, "<leader>n", ":NvimTreeFindFileToggle<CR>", default_opt)
 
 -- ZenMode
 set({ "n" }, "<leader>a", ":TZAtaraxis<CR>", default_opt)
+set({ "v" }, "<leader>a", ":'<,'>TZNarrow<CR>", default_opt)
 
 -- Integrating with tmux
 -- vim.opt["tmux_navigator_no_mappings"] = 1
@@ -181,6 +182,8 @@ setter({
 
 -- ShowMeThat
 local showmethat = require("showmethat")
-
 set("n", leader .. "sh", showmethat.show)
 set("n", leader .. "sk", showmethat.kill_all)
+
+-- Try to make link opening work
+set("n", 'gx', [[:execute '!xdg-open ' . shellescape(expand('<cfile>'), 1)<CR>]])
