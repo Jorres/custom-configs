@@ -67,3 +67,22 @@ cmp.setup {
     ghost_text = false,
   },
 }
+
+cmp.setup.filetype({ 'markdown', 'telekasten' }, {
+  enabled = false,
+  mapping = {
+    ["<c-y>"] = cmp.mapping.confirm {
+      select = true,
+    },
+    ["<Up>"] = cmp.mapping.select_prev_item(),
+    ["<Down>"] = cmp.mapping.select_next_item(),
+  },
+  sources = {
+    { name = "path", max_item_count = 3 },
+    { name = "buffer", max_item_count = 2, keyword_length = 4 },
+  },
+  experimental = {
+    native_menu = false,
+    ghost_text = false,
+  },
+})
