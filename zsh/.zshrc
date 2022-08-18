@@ -141,9 +141,9 @@ alias pysource="source ./env/bin/activate"
 alias k9s="k9s --logoless"
 alias n="nvim"
 
-alias rgc="rg --files   | rg"
-alias rgh="rg --files ~ | rg"
-alias rgr="sudo rg --files / | rg"
+alias rgc="rg --hidden --files   | rg"
+alias rgh="rg --hidden --files ~ | rg"
+alias rgr="sudo rg --hidden --files / | rg"
 
 
 eval "$(zoxide init zsh)"
