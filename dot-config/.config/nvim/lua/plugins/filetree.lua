@@ -76,7 +76,7 @@ require 'nvim-tree'.setup {
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file  = {
     -- enables the feature
-    enable      = true,
+    enable      = false,
     -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
     -- only relevant when `update_focused_file.enable` is true
     update_cwd  = false,
@@ -93,10 +93,9 @@ require 'nvim-tree'.setup {
   },
 
   view = {
-    adaptive_size = true,
-    -- width of the window, can be either a number (columns) or a string in `%`, for left or right side placement
+    adaptive_size = false,
+    centralize_selection = true,
     width = 30,
-    -- height of the window, can be either a number (columns) or a string in `%`, for top or bottom side placement
     height = 30,
     -- Hide the root path of the current folder on top of the tree
     hide_root_folder = true,
@@ -127,7 +126,7 @@ require 'nvim-tree'.setup {
 
   actions = {
     open_file = {
-      resize_window = false
+      resize_window = true
     }
   },
   hijack_directories = {
