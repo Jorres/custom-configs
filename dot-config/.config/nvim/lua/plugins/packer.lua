@@ -146,4 +146,12 @@ return require('packer').startup(function(use, use_rocks)
   use { 'nvim-lua/plenary.nvim' }
   use { 'onsails/lspkind-nvim' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
+
+  -- === airport ===
+  -- use {'beauwilliams/focus.nvim'}
+  -- use {'sindrets/winshift.nvim'}
+  -- use {'linty-org/key-menu.nvim'}
+  -- use {'VonHeikemen/searchbox.nvim'}
+  -- use {'mizlan/iswap.nvim'}
+
 end)
