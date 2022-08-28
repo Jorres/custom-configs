@@ -1,1 +1,4 @@
 % docker
+
+# Start docker container with bash attached
+docker run -it --entrypoint /bin/bash <container_name>

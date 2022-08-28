@@ -1,0 +1,9 @@
+% kubernetes
+
+# Attach to a pod with bash
+kubectl exec -it <pod_name> -- bash 
+$ pod_name: kubectl get pods -A | tail -n+2 | awk '{print $2}'
+
+# Port forward to pod
+kubectl port-forward <pod_name> <local>:<in_pod>
+$ pod_name: kubectl get pods -A | tail -n+2 | awk '{print $2}'
