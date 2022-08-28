@@ -105,6 +105,7 @@ setter({
   [leader .. "gs"] = function() require('telescope.builtin').live_grep({ hidden = true }) end,
   [leader .. "gc"] = require('telescope.builtin').git_commits,
   [leader .. "t"] = function() require('telescope.builtin').git_files({ hidden = true }) end,
+  [leader .. "f"] = function() require('telescope.builtin').find_files({ hidden = true }) end,
   [leader .. "j"] = function() require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") } end,
   [leader .. "vh"] = require('telescope.builtin').help_tags,
   [leader .. "br"] = require('plugins.telescope').git_branches,
