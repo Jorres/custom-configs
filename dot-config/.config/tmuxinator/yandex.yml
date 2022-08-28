@@ -54,3 +54,10 @@ windows:
             - nvim: 
                 - nvim .
                 - Enter
+    - todo:
+        layout: even-horizontal
+        root: "~/work/yandex"
+        panes: 
+          - nvim: 
+            - nvim todo.md
+            - Enter
