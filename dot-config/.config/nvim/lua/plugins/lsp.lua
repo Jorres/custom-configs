@@ -80,6 +80,17 @@ lspconfig.ccls.setup {
 
 lspconfig.gopls.setup {
   on_attach = on_attach,
+  cmd = {"gopls", "serve"},
+  filetypes = {"go", "gomod"},
+  root_dir = require"lspconfig/util".root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+    },
+  },
 }
 
 lspconfig.sumneko_lua.setup {
