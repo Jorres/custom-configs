@@ -3,7 +3,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/jorres/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -25,7 +25,7 @@ ZSH_THEME="af-magic"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
@@ -34,7 +34,7 @@ ZSH_THEME="af-magic"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_MAGIC_FUNCTIONS="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -48,7 +48,7 @@ ZSH_THEME="af-magic"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
 # See https://github.com/ohmyzsh/ohmyzsh/issues/5765
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -95,9 +95,6 @@ source $ZSH/oh-my-zsh.sh
 alias katas="python3 ~/hobbies/vim-katas/exercises/openvim.py"
 alias etern="python3 ~/hobbies/vim-katas/exercises/project_eternity.py"
 
-# this is fun!
-export PASSWORD=proX1ma_li
-
 export EDITOR='nvim'
 
 export NVM_DIR="$HOME/.nvm"
@@ -105,20 +102,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-export PATH="/home/jorres/lua-5.4.3/src/:$PATH"
-export PATH="/home/jorres/bin/:$PATH"
+export PATH="$HOME/lua-5.4.3/src/:$PATH"
+export PATH="$HOME/bin/:$PATH"
 
-
-export JAVA_HOME="/home/jorres/bin/jdk-17.0.2"
-export GO_PATH="/usr/local/go"
-export PATH="$PATH:$GO_PATH/bin"
+export JAVA_HOME="$HOME/bin/jdk-17.0.2"
+export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$JAVA_HOME/bin"
 export PATH="$PATH:$DOTFILES_PATH/utilities"
-
-# The next line updates PATH for Yandex Cloud CLI.
-if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
-# The next line enables shell command completion for yc.
-if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
 
 DOTFILES_PATH=/home/jorres/dotfiles
 
@@ -148,6 +138,9 @@ alias rgh="rg --hidden --files ~ | rg"
 alias rgr="sudo rg --hidden --files / | rg"
 
 
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
@@ -157,9 +150,17 @@ bindkey '^ ' _atuin_search_widget
 
 eval "$(navi widget zsh)"
 
-# # Generated for envman. Do not edit.
-# [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '$HOME/yandex-cloud/path.bash.inc' ]; then source '$HOME/yandex-cloud/path.bash.inc'; fi
+# The next line enables shell command completion for yc.
+if [ -f '$HOME/yandex-cloud/completion.zsh.inc' ]; then source '$HOME/yandex-cloud/completion.zsh.inc'; fi
+# The next line updates PATH for Yandex Cloud Private CLI.
+if [ -f '$HOME/ycp/path.bash.inc' ]; then source '$HOME/ycp/path.bash.inc'; fi
+# The next line updates PATH for Yandex Cloud YDB CLI.
+if [ -f '$HOME/ydb/path.bash.inc' ]; then source '$HOME/ydb/path.bash.inc'; fi
+
+PATH="$HOME/arcadia:$PATH"
 
 # zprof
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
