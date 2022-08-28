@@ -1,8 +1,12 @@
-sudo apt-get update
-sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop
+sudo apt-get update 
+sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip
+
+# Special treatment for some rust tools, bug workaround:
+sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
 # Stuff for awesome wm to work
 sudo apt-get install -y dmenu compton nitrogen alsa-utils xbacklight
+
 # Clone widget repository
 git clone https://github.com/streetturtle/awesome-wm-widgets.git ~/.config/awesome/awesome-wm-widgets
 
@@ -24,7 +28,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # this installs zsh vi mode plugin, it is already sourced in zshrc
 # git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
 
-
 sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 sudo gem install tmuxinator
 # install tmux plugin manager, download something
@@ -44,8 +47,8 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Install cool things from npm:
-sudo npm install -g typescript typescript-language-server prettier # typewritten
-
+sudo npm install -g typescript typescript-language-server prettier 
+# typewritten
 
 # Install docker, kubectl and helm
 # Docker is good via this link: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
@@ -56,9 +59,9 @@ sudo npm install -g typescript typescript-language-server prettier # typewritten
 # Install K9s and Popeye, however they are available as stow binaries
 # Install starship, zsh wrapper
 
-wget -qO- https://zotero.retorque.re/file/apt-package-archive/install.sh | sudo bash
-sudo apt update
-sudo apt install -y zotero
+# wget -qO- https://zotero.retorque.re/file/apt-package-archive/install.sh | sudo bash
+# sudo apt update
+# sudo apt install -y zotero
 
 # Install cpp language server
 # `snap install ccls --classic`
@@ -91,9 +94,8 @@ sudo add-apt-repository ppa:bashtop-monitor/bashtop
 sudo apt update
 sudo apt install bashtop
 
-
 # A more sleek email client than Thunderbird
-sudo snap install mailspring
+# sudo snap install mailspring
 
 # Install kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
