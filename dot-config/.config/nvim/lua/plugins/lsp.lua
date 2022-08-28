@@ -54,7 +54,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 }
 )
 
-local sumneko_root_path = "/home/jorres/bin/lua-language-server"
+local sumneko_root_path = vim.env.HOME .. "/bin/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 local runtime_path = vim.split(package.path, ';')
