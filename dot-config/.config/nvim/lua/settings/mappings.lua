@@ -180,10 +180,19 @@ setter({
 -- zC :CalendarT
 -- #  show_tags
 
--- ShowMeThat
-local showmethat = require("showmethat")
-set("n", leader .. "sh", showmethat.show)
-set("n", leader .. "sk", showmethat.kill_all)
+-- Custom plugins
+
+local ok_showmethat, msg = pcall(require, "showmethat")
+if not ok_showmethat then
+  -- It would be perfect to log this without explicitly print()'ing 
+  -- this to interrupt user flow
+else
+  local showmethat = require("showmethat")
+  set("n", leader .. "sh", showmethat.show)
+  set("n", leader .. "sk", showmethat.kill_all)
+end
+
 
 -- Try to make link opening work
+-- TODO for some mysterious reason, works on Matebook but not on Thinkpad
 set("n", 'gx', [[:execute '!xdg-open ' . shellescape(expand('<cfile>'), 1)<CR>]])
