@@ -120,3 +120,8 @@ sudo chmod 440 /etc/sudoers.d/nosudo-for-jorres
 sudo ln -s /etc/sudoers.d/nosudo-for-jorres /home/jorres/dotfiles/nosudo-for-jorres
 
 # install `dust` utility, du alternative, as binary from github
+
+
+# Install golang (binary from site, or some outdated version in apt)
+# Install gopls:
+go install golang.org/x/tools/gopls@latest 
