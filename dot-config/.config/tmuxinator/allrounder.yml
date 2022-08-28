@@ -9,7 +9,7 @@ windows:
         - clear
     - configs:
         layout: main-vertical
-        root: "~/dotfiles"
+        root: "~/custom-configs"
         panes:
             - nvim: 
                 - nvim .

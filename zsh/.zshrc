@@ -108,11 +108,11 @@ export PATH="$HOME/bin/:$PATH"
 export JAVA_HOME="$HOME/bin/jdk-17.0.2"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$JAVA_HOME/bin"
+
+DOTFILES_PATH=$HOME/custom-configs
 export PATH="$PATH:$DOTFILES_PATH/utilities"
 
-DOTFILES_PATH=/home/jorres/dotfiles
-
-alias luamake=/home/jorres/hobbies/lua-language-server/3rd/luamake/luamake
+alias luamake=$HOME/hobbies/lua-language-server/3rd/luamake/luamake
 
 alias sourcerc="source ~/.zshrc"
 

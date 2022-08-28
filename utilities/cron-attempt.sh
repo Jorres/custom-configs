@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-cd /home/jorres/custom-configs
+cd $HOME/custom-configs
 
 # This has to be done with root privileges:
 ./update-configs.sh

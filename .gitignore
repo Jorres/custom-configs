@@ -7,3 +7,8 @@ vifminfo.json
 awesome-wm-widgets
 
 nosudo-for-jorres
+
+# Some bins
+yc-yubikey-cli
+helm
+kubectl 

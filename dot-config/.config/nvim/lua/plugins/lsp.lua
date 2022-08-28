@@ -54,9 +54,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 }
 )
 
-local sumneko_root_path = vim.env.HOME .. "/bin/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
-
 local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
@@ -92,6 +89,9 @@ lspconfig.gopls.setup {
     },
   },
 }
+
+local sumneko_root_path = vim.env.HOME .. "/bin/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin/lua-language-server"
 
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
@@ -130,7 +130,7 @@ lspconfig.rust_analyzer.setup { on_attach = on_attach }
 lspconfig.kotlin_language_server.setup {
   on_attach = on_attach,
   cmd = {
-    "/home/jorres/bin/kotlin-language-server/server/build/install/server/bin/kotlin-language-server"
+    vim.env.HOME .. "/bin/kotlin-language-server/server/build/install/server/bin/kotlin-language-server"
   },
   filetypes = { "kotlin" },
   root_dir = lspconfig.util.root_pattern("settings.gradle.kts")

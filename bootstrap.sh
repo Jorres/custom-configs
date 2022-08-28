@@ -22,7 +22,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # reboot machine for console change to apply
 
-# clone dotfiles repo, call `./install.sh`
+# clone custom-configs repo, call `./install.sh`
 
 # OPTIONALLY, if you like:
 # this installs zsh vi mode plugin, it is already sourced in zshrc
@@ -117,10 +117,9 @@ exercism configure --token=f9e912f4-334c-4b73-9566-6c57d33002f5
 
 cp ./nosudo-for-jorres.copy-low-permissions ./nosudo-for-jorres
 sudo chmod 440 /etc/sudoers.d/nosudo-for-jorres
-sudo ln -s /etc/sudoers.d/nosudo-for-jorres /home/jorres/dotfiles/nosudo-for-jorres
+sudo ln -s /etc/sudoers.d/nosudo-for-jorres $HOME/custom-configs/nosudo-for-jorres
 
 # install `dust` utility, du alternative, as binary from github
-
 
 # Install golang (binary from site, or some outdated version in apt)
 # Install gopls:
