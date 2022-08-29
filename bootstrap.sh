@@ -47,7 +47,7 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Install cool things from npm:
-sudo npm install -g typescript typescript-language-server prettier 
+sudo npm install -g typescript typescript-language-server prettier tldr
 # typewritten
 
 # Install docker, kubectl and helm
