@@ -46,7 +46,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
-
+  use { "gbprod/yanky.nvim" } -- yank ring-buffer
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' } -- reenter sudo editing with :Suda
@@ -78,8 +78,10 @@ return require('packer').startup(function(use, use_rocks)
   use { 'akinsho/toggleterm.nvim' } -- toggle terminal per session
   use { 'lewis6991/nvim-treesitter-context' } -- accumulates context at the 1-2 lines of the file
   use { 'lukas-reineke/indent-blankline.nvim' } -- draws small symbols for indentation
-  use { 'Pocco81/TrueZen.nvim' }
-  use { 'jbyuki/venn.nvim' }
+  use { 'Pocco81/TrueZen.nvim' } -- ZenMode, although very imperfect
+  use { 'jbyuki/venn.nvim' } -- draw some boxes with VBox
+  use { 'mvllow/modes.nvim' } -- highlight the current line with a mode color
+  use { 'stevearc/dressing.nvim' } -- improved vim.ui interfaces, like (select) and (input)
 
 
   -- === Colorschemes === --

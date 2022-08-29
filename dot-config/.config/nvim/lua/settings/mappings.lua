@@ -104,7 +104,6 @@ set({ "n" }, "<leader>Ps", ":PackerSync<CR>", default_opt)
 setter({
   [leader .. "gs"] = function() require('telescope.builtin').live_grep({ hidden = true }) end,
   [leader .. "gc"] = require('telescope.builtin').git_commits,
-  -- [leader .. "t"] = function() require('telescope.builtin').git_files({ hidden = true }) end,
   [leader .. "f"] = function() require('telescope.builtin').find_files({ hidden = true }) end,
   [leader .. "j"] = function() require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") } end,
   [leader .. "vh"] = require('telescope.builtin').help_tags,
@@ -180,6 +179,16 @@ setter({
 -- zm browse_media
 -- zC :CalendarT
 -- #  show_tags
+
+-- Yanky
+
+set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
+set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
+set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
+set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+
+set("n", "<c-n>", "<Plug>(YankyCycleForward)")
+set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 
 -- Custom plugins
 

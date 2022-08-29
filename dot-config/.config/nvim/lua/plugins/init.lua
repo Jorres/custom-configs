@@ -18,6 +18,7 @@ load_list_safely({
   "plugins.snippets",
   "plugins.comment",
   "plugins.notify",
+  "plugins.yank-ring",
 
   -- UI
   "plugins.telescope",
@@ -38,6 +39,8 @@ load_list_safely({
   "plugins.numb",
   "plugins.diffview",
   "plugins.imageview",
+  "plugins.mode-on-line",
+  "plugins.dressing",
 
   -- PDE
   "plugins.telekasten",
