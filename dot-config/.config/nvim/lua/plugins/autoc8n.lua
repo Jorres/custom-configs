@@ -14,10 +14,13 @@ cmp.setup {
     },
     -- I use moonlander keyboard, okay? I have my arrow keys where I want them
     -- and they are super easy to reach. Regular keyboards users will
-    -- suffer. But by default <C-n> and <C-p> are already defined
+    -- suffer. But <C-n> and <C-p> are also defined
     -- for selecting options of the completion menu. Use them as well!
     ["<Up>"] = cmp.mapping.select_prev_item(),
     ["<Down>"] = cmp.mapping.select_next_item(),
+
+    ["<C-p>"] = cmp.mapping.select_prev_item(),
+    ["<C-n>"] = cmp.mapping.select_next_item(),
   },
 
   sources = {
