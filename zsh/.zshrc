@@ -137,6 +137,8 @@ alias rgc="rg --hidden --files   | rg"
 alias rgh="rg --hidden --files ~ | rg"
 alias rgr="sudo rg --hidden --files / | rg"
 
+alias ls="exa -la --icons"
+alias lst="exa --tree --level=2 --long --icons"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
