@@ -135,6 +135,7 @@ return require('packer').startup(function(use, use_rocks)
   -- === neovim as PDE ===
   -- use { 'renerocksai/calendar-vim' }
   use { 'renerocksai/telekasten.nvim' }
+  use { 'samodostal/image.nvim' }
 
   -- === Misc ===
   use { 'fladson/vim-kitty' } -- keyword highlighting of kitty.conf

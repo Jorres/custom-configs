@@ -37,6 +37,7 @@ load_list_safely({
   "plugins.hydra",
   "plugins.numb",
   "plugins.diffview",
+  "plugins.imageview",
 
   -- PDE
   "plugins.telekasten",

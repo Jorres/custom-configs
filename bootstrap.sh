@@ -10,6 +10,12 @@ sudo apt-get install -y dmenu compton nitrogen alsa-utils xbacklight
 # Clone widget repository
 git clone https://github.com/streetturtle/awesome-wm-widgets.git ~/.config/awesome/awesome-wm-widgets
 
+# Install image-ascii-converter
+echo 'deb [trusted=yes] https://apt.fury.io/ascii-image-converter/ /' | sudo tee /etc/apt/sources.list.d/ascii-image-converter.list
+sudo apt update
+sudo apt install -y ascii-image-converter
+sudo rm -v /etc/apt/sources.list.d/ascii-image-converter.list
+
 # install brave
 
 # remap capslock to ctrl: 
