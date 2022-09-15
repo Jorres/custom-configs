@@ -1,0 +1,7 @@
+% kubernetes
+
+# kubectl get resources by labels
+kubectl get <resource> -l <label>=<value>
+
+# kubectl create default blueprint for resource
+kubectl create <resource> <name> --dry-run=client -o yaml > <name>.yaml
