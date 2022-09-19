@@ -17,7 +17,7 @@ load_list_safely({
   "plugins.treesitter",
   "plugins.snippets",
   "plugins.comment",
-  "plugins.notify",
+  -- "plugins.notify",
   "plugins.yank-ring",
 
   -- UI
@@ -41,6 +41,7 @@ load_list_safely({
   "plugins.imageview",
   "plugins.mode-on-line",
   "plugins.dressing",
+  -- "plugins.jumpable-across-line",
 
   -- PDE
   "plugins.telekasten",

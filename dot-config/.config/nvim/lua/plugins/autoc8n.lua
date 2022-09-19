@@ -27,7 +27,7 @@ cmp.setup {
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lua", max_item_count = 5, filetype = "lua" },
     { name = "luasnip", max_item_count = 2 },
-    { name = "nvim_lsp", max_item_count = 5 },
+    { name = "nvim_lsp" },
     {
       name = 'tmux',
       option = {

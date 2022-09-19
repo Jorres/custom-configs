@@ -633,4 +633,4 @@ awful.spawn.with_shell('compton')
 awful.spawn.with_shell('nitrogen --restore')
 
 -- Set keyboard key repeat delay (ms) and repeat rate
-os.execute("xset r rate 250 35")
+os.execute("xset r rate 150 30")

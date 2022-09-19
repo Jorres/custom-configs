@@ -47,6 +47,7 @@ return require('packer').startup(function(use, use_rocks)
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
   use { "gbprod/yanky.nvim" } -- yank ring-buffer
+  use { "jinh0/eyeliner.nvim" } -- highlight one-jumpable letters 
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' } -- reenter sudo editing with :Suda
@@ -70,7 +71,8 @@ return require('packer').startup(function(use, use_rocks)
   use { 'edluffy/specs.nvim' } -- cursor jump landing visualization 
   use { 'kyazdani42/nvim-tree.lua' } --File explorer
   use { 'dbeniamine/cheat.sh-vim' } -- Cheat sheet plugin
-  use { 'azabiong/vim-highlighter' } -- Highlight words on a whim
+  -- use { 'azabiong/vim-highlighter' } -- Highlight words on a whim
+  use { 'Pocco81/HighStr.nvim' }
   use { 'qxxxb/vim-searchhi' } -- Highlight current hlsearch pattern differently
   use { 'rcarriga/nvim-notify' } -- Cool notifications!
   use { 'goolord/alpha-nvim' } -- cool startup screen!

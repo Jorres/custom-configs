@@ -15,7 +15,7 @@ require("toggleterm").setup {
   -- on_stdout = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stdout
   -- on_stderr = fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stderr
   -- on_exit = fun(t: Terminal, job: number, exit_code: number, name: string) -- function to run when terminal process exits
-  -- hide_numbers = true, -- hide the number column in toggleterm buffers
+  hide_numbers = false, -- hide the number column in toggleterm buffers
   -- shade_filetypes = {},
   -- highlights = {
   --   -- highlights which map to a highlight group name and a table of it's values

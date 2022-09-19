@@ -130,6 +130,9 @@ for i = 1, 8, 1 do
   end, default_opt)
 end
 
+-- Toggleterm
+setter({[leader .. "ts"] = ":ToggleTermSendVisualSelection<CR>"}, { "v" })
+setter({[leader .. "ts"] = ":ToggleTermSendCurrentLine<CR>"}, { "n" })
 
 -- Gitsigns
 local gitsigns = require 'gitsigns'
