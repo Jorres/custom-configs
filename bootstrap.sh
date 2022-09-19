@@ -31,8 +31,9 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # clone custom-configs repo, call `./install.sh`
 
 # OPTIONALLY, if you like:
-# this installs zsh vi mode plugin, it is already sourced in zshrc
+# this installs zsh vi mode plugin. Don't forget to source zsh-vi-mode in zshrc
 # git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
+git clone git@github.com:brokendisk/dune-quotes.git $ZSH/custom/plugins/dune-quotes
 
 sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 sudo gem install tmuxinator
