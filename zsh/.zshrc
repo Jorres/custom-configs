@@ -162,4 +162,6 @@ eval "$(navi widget zsh)"
 
 # zprof
 
+echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)' >> ~/.zshrc
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
