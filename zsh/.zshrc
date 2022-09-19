@@ -147,8 +147,6 @@ bindkey '^ ' _atuin_search_widget
 
 eval "$(navi widget zsh)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # The next line updates PATH for Yandex Cloud CLI.
 if [ -f '$HOME/yandex-cloud/path.bash.inc' ]; then source '$HOME/yandex-cloud/path.bash.inc'; fi
 # The next line enables shell command completion for yc.
@@ -160,4 +158,7 @@ if [ -f '$HOME/ydb/path.bash.inc' ]; then source '$HOME/ydb/path.bash.inc'; fi
 
 PATH="$HOME/arcadia:$PATH"
 
-# zprof
+# Enable kubectl command completion
+echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)' >> ~/.zshrc
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
