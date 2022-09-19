@@ -1,4 +1,5 @@
 # zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -71,16 +72,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git dune-quotes)
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
@@ -88,9 +82,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 alias katas="python3 ~/hobbies/vim-katas/exercises/openvim.py"
 alias etern="python3 ~/hobbies/vim-katas/exercises/project_eternity.py"
@@ -107,7 +98,10 @@ export PATH="$HOME/bin/:$PATH"
 
 export JAVA_HOME="$HOME/bin/jdk-17.0.2"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$JAVA_HOME/bin"
+export PATH="$PATH:$HOME/yandex-cloud/bin"
+export PATH="$PATH:$HOME/ycp/bin"
 
 DOTFILES_PATH=$HOME/custom-configs
 export PATH="$PATH:$DOTFILES_PATH/utilities"
@@ -120,6 +114,7 @@ alias tfapp="terraform apply --auto-approve"
 alias tfa="terraform apply"
 alias kaf="kubectl apply -f "
 alias kdf="kubectl delete -f "
+export KUBECONFIG=$HOME/.kube/config
 
 alias tma="tmuxinator start allrounder"
 alias tmas="tmuxinator stop allrounder"
