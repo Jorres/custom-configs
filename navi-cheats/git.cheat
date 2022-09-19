@@ -3,3 +3,6 @@
 # View patches of file diff over history
 git log -p -- <filename>
 $ filename: rg --files 
+
+# Stash into patch
+git stash show "stash@{0}" -p > changes.patch

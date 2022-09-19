@@ -7,3 +7,7 @@ $ pod_name: kubectl get pods -A | tail -n+2 | awk '{print $2}'
 # Port forward to pod
 kubectl port-forward <pod_name> <local>:<in_pod>
 $ pod_name: kubectl get pods -A | tail -n+2 | awk '{print $2}'
+
+# Change kubectl context
+kubectl config use-context <context>
+$ context: kubectl config view --template='{{ range .contexts }}{{ printf "%s\n" .name }}{{ end }}'
