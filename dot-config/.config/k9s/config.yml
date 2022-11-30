@@ -1,0 +1,115 @@
+k9s:
+  refreshRate: 1
+  maxConnRetry: 3
+  enableMouse: false
+  headless: false
+  logoless: true
+  crumbsless: false
+  readOnly: false
+  noExitOnCtrlC: false
+  noIcons: false
+  logger:
+    tail: 500
+    buffer: 5000
+    sinceSeconds: -1
+    fullScreenLogs: true
+    textWrap: false
+    showTime: false
+  currentContext: yc-stroppy-ydb
+  currentCluster: yc-managed-k8s-cat9oii0g308vd192nn8
+  clusters:
+    default:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - kube-system
+        - lbkt-man
+        - ydb-operator
+        - all
+        - default
+      view:
+        active: nodes
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    yc-managed-k8s-cat9oii0g308vd192nn8:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - ydb-operator
+        - all
+        - default
+      view:
+        active: configmap
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    yc-managed-k8s-caths41l4rj4eu52jdem:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - all
+        - default
+      view:
+        active: pods
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    ydb-testing-sas:
+      namespace:
+        active: ydb
+        lockFavorites: false
+        favorites:
+        - ydb-kubernetes-operator
+        - local-provisioner
+        - ydb
+        - all
+        - default
+      view:
+        active: pods
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+  thresholds:
+    cpu:
+      critical: 90
+      warn: 70
+    memory:
+      critical: 90
+      warn: 70
+  screenDumpDir: /tmp/k9s-screens-tarasov-egor

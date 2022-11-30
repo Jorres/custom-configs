@@ -1,0 +1,9 @@
+hotKey:
+  ctrl-e:
+    shortCut:    Ctrl-e
+    description: One line up
+    command:     k
+  ctrl-y:
+    shortCut:    Ctrl-y
+    description: One line down
+    command:     j
