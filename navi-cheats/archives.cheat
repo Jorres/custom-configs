@@ -2,12 +2,12 @@
 
 # Zip a folder/directory
 zip -r <what>.zip <what>
-$ what: ls -lah | grep "^d" | awk '{print $9}' 
+$ what: ls -lah | grep "^d" | awk '{print $8}' 
 
 # Untar a .tar.gz archive
 tar xvf <archive>
-$ archive: ls -lah | grep ".tar.gz" | awk '{print $9}' 
+$ archive: ls -lah | grep ".tar.gz" | awk '{print $8}' 
 
 # Unzip a zip archive
 unzip <archive> -d <destination_name>
-$ archive: ls -lah | grep "zip" | awk '{print $9}' 
+$ archive: ls -lah | grep "zip" | awk '{print $8}' 

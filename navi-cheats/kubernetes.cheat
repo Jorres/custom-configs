@@ -1,12 +1,14 @@
 % kubernetes
 
 # Attach to a pod with bash
-kubectl exec -it <pod_name> -- bash 
-$ pod_name: kubectl get pods -A | tail -n+2 | awk '{print $2}'
+kubectl exec -it <pod_name> -n <namespace> -- bash 
+$ pod_name: kubectl get pods -A | tail -n+2 --- --column 1 --column 2 
+$ namespace: kubectl get pods -A | grep $pod_name | a)wk '{print $1}'
 
 # Port forward to pod
-kubectl port-forward <pod_name> <local>:<in_pod>
-$ pod_name: kubectl get pods -A | tail -n+2 | awk '{print $2}'
+kubectl port-forward <pod_name> -n <namespace>  <local>:<in_pod>
+$ pod_name: kubectl get pods -A | tail -n+2 --- --column 1 --column 2
+$ namespace: kubectl get pods -A | grep $pod_name | awk '{print $1}'
 
 # Change kubectl context
 kubectl config use-context <context>
@@ -17,3 +19,6 @@ kubectl get <resource> -l <label>=<value>
 
 # kubectl create default blueprint for resource
 kubectl create <resource> <name> --dry-run=client -o yaml > <name>.yaml
+
+# kubectl view current context and namespace
+kubectl config get-contexts | head -n 1 && kubectl config get-contexts | grep "*"

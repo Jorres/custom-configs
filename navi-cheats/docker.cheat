@@ -3,6 +3,5 @@
 # Start docker container with bash attached
 docker run -it --entrypoint /bin/bash <container_name>
 
-
 # Attach to an existing docker container with bash 
 docker exec -it <container_name> /bin/bash

@@ -9,3 +9,20 @@ git stash show "stash@{0}" -p > changes.patch
 
 # Change remote repository url
 git remote set-url origin <new_url>
+
+# Add remote
+git remote add <remote_name> <remote_url>
+
+# Write latest commit to patch
+git show HEAD > <new_patch_name>.patch
+
+# Apply patch from file
+git apply --check > <patch_name>
+$ patch_name: /usr/bin/ls -lah | awk '{ print $9 }' | grep "patch"
+
+# Arc checkout other branch
+arc checkout <branch>
+$ branch: arc branch | sed 's/^..//' 
+
+# Goto trunk 
+arc checkout trunk && arc pull
