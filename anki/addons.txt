@@ -1,4 +1,2 @@
- 1722241614 - heatmap, beta
- 1463041493 - syntax highlighting for code
- 2091361802 - progress bar
- 2494384865 - button colors
+2055492159 - AnkiConnect
+1771074083 - review heatmap

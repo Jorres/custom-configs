@@ -72,7 +72,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git dune-quotes)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -83,8 +83,12 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-alias katas="python3 ~/hobbies/vim-katas/exercises/openvim.py"
-alias etern="python3 ~/hobbies/vim-katas/exercises/project_eternity.py"
+function dark {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
+}
+function light {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
+}
 
 export EDITOR='nvim'
 
@@ -92,21 +96,16 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
 export PATH="$HOME/lua-5.4.3/src/:$PATH"
 export PATH="$HOME/bin/:$PATH"
-
-export JAVA_HOME="$HOME/bin/jdk-17.0.2"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:$JAVA_HOME/bin"
 export PATH="$PATH:$HOME/yandex-cloud/bin"
 export PATH="$PATH:$HOME/ycp/bin"
 
+
 DOTFILES_PATH=$HOME/custom-configs
 export PATH="$PATH:$DOTFILES_PATH/utilities"
-
-alias luamake=$HOME/hobbies/lua-language-server/3rd/luamake/luamake
 
 alias sourcerc="source ~/.zshrc"
 
@@ -123,10 +122,12 @@ alias tmms="tmuxinator stop md"
 alias tmy="tmuxinator start yandex"
 alias tmys="tmuxinator stop yandex"
 
-alias pysource="source ./env/bin/activate"
+alias ast="arc status"
+alias acmsg="arc commit -m"
 
-alias k9s="k9s --logoless"
-alias n="nvim"
+alias glow="glow -w 100"
+
+alias pysource="source ./env/bin/activate"
 
 alias rgc="rg --hidden --files   | rg"
 alias rgh="rg --hidden --files ~ | rg"
@@ -134,6 +135,7 @@ alias rgr="sudo rg --hidden --files / | rg"
 
 alias ls="exa -la --icons"
 alias lst="exa --tree --level=2 --long --icons"
+# alias screenkey="/home/tarasov-egor/screenkey/screenkey -s small --mods-mode emacs --ignore Ctrl -g '1000x1000+100+100'"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -158,7 +160,15 @@ if [ -f '$HOME/ydb/path.bash.inc' ]; then source '$HOME/ydb/path.bash.inc'; fi
 
 PATH="$HOME/arcadia:$PATH"
 
-# Enable kubectl command completion
-echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)' >> ~/.zshrc
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# The next line updates PATH for Yandex Cloud YDB CLI.
+if [ -f '/home/tarasov-egor/ydb/path.bash.inc' ]; then source '/home/tarasov-egor/ydb/path.bash.inc'; fi
+
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+xset r rate 150 30
+
+# Needed so I can call 'nvim' from INSIDE nvim and not open an nvim inside nvim, uses nvr
+alias nvim='if [[ -z "$NVIM" ]]; then XXX="nvim" && YYY="" else XXX="nvr" && YYY="-l" fi && $XXX $YYY'
+

@@ -29,7 +29,7 @@ k9s:
         - all
         - default
       view:
-        active: nodes
+        active: pod
       featureGates:
         nodeShell: false
       shellPod:
@@ -50,7 +50,7 @@ k9s:
         - all
         - default
       view:
-        active: configmap
+        active: pods
       featureGates:
         nodeShell: false
       shellPod:
@@ -84,11 +84,9 @@ k9s:
       portForwardAddress: localhost
     ydb-testing-sas:
       namespace:
-        active: ydb
+        active: all
         lockFavorites: false
         favorites:
-        - ydb-kubernetes-operator
-        - local-provisioner
         - ydb
         - all
         - default
