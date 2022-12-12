@@ -1,5 +1,3 @@
-vim.g.mapleader = ","
-
 local options = {
   splitbelow = true,
   splitright = true,
@@ -22,25 +20,32 @@ local options = {
   undofile = true,
   undolevels = 3000,
   undoreload = 10000,
-  backupdir = vim.env.HOME ..  "/.local/share/nvim/backup",
+  backupdir = vim.env.HOME .. "/.local/share/nvim/backup",
   backup = true,
   swapfile = false,
   fileencoding = "utf-8",
-  foldmethod = "expr",
-  foldexpr = "nvim_treesitter#foldexpr()",
-  foldlevelstart = 100,
   equalalways = false,
   lazyredraw = true,
-  mouse = "a"
+  mouse = "a",
+  ch = 0,
 }
-
 
 vim.cmd [[set fillchars+=vert:│]]
 vim.cmd [[let g:HowMuch_no_mappings = 1]]
 
 vim.opt.shortmess:append("c")
 
-vim.notify = require("notify")
+local notify = require("notify")
+
+notify.setup({
+  background_colour = "Normal",
+  fps = 120,
+  max_width = 70,
+  max_height = 10,
+  timeout = 2000
+})
+
+-- vim.notify = notify
 
 for key, value in pairs(options) do
   vim.opt[key] = value

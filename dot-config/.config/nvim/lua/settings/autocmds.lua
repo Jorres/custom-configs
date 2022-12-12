@@ -25,3 +25,12 @@ vim.api.nvim_create_autocmd({"BufWinEnter"}, {
   end,
   group = lifelog_group
 })
+
+-- local prettify_prettify = vim.api.nvim_create_augroup("auto Prettify md", {clear = true})
+-- vim.api.nvim_create_autocmd({"BufWritePost"}, {
+--   pattern = { "*.md" },
+--   callback = function ()
+--     vim.cmd [[ Prettier ]]
+--   end,
+--   group = prettify_group
+-- })

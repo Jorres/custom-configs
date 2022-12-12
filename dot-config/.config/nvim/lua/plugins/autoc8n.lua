@@ -5,13 +5,23 @@ local cmp = require "cmp"
 
 local luasnip = require("luasnip")
 
+local has_words_before = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
+
 cmp.setup {
   completion = { completeopt = 'menu,menuone,noinsert' },
 
   mapping = {
-    ["<c-y>"] = cmp.mapping.confirm {
-      select = true,
-    },
+    ["<c-y>"] = function(fallback)
+      if cmp.visible() then
+        cmp.confirm()
+      else
+        fallback()
+      end
+    end,
+
     -- I use moonlander keyboard, okay? I have my arrow keys where I want them
     -- and they are super easy to reach. Regular keyboards users will
     -- suffer. But <C-n> and <C-p> are also defined
@@ -24,10 +34,10 @@ cmp.setup {
   },
 
   sources = {
+    { name = "luasnip", max_item_count = 2 },
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lua", max_item_count = 5, filetype = "lua" },
-    { name = "luasnip", max_item_count = 2 },
-    { name = "nvim_lsp" },
+    { name = "nvim_lsp", keyword_length = 2, },
     {
       name = 'tmux',
       option = {

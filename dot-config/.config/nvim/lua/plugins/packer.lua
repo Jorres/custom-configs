@@ -21,8 +21,7 @@ return require('packer').startup(function(use, use_rocks)
 
   use 'wbthomason/packer.nvim'
   -- === Language agnostic editing plugins ===
-  use { 'jiangmiao/auto-pairs' } -- auto-close brackets plugin
-  use { 'alvan/vim-closetag' } -- auto close html tags
+  use { 'windwp/nvim-autopairs' } -- auto-close brackets plugin
   use { 'tpope/vim-surround' } -- cs<surrounding1><surrounding2> ds<surrounding1>
   use { 'b3nj5m1n/kommentary' } -- visual select + gc
   use { 'wellle/targets.vim' } -- Additional text objects: e.g. inside *, inside comma-separated list etc.
@@ -31,8 +30,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'MunifTanjim/prettier.nvim' } -- :Prettier
   use { 'ggandor/lightspeed.nvim' } -- Ultimate screen-jumping plugin
   use { 'tpope/vim-repeat' } -- zero-config, allows to repeat complex commands
-  use { 'AndrewRadev/splitjoin.vim' } -- gJ and gS to split\join statements in multiple languages 
-  use { 'AndrewRadev/sideways.vim' } -- :SidewaysLeft and :SidewaysRight to swap list items 
+  use { 'AndrewRadev/splitjoin.vim' } -- gJ and gS to split\join statements in multiple languages
   use { 'matze/vim-move' } -- Allows to move lines up and down with Alt
   use { 'sk1418/HowMuch' } -- https://github.com/sk1418/HowMuch
   use { 'ThePrimeagen/harpoon' } -- Keep track of latest files you work with
@@ -47,43 +45,46 @@ return require('packer').startup(function(use, use_rocks)
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
   use { "gbprod/yanky.nvim" } -- yank ring-buffer
-  use { "jinh0/eyeliner.nvim" } -- highlight one-jumpable letters 
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' } -- reenter sudo editing with :Suda
   use { 'nanotee/luv-vimdocs' } -- docs for libuv
   use { 'milisims/nvim-luaref' } -- docs for lua
+  use { "williamboman/mason.nvim" } -- manager for LSP and such
+  use { "williamboman/mason-lspconfig.nvim" } -- manager for LSP and such
 
   -- === Git ===
   use { 'tpope/vim-fugitive' } -- :G
   use { -- Enable git changes to be shown in sign column
     'lewis6991/gitsigns.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim'
-    },
   }
   use { 'sindrets/diffview.nvim' }
+  use { 'ruifm/gitlinker.nvim' }
 
   -- === UI === --
   use { 'hoob3rt/lualine.nvim' }
-  -- use { 'glepnir/galaxyline.nvim' } -- someday.. you will write your own
   use { 'karb94/neoscroll.nvim' } -- smooth scroll
-  use { 'edluffy/specs.nvim' } -- cursor jump landing visualization 
+  use { 'edluffy/specs.nvim' } -- cursor jump landing visualization
   use { 'kyazdani42/nvim-tree.lua' } --File explorer
-  use { 'dbeniamine/cheat.sh-vim' } -- Cheat sheet plugin
   -- use { 'azabiong/vim-highlighter' } -- Highlight words on a whim
   use { 'Pocco81/HighStr.nvim' }
-  use { 'qxxxb/vim-searchhi' } -- Highlight current hlsearch pattern differently
-  use { 'rcarriga/nvim-notify' } -- Cool notifications!
+  use { 'PeterRincker/vim-searchlight' } -- Highlight current hlsearch pattern differently
+
   use { 'goolord/alpha-nvim' } -- cool startup screen!
-  use { 'ellisonleao/carbon-now.nvim' } -- take code screenshots!
   use { 'akinsho/toggleterm.nvim' } -- toggle terminal per session
   use { 'lewis6991/nvim-treesitter-context' } -- accumulates context at the 1-2 lines of the file
   use { 'lukas-reineke/indent-blankline.nvim' } -- draws small symbols for indentation
-  use { 'Pocco81/TrueZen.nvim' } -- ZenMode, although very imperfect
   use { 'jbyuki/venn.nvim' } -- draw some boxes with VBox
   use { 'mvllow/modes.nvim' } -- highlight the current line with a mode color
   use { 'stevearc/dressing.nvim' } -- improved vim.ui interfaces, like (select) and (input)
+  use { "beauwilliams/focus.nvim" }
+  use { "folke/noice.nvim", requires = {
+    "MunifTanjim/nui.nvim",
+    "rcarriga/nvim-notify",
+  } }
+  use { 'mrjones2014/legendary.nvim' }
+  use { 'Eandrju/cellular-automaton.nvim' }
 
 
   -- === Colorschemes === --
@@ -107,9 +108,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'andersevenrud/cmp-tmux' }
   use { 'saadparwaiz1/cmp_luasnip' }
-  use { 'j-hui/fidget.nvim' }
   use { 'nacro90/numb.nvim' }
-
 
   -- === Treesitter ===
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -121,23 +120,18 @@ return require('packer').startup(function(use, use_rocks)
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use { 'nvim-telescope/telescope-media-files.nvim' }
 
-  -- === Language specific ===
-  use { 'hashivim/vim-terraform' }
-  use { 'psf/black' } -- Black
-
-  -- === DevOps specific ===
-  -- use {'chipsenkbeil/distant.nvim'} -- TODO try again, some major update happened, maybe itll work now
+  -- === Language specific
+  use {'hashivim/vim-terraform'}
 
   -- === Plugin \ Lua development ===
   use { 'tjdevries/colorbuddy.nvim' }
-  use { '/home/jorres/hobbies/plugins/showmethat' }
-  use { '/home/jorres/hobbies/plugins/academy.nvim' }
+  -- use { '/home/jorres/hobbies/plugins/showmethat' }
+  -- use { '/home/jorres/hobbies/plugins/academy.nvim' }
 
   -- === Actual programming ===
   use { 'vim-test/vim-test' }
 
   -- === neovim as PDE ===
-  -- use { 'renerocksai/calendar-vim' }
   use { 'renerocksai/telekasten.nvim' }
   use { 'samodostal/image.nvim' }
 
@@ -151,12 +145,4 @@ return require('packer').startup(function(use, use_rocks)
   use { 'nvim-lua/plenary.nvim' }
   use { 'onsails/lspkind-nvim' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
-
-  -- === airport ===
-  -- use {'beauwilliams/focus.nvim'}
-  -- use {'sindrets/winshift.nvim'}
-  -- use {'linty-org/key-menu.nvim'}
-  -- use {'VonHeikemen/searchbox.nvim'}
-  -- use {'mizlan/iswap.nvim'}
-
 end)

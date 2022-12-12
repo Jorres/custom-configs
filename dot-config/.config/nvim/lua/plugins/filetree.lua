@@ -2,13 +2,14 @@
 
 local mappings = {
   { key = { "<CR>" }, action = "edit" },
+  { key = { "<C-d>" }, action = "cd" },
+  { key = { "<C-u>" }, action = "dir_up" },
   { key = { "O" }, action = "edit_no_picker" },
-  { key = { "<C-c>" }, action = "cd" },
   { key = "<C-v>", action = "vsplit" },
   { key = "<C-x>", action = "split" },
   -- { key = "<", action = "prev_sibling" },
   -- { key = ">", action = "next_sibling" },
-  { key = "P", action = "parent_node" },
+  { key = "U", action = "parent_node" },
   { key = "<BS>", action = "close_node" },
   { key = "K", action = "first_sibling" },
   { key = "J", action = "last_sibling" },
@@ -28,7 +29,6 @@ local mappings = {
   { key = "gy", action = "copy_absolute_path" },
   -- { key = "[c", action = "prev_git_item" },
   -- { key = "]c", action = "next_git_item" },
-  { key = "-", action = "dir_up" },
   { key = "s", action = "system_open" },
   { key = "q", action = "close" },
   { key = "g?", action = "toggle_help" },
@@ -66,17 +66,11 @@ require 'nvim-tree'.setup {
   -- show lsp diagnostics in the signcolumn
   diagnostics          = {
     enable = false,
-    icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
-    }
   },
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file  = {
     -- enables the feature
-    enable      = false,
+    enable      = true,
     -- update the root directory of the tree to the one of the folder containing the file if the file is not under the current root directory
     -- only relevant when `update_focused_file.enable` is true
     update_cwd  = false,
@@ -94,9 +88,8 @@ require 'nvim-tree'.setup {
 
   view = {
     adaptive_size = false,
-    centralize_selection = true,
+    centralize_selection = false,
     width = 30,
-    height = 30,
     -- Hide the root path of the current folder on top of the tree
     hide_root_folder = true,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'

@@ -18,8 +18,8 @@ require("yanky").setup({
   },
   highlight = {
     on_put = true,
-    on_yank = true,
-    timer = 500,
+    on_yank = false,
+    timer = 300,
   },
   preserve_cursor_position = {
     enabled = true,

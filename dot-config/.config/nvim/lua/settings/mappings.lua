@@ -13,22 +13,6 @@ local setter = function(mappings, modes)
   end
 end
 
-
-setter({
-  -- Execute tests agnostic from language
-  ["<leader><leader>t"] = ":TestFile<CR>",
-  -- Execute lua test
-  ["<leader><leader>lt"] = function()
-    require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))
-  end,
-}, { "n" })
-
--- Exit from terminal mode comfortably
-setter({
-  ["<c-[>"] = "<c-\\><c-n>",
-  ["<Esc>"] = "<c-\\><c-n>"
-}, { "t" })
-
 -- This allows to paste and delete without spoiling
 -- what is in my primary register.
 setter({ ["<leader>p"] = "\"_dP" }, { "x" })
@@ -55,8 +39,6 @@ setter({
   ["<leader>q"] = ":cclose<CR>",
   -- open quickfixlist with height 5
   ["<leader>o"] = ":copen 5<CR>",
-  -- Persistent highlight from hlsearch distracts.
-  ["<CR>"] = ":noh<CR><CR>",
   -- Comfortable switching between windows
   ["<C-h>"] = "<C-w>h",
   ["<C-j>"] = "<C-w>j",
@@ -76,29 +58,9 @@ setter({
 vim.cmd [[nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k']]
 vim.cmd [[nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j']]
 
-
 -- Fugitive
 set({ "n" }, "<leader>gfh", ":0Gclog<CR>", default_opt)
 set({ "n" }, "<leader>ge", ":Gedit<CR>", default_opt)
-
--- NvimTree
-set({ "n" }, "<leader>n", ":NvimTreeFindFileToggle<CR>", default_opt)
-
--- ZenMode
-set({ "n" }, "<leader>a", ":TZAtaraxis<CR>", default_opt)
-set({ "v" }, "<leader>a", ":'<,'>TZNarrow<CR>", default_opt)
-
--- Integrating with tmux
--- vim.opt["tmux_navigator_no_mappings"] = 1
-setter({
-  ["<C-h>"] = ":TmuxNavigateLeft<cr>",
-  ["<C-j>"] = ":TmuxNavigateDown<cr>",
-  ["<C-k>"] = ":TmuxNavigateUp<cr>",
-  ["<C-l>"] = ":TmuxNavigateRight<cr>",
-}, { "n", "i", "v" })
-
--- Packer
-set({ "n" }, "<leader>Ps", ":PackerSync<CR>", default_opt)
 
 -- Telescope
 setter({
@@ -110,11 +72,6 @@ setter({
   [leader .. "br"] = require('plugins.telescope').git_branches,
   [leader .. "vrc"] = require('plugins.telescope').search_dotfiles
 }, { "n" })
-
--- Carbon
-setter({
-  [leader .. "Pi"] = require("carbon-now").create_snippet
-}, { "v" })
 
 -- Harpoon
 local harpoon_pref = leader .. "h"
@@ -129,10 +86,6 @@ for i = 1, 8, 1 do
     require "harpoon.ui".nav_file(i)
   end, default_opt)
 end
-
--- Toggleterm
-setter({[leader .. "ts"] = ":ToggleTermSendVisualSelection<CR>"}, { "v" })
-setter({[leader .. "ts"] = ":ToggleTermSendCurrentLine<CR>"}, { "n" })
 
 -- Gitsigns
 local gitsigns = require 'gitsigns'
@@ -193,6 +146,8 @@ set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
 set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
 
+set("n", leader .. "y", ":Telescope yank_history<CR>")
+
 -- Custom plugins
 
 local ok_showmethat, msg = pcall(require, "showmethat")
@@ -205,6 +160,8 @@ else
   set("n", leader .. "sk", showmethat.kill_all)
 end
 
+-- set("n", "/", ":SearchBoxMatchAll title=Match clear_matches=false<CR>")
+vim.keymap.set({"n","x"}, "y", "<Plug>(YankyYank)")
 
 -- Try to make link opening work
 -- TODO for some mysterious reason, works on Matebook but not on Thinkpad

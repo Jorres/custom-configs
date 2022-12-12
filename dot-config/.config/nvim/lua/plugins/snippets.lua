@@ -26,6 +26,14 @@ ls.add_snippets(nil, {
 
   },
 
+  go = {
+    s({ trig = "fnc" }, {
+      t("func "), i(1, "name"), t("("), i(2), t(")"), t({ " {", "" }),
+      t("    "), i(3),
+      t({ "", "}" }), i(0)
+    })
+  },
+
   python = {
     s({ trig = "pmn" }, t({ "def main():", "    pass", "", "if __name__  == '__main__':", "    main()" })),
     s({ trig = "pf" }, fmt("def {}({}):\n    pass", { i(1, "fname"), i(0, "") }))
