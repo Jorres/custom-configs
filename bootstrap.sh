@@ -1,6 +1,5 @@
 sudo apt-get update 
 sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip
-
 # Special treatment for some rust tools, bug workaround:
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
@@ -34,11 +33,12 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # this installs zsh vi mode plugin. Don't forget to source zsh-vi-mode in zshrc
 # git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
 git clone git@github.com:brokendisk/dune-quotes.git $ZSH/custom/plugins/dune-quotes
-
 sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 sudo gem install tmuxinator
-# install tmux plugin manager, download something
+# Install Tmux plugin manager
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+mkdir ~/tmux-logs
+# Hit Prefix + I to install all the plugins
 
 # install telegram desktop from Ubuntu Software
 
@@ -63,24 +63,7 @@ sudo npm install -g typescript typescript-language-server prettier tldr
 
 # Install ansible
 # Install CopyQ
-# Install K9s and Popeye, however they are available as stow binaries
 # Install starship, zsh wrapper
-
-# wget -qO- https://zotero.retorque.re/file/apt-package-archive/install.sh | sudo bash
-# sudo apt update
-# sudo apt install -y zotero
-
-# Install cpp language server
-# `snap install ccls --classic`
-# place .ccls file into the project root as a marker
-
-
-# This installs cht.sh
-# https://github.com/chubin/cheat.sh#installation
-PATH_DIR="$HOME/bin"  # or another directory on your $PATH
-mkdir -p "$PATH_DIR"
-curl https://cht.sh/:cht.sh > "$PATH_DIR/cht.sh"
-chmod +x "$PATH_DIR/cht.sh"
 
 # For navi:
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -90,7 +73,13 @@ git config --global credential.helper "cache --timeout=3600"
 
 # Install https://github.com/grwlf/xkb-switch so that language in tmux status line works
 
+ 
 python3 -m pip install libtmux --user
+
+# Anki
+# Here's the manual no installing Anki
+# https://docs.ankiweb.net/platform/linux/installing.html
+python3 -m pip install markdown-anki-deck
 
 # This install atuin, do interactively  
 # bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
@@ -100,9 +89,6 @@ python3 -m pip install libtmux --user
 sudo add-apt-repository ppa:bashtop-monitor/bashtop
 sudo apt update
 sudo apt install bashtop
-
-# A more sleek email client than Thunderbird
-# sudo snap install mailspring
 
 # Install kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -127,7 +113,59 @@ sudo chmod 440 /etc/sudoers.d/nosudo-for-jorres
 sudo ln -s /etc/sudoers.d/nosudo-for-jorres $HOME/custom-configs/nosudo-for-jorres
 
 # install `dust` utility, du alternative, as binary from github
+# (should be in stow-bin binaries)
 
 # Install golang (binary from site, or some outdated version in apt)
 # Install gopls:
 go install golang.org/x/tools/gopls@latest 
+# Install k9s
+go install github.com/derailed/k9s
+# Install glow
+go install github.com/charmbracelet/glow@latest
+
+# Setup Moonlander tooling
+#####
+sudo touch /etc/udev/rules.d/50-zsa.rules
+>> # Rules for Oryx web flashing and live training
+>> KERNEL=="hidraw*", ATTRS{idVendor}=="16c0", MODE="0664", GROUP="plugdev"
+>> KERNEL=="hidraw*", ATTRS{idVendor}=="3297", MODE="0664", GROUP="plugdev"
+>> 
+>> # Legacy rules for live training over webusb (Not needed for firmware v21+)
+>>   # Rule for all ZSA keyboards
+>>   SUBSYSTEM=="usb", ATTR{idVendor}=="3297", GROUP="plugdev"
+>>   # Rule for the Moonlander
+>>   SUBSYSTEM=="usb", ATTR{idVendor}=="3297", ATTR{idProduct}=="1969", GROUP="plugdev"
+>>   # Rule for the Ergodox EZ
+>>   SUBSYSTEM=="usb", ATTR{idVendor}=="feed", ATTR{idProduct}=="1307", GROUP="plugdev"
+>>   # Rule for the Planck EZ
+>>   SUBSYSTEM=="usb", ATTR{idVendor}=="feed", ATTR{idProduct}=="6060", GROUP="plugdev"
+>> 
+>> # Wally Flashing rules for the Ergodox EZ
+>> ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", ENV{ID_MM_DEVICE_IGNORE}="1"
+>> ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789A]?", ENV{MTP_NO_PROBE}="1"
+>> SUBSYSTEMS=="usb", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789ABCD]?", MODE:="0666"
+>> KERNEL=="ttyACM*", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", MODE:="0666"
+>> 
+>> # Wally Flashing rules for the Moonlander and Planck EZ
+>> SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", \
+>>     MODE:="0666", \
+>>     SYMLINK+="stm32_dfu"
+#
+
+sudo groupadd plugdev
+sudo usermod -aG plugdev $USER
+#####
+
+sudo cp ./stow-bin/bin/rg /usr/local/bin
+
+#### Neovim
+
+# :MasonInstall bash-language-server dockerfile-language-server fixjson gopls kotlin-language-server lua-language-server prettier terraform-ls typescript-language-server
+ 
+pip3 install neovim-remote
+
+
+#### Trydactyl
+# Install tridactyl itself:
+https://github.com/tridactyl/tridactyl#installation
+curl -fsSl https://raw.githubusercontent.com/tridactyl/native_messenger/master/installers/install.sh -o /tmp/trinativeinstall.sh && sh /tmp/trinativeinstall.sh master
