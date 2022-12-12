@@ -50,5 +50,5 @@ windows:
         root: "~/hobbies/lifelog/anki"
         panes:
             - nvim: 
-                - nvim deck.md
+                - nvim .
                 - Enter
