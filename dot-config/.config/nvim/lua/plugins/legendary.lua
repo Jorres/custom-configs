@@ -251,7 +251,7 @@ require('legendary').setup({
   -- Initial augroups/autocmds to bind
   autocmds = {},
   -- Initial functions to bidn
-  functions = {},
+  funcs = {},
   -- default opts to merge with the `opts` table
   -- of each individual item
   default_opts = {
@@ -261,8 +261,22 @@ require('legendary').setup({
   },
 
   sort = {
+    -- sort most recently used item to the top
     most_recent_first = true,
+    -- sort user-defined items before built-in items
+    user_items_first = true,
+    -- sort the specified item type before other item types,
+    -- value must be one of: 'keymap', 'command', 'autocmd', 'group', nil
+    item_type_bias = nil,
+    -- settings for frecency sorting.
+    -- https://en.wikipedia.org/wiki/Frecency
+    -- Set `frecency = false` to disable.
+    -- this feature requires sqlite.lua (https://github.com/tami5/sqlite.lua)
+    -- and will be automatically disabled if sqlite is not available.
+    -- NOTE: THIS TAKES PRECEDENCE OVER OTHER SORT OPTIONS!
+    frecency = false,
   },
+
   -- Customize the prompt that appears on your vim.ui.select() handler
   -- Can be a string or a function that returns a string.
   select_prompt = 'legendary.nvim',
