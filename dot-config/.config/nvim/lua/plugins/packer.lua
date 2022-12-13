@@ -46,6 +46,16 @@ return require('packer').startup(function(use, use_rocks)
   }
   use { "gbprod/yanky.nvim" } -- yank ring-buffer
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
+  use {
+    "zbirenbaum/copilot.lua",
+    config = function()
+      vim.defer_fn(function()
+        require "plugins.copilot"
+      end, 100)
+    end,
+  }
+  use { "zbirenbaum/copilot-cmp", }
+  -- use { "github/copilot.vim" }
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' } -- reenter sudo editing with :Suda

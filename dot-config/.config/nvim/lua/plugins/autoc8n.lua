@@ -5,11 +5,6 @@ local cmp = require "cmp"
 
 local luasnip = require("luasnip")
 
-local has_words_before = function()
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
 cmp.setup {
   completion = { completeopt = 'menu,menuone,noinsert' },
 
@@ -34,21 +29,25 @@ cmp.setup {
   },
 
   sources = {
+    {
+      name = "copilot",
+      max_item_count = 3,
+    },
     { name = "luasnip", max_item_count = 2 },
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lua", max_item_count = 5, filetype = "lua" },
     { name = "nvim_lsp", keyword_length = 2, },
-    {
-      name = 'tmux',
-      option = {
-        all_panes = true,
-        label = '[tmux]',
-        trigger_characters = { '.' },
-        trigger_characters_ft = {} -- { filetype = { '.' } }
-      },
-      max_item_count = 3,
-      keyword_length = 3,
-    },
+    -- {
+    --   name = 'tmux',
+    --   option = {
+    --     all_panes = true,
+    --     label = '[tmux]',
+    --     trigger_characters = { '.' },
+    --     trigger_characters_ft = {} -- { filetype = { '.' } }
+    --   },
+    --   max_item_count = 3,
+    --   keyword_length = 3,
+    -- },
     { name = "path", max_item_count = 3 },
     { name = "buffer", max_item_count = 2, keyword_length = 4 },
   },
@@ -61,24 +60,59 @@ cmp.setup {
 
   formatting = {
     format = lspkind.cmp_format {
-      with_text = true,
-      menu = {
-        tmux = "[tmux]",
-        nvim_lsp_signature_help = "[sign]",
-        buffer = "[buf]",
-        nvim_lsp = "[LSP]",
-        nvim_lua = "[api]",
-        path = "[path]",
-        luasnip = "[snip]",
+      mode = 'symbol',
+      maxwidth = 50,
+      symbol_map = {
+        Copilot = "",
       },
+      --   menu = {
+      --     -- tmux = "[tmux]",
+      --     nvim_lsp_signature_help = "[sign]",
+      --     buffer = "[buf]",
+      --     copilot = "[cop]",
+      --     nvim_lsp = "[LSP]",
+      --     nvim_lua = "[api]",
+      --     path = "[path]",
+      --     luasnip = "[snip]",
+      --   },
     },
+  },
+
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      require("copilot_cmp.comparators").prioritize,
+      require("copilot_cmp.comparators").score,
+
+      cmp.config.compare.offset,
+      cmp.config.compare.exact,
+      cmp.config.compare.score,
+      cmp.config.compare.recently_used,
+      cmp.config.compare.locality,
+      cmp.config.compare.kind,
+      cmp.config.compare.sort_text,
+      cmp.config.compare.length,
+      cmp.config.compare.order,
+    },
+  },
+
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
   },
 
   experimental = {
     native_menu = false,
-    -- I've found it to be too annoying
     ghost_text = false,
   },
+  -- window = {
+  --   completion = {
+  --     border = "solid",
+  --   },
+  --   documentation = {
+  --     border = "solid",
+  --   }
+  -- }
 }
 
 cmp.setup.filetype({ 'markdown', 'telekasten' }, {
@@ -96,6 +130,9 @@ cmp.setup.filetype({ 'markdown', 'telekasten' }, {
   },
   experimental = {
     native_menu = false,
-    ghost_text = false,
+    ghost_text = true,
   },
 })
+
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+
