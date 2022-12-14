@@ -76,6 +76,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'karb94/neoscroll.nvim' } -- smooth scroll
   use { 'edluffy/specs.nvim' } -- cursor jump landing visualization
   use { 'kyazdani42/nvim-tree.lua' } --File explorer
+  use { 'luukvbaal/nnn.nvim' }
   -- use { 'azabiong/vim-highlighter' } -- Highlight words on a whim
   use { 'Pocco81/HighStr.nvim' }
   use { 'PeterRincker/vim-searchlight' } -- Highlight current hlsearch pattern differently

@@ -209,6 +209,14 @@ named_keymaps.increment = {
   opts = default_opts
 }
 
+named_keymaps.open_nnn_picker = {
+  "<leader>p",
+  "<cmd>NnnPicker<CR>",
+  mode = { "n" },
+  description = "Open Nnn Picker",
+  opts = default_opts
+}
+
 local unnamed_keymaps = {}
 for _, v in pairs(named_keymaps) do
   table.insert(unnamed_keymaps, v)
