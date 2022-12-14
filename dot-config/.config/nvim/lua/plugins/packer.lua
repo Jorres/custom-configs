@@ -26,7 +26,6 @@ return require('packer').startup(function(use, use_rocks)
   use { 'b3nj5m1n/kommentary' } -- visual select + gc
   use { 'wellle/targets.vim' } -- Additional text objects: e.g. inside *, inside comma-separated list etc.
   use { 'godlygeek/tabular' } -- Adds :Tabularize command
-
   use { 'MunifTanjim/prettier.nvim' } -- :Prettier
   use { 'ggandor/lightspeed.nvim' } -- Ultimate screen-jumping plugin
   use { 'tpope/vim-repeat' } -- zero-config, allows to repeat complex commands
@@ -80,6 +79,7 @@ return require('packer').startup(function(use, use_rocks)
   -- use { 'azabiong/vim-highlighter' } -- Highlight words on a whim
   use { 'Pocco81/HighStr.nvim' }
   use { 'PeterRincker/vim-searchlight' } -- Highlight current hlsearch pattern differently
+  use { 'uga-rosa/ccc.nvim' }
 
   use { 'goolord/alpha-nvim' } -- cool startup screen!
   use { 'akinsho/toggleterm.nvim' } -- toggle terminal per session
@@ -131,7 +131,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'nvim-telescope/telescope-media-files.nvim' }
 
   -- === Language specific
-  use {'hashivim/vim-terraform'}
+  use { 'hashivim/vim-terraform' }
 
   -- === Plugin \ Lua development ===
   use { 'tjdevries/colorbuddy.nvim' }

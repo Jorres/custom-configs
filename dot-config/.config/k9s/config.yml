@@ -50,7 +50,7 @@ k9s:
         - all
         - default
       view:
-        active: pods
+        active: pod
       featureGates:
         nodeShell: false
       shellPod:

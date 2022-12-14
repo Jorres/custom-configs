@@ -169,3 +169,4 @@ pip3 install neovim-remote
 # Install tridactyl itself:
 https://github.com/tridactyl/tridactyl#installation
 curl -fsSl https://raw.githubusercontent.com/tridactyl/native_messenger/master/installers/install.sh -o /tmp/trinativeinstall.sh && sh /tmp/trinativeinstall.sh master
+
