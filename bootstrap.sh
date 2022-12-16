@@ -168,5 +168,10 @@ pip3 install neovim-remote
 #### Trydactyl
 # Install tridactyl itself:
 https://github.com/tridactyl/tridactyl#installation
+# Then native messenger:
 curl -fsSl https://raw.githubusercontent.com/tridactyl/native_messenger/master/installers/install.sh -o /tmp/trinativeinstall.sh && sh /tmp/trinativeinstall.sh master
 
+
+## Install
+gcl https://github.com/pop-os/shell.git
+cd sheet && make local-install
