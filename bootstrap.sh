@@ -4,10 +4,22 @@ sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manage
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
 # Stuff for awesome wm to work
-sudo apt-get install -y dmenu compton nitrogen alsa-utils xbacklight
+sudo apt-get install -y dmenu nitrogen alsa-utils xbacklight libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
+# Do this to fix xbacklight:
+https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
 
-# Clone widget repository
+# Install picom
+git clone https://github.com/jonaburg/picom
+cd picom
+meson --buildtype=release . build
+ninja -C build
+# To install the binaries in /usr/local/bin (optional)
+sudo ninja -C build install
+
+# Clone misc widget repository
 git clone https://github.com/streetturtle/awesome-wm-widgets.git ~/.config/awesome/awesome-wm-widgets
+# Clone other widget repository
+git clone https://github.com/pltanton/net_widgets.git ~/.config/awesome/net_widgets
 
 # Install image-ascii-converter
 echo 'deb [trusted=yes] https://apt.fury.io/ascii-image-converter/ /' | sudo tee /etc/apt/sources.list.d/ascii-image-converter.list
@@ -72,7 +84,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 git config --global credential.helper "cache --timeout=3600"
 
 # Install https://github.com/grwlf/xkb-switch so that language in tmux status line works
-
  
 python3 -m pip install libtmux --user
 
@@ -170,6 +181,9 @@ pip3 install neovim-remote
 https://github.com/tridactyl/tridactyl#installation
 # Then native messenger:
 curl -fsSl https://raw.githubusercontent.com/tridactyl/native_messenger/master/installers/install.sh -o /tmp/trinativeinstall.sh && sh /tmp/trinativeinstall.sh master
+# Hide annoying mode indicator
+:set modeindicator false
+
 
 
 ## Install
