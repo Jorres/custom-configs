@@ -232,9 +232,9 @@ awful.screen.connect_for_each_screen(function(s)
     screen = s,
     fg = beautiful.fg_normal,
     height = 60,
-    width = 1200,
+    width = 1100,
     bg = beautiful.bg_normal,
-    -- stretch = true,
+    -- stretch = false,
     position = "bottom",
     border_color = "#00000000",
     border_width = dpi(15),
@@ -246,89 +246,34 @@ awful.screen.connect_for_each_screen(function(s)
   -- Add widgets to the wibox
   s.mywibox:setup {
     layout = wibox.layout.flex.horizontal,
-    -- spacing = dpi(10),
     {
       {
-        layout = wibox.layout.fixed.horizontal,
-        s.mytaglist,
-      },
-      widget = wibox.container.margin,
-      left = dpi(30),
-      top = dpi(10),
-      right = dpi(10),
-      bottom = dpi(10),
-      -- widget = wibox.container.background,
-      -- bg = "#112233",
-    },
-    {
-      {
-      {
-        layout = wibox.layout.flex.horizontal,
-        mykeyboardlayout,
-      },
-        widget = wibox.container.place,
-        haligh = "center", 
-        valign = "center"
-      },
-      widget = wibox.container.margin,
-      left = dpi(10),
-      top = dpi(10),
-      right = dpi(10),
-      bottom = dpi(10),
-      -- widget = wibox.container.background,
-      -- bg = "#223344",
-    },
-    {
-      {
-        layout = wibox.layout.fixed.horizontal,
-        wibox.widget.systray(),
-      },
-      widget = wibox.container.margin,
-      left = dpi(10),
-      top = dpi(10),
-      right = dpi(10),
-      bottom = dpi(10),
-      -- widget = wibox.container.background,
-      -- bg = "#334455",
-    },
-    {
-      {
-        layout = wibox.layout.fixed.horizontal,
-        hcenter = "center",
-        mytextclock,
-      },
-      -- widget = wibox.container.background,
-      -- bg = "#445566",
-      widget = wibox.container.margin,
-      left = dpi(10),
-      top = dpi(10),
-      right = dpi(10),
-      bottom = dpi(10),
-    },
-    {
-      {
-        layout = wibox.layout.flex.horizontal,
-        spacing = dpi(10),
-        s.mylayoutbox,
-        volume_widget {
-          size = 30,
-          arc_thickness = 2,
-          widget_type = "arc",
+        {
+          layout = wibox.layout.fixed.horizontal,
+          spacing = 20,
+          s.mytaglist,
+          mykeyboardlayout,
+          wibox.widget.systray(),
+          mytextclock,
+          s.mylayoutbox,
+          volume_widget {
+            size = 30,
+            arc_thickness = 2,
+            widget_type = "arc",
+          },
+          batteryarc_widget({
+            size = 30,
+            font = "Play 10",
+            show_current_level = true,
+            arc_thickness = 2,
+          }),
         },
-        batteryarc_widget({
-          size = 30,
-          font = "Play 10",
-          show_current_level = true,
-          arc_thickness = 2,
-        }),
+        widget = wibox.container.margin,
+        margins = dpi(10),
       },
-      -- widget = wibox.container.background,
-      -- bg = "#556677",
-      widget = wibox.container.margin,
-      left = dpi(10),
-      top = dpi(10),
-      right = dpi(10),
-      bottom = dpi(10),
+      widget = wibox.container.place,
+      haligh = "center",
+      valign = "center",
     },
   }
 end)
@@ -391,20 +336,20 @@ globalkeys = gears.table.join(
   -- awful.key({ modkey, "Shift" }, "h", function() awful.client.relative_move(-20, 0, 0, 0) end, { description = "move window left", group = "navigation" }),
   -- awful.key({ modkey, "Shift" }, "l", function() awful.client.relative_move(20, 0, 0, 0) end, { description = "move window right", group = "navigation" }),
 
-  -- awful.key({ modkey, }, "j",
-  --   function()
-  --     awful.client.focus.byidx(1)
-  --   end,
-  --   { description = "focus next by index", group = "client" }
-  -- ),
-  -- awful.key({ modkey, }, "k",
-  --   function()
-  --     awful.client.focus.byidx(-1)
-  --   end,
-  --   { description = "focus previous by index", group = "client" }
-  -- ),
-  awful.key({ modkey, }, "w", function() mymainmenu:show() end,
-    { description = "show main menu", group = "awesome" }),
+  awful.key({ modkey, }, "n",
+    function()
+      awful.client.focus.byidx(1)
+    end,
+    { description = "focus next by index", group = "client" }
+  ),
+  awful.key({ modkey, }, "p",
+    function()
+      awful.client.focus.byidx(-1)
+    end,
+    { description = "focus previous by index", group = "client" }
+  ),
+  -- awful.key({ modkey, }, "w", function() mymainmenu:show() end,
+  --   { description = "show main menu", group = "awesome" }),
 
   -- Layout manipulation
   -- awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end,
@@ -417,16 +362,16 @@ globalkeys = gears.table.join(
   awful.key({ modkey, "Control" }, "k", function() awful.screen.focus_relative(-1) end,
     { description = "focus the previous screen", group = "screen" }),
 
-  awful.key({ modkey, }, "u", awful.client.urgent.jumpto,
-    { description = "jump to urgent client", group = "client" }),
-  awful.key({ modkey, }, "Tab",
-    function()
-      awful.client.focus.history.previous()
-      if client.focus then
-        client.focus:raise()
-      end
-    end,
-    { description = "go back", group = "client" }),
+  -- awful.key({ modkey, }, "u", awful.client.urgent.jumpto,
+  --   { description = "jump to urgent client", group = "client" }),
+  -- awful.key({ modkey, }, "Tab",
+  --   function()
+  --     awful.client.focus.history.previous()
+  --     if client.focus then
+  --       client.focus:raise()
+  --     end
+  --   end,
+  --   { description = "go back", group = "client" }),
 
   awful.key({ modkey, "Control" }, "r", awesome.restart,
     { description = "reload awesome", group = "awesome" }),
@@ -434,9 +379,14 @@ globalkeys = gears.table.join(
     { description = "quit awesome", group = "awesome" }),
 
   awful.key({ modkey, "Shift", }, "l", function() awful.tag.incmwfact(0.05) end,
-    { description = "increase master width factor", group = "layout" }),
+    { description = "Move width separator right", group = "resizing" }),
   awful.key({ modkey, "Shift", }, "h", function() awful.tag.incmwfact(-0.05) end,
-    { description = "decrease master width factor", group = "layout" }),
+    { description = "Move width separator left", group = "resizing" }),
+
+  awful.key({ modkey, "Shift", }, "j", function() awful.client.incwfact(0.05) end,
+    { description = "Increase window height", group = "resizing" }),
+  awful.key({ modkey, "Shift", }, "k", function() awful.client.incwfact(-0.05) end,
+    { description = "Decrease window hight", group = "resizing" }),
 
   -- awful.key({ modkey, "Shift" }, "h", function() awful.tag.incnmaster(1, nil, true) end,
   --   { description = "increase the number of master clients", group = "layout" }),
@@ -451,17 +401,17 @@ globalkeys = gears.table.join(
   -- awful.key({ modkey, "Shift" }, "space", function() awful.layout.inc(-1) end,
   --   { description = "select previous", group = "layout" }),
 
-  awful.key({ modkey, "Control" }, "n",
-    function()
-      local c = awful.client.restore()
-      -- Focus restored client
-      if c then
-        c:emit_signal(
-          "request::activate", "key.unminimize", { raise = true }
-        )
-      end
-    end,
-    { description = "restore minimized", group = "client" }),
+  -- awful.key({ modkey, "Control" }, "n",
+  --   function()
+  --     local c = awful.client.restore()
+  --     -- Focus restored client
+  --     if c then
+  --       c:emit_signal(
+  --         "request::activate", "key.unminimize", { raise = true }
+  --       )
+  --     end
+  --   end,
+  --   { description = "restore minimized", group = "client" }),
 
   -- Prompt
   -- awful.key({ modkey }, "r", function()
@@ -509,12 +459,12 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-  awful.key({ modkey, }, "f",
-    function(c)
-      c.fullscreen = not c.fullscreen
-      c:raise()
-    end,
-    { description = "toggle fullscreen", group = "client" }),
+  -- awful.key({ modkey, }, "f",
+  --   function(c)
+  --     c.fullscreen = not c.fullscreen
+  --     c:raise()
+  --   end,
+  --   { description = "toggle fullscreen", group = "client" }),
   awful.key({ modkey, }, "q", function(c) c:kill() end,
     { description = "close", group = "client" }),
   awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
@@ -758,6 +708,7 @@ awful.spawn.with_shell('copyq')
 -- awful.spawn('picom -b --experimental-backend --config /home/tarasov-egor/custom-configs/dot-config/.config/picom/config.conf')
 awful.spawn('picom -b --experimental-backend')
 awful.spawn.with_shell('nm-applet')
+awful.spawn('blueman-applet')
 
 -- Enable russian + english layout and specify what shortcut will swap them
 os.execute("setxkbmap -layout us,ru -option 'grp:win_space_toggle'")
@@ -774,3 +725,5 @@ awful.spawn('sleep 1 && nitrogen --restore')
 -- toggle fullscreen (super + f)
 -- move\resize windows with mouse (super + left|right hold + drag, for moving|resizing)
 -- super + j\k move through all the windows
+-- windows can be present at many tags at once! this is fun
+-- you can open separate tags on each display, 9*9 combinations

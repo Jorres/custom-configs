@@ -173,7 +173,7 @@ xset r rate 150 30
 alias nvim='if [[ -z "$NVIM" ]]; then XXX="nvim" && YYY="" else XXX="nvr" && YYY="-l" fi && $XXX $YYY'
 
 export NNN_BMS="c:~/custom-configs/;d:~/Downloads/;t:~/Downloads/Telegram Desktop/"
-export NNN_PLUG='o:fzopen;z:autojump'
+export NNN_PLUG='o:fzopen;z:autojump;d:dragdrop'
 export NNN_TMPFILE="$HOME/.config/nnn/.lastd"
 
 n ()

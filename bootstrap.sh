@@ -16,6 +16,15 @@ ninja -C build
 # To install the binaries in /usr/local/bin (optional)
 sudo ninja -C build install
 
+
+
+# Install drag-n-drop dependency for nnn
+sudo apt-get install libgtk-3-dev
+git clone https://github.com/mwh/dragon.git
+cd dragon
+make
+make install
+
 # Clone misc widget repository
 git clone https://github.com/streetturtle/awesome-wm-widgets.git ~/.config/awesome/awesome-wm-widgets
 # Clone other widget repository
