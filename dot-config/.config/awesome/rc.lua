@@ -73,17 +73,17 @@ modkey = "Mod4"
 awful.layout.layouts = {
   awful.layout.suit.tile,
   awful.layout.suit.floating,
-  awful.layout.suit.tile.left,
-  awful.layout.suit.tile.bottom,
-  awful.layout.suit.tile.top,
-  awful.layout.suit.fair,
-  awful.layout.suit.fair.horizontal,
-  awful.layout.suit.spiral,
-  awful.layout.suit.spiral.dwindle,
-  awful.layout.suit.max,
-  awful.layout.suit.max.fullscreen,
-  awful.layout.suit.magnifier,
-  awful.layout.suit.corner.nw,
+  -- awful.layout.suit.tile.left,
+  -- awful.layout.suit.tile.bottom,
+  -- awful.layout.suit.tile.top,
+  -- awful.layout.suit.fair,
+  -- awful.layout.suit.fair.horizontal,
+  -- awful.layout.suit.spiral,
+  -- awful.layout.suit.spiral.dwindle,
+  -- awful.layout.suit.max,
+  -- awful.layout.suit.max.fullscreen,
+  -- awful.layout.suit.magnifier,
+  -- awful.layout.suit.corner.nw,
   -- awful.layout.suit.corner.ne,
   -- awful.layout.suit.corner.sw,
   -- awful.layout.suit.corner.se,
@@ -459,12 +459,12 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-  -- awful.key({ modkey, }, "f",
-  --   function(c)
-  --     c.fullscreen = not c.fullscreen
-  --     c:raise()
-  --   end,
-  --   { description = "toggle fullscreen", group = "client" }),
+-- awful.key({ modkey, }, "f",
+--   function(c)
+--     c.fullscreen = not c.fullscreen
+--     c:raise()
+--   end,
+--   { description = "toggle fullscreen", group = "client" }),
   awful.key({ modkey, }, "q", function(c) c:kill() end,
     { description = "close", group = "client" }),
   awful.key({ modkey, "Control" }, "space", awful.client.floating.toggle,
@@ -584,6 +584,57 @@ awful.rules.rules = {
       buttons = clientbuttons,
       screen = awful.screen.preferred,
       placement = awful.placement.no_overlap + awful.placement.no_offscreen
+    }
+  },
+
+  -- The pesky zoom window that asks you for stuff
+  {
+    rule = {
+      class = "zoom",
+      name = "Choose ONE of the audio conference options",
+    },
+    properties = {
+      floating = true,
+      placement = awful.placement.centered
+    }
+  },
+
+  -- Zoom chat window, also floating
+  {
+    rule = {
+      class = "zoom",
+      name = "Chat",
+    },
+    properties = {
+      floating = true,
+      placement = awful.placement.centered
+    }
+  },
+
+  -- The small window that appears as a notification
+  -- which source you use
+  {
+    rule = {
+      class = "zoom",
+      name = "zoom",
+    },
+    properties = {
+      floating = true,
+      ontop = true,
+      placement = awful.placement.centered
+    }
+  },
+
+
+  -- Bluetooth window
+  {
+    rule = {
+      name = "Bluetooth Devices",
+    },
+    properties = {
+      floating = true,
+      ontop = true,
+      placement = awful.placement.centered
     }
   },
 
