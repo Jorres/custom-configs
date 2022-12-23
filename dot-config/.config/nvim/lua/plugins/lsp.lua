@@ -49,16 +49,36 @@ require("mason-lspconfig").setup_handlers {
           },
           diagnostics = {
             -- Get the language server to recognize the `vim` global
-            globals = { 'vim', 'text', 'for_node', 'indent', 'newline', 'list', 'random_words', 'awesome' },
+            globals = {
+              'vim',
+              'text',
+              'for_node',
+              'indent',
+              'newline',
+              'list',
+              'random_words',
+              'awesome',
+              'terminal',
+              'editor',
+              'editor_cmd',
+              'modkey',
+              'mymainmenu',
+              'client',
+              'screen',
+              'root'
+            },
           },
           workspace = {
-            -- Make the server aware of Neovim runtime files
-            library = vim.api.nvim_get_runtime_file("", true),
+            library = {
+              ['/usr/share/nvim/runtime/lua'] = true,
+              ['/usr/share/nvim/runtime/lua/lsp'] = true,
+              ['/usr/share/awesome/lib'] = true,
+            },
             checkThirdParty = false
           },
           -- Do not send telemetry data containing a randomized but unique identifier
           telemetry = {
-            enable = true,
+            enable = false,
           },
         },
       },

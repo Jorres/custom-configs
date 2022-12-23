@@ -8,15 +8,13 @@ sudo apt-get install -y dmenu nitrogen alsa-utils xbacklight libxext-dev libxcb1
 # Do this to fix xbacklight:
 https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
 
-# Install picom
+# Install picom (needed for transparent borders)
 git clone https://github.com/jonaburg/picom
 cd picom
 meson --buildtype=release . build
 ninja -C build
 # To install the binaries in /usr/local/bin (optional)
 sudo ninja -C build install
-
-
 
 # Install drag-n-drop dependency for nnn
 sudo apt-get install libgtk-3-dev

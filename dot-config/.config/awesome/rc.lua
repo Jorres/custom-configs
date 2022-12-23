@@ -19,7 +19,6 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
--- require("awful.hotkeys_popup.keys")
 
 -- Load Debian menu entries
 local debian = require("debian.menu")
@@ -201,7 +200,7 @@ awful.screen.connect_for_each_screen(function(s)
   set_wallpaper(s)
 
   -- Each screen has its own tag table.
-  awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+  awful.tag({ "1", "2", "3" }, s, awful.layout.layouts[1])
 
   -- Create a promptbox for each screen
   s.mypromptbox = awful.widget.prompt()
@@ -287,9 +286,24 @@ root.buttons(gears.table.join(
 ))
 -- }}}
 
+beautiful.hotkeys_font = 'Sans 14'
+beautiful.hotkeys_description_font = 'Sans 12'
+
+
+local focus_or_else_spawn = function(client_class, client_command)
+  for _, cur_client in pairs(client.get()) do
+    if string.find(cur_client.class, client_class) then
+      client.focus = cur_client
+      cur_client:raise()
+      return
+    end
+  end
+  awful.util.spawn(client_command)
+end
+
 -- {{{ Key bindings
 globalkeys = gears.table.join(
-  awful.key({ modkey, }, "s", hotkeys_popup.show_help,
+  awful.key({ modkey, }, "t", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end,
     { description = "show help", group = "awesome" }),
   awful.key({ modkey, }, "Left", awful.tag.viewprev,
     { description = "view previous", group = "tag" }),
@@ -352,10 +366,35 @@ globalkeys = gears.table.join(
   --   { description = "show main menu", group = "awesome" }),
 
   -- Layout manipulation
-  -- awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.byidx(1) end,
+  -- awful.key({ modkey, "Shift" }, "j", function() awful.client.swap.(1) end,
   --   { description = "swap with next client by index", group = "client" }),
   -- awful.key({ modkey, "Shift" }, "k", function() awful.client.swap.byidx(-1) end,
   --   { description = "swap with previous client by index", group = "client" }),
+
+  awful.key({ "Control", "Shift" }, "j", function()
+    awful.client.swap.bydirection("down")
+  end, {
+    description = "swap with lower window",
+    group = "navigation",
+  }),
+  awful.key({ "Control", "Shift" }, "k", function()
+    awful.client.swap.bydirection("up")
+  end, {
+    description = "swap with upper window",
+    group = "navigation",
+  }),
+  awful.key({ "Control", "Shift" }, "h", function()
+    awful.client.swap.bydirection("left")
+  end, {
+    description = "swap with left window",
+    group = "navigation",
+  }),
+  awful.key({ "Control", "Shift" }, "l", function()
+    awful.client.swap.bydirection("right")
+  end, {
+    description = "swap with right window",
+    group = "navigation",
+  }),
 
   awful.key({ modkey, "Control" }, "j", function() awful.screen.focus_relative(1) end,
     { description = "focus the next screen", group = "screen" }),
@@ -417,23 +456,30 @@ globalkeys = gears.table.join(
   -- awful.key({ modkey }, "r", function()
   --   awful.screen.focused().mypromptbox:run() end,
   --   { description = "run prompt", group = "launcher" }),
+  --
+  -- awful.key({ modkey }, "r", function()
+  --   awful.util.spawn("rofi -modi drun -show drun -show-icons -width 22 -no-click-to-exit", false)
+  --   os.execute("sleep 4 && kill -9 $(ps aux | rg rofi | awk '{print $2} ' | head -n 1)")
+  -- end, { description = "Runs rofi", group = "apps" }),
+
   awful.key({ modkey }, "r", function()
     awful.util.spawn("dmenu_run")
-  end, { description = "Runs dmenu prompt", group = "launcher" }),
+  end, { description = "Runs dmenu", group = "apps" }),
 
   awful.key({ modkey }, "1",
     function()
-      awful.util.spawn(terminal)
+      focus_or_else_spawn("kitty", terminal)
     end,
     { description = "Run " .. terminal, group = "apps" }),
 
+
   awful.key({ modkey }, "2", function()
-    awful.util.spawn("firefox")
+    focus_or_else_spawn("firefox", "firefox")
   end,
     { description = "Run Firefox", group = "apps" }),
 
   awful.key({ modkey }, "3", function()
-    awful.util.spawn("telegram-desktop")
+    focus_or_else_spawn("TelegramDesktop", "telegram-desktop")
   end,
     { description = "Run Telegram", group = "apps" }),
 
@@ -506,7 +552,7 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, 3 do
   globalkeys = gears.table.join(globalkeys,
     -- View tag only.
     -- awful.key({ modkey }, "#" .. i + 9,
@@ -681,8 +727,6 @@ awful.rules.rules = {
 }
 -- }}}
 
--- {{{ Signals
--- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
   -- Set the windows at the slave,
   -- i.e. put it at the end of others instead of setting it master.
@@ -696,67 +740,51 @@ client.connect_signal("manage", function(c)
   end
 end)
 
--- Add a titlebar if titlebars_enabled is set to true in the rules.
-client.connect_signal("request::titlebars", function(c)
-  -- buttons for the titlebar
-  local buttons = gears.table.join(
-    awful.button({}, 1, function()
-      c:emit_signal("request::activate", "titlebar", { raise = true })
-      awful.mouse.client.move(c)
-    end),
-    awful.button({}, 3, function()
-      c:emit_signal("request::activate", "titlebar", { raise = true })
-      awful.mouse.client.resize(c)
-    end)
-  )
-
-  awful.titlebar(c):setup {
-    { -- Left
-      awful.titlebar.widget.iconwidget(c),
-      buttons = buttons,
-      layout  = wibox.layout.fixed.horizontal
-    },
-
-
-    { -- Middle
-      { -- Title
-        align  = "center",
-        widget = awful.titlebar.widget.titlewidget(c)
-      },
-      buttons = buttons,
-      layout  = wibox.layout.flex.horizontal
-    },
-    { -- Right
-      awful.titlebar.widget.floatingbutton(c),
-      awful.titlebar.widget.maximizedbutton(c),
-      awful.titlebar.widget.stickybutton(c),
-      awful.titlebar.widget.ontopbutton(c),
-      awful.titlebar.widget.closebutton(c),
-      layout = wibox.layout.fixed.horizontal()
-    },
-    layout = wibox.layout.align.horizontal
-  }
-end)
-
 -- Enable sloppy focus, so that focus follows mouse.
 client.connect_signal("mouse::enter", function(c)
   c:emit_signal("request::activate", "mouse_enter", { raise = false })
 end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
-client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+client.connect_signal("unfocus", function(c)
+  c.border_color = beautiful.border_normal
+end)
 -- }}}
 
+screen.connect_signal("arrange", function(s)
+  local clients = client.get()
+  for _, c in ipairs(clients) do
+    if #clients == 1 or c.maximized then
+      c.border_width = 0
+    else
+      c.border_width = beautiful.border_width -- your border width
+    end
+  end
+end)
+
+local process_corners = function(c)
+  if not c.maximized then
+    c.shape = function(cr, w, h)
+      gears.shape.rounded_rect(cr, w, h, 30)
+    end
+  else
+    c.shape = function(cr, w, h)
+      gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, 25)
+    end
+  end
+end
+
+client.connect_signal("property::size", function(c)
+  process_corners(c)
+end)
 
 client.connect_signal("manage", function(c)
-  c.shape = function(cr, w, h)
-    gears.shape.rounded_rect(cr, w, h, 20)
-  end
+  process_corners(c)
+  c.minimized = false
 end)
 
 -- Auto start applications
 awful.spawn.with_shell('copyq')
--- awful.spawn('picom -b --experimental-backend --config /home/tarasov-egor/custom-configs/dot-config/.config/picom/config.conf')
 awful.spawn('picom -b --experimental-backend')
 awful.spawn.with_shell('nm-applet')
 awful.spawn('blueman-applet')
@@ -768,10 +796,6 @@ os.execute("xset r rate 150 30")
 
 -- This sets primary monitor, resolution... basically everything that Gnome Displays did
 os.execute("xrandr --output eDP1 --mode 1920x1080 --pos 2560x360 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off")
-
--- awful.spawn('nitrogen --restore')
-awful.spawn('sleep 1 && nitrogen --restore')
--- awful.spawn('sleep 2 && nitrogen --restore')
 
 -- toggle fullscreen (super + f)
 -- move\resize windows with mouse (super + left|right hold + drag, for moving|resizing)
