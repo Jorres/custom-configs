@@ -130,11 +130,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- }}}
 
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
--- {{{ Wibar
--- Create a textclock widget
-mytextclock = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -188,9 +183,6 @@ local function set_wallpaper(s)
   end
 end
 
-local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
-local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
-
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 -- screen.padding = { top = 20, right = 20, bottom = 20, left = 20 }
@@ -226,55 +218,7 @@ awful.screen.connect_for_each_screen(function(s)
     buttons = tasklist_buttons
   }
 
-  -- Create the wibox
-  s.mywibox = awful.wibar({
-    screen = s,
-    fg = beautiful.fg_normal,
-    height = 60,
-    width = 1100,
-    bg = beautiful.bg_normal,
-    -- stretch = false,
-    position = "bottom",
-    border_color = "#00000000",
-    border_width = dpi(15),
-    shape = function(cr, width, height)
-      gears.shape.rounded_rect(cr, width, height, 40)
-    end,
-  })
-
-  -- Add widgets to the wibox
-  s.mywibox:setup {
-    layout = wibox.layout.flex.horizontal,
-    {
-      {
-        {
-          layout = wibox.layout.fixed.horizontal,
-          spacing = 20,
-          s.mytaglist,
-          mykeyboardlayout,
-          wibox.widget.systray(),
-          mytextclock,
-          s.mylayoutbox,
-          volume_widget {
-            size = 30,
-            arc_thickness = 2,
-            widget_type = "arc",
-          },
-          batteryarc_widget({
-            size = 30,
-            font = "Play 10",
-            show_current_level = true,
-            arc_thickness = 2,
-          }),
-        },
-        widget = wibox.container.margin,
-        margins = dpi(10),
-      },
-      widget = wibox.container.place,
-      haligh = "center",
-      valign = "center",
-    },
-  }
+  s.mywibox = require("wibar").init_wibar(s)
 end)
 -- }}}
 
@@ -785,7 +729,7 @@ end)
 
 -- Auto start applications
 awful.spawn.with_shell('copyq')
-awful.spawn('picom -b --experimental-backend')
+awful.spawn('picom -b --experimental-backend --transparent-clipping')
 awful.spawn.with_shell('nm-applet')
 awful.spawn('blueman-applet')
 
