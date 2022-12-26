@@ -11,7 +11,10 @@ cmp.setup {
   mapping = {
     ["<c-y>"] = function(fallback)
       if cmp.visible() then
-        cmp.confirm()
+        cmp.confirm({
+          select = true,
+          behavior = cmp.ConfirmBehavior,
+        })
       else
         fallback()
       end
@@ -135,4 +138,3 @@ cmp.setup.filetype({ 'markdown', 'telekasten' }, {
 })
 
 vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
-

@@ -65,7 +65,7 @@ require("mason-lspconfig").setup_handlers {
               'mymainmenu',
               'client',
               'screen',
-              'root'
+              'root',
             },
           },
           workspace = {
