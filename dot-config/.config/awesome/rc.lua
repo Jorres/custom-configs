@@ -1,6 +1,9 @@
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
+local cairo = require("lgi").cairo
+local delayed_call = require("gears.timer").delayed_call
+local titlebar = require("actionless.titlebar")
 
 -- Standard awesome library
 local gears = require("gears")
@@ -14,6 +17,7 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+local constants = require("constants")
 
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -186,6 +190,7 @@ end
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 -- screen.padding = { top = 20, right = 20, bottom = 20, left = 20 }
+--
 
 awful.screen.connect_for_each_screen(function(s)
   -- Wallpaper
@@ -206,9 +211,30 @@ awful.screen.connect_for_each_screen(function(s)
     awful.button({}, 5, function() awful.layout.inc(-1) end)))
   -- Create a taglist widget
   s.mytaglist = awful.widget.taglist {
-    screen  = s,
-    filter  = awful.widget.taglist.filter.all,
-    buttons = taglist_buttons
+    screen          = s,
+    filter          = awful.widget.taglist.filter.all,
+    buttons         = taglist_buttons,
+    layout          = {
+      layout = wibox.layout.fixed.vertical
+    },
+    widget_template = {
+      {
+        {
+          {
+            widget = wibox.widget.imagebox,
+          },
+          bg            = '#cccccc',
+          shape         = gears.shape.circle,
+          forced_height = 60,
+          widget        = wibox.container.background,
+        },
+        left   = 14,
+        right  = 14,
+        widget = wibox.container.margin,
+      },
+      id     = 'background_role',
+      widget = wibox.container.background,
+    }
   }
 
   -- Create a tasklist widget
@@ -246,9 +272,9 @@ local focus_or_else_spawn = function(client_class, client_command)
 end
 
 -- {{{ Key bindings
-globalkeys = gears.table.join(
-  awful.key({ modkey, }, "t", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end,
-    { description = "show help", group = "awesome" }),
+awful.keyboard.append_global_keybindings {
+  -- awful.key({ modkey, }, "t", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end,
+  --   { description = "show help", group = "awesome" }),
   awful.key({ modkey, }, "Left", awful.tag.viewprev,
     { description = "view previous", group = "tag" }),
   awful.key({ modkey, }, "Right", awful.tag.viewnext,
@@ -276,19 +302,6 @@ globalkeys = gears.table.join(
     if client.focus then client.focus:raise() end
   end, { description = "select window right", group = "navigation" }),
 
-  awful.key({}, "XF86AudioRaiseVolume",
-    function()
-      volume_widget:inc(5)
-    end, { description = "volume up", group = "fn keys" }),
-  awful.key({}, "XF86AudioLowerVolume",
-    function()
-      volume_widget:dec(5)
-    end, { description = "volume down", group = "fn keys" }),
-  awful.key({}, "XF86AudioMute",
-    function()
-      volume_widget:toggle()
-    end, { description = "toggle mute", group = "fn keys" }),
-
   -- awful.key({ modkey, "Shift" }, "j", function() awful.client.relative_move(0, 20, 0, 0) end, { description = "move window down", group = "navigation" }),
   -- awful.key({ modkey, "Shift" }, "k", function() awful.client.relative_move(0, -20, 0, 0) end, { description = "move window up", group = "navigation" }),
   -- awful.key({ modkey, "Shift" }, "h", function() awful.client.relative_move(-20, 0, 0, 0) end, { description = "move window left", group = "navigation" }),
@@ -314,27 +327,44 @@ globalkeys = gears.table.join(
   --   { description = "swap with next client by index", group = "client" }),
   -- awful.key({ modkey, "Shift" }, "k", function() awful.client.swap.byidx(-1) end,
   --   { description = "swap with previous client by index", group = "client" }),
+  --
 
   awful.key({ "Control", "Shift" }, "j", function()
-    awful.client.swap.bydirection("down")
+    awful.client.focus.bydirection("down")
+    if client.focus then
+      client.focus:raise()
+    end
+    awful.client.swap.bydirection("up")
   end, {
     description = "swap with lower window",
     group = "navigation",
   }),
   awful.key({ "Control", "Shift" }, "k", function()
-    awful.client.swap.bydirection("up")
+    awful.client.focus.bydirection("up")
+    if client.focus then
+      client.focus:raise()
+    end
+    awful.client.swap.bydirection("down")
   end, {
     description = "swap with upper window",
     group = "navigation",
   }),
   awful.key({ "Control", "Shift" }, "h", function()
-    awful.client.swap.bydirection("left")
+    awful.client.focus.bydirection("left")
+    if client.focus then
+      client.focus:raise()
+    end
+    awful.client.swap.bydirection("right")
   end, {
     description = "swap with left window",
     group = "navigation",
   }),
   awful.key({ "Control", "Shift" }, "l", function()
-    awful.client.swap.bydirection("right")
+    awful.client.focus.bydirection("right")
+    if client.focus then
+      client.focus:raise()
+    end
+    awful.client.swap.bydirection("left")
   end, {
     description = "swap with right window",
     group = "navigation",
@@ -446,7 +476,7 @@ globalkeys = gears.table.join(
       }
     end,
     { description = "lua execute prompt", group = "awesome" })
-)
+}
 
 clientkeys = gears.table.join(
 -- awful.key({ modkey, }, "f",
@@ -466,16 +496,21 @@ clientkeys = gears.table.join(
 
   -- awful.key({ modkey, }, "t", function(c) c.ontop = not c.ontop end,
   --   { description = "toggle keep on top", group = "client" }),
-  awful.key({ modkey, }, "n",
-    function(c)
-      -- The client currently has the input focus, so it cannot be
-      -- minimized, since minimized clients can't have the focus.
-      c.minimized = true
-    end,
-    { description = "minimize", group = "client" }),
+  -- awful.key({ modkey, }, "n",
+  --   function(c)
+  --     -- The client currently has the input focus, so it cannot be
+  --     -- minimized, since minimized clients can't have the focus.
+  --     c.minimized = true
+  --   end,
+  --   { description = "minimize", group = "client" }),
   awful.key({ modkey, }, "m",
     function(c)
-      c.maximized = not c.maximized
+      c.fullscreen = not c.fullscreen
+      if c.fullscreen then
+
+      else
+
+      end
       c:raise()
     end,
     { description = "(un)maximize", group = "client" }),
@@ -497,7 +532,7 @@ clientkeys = gears.table.join(
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 3 do
-  globalkeys = gears.table.join(globalkeys,
+  awful.keyboard.append_global_keybindings {
     -- View tag only.
     -- awful.key({ modkey }, "#" .. i + 9,
     --   function()
@@ -540,7 +575,7 @@ for i = 1, 3 do
         end
       end,
       { description = "toggle focused client on tag #" .. i, group = "tag" })
-  )
+  }
 end
 
 clientbuttons = gears.table.join(
@@ -556,10 +591,6 @@ clientbuttons = gears.table.join(
     awful.mouse.client.resize(c)
   end)
 )
-
--- Set keys
-root.keys(globalkeys)
--- }}}
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
@@ -661,7 +692,7 @@ awful.rules.rules = {
   }, properties = { floating = true } },
 
   -- Add titlebars to normal clients and dialogs
-  { rule_any = { type = { "normal", "dialog" }
+  { rule_any = {
   }, properties = { titlebars_enabled = false }
   },
 
@@ -707,32 +738,277 @@ screen.connect_signal("arrange", function(s)
 end)
 
 local process_corners = function(c)
-  if not c.maximized then
+  if c.fullscreen then
     c.shape = function(cr, w, h)
-      gears.shape.rounded_rect(cr, w, h, 30)
+      gears.shape.rounded_rect(cr, w, h, 0)
     end
   else
     c.shape = function(cr, w, h)
-      gears.shape.partially_rounded_rect(cr, w, h, false, false, true, true, 25)
+      gears.shape.rounded_rect(cr, w, h, 30)
     end
   end
 end
 
-client.connect_signal("property::size", function(c)
-  process_corners(c)
-end)
+local function choose_tag(c)
+  if c.screen and c.screen.selected_tags then
+    for _, sel_tag in ipairs(c.screen.selected_tags) do
+      for _, cli_tag in ipairs(c:tags()) do
+        if sel_tag.index == cli_tag.index then
+          return cli_tag
+        end
+      end
+    end
+  end
+  return c.first_tag
+end
+
+local function get_num_tiled(t)
+  local s = t.screen
+  if s.selected_tags and #s.selected_tags > 1 then
+    return #s.tiled_clients
+  end
+  return 1 / 0 -- #tag_helpers.get_tiled(t)
+end
+
+local function _on_client_unfocus(c)
+  if c.minimized then return end
+  c.border_color = beautiful.border_normal
+  local t = choose_tag(c)
+  local layout = t.layout
+  local num_tiled = get_num_tiled(t)
+  if c.floating then
+    -- clog("U: floating client", c)
+    titlebar.make_titlebar(c, beautiful.actionless_titlebar_bg_normal, beautiful.titlebar_shadow_normal)
+  elseif layout == awful.layout.suit.floating then
+    -- clog(c, "U: floating layout", c)
+    titlebar.make_titlebar(c, beautiful.actionless_titlebar_bg_normal, beautiful.titlebar_shadow_normal)
+  elseif num_tiled > 1 then
+    -- clog("U: multiple tiling clients", c)
+    titlebar.make_border(c, beautiful.actionless_titlebar_bg_normal, beautiful.titlebar_shadow_normal)
+  elseif num_tiled == 1 then
+    if t.master_fill_policy == 'expand' and screen.count() == 1 then
+      -- clog("U: one tiling client: expand", c)
+      titlebar.remove_border(c)
+    else
+      -- clog("U: one tiling client", c)
+      titlebar.make_border(c, beautiful.actionless_titlebar_bg_normal, beautiful.titlebar_shadow_normal)
+    end
+  else
+    -- nlog('Signals: U: How did that happened?')
+    -- nlog(num_tiled)
+  end
+end
+
+local function on_client_unfocus(c, force, callback)
+  local function unfocus_sequence()
+    _on_client_unfocus(c)
+    if callback then
+      callback(c)
+    end
+  end
+
+  if force then
+    unfocus_sequence()
+    return
+  end
+  delayed_call(function()
+    if not c.valid or c == client.focus then
+      return
+    end
+    -- Actually draw changes only if client is visible:
+    if c.sticky then
+      unfocus_sequence()
+      return
+    end
+    for _, sel_tag in ipairs(c.screen.selected_tags) do
+      for _, cli_tag in ipairs(c:tags()) do
+        if sel_tag.index == cli_tag.index then
+          unfocus_sequence()
+        end
+      end
+    end
+  end)
+end
+
+--=============================================================================
+-- Focused (active, selected) window logic
+
+local function on_client_focus(c)
+  local t = choose_tag(c)
+  local layout = t.layout
+  local num_tiled = get_num_tiled(t)
+
+  c.border_color = beautiful.border_focus
+  --
+
+  if c.maximized or c.fullscreen then
+    clog("F: maximized")
+    --set_default_screen_padding(s)
+    titlebar.remove_border(c)
+  elseif c.floating then
+    -- clog("F: floating client")
+    --choose_screen_padding(s, t, num_tiled)
+    titlebar.make_titlebar(c, beautiful.actionless_titlebar_bg_focus, beautiful.titlebar_shadow_focus)
+  elseif layout == awful.layout.suit.floating then
+    -- clog("F: floating layout")
+    --choose_screen_padding(s, t, num_tiled)
+    titlebar.make_titlebar(c, beautiful.actionless_titlebar_bg_focus, beautiful.titlebar_shadow_focus)
+  elseif num_tiled > 1 then
+    -- clog("F: multiple tiling clients")
+    --set_default_screen_padding(s)
+    c.border_width = beautiful.border_width
+    titlebar.make_border(c, beautiful.actionless_titlebar_bg_focus, beautiful.titlebar_shadow_focus)
+  elseif num_tiled == 1 then
+    if t.master_fill_policy == 'expand' and screen.count() == 1 then
+      -- clog("F: one tiling client: expand")
+      --set_default_screen_padding(s)
+      titlebar.remove_border(c)
+    else
+      -- clog("F: one tiling client")
+      --set_mwfact_screen_padding(t)
+      c.border_width = beautiful.border_width
+      titlebar.make_border(c, beautiful.actionless_titlebar_bg_focus, beautiful.titlebar_shadow_focus)
+    end
+  else
+    -- clog("F: zero tiling clients -- other tag?")
+    return on_client_unfocus(c)
+  end
+
+  --c.border_color = beautiful.border_focus
+end
+
+local function apply_shape(draw, shape, outer_shape_args, inner_shape_args)
+
+  local geo = draw:geometry()
+
+  local border = beautiful.base_border_width
+  local titlebar_height = border
+  --local titlebar_height = titlebar.is_enabled(draw) and beautiful.titlebar_height or border
+
+  local img = cairo.ImageSurface(cairo.Format.A1, geo.width, geo.height)
+  local cr = cairo.Context(img)
+
+  cr:set_operator(cairo.Operator.CLEAR)
+  cr:set_source_rgba(0, 0, 0, 1)
+  cr:paint()
+  cr:set_operator(cairo.Operator.SOURCE)
+  cr:set_source_rgba(1, 1, 1, 1)
+
+  shape(cr, geo.width, geo.height, outer_shape_args)
+  cr:fill()
+  draw.shape_bounding = img._native
+
+  cr:set_operator(cairo.Operator.CLEAR)
+  cr:set_source_rgba(0, 0, 0, 1)
+  cr:paint()
+  cr:set_operator(cairo.Operator.SOURCE)
+  cr:set_source_rgba(1, 1, 1, 1)
+
+  gears.shape.transform(shape):translate(
+    border, titlebar_height
+  )(
+    cr,
+    geo.width - border * 2,
+    geo.height - titlebar_height - border,
+    inner_shape_args
+  )
+  cr:fill()
+  draw.shape_clip = img._native
+
+  img:finish()
+end
+
+beautiful.client_border_radius = 30
+
+local pending_shapes = {}
+local function round_up_client_corners(c, force, reference)
+  -- if not force and ((
+  --     -- @TODO: figure it out and uncomment
+  --     not beautiful.client_border_radius or beautiful.client_border_radius == 0
+  --     ) or (
+  --     not c.valid
+  --     ) or (
+  --     c.fullscreen
+  --     ) or (
+  --     pending_shapes[c]
+  --     ) or (
+  --     #c:tags() < 1
+  --     )) or beautiful.skip_rounding_for_crazy_borders then
+  --   --clog('R1 F='..(force or 'nil').. ', R='..(reference or '')..', C='.. (c and c.name or '<no name>'), c)
+  --   return
+  -- end
+  --clog({"Geometry", c:tags()}, c)
+  pending_shapes[c] = true
+  delayed_call(function()
+    local client_tag = choose_tag(c)
+    if not client_tag then
+      -- nlog('no client tag')
+      return
+    end
+    local num_tiled = get_num_tiled(client_tag)
+    --clog({"Shape", num_tiled, client_tag.master_fill_policy, c.name}, c)
+    --if not force and (c.maximized or (
+    if (
+        c.maximized or c.fullscreen
+            or (
+            (num_tiled <= 1 and client_tag.master_fill_policy == 'expand')
+                and not c.floating
+                and client_tag.layout.name ~= "floating"
+            )) then
+      pending_shapes[c] = nil
+      --nlog('R2 F='..(force and force or 'nil').. ', R='..reference..', C='.. c.name)
+      return
+    end
+    -- Draw outer shape only if floating layout or useless gaps
+    local outer_shape_args = 0
+    if client_tag.layout.name == "floating" or client_tag:get_gap() ~= 0 then
+      outer_shape_args = beautiful.client_border_radius
+    end
+    local inner_shape_args = beautiful.client_border_radius * 0.75
+    --local inner_shape_args = beautiful.client_border_radius - beautiful.base_border_width
+    --if inner_shape_args < 0 then inner_shape_args = 0 end
+    apply_shape(c, gears.shape.rounded_rect, outer_shape_args, inner_shape_args)
+    --clog("apply_shape "..(reference or 'no_ref'), c)
+    pending_shapes[c] = nil
+    --nlog('OK F='..(force and "true" or 'nil').. ', R='..reference..', C='.. c.name)
+  end)
+end
+
+-- client.connect_signal("manage", function(c)
+--   process_corners(c)
+-- end)
 
 client.connect_signal("manage", function(c)
-  process_corners(c)
+  local awesome_startup = awesome.startup
   c.minimized = false
+  delayed_call(function()
+    if c == client.focus then
+      on_client_focus(c)
+      if awesome_startup then
+        round_up_client_corners(c, false, "MF")
+      end
+    else
+      on_client_unfocus(c, true, function(_c)
+        if awesome_startup then
+          round_up_client_corners(_c, false, "MU")
+        end
+      end)
+    end
+  end)
 end)
 
--- Auto start applications
-awful.spawn.with_shell('copyq')
-awful.spawn('picom -b --experimental-backend --transparent-clipping')
-awful.spawn.with_shell('nm-applet')
-awful.spawn('blueman-applet')
+client.connect_signal("property::size", function(c)
+  if not awesome.startup then
+    round_up_client_corners(c, false, "S")
+  end
+end)
 
+-- client.connect_signal("property::size", function(c)
+--   process_corners(c)
+-- end)
+
+-- Auto start applications
+awful.spawn('picom -b --transparent-clipping')
 -- Enable russian + english layout and specify what shortcut will swap them
 os.execute("setxkbmap -layout us,ru -option 'grp:win_space_toggle'")
 -- Set keyboard key repeat delay (ms) and repeat rate
@@ -740,6 +1016,10 @@ os.execute("xset r rate 150 30")
 
 -- This sets primary monitor, resolution... basically everything that Gnome Displays did
 os.execute("xrandr --output eDP1 --mode 1920x1080 --pos 2560x360 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --primary --mode 2560x1440 --pos 0x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off")
+
+awful.spawn.with_shell('nm-applet')
+awful.spawn('copyq')
+awful.spawn('blueman-applet')
 
 -- toggle fullscreen (super + f)
 -- move\resize windows with mouse (super + left|right hold + drag, for moving|resizing)

@@ -12,3 +12,5 @@ nosudo-for-jorres
 yc-yubikey-cli
 helm
 kubectl 
+
+building-manually
