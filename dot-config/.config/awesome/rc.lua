@@ -5,6 +5,8 @@ local cairo = require("lgi").cairo
 local delayed_call = require("gears.timer").delayed_call
 local titlebar = require("actionless.titlebar")
 
+local debug = require("jorres.debug")
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -261,14 +263,20 @@ beautiful.hotkeys_description_font = 'Sans 12'
 
 
 local focus_or_else_spawn = function(client_class, client_command)
-  for _, cur_client in pairs(client.get()) do
-    if string.find(cur_client.class, client_class) then
-      client.focus = cur_client
-      cur_client:raise()
-      return
+  delayed_call(function()
+    local old_client = client.focus
+    for _, new_client in pairs(client.get()) do
+      if string.find(new_client.class, client_class) then
+        -- debug.nlog(old_client)
+        -- debug.nlog(new_client)
+        old_client:lower()
+        client.focus = new_client
+        new_client:raise()
+        return
+      end
     end
-  end
-  awful.util.spawn(client_command)
+    awful.util.spawn(client_command)
+  end)
 end
 
 -- {{{ Key bindings
@@ -506,11 +514,9 @@ clientkeys = gears.table.join(
   awful.key({ modkey, }, "m",
     function(c)
       c.fullscreen = not c.fullscreen
-      if c.fullscreen then
-
-      else
-
-      end
+      -- if c.fullscreen then
+      -- else
+      -- end
       c:raise()
     end,
     { description = "(un)maximize", group = "client" }),
@@ -598,13 +604,15 @@ awful.rules.rules = {
   -- All clients will match this rule.
   { rule = {},
     properties = { border_width = beautiful.border_width,
-      border_color = beautiful.border_normal,
-      focus = awful.client.focus.filter,
-      raise = true,
-      keys = clientkeys,
-      buttons = clientbuttons,
-      screen = awful.screen.preferred,
-      placement = awful.placement.no_overlap + awful.placement.no_offscreen
+      border_color         = beautiful.border_normal,
+      focus                = awful.client.focus.filter,
+      raise                = true,
+      keys                 = clientkeys,
+      buttons              = clientbuttons,
+      screen               = awful.screen.preferred,
+      placement            = awful.placement.no_overlap + awful.placement.no_offscreen,
+      maximized_vertical   = false,
+      maximized_horizontal = false,
     }
   },
 
@@ -720,34 +728,36 @@ client.connect_signal("mouse::enter", function(c)
   c:emit_signal("request::activate", "mouse_enter", { raise = false })
 end)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("focus", function(c)
+  c.border_color = beautiful.border_focus
+end)
 client.connect_signal("unfocus", function(c)
   c.border_color = beautiful.border_normal
 end)
 -- }}}
 
-screen.connect_signal("arrange", function(s)
-  local clients = client.get()
-  for _, c in ipairs(clients) do
-    if #clients == 1 or c.maximized then
-      c.border_width = 0
-    else
-      c.border_width = beautiful.border_width -- your border width
-    end
-  end
-end)
+-- screen.connect_signal("arrange", function(s)
+--   local clients = client.get()
+--   for _, c in ipairs(clients) do
+--     if #clients == 1 or c.maximized then
+--       c.border_width = 0
+--     else
+--       c.border_width = beautiful.border_width -- your border width
+--     end
+--   end
+-- end)
 
-local process_corners = function(c)
-  if c.fullscreen then
-    c.shape = function(cr, w, h)
-      gears.shape.rounded_rect(cr, w, h, 0)
-    end
-  else
-    c.shape = function(cr, w, h)
-      gears.shape.rounded_rect(cr, w, h, 30)
-    end
-  end
-end
+-- local process_corners = function(c)
+--   if c.fullscreen then
+--     c.shape = function(cr, w, h)
+--       gears.shape.rounded_rect(cr, w, h, 0)
+--     end
+--   else
+--     c.shape = function(cr, w, h)
+--       gears.shape.rounded_rect(cr, w, h, 30)
+--     end
+--   end
+-- end
 
 local function choose_tag(c)
   if c.screen and c.screen.selected_tags then
