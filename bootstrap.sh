@@ -3,6 +3,10 @@ sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manage
 # Special treatment for some rust tools, bug workaround:
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
+mkdir ~/hobbies
+mkdir ~/hobbies/plugins
+git git@github.com:Jorres/showmethat.nvim.git ~/hobbies/plugins/showmethat.nvim
+
 # Fun part - building awesome from source!
 sudo apt-get install -y dmenu alsa-utils xbacklight libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
 # To install awesome, clone awesome repo

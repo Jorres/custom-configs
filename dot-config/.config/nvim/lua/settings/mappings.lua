@@ -157,7 +157,6 @@ if not ok_showmethat then
 else
   local showmethat = require("showmethat")
   set("n", leader .. "sh", showmethat.show)
-  set("n", leader .. "sk", showmethat.kill_all)
 end
 
 -- set("n", "/", ":SearchBoxMatchAll title=Match clear_matches=false<CR>")

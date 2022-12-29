@@ -47,11 +47,8 @@ load_list_safely({
   -- PDE
   "plugins.telekasten",
   "plugins.prettier",
-  "plugins.ascii-drawing"
+  "plugins.ascii-drawing",
+
+  --- MY OWN PLUGINS
+  "showmethat"
 })
-
--- Try this later
--- require("plugins.distant")
-
---- MY OWN PLUGINS ---
--- require("academy.prototyping").setup()

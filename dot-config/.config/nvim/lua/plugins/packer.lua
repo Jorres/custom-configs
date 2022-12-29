@@ -132,12 +132,12 @@ return require('packer').startup(function(use, use_rocks)
   use { 'nvim-telescope/telescope-media-files.nvim' }
 
   -- === Language specific
-  use { 'hashivim/vim-terraform' }
+  use { 'hashivim/vim-terraform' } -- just the highlighting
+  use { 'towolf/vim-helm' } -- just the highlighting
 
   -- === Plugin \ Lua development ===
   use { 'tjdevries/colorbuddy.nvim' }
-  -- use { '/home/jorres/hobbies/plugins/showmethat' }
-  -- use { '/home/jorres/hobbies/plugins/academy.nvim' }
+  use { os.getenv("HOME") .. '/hobbies/plugins/showmethat' }
 
   -- === Actual programming ===
   use { 'vim-test/vim-test' }
