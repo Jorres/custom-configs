@@ -17,6 +17,7 @@ sudo apt-get build-dep awesome
 cd awesome && make && sudo make install
 # then reboot and voila
 
+
 # Do this to fix xbacklight:
 https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
 # Install picom (needed for transparent borders)
@@ -49,9 +50,6 @@ sudo rm -v /etc/apt/sources.list.d/ascii-image-converter.list
 
 # install brave
 
-# remap capslock to ctrl: 
-# gnome-tweaks > keyboard and mouse > additional layout options > Caps Lock behaviour
-
 # generate new ssh key pair, add to github account
 # initialize /home/username/.ssh/config, examples on the previous machine
 
@@ -59,7 +57,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # reboot machine for console change to apply
 
-# clone custom-configs repo, call `./install.sh`
+# clone custom-configs repo, call `./install.sh` | but better stow manually one by one
 
 # OPTIONALLY, if you like:
 # this installs zsh vi mode plugin. Don't forget to source zsh-vi-mode in zshrc
@@ -72,17 +70,13 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 mkdir ~/tmux-logs
 # Hit Prefix + I to install all the plugins
 
-# install telegram desktop from Ubuntu Software
+# install telegram desktop
 
-# install `nerdfont.ttf` from this repo by clicking on it
-
-# hide dock: search for `extensions` app in ubuntu, should be installed. Untick `Ubuntu dock`
-# Optionally, disable alt-tab
-
+# install `nerdfont.ttf` from this repo by clicking on it (sorry, don't know how to do this in awesome, google)
 
 # Install node.js, tweak version as required
 #                                         VVVVVV version here
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # Install cool things from npm:
@@ -93,7 +87,6 @@ sudo npm install -g typescript typescript-language-server prettier tldr
 # Docker is good via this link: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
 # Just google kubectl and helm
 
-# Install ansible
 # Install CopyQ
 # Install starship, zsh wrapper
 
@@ -145,8 +138,6 @@ sudo ln -s /etc/sudoers.d/nosudo-for-jorres $HOME/custom-configs/nosudo-for-jorr
 # (should be in stow-bin binaries)
 
 # Install golang (binary from site, or some outdated version in apt)
-# Install gopls:
-go install golang.org/x/tools/gopls@latest 
 # Install k9s
 go install github.com/derailed/k9s
 # Install glow
@@ -189,10 +180,9 @@ sudo cp ./stow-bin/bin/rg /usr/local/bin
 
 #### Neovim
 
-# :MasonInstall bash-language-server dockerfile-language-server fixjson gopls kotlin-language-server lua-language-server prettier terraform-ls typescript-language-server
+# :MasonInstall fixjson prettier
  
 pip3 install neovim-remote
-
 
 #### Trydactyl
 # Install tridactyl itself:
@@ -201,9 +191,3 @@ https://github.com/tridactyl/tridactyl#installation
 curl -fsSl https://raw.githubusercontent.com/tridactyl/native_messenger/master/installers/install.sh -o /tmp/trinativeinstall.sh && sh /tmp/trinativeinstall.sh master
 # Hide annoying mode indicator
 :set modeindicator false
-
-
-
-## Install
-gcl https://github.com/pop-os/shell.git
-cd sheet && make local-install
