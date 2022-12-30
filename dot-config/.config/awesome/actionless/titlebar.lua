@@ -237,14 +237,13 @@ end
 
 
 function titlebar.remove_border(c)
-
   if composite_manager_running then
     c:set_xproperty('_ACTNLZZ_IGNORE_PICOM_BORDER', true)
   end
 
-  if not (titlebar.border_is_enabled(c) or titlebar.is_enabled(c)) then
-    return
-  end
+  -- if not (titlebar.border_is_enabled(c) or titlebar.is_enabled(c)) then
+  --   return
+  -- end
   local geom = c:geometry()
   for _, position in ipairs({"top", "bottom", "right", "left"}) do
     awful.titlebar.hide(c, position)

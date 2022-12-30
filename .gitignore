@@ -1,10 +1,6 @@
 **/plugged/**
 
 **/packer_compiled.lua
-vifminfo.json
-
-# That is a sub-repo of awesome, and I download it in my bootstrap.sh
-awesome-wm-widgets
 
 nosudo-for-jorres
 
@@ -14,3 +10,9 @@ helm
 kubectl 
 
 building-manually
+
+# AwesomeWM sub-modules
+awesome-wm-widgets
+rubato
+bling
+layout-machi
