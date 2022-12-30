@@ -13,7 +13,7 @@ cmp.setup {
       if cmp.visible() then
         cmp.confirm({
           select = true,
-          behavior = cmp.ConfirmBehavior,
+          behavior = cmp.ConfirmBehavior
         })
       else
         fallback()
@@ -32,10 +32,10 @@ cmp.setup {
   },
 
   sources = {
-    {
-      name = "copilot",
-      max_item_count = 3,
-    },
+    -- {
+    --   name = "copilot",
+    --   max_item_count = 3,
+    -- },
     { name = "luasnip", max_item_count = 2 },
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lua", max_item_count = 5, filetype = "lua" },

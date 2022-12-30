@@ -34,7 +34,6 @@ load_list_safely({
   "plugins.guess-indent",
   "plugins.hydra",
   "plugins.numb",
-  "plugins.diffview",
   "plugins.imageview",
   -- "plugins.mode-on-line",
   "plugins.dressing",

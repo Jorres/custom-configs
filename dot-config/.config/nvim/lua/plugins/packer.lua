@@ -53,8 +53,6 @@ return require('packer').startup(function(use, use_rocks)
       end, 100)
     end,
   }
-  use { "zbirenbaum/copilot-cmp", }
-  -- use { "github/copilot.vim" }
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' } -- reenter sudo editing with :Suda
@@ -68,7 +66,6 @@ return require('packer').startup(function(use, use_rocks)
   use { -- Enable git changes to be shown in sign column
     'lewis6991/gitsigns.nvim',
   }
-  use { 'sindrets/diffview.nvim' }
   use { 'ruifm/gitlinker.nvim' }
 
   -- === UI === --
