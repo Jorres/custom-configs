@@ -18,6 +18,7 @@ require"gitlinker".setup({
     ["try.gitea.io"] = require"gitlinker.hosts".get_gitea_type_url,
     ["codeberg.org"] = require"gitlinker.hosts".get_gitea_type_url,
     ["bitbucket.org"] = require"gitlinker.hosts".get_bitbucket_type_url,
+    ["bb.yandexcloud.net"] = require"gitlinker.hosts".get_bitbucket_type_url,
     ["try.gogs.io"] = require"gitlinker.hosts".get_gogs_type_url,
     ["git.sr.ht"] = require"gitlinker.hosts".get_srht_type_url,
     ["git.launchpad.net"] = require"gitlinker.hosts".get_launchpad_type_url,

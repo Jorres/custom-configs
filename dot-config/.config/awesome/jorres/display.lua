@@ -9,10 +9,11 @@ local display = {}
 
 display.init_monitor_set = function()
   os.execute([[
+# that means WHEN NOT CONNECTED, sorry for bad code
 if [ -z `xrandr --query | grep "HDMI1 connected"` ]
 then
   xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal \
-         --output HDMI1 --off \
+         --output HDMI1 --off \ 
          --output DP1 --off \
          --output DP2 --off \
          --output HDMI2 --off \
@@ -27,7 +28,12 @@ else
 fi
 ]] )
 
-  -- os.execute("sleep 1")
+-- xrandr --output eDP1 --mode 1920x1080 --pos 2560x360 --rotate normal \
+--        --output HDMI1 --primary --mode 2560x1440 --pos 0x0 --rotate normal \
+--        --output DP1 --off \
+--        --output DP2 --off \
+--        --output HDMI2 --off \
+--        --output VIRTUAL1 --off
 
   local main_screen = awful.screen.getbycoord(20, 20)
   delayed_call(function()
@@ -73,7 +79,7 @@ local taglist_buttons = gears.table.join(
   awful.button({}, 5, function(t) awful.tag.viewprev(t.screen) end)
 )
 
-display.init_display_handlers = function()
+display.init_display_handlers = function(keyboard_widget)
   screen.connect_signal("property::geometry", set_wallpaper)
 
   awful.screen.connect_for_each_screen(function(s)
@@ -116,7 +122,7 @@ display.init_display_handlers = function()
       }
     }
 
-    s.mywibox = require("wibar").init_wibar(s)
+    s.mywibox = require("wibar").init_wibar(s, keyboard_widget)
   end)
 end
 

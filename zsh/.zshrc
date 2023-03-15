@@ -83,13 +83,6 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-function dark {
-    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru-dark'
-}
-function light {
-    gsettings set org.gnome.desktop.interface gtk-theme 'Yaru'
-}
-
 export EDITOR='nvim'
 
 export NVM_DIR="$HOME/.nvm"
@@ -121,6 +114,8 @@ alias tmm="tmuxinator start md"
 alias tmms="tmuxinator stop md"
 alias tmy="tmuxinator start yandex"
 alias tmys="tmuxinator stop yandex"
+alias tmY="tmuxinator start yandex_snd"
+alias tmYs="tmuxinator stop yandex_snd"
 
 alias ast="arc status"
 alias acmsg="arc commit -m"
@@ -208,3 +203,8 @@ n ()
 }
 
 alias nnn='n'
+
+export GTK_IM_MODULE='xim'
+export QT_IM_MODULE='ibus'
+export XMODIFIERS='@im=ibus'
+export GLFW_IM_MODULE='ibus'

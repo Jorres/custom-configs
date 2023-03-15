@@ -5,6 +5,8 @@ local cairo = require("lgi").cairo
 local delayed_call = require("gears.timer").delayed_call
 local titlebar = require("actionless.titlebar")
 
+local keyboard_layout = require("keyboard_layout")
+
 local debug = require("jorres.debug")
 local display = require("jorres.display")
 local launcher = require("jorres.launcher")
@@ -139,7 +141,31 @@ mylauncher = awful.widget.launcher(
 
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 
-display.init_display_handlers()
+local kbdcfg = keyboard_layout.kbdcfg({ cmd = "ibus engine", type = "tui" })
+
+kbdcfg.add_primary_layout("English", "us", "xkb:us::eng")
+kbdcfg.add_primary_layout("Russian", "ru", "xkb:ru::rus")
+
+kbdcfg.add_additional_layout("Japanese", "ja", "mozc-jp")
+kbdcfg.bind()
+
+awful.keyboard.append_global_keybindings {
+  awful.key({ modkey, }, "Shift_L", function() kbdcfg.switch_next() end,
+    { description = "Switch next language", group = "language" }),
+  -- awful.key({ modkey, "Control_L" }, "Shift_L", function()
+  --   kbdcfg.switch_by_name("Japanese")
+  -- end,
+  --   { description = "Switch to japanese", group = "language" }),
+}
+
+kbdcfg.widget:buttons(
+  awful.util.table.join(
+    awful.button({}, 1, function() kbdcfg.switch_next() end),
+    awful.button({}, 3, function() kbdcfg.menu:toggle() end)
+  )
+)
+
+display.init_display_handlers(kbdcfg.widget)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
@@ -164,14 +190,16 @@ local focus_or_else_spawn = function(client_class, client_command)
         return
       end
     end
-    awful.util.spawn(client_command)
+    awful.spawn.with_shell(client_command)
   end)
 end
 
 -- {{{ Key bindings
 awful.keyboard.append_global_keybindings {
-  -- awful.key({ modkey, }, "t", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end,
-  --   { description = "show help", group = "awesome" }),
+
+  awful.key({ modkey, }, "g", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end,
+
+    { description = "show help", group = "awesome" }),
   awful.key({ modkey, }, "Left", awful.tag.viewprev,
     { description = "view previous", group = "tag" }),
   awful.key({ modkey, }, "Right", awful.tag.viewnext,
@@ -345,8 +373,7 @@ awful.keyboard.append_global_keybindings {
     function()
       focus_or_else_spawn("kitty", terminal)
     end,
-    { description = "Run " .. terminal, group = "apps" }),
-
+    { description = "Run " .. terminal .. "no crutch", group = "apps" }),
 
   awful.key({ modkey }, "2", function()
     focus_or_else_spawn("firefox", "firefox")
@@ -357,6 +384,24 @@ awful.keyboard.append_global_keybindings {
     focus_or_else_spawn("TelegramDesktop", "telegram-desktop")
   end,
     { description = "Run Telegram", group = "apps" }),
+
+  --                            english e
+  awful.key({ "Control", "Shift" }, "e", function()
+    os.execute("ibus engine xkb:us::eng")
+  end,
+    { description = "Emergency English from Japanese", group = "crutches" }),
+
+  --                            russian y
+  awful.key({ "Control", "Shift" }, "у", function()
+    os.execute("ibus engine xkb:us::eng")
+  end,
+    { description = "Emergency English from Russian", group = "crutches" }),
+
+  -- awful.key({ modkey }, "3",
+  --   function()
+  --     focus_or_else_spawn("kitty", {"GLFW_IM_MODULE=ibus", "kitty"})
+  --   end,
+  --   { description = "Run " .. terminal, group = "apps" }),
 
   awful.key({ "Ctrl", "Shift" }, "\\", function()
     awful.spawn("flameshot gui")
@@ -406,22 +451,23 @@ clientkeys = gears.table.join(
   --   { description = "minimize", group = "client" }),
   awful.key({ modkey, }, "m",
     function(c)
-      c.maximized = not c.maximized
+      c.fullscreen = not c.fullscreen
+      c.maximized = false
       c:raise()
     end,
     { description = "(un)maximize", group = "client" })
-  -- awful.key({ modkey, "Control" }, "m",
-  --   function(c)
-  --     c.maximized_vertical = not c.maximized_vertical
-  --     c:raise()
-  --   end,
-  --   { description = "(un)maximize vertically", group = "client" }),
-  -- awful.key({ modkey, "Shift" }, "m",
-  --   function(c)
-  --     c.maximized_horizontal = not c.maximized_horizontal
-  --     c:raise()
-  --   end,
-  --   { description = "(un)maximize horizontally", group = "client" })
+-- awful.key({ modkey, "Control" }, "m",
+--   function(c)
+--     c.maximized_vertical = not c.maximized_vertical
+--     c:raise()
+--   end,
+--   { description = "(un)maximize vertically", group = "client" }),
+-- awful.key({ modkey, "Shift" }, "m",
+--   function(c)
+--     c.maximized_horizontal = not c.maximized_horizontal
+--     c:raise()
+--   end,
+--   { description = "(un)maximize horizontally", group = "client" })
 )
 
 -- Bind all key numbers to tags.
@@ -616,8 +662,21 @@ client.connect_signal("mouse::enter", function(c)
   c:emit_signal("request::activate", "mouse_enter", { raise = false })
 end)
 
+local move_mouse_to_client = function(c)
+  if mouse.object_under_pointer() ~= c then
+    local geometry = c:geometry()
+    local x = geometry.x + geometry.width / 2
+    local y = geometry.y + geometry.height / 2
+    mouse.coords({ x = x, y = y }, true)
+  end
+end
+
+client.connect_signal("raised", function(c)
+  move_mouse_to_client(c)
+end)
 client.connect_signal("focus", function(c)
   c.border_color = beautiful.border_focus
+  move_mouse_to_client(c)
 end)
 client.connect_signal("unfocus", function(c)
   c.border_color = beautiful.border_normal
@@ -796,18 +855,19 @@ client.connect_signal("property::size", function(c)
 end)
 
 -- Auto start applications
-awful.spawn('picom -b --transparent-clipping')
--- Enable russian + english layout and specify what shortcut will swap them
-os.execute("setxkbmap -layout us,ru -option 'grp:win_space_toggle'")
--- Set keyboard key repeat delay (ms) and repeat rate
-os.execute("xset r rate 150 30")
--- Remap caps lock to control
-os.execute("setxkbmap -option ctrl:nocaps")
-
+awful.spawn.with_shell('picom -b --transparent-clipping --config /home/tarasov-egor/.config/awesome/picom/picom.cfg')
+awful.spawn.with_shell("ibus-daemon -drx")
+awful.spawn.with_shell("xset r rate 150 30")
 awful.spawn.with_shell('nm-applet')
-awful.spawn('copyq')
+awful.spawn.with_shell('copyq')
 awful.spawn('blueman-applet')
 
+os.execute("setxkbmap -option ctrl:nocaps")
+-- os.execute("setxkbmap -layout us,ru -option 'grp:win_space_toggle'")
+-- os.execute("setxkbmap -layout us,ru,jp -option 'grp:win_space_toggle'")
+-- os.execute("if [[ $(setxkbmap -print -query | grep layout) != *us,ru ]]; then setxkbmap -layout us,ru; fi"fcitx -dm)
+
+-- Set keyboard key repeat delay (ms) and repeat rate
 display.init_monitor_set()
 
 -- toggle fullscreen (super + f)

@@ -9,4 +9,3 @@ if [ "$BRIGHTNESS" == "" ]; then
     BRIGHTNESS="20"
 fi
 
-sudo su -c "echo $BRIGHTNESS >/sys/class/backlight/amdgpu_bl0/brightness"

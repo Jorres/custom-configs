@@ -33,7 +33,6 @@ load_list_safely({
   "plugins.indent-blanks",
   "plugins.guess-indent",
   "plugins.hydra",
-  "plugins.numb",
   "plugins.imageview",
   -- "plugins.mode-on-line",
   "plugins.dressing",
@@ -41,7 +40,8 @@ load_list_safely({
   "plugins.focus",
   "plugins.legendary",
   "plugins.noice",
-  "plugins.ufo",
+  "plugins.auto-hlsearch",
+  "plugins.ccc",
 
   -- PDE
   "plugins.telekasten",

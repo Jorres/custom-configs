@@ -3,36 +3,35 @@ local awful = require("awful")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
 local C = require("constants")
--- local utils = require("jorres.utils")
+local rubato = require("rubato")
+local debug = require("jorres.debug")
 
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 local M = {}
 
-M.init_wibar = function(s)
-  local batteryarc_widget      = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
-  local volume_widget          = require('awesome-wm-widgets.volume-widget.volume')
-  local keyboard_layout_widget = awful.widget.keyboardlayout()
+local wibar_is_resizing = false
 
+M.init_wibar = function(s, keyboard_widget)
+  local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+  local volume_widget     = require('awesome-wm-widgets.volume-widget.volume')
 
-  -- Had to separate into different widgets to have separate alignment 
+  -- Had to separate into different widgets to have separate alignment
   --                                     xxx
   -- (month takes 3 chars where hour 2): xx
-  local text_clock_widget      = wibox.widget.textclock()
-  text_clock_widget.format     = "%H\n%M"
-  local month_widget           = wibox.widget.textclock()
-  month_widget.format          = "%b"
-  local day_widget             = wibox.widget.textclock()
-  day_widget.format            = "%d"
-  
+  local text_clock_widget  = wibox.widget.textclock()
+  text_clock_widget.format = "%H\n%M"
+  local month_widget       = wibox.widget.textclock()
+  month_widget.format      = "%b"
+  local day_widget         = wibox.widget.textclock()
+  day_widget.format        = "%d"
+
   local wibar_subwin = awful.popup {
     ontop          = true,
     placement      = C.wibar_subwin_placement,
     minimum_width  = C.wibar_subwin_width,
-    minimum_height = C.wibar_subwin_height,
-    x              = C.wibar_subwin_x(s),
-    y              = C.wibar_subwin_y(s),
+    minimum_height = C.wibar_subwin_height + 200,
     opacity        = 0.01,
     screen         = s,
     widget         = {},
@@ -44,7 +43,7 @@ M.init_wibar = function(s)
     ontop = true,
     screen = s,
     fg = beautiful.fg_normal,
-    height = C.wibar_height,
+    height = C.wibar_height + 200,
     width = C.wibar_width,
     bg = beautiful.bg_normal,
     position = C.wibar_position,
@@ -55,10 +54,14 @@ M.init_wibar = function(s)
     end,
   })
 
+
   local systray = wibox.widget.systray()
   systray:set_horizontal(false)
   s.systray = systray
-  systray.visible = false
+  systray.visible = true
+
+  wibar_subwin.x = C.wibar_subwin_x(s, wibar)
+  wibar_subwin.y = C.wibar_subwin_y(s, wibar)
 
   local my_volume_widget = volume_widget {
     size = 40,
@@ -74,12 +77,6 @@ M.init_wibar = function(s)
           layout = wibox.layout.fixed.vertical,
           spacing = 45,
           s.mytaglist,
-          {
-            keyboard_layout_widget,
-            widget = wibox.container.place,
-            haligh = "center",
-            valign = "center",
-          },
           {
             {
               month_widget,
@@ -113,6 +110,12 @@ M.init_wibar = function(s)
             haligh = "center",
             valign = "center",
           },
+          {
+            keyboard_widget,
+            widget = wibox.container.place,
+            haligh = "center",
+            valign = "center",
+          },
           systray,
           {
             {
@@ -140,17 +143,54 @@ M.init_wibar = function(s)
     },
   }
 
-  local systray_visible_hack = false
+  local systray_visible_hack = true
+
   awful.keyboard.append_global_keybindings({
     awful.key({ modkey }, "t", function()
+      if wibar_is_resizing then
+        return
+      end
+      wibar_is_resizing = true
       -- TODO: this is a hack, find a better way, the line below just does not work
       -- systray.visible = not systray.visible
+      local intro = 0.15
+      local duration = 0.3
+      local timed
       if systray_visible_hack == true then
+        timed = rubato.timed {
+          intro = intro,
+          rate = 60,
+          duration = duration,
+          subscribed = function(pos)
+            wibar.height = C.wibar_height + math.floor(200 * (1 - pos))
+          end
+        }
         systray.visible = false
+        gears.timer {
+          timeout = duration, autostart = true, single_shot = true,
+          callback = function()
+            wibar_is_resizing = false
+          end
+        }
       else
-        systray.visible = true
+        timed = rubato.timed {
+          intro = intro,
+          rate = 60,
+          duration = duration,
+          subscribed = function(pos)
+            wibar.height = C.wibar_height + math.floor(200 * pos)
+          end
+        }
+        gears.timer {
+          timeout = duration, autostart = true, single_shot = true,
+          callback = function()
+            systray.visible = true
+            wibar_is_resizing = false
+          end
+        }
       end
       systray_visible_hack = not systray_visible_hack
+      timed.target = 1
     end, { description = "Toggle systray visibility", group = "custom" }),
     awful.key({}, "XF86AudioRaiseVolume",
       function()

@@ -9,3 +9,7 @@ gpg -c --no-symkey-cache <filename>
 
 # Decrypt the file with gpg by passphrase
 gpg -d --no-symkey-cache <filename>
+
+# Change display brightness 
+sudo su -c "echo <brightness> >/sys/class/backlight/<backlight>/brightness"
+$ backlight: bash -c "ls /sys/class/backlight | awk '{print $1}'"

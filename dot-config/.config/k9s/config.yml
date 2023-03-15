@@ -15,21 +15,58 @@ k9s:
     fullScreenLogs: true
     textWrap: false
     showTime: false
-  currentContext: yc-stroppy-ydb
-  currentCluster: yc-managed-k8s-cat9oii0g308vd192nn8
+  currentContext: kind-local-kind
+  currentCluster: kind-local-kind
   clusters:
-    default:
+    cluster-pico:
       namespace:
         active: all
         lockFavorites: false
         favorites:
-        - kube-system
-        - lbkt-man
-        - ydb-operator
         - all
         - default
       view:
-        active: pod
+        active: services
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    kind-local-kind:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - ydb
+        - all
+        - default
+      view:
+        active: pods
+      featureGates:
+        nodeShell: false
+      shellPod:
+        image: busybox:1.31
+        command: []
+        args: []
+        namespace: default
+        limits:
+          cpu: 100m
+          memory: 100Mi
+      portForwardAddress: localhost
+    testing-a:
+      namespace:
+        active: all
+        lockFavorites: false
+        favorites:
+        - default
+      view:
+        active: po
       featureGates:
         nodeShell: false
       shellPod:
@@ -42,27 +79,6 @@ k9s:
           memory: 100Mi
       portForwardAddress: localhost
     yc-managed-k8s-cat9oii0g308vd192nn8:
-      namespace:
-        active: all
-        lockFavorites: false
-        favorites:
-        - ydb-operator
-        - all
-        - default
-      view:
-        active: pod
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-      portForwardAddress: localhost
-    yc-managed-k8s-caths41l4rj4eu52jdem:
       namespace:
         active: all
         lockFavorites: false
@@ -87,7 +103,6 @@ k9s:
         active: all
         lockFavorites: false
         favorites:
-        - ydb
         - all
         - default
       view:

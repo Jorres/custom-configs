@@ -15,7 +15,7 @@ local servers = {
       }
     },
   },
-  sumneko_lua = {
+  lua_ls = {
     Lua = {
       runtime = {
         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
@@ -56,6 +56,13 @@ local servers = {
   }
 }
 
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+	vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = false,
+		underline = true,
+		signs = true,
+	}
+)
 
 local on_attach = function(_, bufnr)
   if vim.bo[bufnr].filetype == "helm" then
@@ -63,18 +70,28 @@ local on_attach = function(_, bufnr)
   end
 end
 
+vim.cmd [[
+  autocmd CursorHold * lua vim.diagnostic.open_float()
+]]
+
+
 local enforce_installed = vim.tbl_keys(servers)
 
-local additional_tools = {
+-- Here is the mapping between mason names and lspconfig names:
+-- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+-- In this table, you can only specify SERVERS, not general tools :( 
+-- For stuff like `prettify`, you still have to do it manually
+local zero_setup_servers = {
   "bashls",
   "dockerls",
   "kotlin_language_server",
   "terraformls",
-  "tsserver"
+  "tsserver",
+  "golangci_lint_ls",
 }
 
-for _, tool in ipairs(additional_tools) do
-  table.insert(enforce_installed, tool)
+for _, server in ipairs(zero_setup_servers) do
+  table.insert(enforce_installed, server)
 end
 
 require("mason-lspconfig").setup {

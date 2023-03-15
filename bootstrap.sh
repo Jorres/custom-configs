@@ -1,5 +1,7 @@
+## Do this all from regular ubuntu, and hopefully everything will work after you relogin to awesome
+
 sudo apt-get update 
-sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip
+sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip easytag xautomation
 # Special treatment for some rust tools, bug workaround:
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
@@ -17,7 +19,6 @@ sudo apt-get build-dep awesome
 cd awesome && make && sudo make install
 # then reboot and voila
 
-
 # Do this to fix xbacklight:
 https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
 # Install picom (needed for transparent borders)
@@ -28,8 +29,6 @@ ninja -C build
 # To install the binaries in /usr/local/bin (optional)
 sudo ninja -C build install
 
-
-
 # Install drag-n-drop dependency for nnn
 sudo apt-get install libgtk-3-dev
 git clone https://github.com/mwh/dragon.git
@@ -37,6 +36,8 @@ cd dragon
 make
 make install
 
+git clone https://github.com/Jorres/dotfiles ~/custom-configs
+cd ~/custom-configs/dot-config/.config/awesome
 # Clone misc widget repository
 git clone https://github.com/streetturtle/awesome-wm-widgets.git ~/.config/awesome/awesome-wm-widgets
 # Clone other widget repository
@@ -54,21 +55,21 @@ sudo apt update
 sudo apt install -y ascii-image-converter
 sudo rm -v /etc/apt/sources.list.d/ascii-image-converter.list
 
-# install brave
+# do `stow` invocations from ~/custom-configs/install.sh
+
+# install brave | firefox or whatever floats your boat
 
 # generate new ssh key pair, add to github account
-# initialize /home/username/.ssh/config, examples on the previous machine
+# initialize /home/username/.ssh/config, take examples on the previous machine
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # reboot machine for console change to apply
 
-# clone custom-configs repo, call `./install.sh` | but better stow manually one by one
-
 # OPTIONALLY, if you like:
-# this installs zsh vi mode plugin. Don't forget to source zsh-vi-mode in zshrc
+# this installs zsh vi mode plugin. Add zsh-vi-mode to .zshrc to list of plugins
 # git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
-git clone git@github.com:brokendisk/dune-quotes.git $ZSH/custom/plugins/dune-quotes
+
 sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 sudo gem install tmuxinator
 # Install Tmux plugin manager
@@ -87,7 +88,6 @@ sudo apt-get install -y nodejs
 
 # Install cool things from npm:
 sudo npm install -g typescript typescript-language-server prettier tldr
-# typewritten
 
 # Install docker, kubectl and helm
 # Docker is good via this link: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
@@ -109,7 +109,7 @@ python3 -m pip install libtmux --user
 # https://docs.ankiweb.net/platform/linux/installing.html
 python3 -m pip install markdown-anki-deck
 
-# This install atuin, do interactively  
+# This install atuin, do this interactively
 # bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
 # atuin import auto
 
@@ -136,17 +136,20 @@ sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/sha
 sudo snap install exercism
 exercism configure --token=f9e912f4-334c-4b73-9566-6c57d33002f5
 
+# This is optional, just a hackish experiment, don't expect to work reliably
 cp ./nosudo-for-jorres.copy-low-permissions ./nosudo-for-jorres
 sudo chmod 440 /etc/sudoers.d/nosudo-for-jorres
 sudo ln -s /etc/sudoers.d/nosudo-for-jorres $HOME/custom-configs/nosudo-for-jorres
 
-# install `dust` utility, du alternative, as binary from github
-# (should be in stow-bin binaries)
+# install `dust` utility:
+curl -LO dust.deb https://github.com/bootandy/dust/releases/download/v0.8.4/du-dust_0.8.4_amd64.deb
+dpkg -i du-dust_0.8.4_amd64.deb
+rm ./du-dust_0.8.4_amd64.deb
 
 # Install golang (binary from site, or some outdated version in apt)
 # Install k9s
 go install github.com/derailed/k9s
-# Install glow
+# Install any go modules that you need like this:
 go install github.com/charmbracelet/glow@latest
 
 # Setup Moonlander tooling
@@ -190,13 +193,17 @@ sudo cp ./stow-bin/bin/rg /usr/local/bin
  
 pip3 install neovim-remote
 
-#### Trydactyl
+#### Trydactyl for Firefox
 # Install tridactyl itself:
 https://github.com/tridactyl/tridactyl#installation
 # Then native messenger:
 curl -fsSl https://raw.githubusercontent.com/tridactyl/native_messenger/master/installers/install.sh -o /tmp/trinativeinstall.sh && sh /tmp/trinativeinstall.sh master
-# Hide annoying mode indicator
+# Hide annoying mode indicator (run inside : prompt in trydactyl)
 :set modeindicator false
 
-# Install starcraft 
-https://losst.pro/ustanovka-starcraft-2-v-linux
+# Install ibus
+sudo apt-get install fcitx-mozc ibus-mozc mozc-data mozc-server mozc-utils-gui
+# Open a tray application (or run `ibus-setup`) and make sure `Advanced/Use system keyboard layout` is set
+
+# Make sure you have ru, en, jp locales uncommented in /etc/locales.gen
+# Run `locale-gen` afterwards
