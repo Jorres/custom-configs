@@ -21,6 +21,23 @@ named_keymaps.remove_highlight = {
   opts = default_opts
 }
 
+
+named_keymaps.print_var = {
+  "<leader>rv",
+  function() require('refactoring').debug.print_var() end,
+  mode = { "n" },
+  description = "Debug a variable",
+  opts = default_opts
+}
+
+named_keymaps.debug_cleanup = {
+  "<leader>rc",
+  function() require('refactoring').debug.cleanup({}) end,
+  mode = { "n" },
+  description = "Cleanup debug statements",
+  opts = default_opts
+}
+
 named_keymaps.telescope_lsp_definitions = {
   "<leader>sd",
   ":Telescope lsp_definitions<CR>",
@@ -117,6 +134,72 @@ named_keymaps.show_legendary = {
   opts = default_opts
 }
 
+local tmux_moves = {
+  h = "Left",
+  j = "Down",
+  k = "Up",
+  l = "Right",
+}
+
+-- Have to explicitly disable standard mappings of this plugin:
+vim.api.nvim_command("let g:tmux_navigator_no_mappings = 1")
+
+local chat = {
+  active = false,
+}
+
+for direction_vim, direction_word in pairs(tmux_moves) do
+  named_keymaps["jump_window_" .. direction_word] = {
+    "<C-" .. direction_vim .. ">",
+    function()
+      if chat.active then
+        return
+      else
+        vim.api.nvim_command("TmuxNavigate" .. direction_word)
+      end
+    end,
+    mode = { "n", "v" },
+    description = "Easier switching between windows",
+    opts = default_opts
+  }
+end
+
+for direction_vim, direction_word in pairs(tmux_moves) do
+  named_keymaps["jump_window_insert_" .. direction_word] = {
+    "<C-" .. direction_vim .. ">",
+    function()
+      if chat.active then
+        return
+      else
+        local s = vim.api.nvim_replace_termcodes('<C-h>', true, true, true)
+        vim.api.nvim_feedkeys(s, 'n', false)
+      end
+    end,
+    mode = { "i" },
+    description = "Easier switching between windows",
+    opts = default_opts
+  }
+end
+
+if os.getenv("OPENAI_API_KEY") ~= nil then
+  -- local chatgptPublicModule = require("chatgpt.module")
+  -- local last_prompt = {}
+  named_keymaps.run_chat_gpt = {
+    "<C-c>",
+    function()
+      if chat.active then
+        chat.active = false
+      else
+        chat.active = true
+      end
+      vim.api.nvim_command(":GpChatToggle<cr>")
+    end,
+    mode = { "n", "i" },
+    description = "Open/close ChatGPT window",
+    opts = default_opts
+  }
+end
+
 named_keymaps.exit_terminal_1 = {
   "<c-[>",
   "<c-\\><c-n>",
@@ -138,6 +221,14 @@ named_keymaps.file_tree_toggle = {
   ":NvimTreeFindFileToggle<CR>",
   mode = { "n" },
   description = "Toggle file tree",
+  opts = default_opts
+}
+
+named_keymaps.file_sequence_toggle = {
+  "<leader>ss",
+  ":lua MiniFiles.open()<CR>",
+  mode = { "n" },
+  description = "Toggle file sequence",
   opts = default_opts
 }
 
@@ -175,24 +266,6 @@ named_keymaps.toggleterm_send_visual_selection = {
   opts = default_opts
 }
 
-local tmux_moves = {
-  h = "Left",
-  j = "Down",
-  k = "Up",
-  l = "Right",
-}
-
--- vim.opt["tmux_navigator_no_mappings"] = 1
-for direction_vim, direction_word in pairs(tmux_moves) do
-  named_keymaps["tmux_move_" .. direction_vim] = {
-    "<C-" .. direction_vim .. ">",
-    ":TmuxNavigate" .. direction_word .. "<CR>",
-    mode = { "n", "v" },
-    description = "Tmux navigate " .. direction_word,
-    opts = default_opts
-  }
-end
-
 named_keymaps.toggleterm_send_line = {
   "<leader>t",
   ":ToggleTermSendCurrentLine<CR>:ToggleTerm<CR>",
@@ -217,10 +290,33 @@ named_keymaps.open_nnn_picker = {
   opts = default_opts
 }
 
+named_keymaps.jump_forward = {
+  "s",
+  function()
+    require("flash").jump({
+      search = { forward = true, wrap = true, multi_window = false },
+    })
+  end,
+  mode = { "n", "v" },
+  description = "Jump on the screen",
+}
+
+named_keymaps.jump_forward_insert_mode = {
+  "<C-s>",
+  function()
+    require("flash").jump({
+      search = { forward = true, wrap = true, multi_window = false },
+    })
+  end,
+  mode = { "i" },
+  description = "Jump on the screen insert mode",
+}
+
 local unnamed_keymaps = {}
 for _, v in pairs(named_keymaps) do
   table.insert(unnamed_keymaps, v)
 end
+
 
 local named_commands = {}
 
@@ -267,7 +363,6 @@ require('legendary').setup({
     commands = {},
     autocmds = {},
   },
-
   sort = {
     -- sort most recently used item to the top
     most_recent_first = true,
@@ -284,7 +379,6 @@ require('legendary').setup({
     -- NOTE: THIS TAKES PRECEDENCE OVER OTHER SORT OPTIONS!
     frecency = false,
   },
-
   -- Customize the prompt that appears on your vim.ui.select() handler
   -- Can be a string or a function that returns a string.
   select_prompt = 'legendary.nvim',
@@ -306,20 +400,6 @@ require('legendary').setup({
   include_legendary_cmds = true,
   -- Sort most recently used items to the top of the list
   -- so they can be quickly re-triggered when opening legendary again
-  which_key = {
-    -- Automatically add which-key tables to legendary
-    -- see ./doc/WHICH_KEY.md for more details
-    auto_register = false,
-    -- you can put which-key.nvim tables here,
-    -- or alternatively have them auto-register,
-    -- see ./doc/WHICH_KEY.md
-    mappings = {},
-    opts = {},
-    -- controls whether legendary.nvim actually binds they keymaps,
-    -- or if you want to let which-key.nvim handle the bindings.
-    -- if not passed, true by default
-    do_binding = true,
-  },
   scratchpad = {
     -- How to open the scratchpad buffer,
     -- 'current' for current window, 'float'

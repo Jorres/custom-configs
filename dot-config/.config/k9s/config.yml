@@ -8,6 +8,7 @@ k9s:
   readOnly: false
   noExitOnCtrlC: false
   noIcons: false
+  skipLatestRevCheck: false
   logger:
     tail: 500
     buffer: 5000
@@ -18,105 +19,26 @@ k9s:
   currentContext: kind-local-kind
   currentCluster: kind-local-kind
   clusters:
-    cluster-pico:
-      namespace:
-        active: all
-        lockFavorites: false
-        favorites:
-        - all
-        - default
-      view:
-        active: services
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-      portForwardAddress: localhost
     kind-local-kind:
       namespace:
         active: all
         lockFavorites: false
         favorites:
-        - ydb
         - all
         - default
       view:
-        active: pods
+        active: storage
       featureGates:
         nodeShell: false
       shellPod:
-        image: busybox:1.31
+        image: busybox:1.35.0
         command: []
         args: []
         namespace: default
         limits:
           cpu: 100m
           memory: 100Mi
-      portForwardAddress: localhost
-    testing-a:
-      namespace:
-        active: all
-        lockFavorites: false
-        favorites:
-        - default
-      view:
-        active: po
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-      portForwardAddress: localhost
-    yc-managed-k8s-cat9oii0g308vd192nn8:
-      namespace:
-        active: all
-        lockFavorites: false
-        favorites:
-        - all
-        - default
-      view:
-        active: pods
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
-      portForwardAddress: localhost
-    ydb-testing-sas:
-      namespace:
-        active: all
-        lockFavorites: false
-        favorites:
-        - all
-        - default
-      view:
-        active: pods
-      featureGates:
-        nodeShell: false
-      shellPod:
-        image: busybox:1.31
-        command: []
-        args: []
-        namespace: default
-        limits:
-          cpu: 100m
-          memory: 100Mi
+        labels: {}
       portForwardAddress: localhost
   thresholds:
     cpu:

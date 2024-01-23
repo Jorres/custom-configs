@@ -1,4 +1,0 @@
-% tls
-
-# Get info about tls certificate
-openssl s_client -showcerts -connect <host>:<port>

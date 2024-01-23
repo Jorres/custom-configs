@@ -8,11 +8,12 @@ nosudo-for-jorres
 yc-yubikey-cli
 helm
 kubectl 
+packer
+kubectl20
+minikube
+helmfile
+yt-dlp
+stow-bin/bin/k9s
 
-building-manually
-
-# AwesomeWM sub-modules
-awesome-wm-widgets
-rubato
-bling
-layout-machi
+Session.vim
+squashfs-root

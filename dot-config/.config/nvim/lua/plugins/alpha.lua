@@ -26,8 +26,7 @@ dashboard.section.header.val = {
 dashboard.section.buttons.val = {
   dashboard.button("1", "  new file", ":ene <BAR> startinsert <CR>"),
   dashboard.button("2", "  quit NVIM", ":qa<CR>"),
-  dashboard.button("3", "  search configs", ":lua require('plugins.telescope').search_dotfiles()<CR>"),
-  dashboard.button("4", "  search helptags", ":Telescope help_tags<CR>"),
+  dashboard.button("3", "  search helptags", ":Telescope help_tags<CR>"),
 }
 
 dashboard.config.opts.noautocmd = true

@@ -20,7 +20,7 @@ finder:
 
 cheats:
   paths: 
-    - $HOME/custom-configs/navi-cheats
+    - $HOME/custom-configs/navi-playbooks
 
 # search:
   # tags: git,!checkout # equivalent to the --tag-rules option

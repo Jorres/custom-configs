@@ -26,3 +26,5 @@
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy
 search_mode = "fuzzy"
+style = "compact"
+# show_preview = "true"

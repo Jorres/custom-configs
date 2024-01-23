@@ -88,6 +88,7 @@ local zero_setup_servers = {
   "terraformls",
   "tsserver",
   "golangci_lint_ls",
+  "pyright",
 }
 
 for _, server in ipairs(zero_setup_servers) do

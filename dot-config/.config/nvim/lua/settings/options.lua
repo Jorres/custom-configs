@@ -15,6 +15,7 @@ local options = {
   ignorecase = true,
   smartcase = true,
   autoread = true,
+  autowriteall = true,
   number = true,
   relativenumber = true,
   undofile = true,

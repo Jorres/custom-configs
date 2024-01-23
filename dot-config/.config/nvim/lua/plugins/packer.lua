@@ -24,14 +24,6 @@ return require('packer').startup(function(use, use_rocks)
   use { 'anuvyklack/hydra.nvim',
     requires = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
   }
-  use {
-    "zbirenbaum/copilot.lua",
-    config = function()
-      vim.defer_fn(function()
-        require "plugins.copilot"
-      end, 100)
-    end,
-  }
 
   -- === Language agnostic editing plugins ===
   use { 'windwp/nvim-autopairs' }     -- auto-close brackets plugin
@@ -40,7 +32,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'wellle/targets.vim' }        -- Additional text objects: e.g. inside *, inside comma-separated list etc.
   use { 'godlygeek/tabular' }         -- Adds :Tabularize command
   use { 'MunifTanjim/prettier.nvim' } -- :Prettier
-  use { 'ggandor/lightspeed.nvim' }   -- Ultimate screen-jumping plugin
+  use { 'folke/flash.nvim' }          -- Ultimate screen-jumping plugin
   use { 'tpope/vim-repeat' }          -- zero-config, allows to repeat complex commands
   use { 'AndrewRadev/splitjoin.vim' } -- gJ and gS to split\join statements in multiple languages
   use { 'matze/vim-move' }            -- Allows to move lines up and down with Alt
@@ -51,6 +43,26 @@ return require('packer').startup(function(use, use_rocks)
   -- instead of hardcoded 2 or hardcoded 4.
   use { 'NMAC427/guess-indent.nvim' }
   use { "gbprod/yanky.nvim" } -- yank ring-buffer
+
+  use { "ThePrimeagen/refactoring.nvim" }
+
+  -- use({
+  --   os.getenv("HOME") .. '/hobbies/lifelog/ChatGPT.nvim',
+  --   requires = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim"
+  --   }
+  -- })
+
+  use({
+    os.getenv("HOME") .. '/hobbies/lifelog/gp.nvim',
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  })
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' }              -- reenter sudo editing with :Suda
@@ -69,11 +81,11 @@ return require('packer').startup(function(use, use_rocks)
   use { 'karb94/neoscroll.nvim' }    -- smooth scroll
   use { 'edluffy/specs.nvim' }       -- cursor jump landing visualization
   use { 'kyazdani42/nvim-tree.lua' } --File explorer
-  -- use { 'azabiong/vim-highlighter' } -- Highlight words on a whim
-  use { 'Pocco81/HighStr.nvim' }
-  use { 'PeterRincker/vim-searchlight' } -- Highlight current hlsearch pattern differently
-  use { 'uga-rosa/ccc.nvim' }
+  use { 'azabiong/vim-highlighter' }
+  -- use { 'Pocco81/HighStr.nvim' } -- highlight words on a whim
+  -- use { 'PeterRincker/vim-searchlight' } -- Highlight current hlsearch pattern differently
   use { 'echasnovski/mini.nvim' }
+  use { "andrewferrier/wrapping.nvim" }
 
   use { 'goolord/alpha-nvim' }                  -- cool startup screen!
   use { 'akinsho/toggleterm.nvim' }             -- toggle terminal per session
@@ -82,7 +94,7 @@ return require('packer').startup(function(use, use_rocks)
   use { 'jbyuki/venn.nvim' }                    -- draw some boxes with VBox
   use { 'mvllow/modes.nvim' }                   -- highlight the current line with a mode color
   use { 'stevearc/dressing.nvim' }              -- improved vim.ui interfaces, like (select) and (input)
-  use { "beauwilliams/focus.nvim" }
+  -- use { "beauwilliams/focus.nvim" }
   use { "folke/noice.nvim", requires = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
@@ -93,13 +105,23 @@ return require('packer').startup(function(use, use_rocks)
 
   -- === Colorschemes === --
   use { 'morhetz/gruvbox' }
-  -- use {'savq/melange'}
+  use { 'savq/melange' }
+  use { 'EdenEast/nightfox.nvim' }
+  use { 'nyoom-engineering/oxocarbon.nvim' }
+  use { 'ribru17/bamboo.nvim' }
   -- use {'sainnhe/everforest'}
-  -- use {'sainnhe/sonokai'}
+  use { 'sainnhe/sonokai' }
+  use { "rebelot/kanagawa.nvim" }
+  use { "folke/tokyonight.nvim" }
+  use { 'uloco/bluloco.nvim',
+    requires = { 'rktjmp/lush.nvim' }
+  }
+
 
   -- === TMUX === --
   use { 'christoomey/vim-tmux-navigator' } -- Allows to use <C-hjkl> to move to/from tmux panes
   use { 'sjl/vitality.vim' }               -- Restore FocusGained, FocusLost
+  use { 'tpope/vim-obsession' }
 
   -- === LSP and completion ===
   use { 'neovim/nvim-lspconfig' }
@@ -121,6 +143,7 @@ return require('packer').startup(function(use, use_rocks)
   -- === Telescope ===
   use { 'nvim-telescope/telescope.nvim', branch = "0.1.x" }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
   use { 'nvim-telescope/telescope-media-files.nvim' }
 
   -- === Language specific
@@ -134,9 +157,15 @@ return require('packer').startup(function(use, use_rocks)
   -- === Actual programming ===
   use { 'vim-test/vim-test' }
 
+
   -- === neovim as PDE ===
   use { 'renerocksai/telekasten.nvim' }
-  use { 'samodostal/image.nvim' }
+  use {
+    'samodostal/image.nvim',
+    requires = {
+      'm00qek/baleia.nvim' -- this enables background color
+    },
+  }
 
   -- === Misc ===
   use { 'fladson/vim-kitty' } -- keyword highlighting of kitty.conf

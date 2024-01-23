@@ -17,28 +17,17 @@ require("toggleterm").setup {
   -- on_exit = fun(t: Terminal, job: number, exit_code: number, name: string) -- function to run when terminal process exits
   hide_numbers = true, -- hide the number column in toggleterm buffers
   -- shade_filetypes = {},
-  -- highlights = {
-  --   -- highlights which map to a highlight group name and a table of it's values
-  --   -- NOTE: this is only a subset of values, any group placed here will be set for the terminal window split
-  --   Normal = {
-  --     guibg = <VALUE-HERE>,
-  --   },
-  --   NormalFloat = {
-  --     link = 'Normal'
-  --   },
-  --   FloatBorder = {
-  --     guifg = <VALUE-HERE>,
-  --     guibg = <VALUE-HERE>,
-  --   },
-  -- },
+  highlights = {
+    FloatBorder = {
+      guifg = "#E56399"
+    }
+  },
   -- shade_terminals = true,
   -- shading_factor = '<number>', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
-  -- start_in_insert = true,
+  start_in_insert = true,
   -- insert_mappings = true, -- whether or not the open mapping applies in insert mode
   -- terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
-  -- persist_size = true,
-  -- direction = 'vertical' | 'horizontal' | 'tab' | 'float',
-  -- close_on_exit = true, -- close the terminal window when the process exits
+  persist_size = false,
   -- shell = vim.o.shell, -- change the default shell
   -- -- This field is only relevant if direction is set to 'float'
   float_opts = {
@@ -49,6 +38,6 @@ require("toggleterm").setup {
     border = "curved",
     -- width = <value>,
     -- height = <value>,
-    winblend = 0,
+    winblend = 10,
   }
 }

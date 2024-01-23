@@ -3,24 +3,11 @@
 
 name: allrounder
 root: ~/
+tmux_command: tmux -u
 
 windows:
     - starter:
         - clear
-    - configs:
-        layout: main-vertical
-        root: "~/custom-configs"
-        panes:
-            - nvim: 
-                - nvim .
-                - Enter
-    - lifelog:
-        layout: even-horizontal
-        root: "~/hobbies/lifelog"
-        panes:
-            - nvim: 
-                - nvim personal/lifelogs/II.md
-                - Enter
     # - "academy":
     #     root: "/home/jorres/hobbies/plugins/academy.nvim"
     #     panes:
@@ -45,10 +32,3 @@ windows:
     #             - Enter
     #         - shell:
     #             - clear
-    - "anki":
-        layout: even-horizontal
-        root: "~/hobbies/lifelog/anki"
-        panes:
-            - nvim: 
-                - nvim .
-                - Enter

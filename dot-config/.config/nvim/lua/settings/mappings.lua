@@ -19,6 +19,10 @@ setter({ ["<leader>p"] = "\"_dP" }, { "x" })
 setter({ ["<leader>d"] = "\"_d" }, { "n" })
 setter({ ["<leader>d"] = "\"_d" }, { "v" })
 
+-- Smoothscroll replacement
+-- setter({ ['<C-Y>'] = "<C-Y><C-Y><C-Y><C-Y><C-Y>" }, { "n" })
+-- setter({ ['<C-E>'] = "<C-E><C-E><C-E><C-E><C-E>" }, { "n" })
+
 setter({
   -- make Y behave and yank till the end
   ["Y"] = "yg",
@@ -39,11 +43,6 @@ setter({
   ["<leader>q"] = ":cclose<CR>",
   -- open quickfixlist with height 5
   ["<leader>o"] = ":copen 5<CR>",
-  -- Comfortable switching between windows
-  ["<C-h>"] = "<C-w>h",
-  ["<C-j>"] = "<C-w>j",
-  ["<C-k>"] = "<C-w>k",
-  ["<C-l>"] = "<C-w>l",
   -- Resize
   ["U"] = ":vertical resize +5<CR>",
   ["<leader>u"] = ":resize +5<CR>",
@@ -64,13 +63,12 @@ set({ "n" }, "<leader>ge", ":Gedit<CR>", default_opt)
 
 -- Telescope
 setter({
-  [leader .. "gs"] = function() require('telescope.builtin').live_grep({ hidden = true }) end,
+  [leader .. "gs"] = require('plugins.telescope').live_grep_with_optional_filter,
   [leader .. "gc"] = require('telescope.builtin').git_commits,
   [leader .. "f"] = function() require('telescope.builtin').find_files({ hidden = true }) end,
   [leader .. "j"] = function() require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") } end,
   [leader .. "vh"] = require('telescope.builtin').help_tags,
   [leader .. "br"] = require('plugins.telescope').git_branches,
-  [leader .. "vrc"] = require('plugins.telescope').search_dotfiles
 }, { "n" })
 
 -- Harpoon
@@ -107,19 +105,19 @@ local kasten_prefix = leader .. "z"
 local telekasten = require 'telekasten'
 
 setter({
+  [kasten_prefix .. "n"] = telekasten.new_note,
+  -- [kasten_prefix .. "f"] = telekasten.follow_link,
+  [kasten_prefix .. "f"] = telekasten.find_notes, -- think 'search'
+  [kasten_prefix .. "s"] = telekasten.search_notes, -- think 'search'
+  [kasten_prefix .. "ip"] = telekasten.paste_img_and_link,
+  [kasten_prefix .. "#"] = telekasten.show_tags,
+  [kasten_prefix .. "r"] = telekasten.rename_note,
+
   -- [kasten_prefix .. "d"] = telekasten.goto_today,
   -- [kasten_prefix .. "w"] = telekasten.goto_thisweek,
-  [kasten_prefix .. "f"] = telekasten.follow_link,
-  [kasten_prefix .. "n"] = telekasten.new_note,
-  [kasten_prefix .. "b"] = telekasten.show_backlinks,
-  [kasten_prefix .. "s"] = telekasten.find_notes, -- think 'search'
-  [kasten_prefix .. "#"] = telekasten.show_tags,
-  [kasten_prefix .. "l"] = telekasten.insert_link, -- {i = true}
-  [kasten_prefix .. "im"] = telekasten.insert_img_link, -- {i = true}
-  [kasten_prefix .. "ip"] = telekasten.paste_img_and_link,
-  [kasten_prefix .. "iv"] = telekasten.preview_img,
-  [kasten_prefix .. "c"] = telekasten.show_calendar,
-  [kasten_prefix .. "r"] = telekasten.rename_note,
+  -- [kasten_prefix .. "b"] = telekasten.show_backlinks,
+  -- [kasten_prefix .. "l"] = telekasten.insert_link, -- {i = true}
+  -- [kasten_prefix .. "c"] = telekasten.show_calendar,
 }, { "n" })
 
 -- zd find_daily_notes
@@ -165,3 +163,9 @@ vim.keymap.set({"n","x"}, "y", "<Plug>(YankyYank)")
 -- Try to make link opening work
 -- TODO for some mysterious reason, works on Matebook but not on Thinkpad
 set("n", 'gx', [[:execute '!xdg-open ' . shellescape(expand('<cfile>'), 1)<CR>]])
+
+vim.api.nvim_command [[
+  let HiSet   = '<leader>hl'
+  let HiErase = '<leader>hr'
+  let HiSetSL = '<leader>ho'
+]]

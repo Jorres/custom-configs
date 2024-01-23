@@ -32,10 +32,7 @@ cmp.setup {
   },
 
   sources = {
-    -- {
-    --   name = "copilot",
-    --   max_item_count = 3,
-    -- },
+      --     nvim_lsp = "[LSP]",
     { name = "luasnip", max_item_count = 2 },
     { name = "nvim_lsp_signature_help" },
     { name = "nvim_lua", max_item_count = 5, filetype = "lua" },
@@ -66,14 +63,11 @@ cmp.setup {
       mode = 'symbol',
       maxwidth = 50,
       symbol_map = {
-        Copilot = "",
       },
       --   menu = {
       --     -- tmux = "[tmux]",
       --     nvim_lsp_signature_help = "[sign]",
       --     buffer = "[buf]",
-      --     copilot = "[cop]",
-      --     nvim_lsp = "[LSP]",
       --     nvim_lua = "[api]",
       --     path = "[path]",
       --     luasnip = "[snip]",
@@ -133,5 +127,3 @@ cmp.setup.filetype({ 'markdown', 'telekasten' }, {
     ghost_text = true,
   },
 })
-
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })

@@ -9,25 +9,9 @@ mkdir ~/hobbies
 mkdir ~/hobbies/plugins
 git clone git@github.com:Jorres/showmethat.nvim.git ~/hobbies/plugins/showmethat.nvim
 
-# Fun part - building awesome from source!
-sudo apt-get install -y dmenu alsa-utils xbacklight libxext-dev libxcb1-dev libxcb-damage0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-render-util0-dev libxcb-render0-dev libxcb-randr0-dev libxcb-composite0-dev libxcb-image0-dev libxcb-present-dev libxcb-xinerama0-dev libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev libgl-dev libegl-dev libpcre2-dev libevdev-dev uthash-dev libev-dev libx11-xcb-dev meson
-# To install awesome, clone awesome repo
-gcl git@github.com:awesomeWM/awesome.git
-# Then uncomment all the deb-src lines in your /etc/apt/sources.list
-sudo apt-get update
-sudo apt-get build-dep awesome
-cd awesome && make && sudo make install
-# then reboot and voila
 
 # Do this to fix xbacklight:
 https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
-# Install picom (needed for transparent borders)
-git clone https://github.com/jonaburg/picom
-cd picom
-meson --buildtype=release . build
-ninja -C build
-# To install the binaries in /usr/local/bin (optional)
-sudo ninja -C build install
 
 # Install drag-n-drop dependency for nnn
 sudo apt-get install libgtk-3-dev
@@ -36,18 +20,10 @@ cd dragon
 make
 make install
 
+# Install nnn (build from source, sorry)
+# no instruction here, just search
+
 git clone https://github.com/Jorres/dotfiles ~/custom-configs
-cd ~/custom-configs/dot-config/.config/awesome
-# Clone misc widget repository
-git clone https://github.com/streetturtle/awesome-wm-widgets.git ~/.config/awesome/awesome-wm-widgets
-# Clone other widget repository
-git clone https://github.com/pltanton/net_widgets.git ~/.config/awesome/net_widgets
-# Some window niceties
-git clone https://github.com/BlingCorp/bling.git ~/.config/awesome/bling
-# Animation lib
-git clone https://github.com/andOrlando/rubato.git
-# Manual layouting
-git clone https://github.com/xinhaoyuan/layout-machi.git
 
 # Install image-ascii-converter
 echo 'deb [trusted=yes] https://apt.fury.io/ascii-image-converter/ /' | sudo tee /etc/apt/sources.list.d/ascii-image-converter.list
@@ -77,14 +53,11 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 mkdir ~/tmux-logs
 # Hit Prefix + I to install all the plugins
 
-# install telegram desktop
+sudo snap install telegram-desktop
 
-# install `nerdfont.ttf` from this repo by clicking on it (sorry, don't know how to do this in awesome, google)
+# install `nerdfont.ttf` from this repo by clicking on it
 
-# Install node.js, tweak version as required
-#                                         VVVVVV version here
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-sudo apt-get install -y nodejs
+# Install node.js following this: https://github.com/nodesource/distributions#installation-instructions
 
 # Install cool things from npm:
 sudo npm install -g typescript typescript-language-server prettier tldr
@@ -136,19 +109,12 @@ sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/sha
 sudo snap install exercism
 exercism configure --token=f9e912f4-334c-4b73-9566-6c57d33002f5
 
-# This is optional, just a hackish experiment, don't expect to work reliably
-cp ./nosudo-for-jorres.copy-low-permissions ./nosudo-for-jorres
-sudo chmod 440 /etc/sudoers.d/nosudo-for-jorres
-sudo ln -s /etc/sudoers.d/nosudo-for-jorres $HOME/custom-configs/nosudo-for-jorres
-
 # install `dust` utility:
 curl -LO dust.deb https://github.com/bootandy/dust/releases/download/v0.8.4/du-dust_0.8.4_amd64.deb
 dpkg -i du-dust_0.8.4_amd64.deb
 rm ./du-dust_0.8.4_amd64.deb
 
 # Install golang (binary from site, or some outdated version in apt)
-# Install k9s
-go install github.com/derailed/k9s
 # Install any go modules that you need like this:
 go install github.com/charmbracelet/glow@latest
 
@@ -193,17 +159,12 @@ sudo cp ./stow-bin/bin/rg /usr/local/bin
  
 pip3 install neovim-remote
 
-#### Trydactyl for Firefox
-# Install tridactyl itself:
-https://github.com/tridactyl/tridactyl#installation
-# Then native messenger:
-curl -fsSl https://raw.githubusercontent.com/tridactyl/native_messenger/master/installers/install.sh -o /tmp/trinativeinstall.sh && sh /tmp/trinativeinstall.sh master
-# Hide annoying mode indicator (run inside : prompt in trydactyl)
-:set modeindicator false
-
 # Install ibus
 sudo apt-get install fcitx-mozc ibus-mozc mozc-data mozc-server mozc-utils-gui
 # Open a tray application (or run `ibus-setup`) and make sure `Advanced/Use system keyboard layout` is set
-
 # Make sure you have ru, en, jp locales uncommented in /etc/locales.gen
 # Run `locale-gen` afterwards
+
+# Yandex specific
+
+echo 'Session.vim' > ~/.arcignore

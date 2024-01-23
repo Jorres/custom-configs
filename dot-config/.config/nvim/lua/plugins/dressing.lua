@@ -1,6 +1,6 @@
  require('dressing').setup({
   input = {
-    -- Set to false to disable the vim.ui.input implementation
+    -- Set to foable the vim.ui.input implementation
     enabled = true,
 
     -- Default prompt string
@@ -16,8 +16,7 @@
     start_in_insert = true,
 
     -- These are passed to nvim_open_win
-    anchor = "SW",
-    border = "single",
+    border = "solid",
     -- 'editor' and 'win' will default to being centered
     relative = "editor",
 
@@ -54,6 +53,7 @@
     override = function(conf)
       -- This is the config that will be passed to nvim_open_win.
       -- Change values here to customize the layout
+      conf.anchor = "SW"
       return conf
     end,
 

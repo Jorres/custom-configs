@@ -1,8 +1,0 @@
-% helm
-
-# View default values of a chart
-helm show values <chart_name>
-
-# Uninstall a chart in your cluster
-helm uninstall <chart_name>
-$ chart_name: helm list -A | awk '{print $1}' 

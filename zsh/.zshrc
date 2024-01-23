@@ -85,20 +85,18 @@ source $ZSH/oh-my-zsh.sh
 
 export EDITOR='nvim'
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 export PATH="$HOME/lua-5.4.3/src/:$PATH"
 export PATH="$HOME/bin/:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
-export PATH="$PATH:$HOME/yandex-cloud/bin"
+# export PATH="$PATH:$HOME/yandex-cloud/bin"
 export PATH="$PATH:$HOME/ycp/bin"
 
+# [ -s "$HOME/yandex-cloud/completion.zsh.inc" ] && \. "$HOME/yandex-cloud/completion.zsh.inc"  # This loads yc bash_completionaa
 
 DOTFILES_PATH=$HOME/custom-configs
 export PATH="$PATH:$DOTFILES_PATH/utilities"
+export PATH="$PATH:$DOTFILES_PATH/squashfs-root/usr/bin"
 
 alias sourcerc="source ~/.zshrc"
 
@@ -112,10 +110,10 @@ alias tma="tmuxinator start allrounder"
 alias tmas="tmuxinator stop allrounder"
 alias tmm="tmuxinator start md"
 alias tmms="tmuxinator stop md"
-alias tmy="tmuxinator start yandex"
-alias tmys="tmuxinator stop yandex"
-alias tmY="tmuxinator start yandex_snd"
-alias tmYs="tmuxinator stop yandex_snd"
+alias tmy="tmuxinator start YA_A"
+alias tmys="tmuxinator stop YA_A"
+alias tmY="tmuxinator start YA_B"
+alias tmYs="tmuxinator stop YA_B"
 
 alias ast="arc status"
 alias acmsg="arc commit -m"
@@ -146,12 +144,10 @@ eval "$(navi widget zsh)"
 
 # The next line updates PATH for Yandex Cloud CLI.
 if [ -f '$HOME/yandex-cloud/path.bash.inc' ]; then source '$HOME/yandex-cloud/path.bash.inc'; fi
-# The next line enables shell command completion for yc.
-if [ -f '$HOME/yandex-cloud/completion.zsh.inc' ]; then source '$HOME/yandex-cloud/completion.zsh.inc'; fi
+# # The next line enables shell command completion for yc.
+# if [ -f '$HOME/yandex-cloud/completion.zsh.inc' ]; then source '$HOME/yandex-cloud/completion.zsh.inc'; fi
 # The next line updates PATH for Yandex Cloud Private CLI.
 if [ -f '$HOME/ycp/path.bash.inc' ]; then source '$HOME/ycp/path.bash.inc'; fi
-# The next line updates PATH for Yandex Cloud YDB CLI.
-if [ -f '$HOME/ydb/path.bash.inc' ]; then source '$HOME/ydb/path.bash.inc'; fi
 
 PATH="$HOME/arcadia:$PATH"
 
@@ -167,8 +163,11 @@ xset r rate 150 30
 # Needed so I can call 'nvim' from INSIDE nvim and not open an nvim inside nvim, uses nvr
 alias nvim='if [[ -z "$NVIM" ]]; then XXX="nvim" && YYY="" else XXX="nvr" && YYY="-l" fi && $XXX $YYY'
 
+export OPENAI_API_KEY="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"
+
+alias nnn='nnn -e'
 export NNN_BMS="c:~/custom-configs/;d:~/Downloads/;t:~/Downloads/Telegram Desktop/"
-export NNN_PLUG='o:fzopen;z:autojump;d:dragdrop'
+export NNN_PLUG='z:autojump;d:dragdrop'
 export NNN_TMPFILE="$HOME/.config/nnn/.lastd"
 
 n ()
@@ -208,3 +207,16 @@ export GTK_IM_MODULE='xim'
 export QT_IM_MODULE='ibus'
 export XMODIFIERS='@im=ibus'
 export GLFW_IM_MODULE='ibus'
+
+alias ycptkten='ycp --profile testing --folder-id yc.ydb.kten-folder'
+
+alias issh="pssh --no-bastion --no-yubikey"
+
+# zprof
+
+# The next line updates PATH for CLI.
+if [ -f '/home/tarasov-egor/yandex-cloud/path.bash.inc' ]; then source '/home/tarasov-egor/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/home/tarasov-egor/yandex-cloud/completion.zsh.inc' ]; then source '/home/tarasov-egor/yandex-cloud/completion.zsh.inc'; fi
+
