@@ -96,7 +96,7 @@ export PATH="$PATH:$HOME/ycp/bin"
 
 DOTFILES_PATH=$HOME/custom-configs
 export PATH="$PATH:$DOTFILES_PATH/utilities"
-export PATH="$PATH:$DOTFILES_PATH/squashfs-root/usr/bin"
+export PATH="$PATH:$HOME/local-installations/squashfs-root/usr/bin"
 
 alias sourcerc="source ~/.zshrc"
 

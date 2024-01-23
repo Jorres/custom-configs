@@ -18,8 +18,7 @@ require 'nvim-treesitter.configs'.setup {
     "latex",
     "python",
     "vim",
-    "svelte",
-    "help",
+    "svelte"
   },
   sync_install = true,
   ignore_install = {},

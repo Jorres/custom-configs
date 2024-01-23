@@ -47,7 +47,7 @@ return require('packer').startup(function(use, use_rocks)
   use { "ThePrimeagen/refactoring.nvim" }
 
   -- use({
-  --   os.getenv("HOME") .. '/hobbies/lifelog/ChatGPT.nvim',
+  --   os.getenv("HOME") .. '/hobbies/ChatGPT.nvim',
   --   requires = {
   --     "MunifTanjim/nui.nvim",
   --     "nvim-lua/plenary.nvim",
@@ -56,7 +56,7 @@ return require('packer').startup(function(use, use_rocks)
   -- })
 
   use({
-    os.getenv("HOME") .. '/hobbies/lifelog/gp.nvim',
+    os.getenv("HOME") .. '/hobbies/gp.nvim',
     requires = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
@@ -143,7 +143,6 @@ return require('packer').startup(function(use, use_rocks)
   -- === Telescope ===
   use { 'nvim-telescope/telescope.nvim', branch = "0.1.x" }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
   use { 'nvim-telescope/telescope-media-files.nvim' }
 
   -- === Language specific

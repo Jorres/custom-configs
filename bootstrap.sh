@@ -1,14 +1,21 @@
 ## Do this all from regular ubuntu, and hopefully everything will work after you relogin to awesome
 
 sudo apt-get update 
-sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip easytag xautomation
+sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip easytag xautomation build-essential
 # Special treatment for some rust tools, bug workaround:
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
+
+# generate new ssh key pair, add to github account
+# initialize /home/username/.ssh/config, take examples on the previous machine
 
 mkdir ~/hobbies
 mkdir ~/hobbies/plugins
 git clone git@github.com:Jorres/showmethat.nvim.git ~/hobbies/plugins/showmethat.nvim
 
+## Install neovim
+# get the appimage from github
+# extract the appimage (snippet on github, next to asset download)
+# put the binary into path
 
 # Do this to fix xbacklight:
 https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
@@ -21,9 +28,12 @@ make
 make install
 
 # Install nnn (build from source, sorry)
-# no instruction here, just search
+# binary should be available in stow-bin
 
 git clone https://github.com/Jorres/dotfiles ~/custom-configs
+
+# do `stow` invocations from 
+~/custom-configs/install.sh
 
 # Install image-ascii-converter
 echo 'deb [trusted=yes] https://apt.fury.io/ascii-image-converter/ /' | sudo tee /etc/apt/sources.list.d/ascii-image-converter.list
@@ -31,12 +41,8 @@ sudo apt update
 sudo apt install -y ascii-image-converter
 sudo rm -v /etc/apt/sources.list.d/ascii-image-converter.list
 
-# do `stow` invocations from ~/custom-configs/install.sh
-
-# install brave | firefox or whatever floats your boat
-
-# generate new ssh key pair, add to github account
-# initialize /home/username/.ssh/config, take examples on the previous machine
+# install firefox
+sudo snap install firefox telegram-desktop vlc
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -46,6 +52,9 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # this installs zsh vi mode plugin. Add zsh-vi-mode to .zshrc to list of plugins
 # git clone https://github.com/jeffreytse/zsh-vi-mode $ZSH/custom/plugins/zsh-vi-mode
 
+# Make caps-lock act as ctrl
+# Launch 'tweaks', 'keyboard and mouse', 'additional layout options', 'caps lock behaviour', 'additional ctrl'
+
 sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
 sudo gem install tmuxinator
 # Install Tmux plugin manager
@@ -53,12 +62,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 mkdir ~/tmux-logs
 # Hit Prefix + I to install all the plugins
 
-sudo snap install telegram-desktop
-
 # install `nerdfont.ttf` from this repo by clicking on it
 
 # Install node.js following this: https://github.com/nodesource/distributions#installation-instructions
-
 # Install cool things from npm:
 sudo npm install -g typescript typescript-language-server prettier tldr
 
@@ -67,7 +73,9 @@ sudo npm install -g typescript typescript-language-server prettier tldr
 # Just google kubectl and helm
 
 # Install CopyQ
+sudo apt-get install copyq copyq-plugins
 # Install starship, zsh wrapper
+curl -sS https://starship.rs/install.sh | sh
 
 # For navi:
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -75,6 +83,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 
 git config --global credential.helper "cache --timeout=3600"
 
+sudo apt install python3-pip
 python3 -m pip install libtmux --user
 
 # Anki
@@ -110,9 +119,9 @@ sudo snap install exercism
 exercism configure --token=f9e912f4-334c-4b73-9566-6c57d33002f5
 
 # install `dust` utility:
-curl -LO dust.deb https://github.com/bootandy/dust/releases/download/v0.8.4/du-dust_0.8.4_amd64.deb
-dpkg -i du-dust_0.8.4_amd64.deb
-rm ./du-dust_0.8.4_amd64.deb
+curl https://github.com/bootandy/dust/releases/download/v0.9.0/du-dust_0.9.0-1_amd64.deb -LO
+sudo dpkg -i ./du-dust_0.9.0-1_amd64.deb
+rm ./du-dust_0.9.0-1_amd64.deb
 
 # Install golang (binary from site, or some outdated version in apt)
 # Install any go modules that you need like this:
@@ -160,11 +169,10 @@ sudo cp ./stow-bin/bin/rg /usr/local/bin
 pip3 install neovim-remote
 
 # Install ibus
-sudo apt-get install fcitx-mozc ibus-mozc mozc-data mozc-server mozc-utils-gui
+# sudo apt-get install fcitx-mozc ibus-mozc mozc-data mozc-server mozc-utils-gui
 # Open a tray application (or run `ibus-setup`) and make sure `Advanced/Use system keyboard layout` is set
 # Make sure you have ru, en, jp locales uncommented in /etc/locales.gen
 # Run `locale-gen` afterwards
 
 # Yandex specific
-
 echo 'Session.vim' > ~/.arcignore
