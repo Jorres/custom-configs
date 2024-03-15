@@ -25,6 +25,8 @@
 
 ## which search mode to use
 ## possible values: prefix, fulltext, fuzzy
+
+## default history list format - can also be specified with the --format arg
+history_format = "{time}\t{command}"
 search_mode = "fuzzy"
 style = "compact"
-# show_preview = "true"

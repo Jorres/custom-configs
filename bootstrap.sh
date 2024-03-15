@@ -1,7 +1,7 @@
 ## Do this all from regular ubuntu, and hopefully everything will work after you relogin to awesome
 
 sudo apt-get update 
-sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip easytag xautomation build-essential
+sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip easytag xautomation build-essential feh simplescreenrecorder
 # Special treatment for some rust tools, bug workaround:
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
 
@@ -41,8 +41,7 @@ sudo apt update
 sudo apt install -y ascii-image-converter
 sudo rm -v /etc/apt/sources.list.d/ascii-image-converter.list
 
-# install firefox
-sudo snap install firefox telegram-desktop vlc
+sudo snap install firefox telegram-desktop vlc skype
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -174,5 +173,6 @@ pip3 install neovim-remote
 # Make sure you have ru, en, jp locales uncommented in /etc/locales.gen
 # Run `locale-gen` afterwards
 
-# Yandex specific
-echo 'Session.vim' > ~/.arcignore
+# Nebius specific
+echo 'Session.vim' >> ~/.arcignore
+echo 'jorres_patches' >> ~/.arcignore
