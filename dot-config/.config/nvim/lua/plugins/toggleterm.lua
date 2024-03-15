@@ -38,6 +38,6 @@ require("toggleterm").setup {
     border = "curved",
     -- width = <value>,
     -- height = <value>,
-    winblend = 10,
+    -- winblend = 10,
   }
 }

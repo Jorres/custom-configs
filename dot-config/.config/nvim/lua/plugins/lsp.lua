@@ -6,6 +6,7 @@ lua_library['/usr/share/nvim/runtime/lua/lsp'] = true
 lua_library['/usr/share/awesome/lib'] = true
 
 local servers = {
+  clangd = {},
   gopls = {},
   yamlls = {
     yaml = {
@@ -68,6 +69,7 @@ local on_attach = function(_, bufnr)
   if vim.bo[bufnr].filetype == "helm" then
     vim.diagnostic.disable(bufnr)
   end
+  client.server_capabilities.semanticTokensProvider = nil
 end
 
 vim.cmd [[
