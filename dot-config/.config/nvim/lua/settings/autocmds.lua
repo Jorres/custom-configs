@@ -84,28 +84,6 @@ vim.api.nvim_create_autocmd("VimLeave", {
   end,
 })
 
--- local lifelog_group = vim.api.nvim_create_augroup("auto zen mode", {clear = true})
--- vim.api.nvim_create_autocmd({"BufWinEnter"}, {
---   pattern = { "I.md", "II.md", "III.md" },
---   callback = function ()
---     vim.schedule(function ()
---       pcall(require("nvim-tree.view").close)
---       vim.cmd [[ set filetype=telekasten ]]
---     end)
---   end,
---   group = lifelog_group
--- })
-
--- Close nvim-tree if it's the last active window
--- vim.api.nvim_create_autocmd("BufEnter", {
---   group = vim.api.nvim_create_augroup("NvimTreeClose", {clear = true}),
---   pattern = "NvimTree_*",
---   callback = function()
---     local layout = vim.api.nvim_call_function("winlayout", {})
---     if layout[1] == "leaf" and vim.api.nvim_buf_get_option(vim.api.nvim_win_get_buf(layout[2]), "filetype") == "NvimTree" and layout[3] == nil then vim.cmd("confirm quit") end
---   end
--- })
-
 -- local prettify_prettify = vim.api.nvim_create_augroup("auto Prettify md", {clear = true})
 -- vim.api.nvim_create_autocmd({"BufWritePost"}, {
 --   pattern = { "*.md" },

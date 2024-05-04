@@ -152,11 +152,7 @@ for direction_vim, direction_word in pairs(tmux_moves) do
   named_keymaps["jump_window_" .. direction_word] = {
     "<C-" .. direction_vim .. ">",
     function()
-      if chat.active then
-        return
-      else
-        vim.api.nvim_command("TmuxNavigate" .. direction_word)
-      end
+      vim.api.nvim_command("TmuxNavigate" .. direction_word)
     end,
     mode = { "n", "v" },
     description = "Easier switching between windows",
@@ -168,12 +164,8 @@ for direction_vim, direction_word in pairs(tmux_moves) do
   named_keymaps["jump_window_insert_" .. direction_word] = {
     "<C-" .. direction_vim .. ">",
     function()
-      if chat.active then
-        return
-      else
-        local s = vim.api.nvim_replace_termcodes('<C-h>', true, true, true)
-        vim.api.nvim_feedkeys(s, 'n', false)
-      end
+      local s = vim.api.nvim_replace_termcodes('<C-h>', true, true, true)
+      vim.api.nvim_feedkeys(s, 'n', false)
     end,
     mode = { "i" },
     description = "Easier switching between windows",
@@ -182,17 +174,17 @@ for direction_vim, direction_word in pairs(tmux_moves) do
 end
 
 if os.getenv("OPENAI_API_KEY") ~= nil then
-  -- local chatgptPublicModule = require("chatgpt.module")
-  -- local last_prompt = {}
   named_keymaps.run_chat_gpt = {
     "<C-c>",
     function()
+      vim.api.nvim_command(":GpChatToggle")
       if chat.active then
         chat.active = false
+        vim.api.nvim_command('stopinsert')
       else
+        vim.api.nvim_command('startinsert')
         chat.active = true
       end
-      vim.api.nvim_command(":GpChatToggle<cr>")
     end,
     mode = { "n", "i" },
     description = "Open/close ChatGPT window",
@@ -237,14 +229,6 @@ named_keymaps.packer_sync = {
   ":PackerSync<CR>",
   mode = { "n" },
   description = "PackerSync, but shorter",
-  opts = default_opts
-}
-
-named_keymaps.test_file = {
-  "<leader><leader>t",
-  ":TestFile<CR>",
-  mode = { "n" },
-  description = "Run language agnostic tests",
   opts = default_opts
 }
 
@@ -317,35 +301,12 @@ for _, v in pairs(named_keymaps) do
   table.insert(unnamed_keymaps, v)
 end
 
-
 local named_commands = {}
-
--- named_commands.packer_sync_shorter = {
---   ':PS',
---   function() vim.api.nvim_command(':PackerSync<CR>') end,
---   description = 'PackerSync, but shorter'
--- }
 
 local unnamed_commands = {}
 for _, v in pairs(named_commands) do
   table.insert(unnamed_commands, v)
 end
-
--- require('legendary').setup({
---   autocmds = {
---     -- Create autocmds and augroups
---     { 'BufWritePre', vim.lsp.buf.format, description = 'Format on save' },
---     {
---       name = 'MyAugroup',
---       clear = true,
---       -- autocmds here
---     },
---   },
---   functions = {
---     -- Make arbitrary Lua functions that can be executed via the item finder
---     { function() doSomeStuff() end, description = 'Do some stuff with a Lua function!' },
---   },
--- })
 
 require('legendary').setup({
   -- Initial keymaps to bind

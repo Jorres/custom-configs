@@ -1,12 +1,25 @@
 ## Do this all from regular ubuntu, and hopefully everything will work after you relogin to awesome
 
 sudo apt-get update 
-sudo apt-get install -y vim stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip easytag xautomation build-essential feh simplescreenrecorder
+sudo apt-get install -y vim-gtk3 stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip easytag xautomation build-essential feh simplescreenrecorder libfuse2 fuse curl copyq copyq-plugins mplayer gnome-control-center
+
+git clone https://github.com/Jorres/dotfiles ~/custom-configs
+
+# do `stow` invocations from 
+~/custom-configs/install.sh
+
+# for convenience so that you can copy from vim right away:
+echo 'set clipboard=unnamedplus' >> /home/$USER/.vimrc
+echo 'set number' >> /home/$USER/.vimrc
+echo 'set relativenumber' >> /home/$USER/.vimrc
+
 # Special treatment for some rust tools, bug workaround:
-sudo apt install -y -o Dpkg::Options::="--force-overwrite" bat ripgrep
+sudo apt install -y -o Dpkg::Options::="--force-overwrite" ripgrep
 
 # generate new ssh key pair, add to github account
 # initialize /home/username/.ssh/config, take examples on the previous machine
+# 
+# 
 
 mkdir ~/hobbies
 mkdir ~/hobbies/plugins
@@ -15,33 +28,23 @@ git clone git@github.com:Jorres/showmethat.nvim.git ~/hobbies/plugins/showmethat
 ## Install neovim
 # get the appimage from github
 # extract the appimage (snippet on github, next to asset download)
-# put the binary into path
+# put the binary into path, for example `sudo mv nvim.appimage /usr/local/bin/nvim`
 
 # Do this to fix xbacklight:
 https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
 
-# Install drag-n-drop dependency for nnn
-sudo apt-get install libgtk-3-dev
-git clone https://github.com/mwh/dragon.git
-cd dragon
-make
-make install
+# This will be installed along with stow-bin stuff. But in case something breaks, here is how to reinstall dragon for nnn:
+	# Install drag-n-drop dependency for nnn
+	# sudo apt-get install libgtk-3-dev
+	# git clone https://github.com/mwh/dragon.git
+	# cd dragon
+	# make
+	# make install
 
-# Install nnn (build from source, sorry)
-# binary should be available in stow-bin
+sudo snap install firefox telegram-desktop vlc skype discord
 
-git clone https://github.com/Jorres/dotfiles ~/custom-configs
-
-# do `stow` invocations from 
-~/custom-configs/install.sh
-
-# Install image-ascii-converter
-echo 'deb [trusted=yes] https://apt.fury.io/ascii-image-converter/ /' | sudo tee /etc/apt/sources.list.d/ascii-image-converter.list
-sudo apt update
-sudo apt install -y ascii-image-converter
-sudo rm -v /etc/apt/sources.list.d/ascii-image-converter.list
-
-sudo snap install firefox telegram-desktop vlc skype
+# Download zoom deb from official site, and then 
+# sudo apt install ./zoom_amd64.deb
 
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -53,51 +56,6 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 
 # Make caps-lock act as ctrl
 # Launch 'tweaks', 'keyboard and mouse', 'additional layout options', 'caps lock behaviour', 'additional ctrl'
-
-sudo wget https://raw.githubusercontent.com/tmuxinator/tmuxinator/master/completion/tmuxinator.zsh -O /usr/local/share/zsh/site-functions/_tmuxinator
-sudo gem install tmuxinator
-# Install Tmux plugin manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-mkdir ~/tmux-logs
-# Hit Prefix + I to install all the plugins
-
-# install `nerdfont.ttf` from this repo by clicking on it
-
-# Install node.js following this: https://github.com/nodesource/distributions#installation-instructions
-# Install cool things from npm:
-sudo npm install -g typescript typescript-language-server prettier tldr
-
-# Install docker, kubectl and helm
-# Docker is good via this link: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
-# Just google kubectl and helm
-
-# Install CopyQ
-sudo apt-get install copyq copyq-plugins
-# Install starship, zsh wrapper
-curl -sS https://starship.rs/install.sh | sh
-
-# For navi:
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
-
-git config --global credential.helper "cache --timeout=3600"
-
-sudo apt install python3-pip
-python3 -m pip install libtmux --user
-
-# Anki
-# Here's the manual no installing Anki
-# https://docs.ankiweb.net/platform/linux/installing.html
-python3 -m pip install markdown-anki-deck
-
-# This install atuin, do this interactively
-# bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
-# atuin import auto
-
-# Installing a very clean, easy to use and good looking top alternative
-sudo add-apt-repository ppa:bashtop-monitor/bashtop
-sudo apt update
-sudo apt install bashtop
 
 # Install kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -113,6 +71,46 @@ cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/appli
 # Update the paths to the kitty and its icon in the kitty.desktop file(s)
 sed -i "s|Icon=kitty|Icon=/home/$USER/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
 sed -i "s|Exec=kitty|Exec=/home/$USER/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
+
+
+# At this point, you should have kitty and launch kitty. 
+
+# Kitty should fail with a lot of not found programs, nvim must not launch with a whole bunch of errors, nerdfont characters should be off
+# but you still should be comfortably able to open simple `vim` in kitty.
+
+# install `nerdfont.ttf` from this repo by clicking on it
+
+# Install node.js following this: https://github.com/nodesource/distributions#installation-instructions
+# Install cool things from npm:
+sudo npm install -g typescript typescript-language-server prettier tldr
+
+# Install docker, kubectl and helm
+# Docker is good via this link: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru
+# Just google kubectl and helm
+
+# Install starship, zsh wrapper
+curl -sS https://starship.rs/install.sh | sh
+
+# For navi:
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
+
+git config --global credential.helper "cache --timeout=3600"
+
+# Anki
+# Here's the manual no installing Anki
+# https://docs.ankiweb.net/platform/linux/installing.html
+python3 -m pip install markdown-anki-deck
+
+# This install atuin, do this interactively
+# bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)
+# atuin import auto
+# Feed all kinds of history into it, backups, whatever
+
+# Installing a very clean, easy to use and good looking top alternative
+sudo add-apt-repository ppa:bashtop-monitor/bashtop
+sudo apt update
+sudo apt install bashtop
 
 sudo snap install exercism
 exercism configure --token=f9e912f4-334c-4b73-9566-6c57d33002f5
@@ -153,13 +151,9 @@ sudo touch /etc/udev/rules.d/50-zsa.rules
 >> SUBSYSTEMS=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="df11", \
 >>     MODE:="0666", \
 >>     SYMLINK+="stm32_dfu"
-#
 
 sudo groupadd plugdev
 sudo usermod -aG plugdev $USER
-#####
-
-sudo cp ./stow-bin/bin/rg /usr/local/bin
 
 #### Neovim
 
@@ -167,12 +161,51 @@ sudo cp ./stow-bin/bin/rg /usr/local/bin
  
 pip3 install neovim-remote
 
-# Install ibus
-# sudo apt-get install fcitx-mozc ibus-mozc mozc-data mozc-server mozc-utils-gui
-# Open a tray application (or run `ibus-setup`) and make sure `Advanced/Use system keyboard layout` is set
-# Make sure you have ru, en, jp locales uncommented in /etc/locales.gen
-# Run `locale-gen` afterwards
-
 # Nebius specific
 echo 'Session.vim' >> ~/.arcignore
 echo 'jorres_patches' >> ~/.arcignore
+
+# How to setup neovim properly 
+
+# 1. open neovim, click "enter" until errors stop
+# 2. invoke `:PackerInstall` and pray
+# 3. dance a little bit with vim-highlighter, grep `abc.txt` in my configs
+
+# Setup keyboard repeat rate
+# use this link: https://askubuntu.com/questions/846030/how-to-set-keyboard-repeat-delay-and-speed-in-ubuntu-gnome-16-10
+# OR search for 'typing' or 'universal access' or 'repeat keys' section and adjust the sliders here
+# OR just blindly apply the following:
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
+gsettings set org.gnome.desktop.peripherals.keyboard delay 150
+
+# Setup tailscale at Nebius
+curl -fsSL https://tailscale.com/install.sh | sh
+sudo tailscale up --accept-routes
+
+# Disable ubuntu dock
+gnome-extensions disable ubuntu-dock@ubuntu.com
+
+# Tmux 
+# Install Tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+mkdir ~/tmux-logs
+
+sudo apt install python3-pip
+python3 -m pip install libtmux --user
+
+# Launch tmux
+# Hit Prefix + I to install all the plugins
+
+# Restore your previous resurrect data
+# https://github.com/search?q=repo%3Atmux-plugins%2Ftmux-resurrect+default_resurrect_dir&type=code
+#
+# 'Prefix + Ctrl+R' | 'Prefix + R' restore resurrects and reload tmux.
+
+
+# Japanese input
+# Just execute precisely this link: https://help.ubuntu.com/community/JapaneseInput
+# And everything will work even in a terminal.
+
+
+# Flameshot
+sudo apt install flameshot

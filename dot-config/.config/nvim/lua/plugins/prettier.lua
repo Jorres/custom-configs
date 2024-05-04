@@ -11,7 +11,6 @@ prettier.setup({
     -- "json",
     -- "less",
     "markdown",
-    "telekasten",
     "md",
     -- "scss",
     -- "typescript",

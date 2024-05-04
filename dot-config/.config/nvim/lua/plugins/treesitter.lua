@@ -14,21 +14,18 @@ require 'nvim-treesitter.configs'.setup {
     "markdown",
     "cpp",
     "java",
-    "kotlin",
-    "latex",
     "python",
     "vim",
-    "svelte"
   },
   sync_install = true,
   ignore_install = {},
   highlight = {
     enable = true,
-    disable = { "markdown" },
+    disable = { "markdown", "help", "vimdoc" },
   },
   incremental_selection = {
     enable = true,
-    disable = {},
+    disable = { "markdown", "help", "vimdoc" },
     keymaps = {
       init_selection = "gnn",
       node_incremental = "grn",
@@ -38,21 +35,15 @@ require 'nvim-treesitter.configs'.setup {
   },
   indent = {
     enable = true,
-    disable = {}
+    disable = { "markdown", "help", "vimdoc" },
   },
   textobjects = {
     enable = false
   },
-  rainbow = {
-    enable = true,
-    disable = { "markdown" },
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = 5000, -- Do not enable for files with more than n lines, int
-  },
   playground = {
     enable = false,
-    disable = {},
-    updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+    disable = { "markdown", "help", "vimdoc" },
+    updatetime = 25,         -- Debounced time for highlighting nodes in the playground from source code
     persist_queries = false, -- Whether the query persists across vim sessions
     keybindings = {
       toggle_query_editor = 'o',
@@ -68,6 +59,3 @@ require 'nvim-treesitter.configs'.setup {
     },
   }
 }
-
-local ft_to_parser = require "nvim-treesitter.parsers".filetype_to_parsername
-ft_to_parser.telekasten = "markdown"

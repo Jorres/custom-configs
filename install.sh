@@ -6,10 +6,10 @@ stow -D dot-config
 stow -D tmux
 stow -D zsh
 stow -D stow-bin
-stow -D tldr
+stow -D vim
 
 stow dot-config
 stow tmux
 stow zsh
 stow stow-bin
-stow tldr
+stow vim

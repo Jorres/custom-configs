@@ -15,7 +15,6 @@ load_list_safely({
   "plugins.lsp",
   "plugins.autoc8n",
   "plugins.treesitter",
-  "plugins.snippets",
   "plugins.comment",
   "plugins.yank-ring",
   "plugins.autopairs",
@@ -33,10 +32,8 @@ load_list_safely({
   "plugins.gitsigns",
   "plugins.harpoon",
   "plugins.colorscheme",
-  -- "plugins.indent-blanks",
   "plugins.guess-indent",
   "plugins.hydra",
-  "plugins.imageview",
   "plugins.dressing",
   "plugins.gitlinker",
   "plugins.legendary",
@@ -44,14 +41,13 @@ load_list_safely({
   "plugins.auto-hlsearch",
   "plugins.mini-indent",
   "plugins.mini-highlight",
-  "plugins.mini-files",
-  -- "plugins.wrapping",
   "plugins.flash",
+  "plugins.headlines",
+  "plugins.japanese",
 
   -- PDE
   "plugins.telekasten",
   "plugins.prettier",
-  "plugins.ascii-drawing",
 
   --- MY OWN PLUGINS
   "showmethat"

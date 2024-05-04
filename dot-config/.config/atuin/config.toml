@@ -30,3 +30,4 @@
 history_format = "{time}\t{command}"
 search_mode = "fuzzy"
 style = "compact"
+show_help = false

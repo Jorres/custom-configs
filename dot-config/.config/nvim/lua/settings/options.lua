@@ -9,7 +9,6 @@ local options = {
   expandtab = true,
   tabstop = 2,
   shiftwidth = 2,
-  laststatus = 3,
   wrap = false,
   updatetime = 500,
   ignorecase = true,

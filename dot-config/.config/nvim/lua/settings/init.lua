@@ -20,3 +20,7 @@ endif
 vim.api.nvim_command [[
   autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 ]]
+
+local home_dir = vim.fn.expand("~/")
+local dir_path = home_dir .. ".vim/after/vim-highlighter"
+vim.fn.mkdir(dir_path, "p")

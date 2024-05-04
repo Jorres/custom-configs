@@ -3,16 +3,21 @@ require('lualine').setup {
     icons_enabled = true,
     component_separators = '',
     section_separators = '',
-    disabled_filetypes = {}
+    disabled_filetypes = {},
+    globalstatus = true,
   },
   sections = {
     -- lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end }},
-    lualine_a = { {'mode', padding = 2} },
+    lualine_a = { { 'mode', padding = 2 } },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { {'filename', path = 3}  },
+    lualine_c = { { 'filename', path = 3 }, '%=', {
+      "harpoon2",
+      icon = '♥',
+      separator = " ",
+    } },
     lualine_x = { 'encoding' },
     lualine_y = { 'filetype', 'filesize' },
-    lualine_z = { {'location', padding = 2} }
+    lualine_z = { { 'location', padding = 2 } }
   },
   inactive_sections = {
     lualine_a = { 'filename' },

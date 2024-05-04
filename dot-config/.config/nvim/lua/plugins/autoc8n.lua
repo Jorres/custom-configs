@@ -3,8 +3,6 @@ lspkind.init()
 
 local cmp = require "cmp"
 
-local luasnip = require("luasnip")
-
 cmp.setup {
   completion = { completeopt = 'menu,menuone,noinsert' },
 
@@ -32,11 +30,10 @@ cmp.setup {
   },
 
   sources = {
-      --     nvim_lsp = "[LSP]",
-    { name = "luasnip", max_item_count = 2 },
+    --     nvim_lsp = "[LSP]",
     { name = "nvim_lsp_signature_help" },
-    { name = "nvim_lua", max_item_count = 5, filetype = "lua" },
-    { name = "nvim_lsp", keyword_length = 2, },
+    { name = "nvim_lua",               max_item_count = 5, filetype = "lua" },
+    { name = "nvim_lsp",               keyword_length = 2, },
     -- {
     --   name = 'tmux',
     --   option = {
@@ -48,14 +45,8 @@ cmp.setup {
     --   max_item_count = 3,
     --   keyword_length = 3,
     -- },
-    { name = "path", max_item_count = 3 },
-    { name = "buffer", max_item_count = 2, keyword_length = 4 },
-  },
-
-  snippet = {
-    expand = function(args)
-      luasnip.lsp_expand(args.body)
-    end,
+    { name = "path",                   max_item_count = 3 },
+    { name = "buffer",                 max_item_count = 2, keyword_length = 4 },
   },
 
   formatting = {
@@ -70,7 +61,6 @@ cmp.setup {
       --     buffer = "[buf]",
       --     nvim_lua = "[api]",
       --     path = "[path]",
-      --     luasnip = "[snip]",
       --   },
     },
   },
@@ -109,7 +99,7 @@ cmp.setup {
   -- }
 }
 
-cmp.setup.filetype({ 'markdown', 'telekasten' }, {
+cmp.setup.filetype({ 'markdown' }, {
   enabled = false,
   mapping = {
     ["<c-y>"] = cmp.mapping.confirm {
@@ -119,7 +109,7 @@ cmp.setup.filetype({ 'markdown', 'telekasten' }, {
     ["<Down>"] = cmp.mapping.select_next_item(),
   },
   sources = {
-    { name = "path", max_item_count = 3 },
+    { name = "path",   max_item_count = 3 },
     { name = "buffer", max_item_count = 2, keyword_length = 4 },
   },
   experimental = {

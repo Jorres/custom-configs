@@ -6,16 +6,7 @@ lua_library['/usr/share/nvim/runtime/lua/lsp'] = true
 lua_library['/usr/share/awesome/lib'] = true
 
 local servers = {
-  clangd = {},
   gopls = {},
-  yamlls = {
-    yaml = {
-      schemas = {
-        ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.yaml",
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-      }
-    },
-  },
   lua_ls = {
     Lua = {
       runtime = {
@@ -86,7 +77,6 @@ local enforce_installed = vim.tbl_keys(servers)
 local zero_setup_servers = {
   "bashls",
   "dockerls",
-  "kotlin_language_server",
   "terraformls",
   "tsserver",
   "golangci_lint_ls",

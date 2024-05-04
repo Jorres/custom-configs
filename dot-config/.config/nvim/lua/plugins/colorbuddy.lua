@@ -1,4 +1,10 @@
-local Color, colors, Group, groups, styles = require('colorbuddy').setup()
+local colorbuddy = require('colorbuddy')
+
+colorbuddy.setup()
+
+local Color = colorbuddy.Color
+local colors = colorbuddy.colors
+local Group = colorbuddy.Group
 
 -- Use Color.new(<name>, <#rrggbb>) to create new colors
 -- They can be accessed through colors.<name>
@@ -26,14 +32,5 @@ Group.new("VibrantFloatBorder", colors.pinkBorder, nil, nil)
 Group.new("Directory", colors.pinkBorder, nil, nil)
 Group.new("NvimTreeFolderName", colors.pinkBorder, nil, nil)
 
-
--- Telekasten links and tags
--- Color.new("telelink", "#689d6a")
--- Group.new("tkLink", colors.telelink, nil, styles.bold + styles.underline)
--- Group.new("tkBrackets", colors.gray, nil, nil)
-
--- Color.new("teletag", "#d3869B")
--- Group.new("tkTagSep", colors.gray, nil, nil)
--- Group.new("tkTag", colors.teletag, nil)
 
 vim.cmd [[ highlight EndOfBuffer guifg=bg ]]

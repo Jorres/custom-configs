@@ -5,6 +5,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -89,8 +90,10 @@ export PATH="$HOME/lua-5.4.3/src/:$PATH"
 export PATH="$HOME/bin/:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$HOME/go/bin"
-# export PATH="$PATH:$HOME/yandex-cloud/bin"
 export PATH="$PATH:$HOME/ycp/bin"
+export PATH="$PATH:$HOME/work/nebius/kikimr-tools"
+export PATH="$PATH:$HOME/nebo"
+export PATH="$PATH:$(go env GOPATH)/bin"
 
 # [ -s "$HOME/yandex-cloud/completion.zsh.inc" ] && \. "$HOME/yandex-cloud/completion.zsh.inc"  # This loads yc bash_completionaa
 
@@ -106,16 +109,11 @@ alias kaf="kubectl apply -f "
 alias kdf="kubectl delete -f "
 export KUBECONFIG=$HOME/.kube/config
 
-alias tma="tmuxinator start allrounder"
-alias tmas="tmuxinator stop allrounder"
-alias tmm="tmuxinator start md"
-alias tmms="tmuxinator stop md"
-alias tmy="tmuxinator start YA_A"
-alias tmys="tmuxinator stop YA_A"
-alias tmY="tmuxinator start YA_B"
-alias tmYs="tmuxinator stop YA_B"
-
 alias ast="arc status"
+alias ad="arc diff"
+alias ap="arc push"
+alias al="arc pull"
+alias aa="arc add"
 alias acmsg="arc commit -m"
 
 alias glow="glow -w 100"
@@ -163,8 +161,6 @@ xset r rate 150 30
 # Needed so I can call 'nvim' from INSIDE nvim and not open an nvim inside nvim, uses nvr
 alias nvim='if [[ -z "$NVIM" ]]; then XXX="nvim" && YYY="" else XXX="nvr" && YYY="-l" fi && $XXX $YYY'
 
-export OPENAI_API_KEY="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"
-
 alias nnn='nnn -e'
 export NNN_BMS="c:~/custom-configs/;d:~/Downloads/;t:~/Downloads/Telegram Desktop/"
 export NNN_PLUG='z:autojump;d:dragdrop'
@@ -208,6 +204,12 @@ export QT_IM_MODULE='ibus'
 export XMODIFIERS='@im=ibus'
 export GLFW_IM_MODULE='ibus'
 
+# export GTK_IM_MODULE='ibus'
+# export QT_IM_MODULE='ibus'
+# export XMODIFIERS=@im='ibus'
+
+export PATH=$PATH:~/work/nebius/ydb-ops/
+
 alias ycptkten='ycp --profile testing --folder-id yc.ydb.kten-folder'
 
 alias issh="pssh --no-bastion --no-yubikey"
@@ -219,4 +221,11 @@ if [ -f '/home/tarasov-egor/yandex-cloud/path.bash.inc' ]; then source '/home/ta
 
 # The next line enables shell command completion for yc.
 if [ -f '/home/tarasov-egor/yandex-cloud/completion.zsh.inc' ]; then source '/home/tarasov-egor/yandex-cloud/completion.zsh.inc'; fi
+
+
+# The next line updates PATH for CLI.
+if [ -f '/home/jorres/nebius-cloud/path.bash.inc' ]; then source '/home/jorres/nebius-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for ncp.
+if [ -f '/home/jorres/nebius-cloud/completion.zsh.inc' ]; then source '/home/jorres/nebius-cloud/completion.zsh.inc'; fi
 

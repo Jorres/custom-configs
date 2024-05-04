@@ -12,13 +12,13 @@ if fn.empty(fn.glob(packer_install_dir)) > 0 then
   execute 'packadd packer.nvim'
 end
 
+
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use, use_rocks)
   use 'wbthomason/packer.nvim'
 
   -- Not using:
-  use { 'L3MON4D3/LuaSnip' }  -- Snippets engine!
   use { 'tpope/vim-abolish' } -- :Subvert, coerce to various cases
   -- Submodes
   use { 'anuvyklack/hydra.nvim',
@@ -37,8 +37,12 @@ return require('packer').startup(function(use, use_rocks)
   use { 'AndrewRadev/splitjoin.vim' } -- gJ and gS to split\join statements in multiple languages
   use { 'matze/vim-move' }            -- Allows to move lines up and down with Alt
   use { 'sk1418/HowMuch' }            -- https://github.com/sk1418/HowMuch
-  use { 'ThePrimeagen/harpoon' }      -- Keep track of latest files you work with
-  use { 'mbbill/undotree' }           -- Visualize undotree
+  use {
+    'ThePrimeagen/harpoon',
+    branch = "harpoon2",
+  }                         -- Keep track of latest files you work with
+
+  use { 'mbbill/undotree' } -- Visualize undotree
   -- A true blessing. Set shiftwidth to what the buffer is using
   -- instead of hardcoded 2 or hardcoded 4.
   use { 'NMAC427/guess-indent.nvim' }
@@ -46,23 +50,8 @@ return require('packer').startup(function(use, use_rocks)
 
   use { "ThePrimeagen/refactoring.nvim" }
 
-  -- use({
-  --   os.getenv("HOME") .. '/hobbies/ChatGPT.nvim',
-  --   requires = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim"
-  --   }
-  -- })
-
-  use({
-    os.getenv("HOME") .. '/hobbies/gp.nvim',
-    requires = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-  })
+  -- use { "jackMort/ChatGPT.nvim" }
+  use { "Robitx/gp.nvim" }
 
   -- === Vim utilities ===
   use { 'lambdalisue/suda.vim' }              -- reenter sudo editing with :Suda
@@ -89,12 +78,9 @@ return require('packer').startup(function(use, use_rocks)
 
   use { 'goolord/alpha-nvim' }                  -- cool startup screen!
   use { 'akinsho/toggleterm.nvim' }             -- toggle terminal per session
-  use { 'lewis6991/nvim-treesitter-context' }   -- accumulates context at the 1-2 lines of the file
   use { 'lukas-reineke/indent-blankline.nvim' } -- draws small symbols for indentation
-  use { 'jbyuki/venn.nvim' }                    -- draw some boxes with VBox
   use { 'mvllow/modes.nvim' }                   -- highlight the current line with a mode color
   use { 'stevearc/dressing.nvim' }              -- improved vim.ui interfaces, like (select) and (input)
-  -- use { "beauwilliams/focus.nvim" }
   use { "folke/noice.nvim", requires = {
     "MunifTanjim/nui.nvim",
     "rcarriga/nvim-notify",
@@ -102,6 +88,13 @@ return require('packer').startup(function(use, use_rocks)
   use { 'mrjones2014/legendary.nvim' }
   use({ "asiryk/auto-hlsearch.nvim", tag = "1.1.0" })
 
+  use {
+    'letieu/harpoon-lualine',
+    opt = false,
+    requires = { { 'ThePrimeagen/harpoon' } }
+  }
+
+  use { "lukas-reineke/headlines.nvim" }
 
   -- === Colorschemes === --
   use { 'morhetz/gruvbox' }
@@ -109,14 +102,13 @@ return require('packer').startup(function(use, use_rocks)
   use { 'EdenEast/nightfox.nvim' }
   use { 'nyoom-engineering/oxocarbon.nvim' }
   use { 'ribru17/bamboo.nvim' }
-  -- use {'sainnhe/everforest'}
+  use { 'sainnhe/everforest' }
   use { 'sainnhe/sonokai' }
   use { "rebelot/kanagawa.nvim" }
   use { "folke/tokyonight.nvim" }
   use { 'uloco/bluloco.nvim',
     requires = { 'rktjmp/lush.nvim' }
   }
-
 
   -- === TMUX === --
   use { 'christoomey/vim-tmux-navigator' } -- Allows to use <C-hjkl> to move to/from tmux panes
@@ -133,12 +125,11 @@ return require('packer').startup(function(use, use_rocks)
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'andersevenrud/cmp-tmux' }
-  use { 'saadparwaiz1/cmp_luasnip' }
 
   -- === Treesitter ===
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   use { 'nvim-treesitter/playground' }
-  use { 'p00f/nvim-ts-rainbow' }
+  use { 'hiphish/rainbow-delimiters.nvim' }
 
   -- === Telescope ===
   use { 'nvim-telescope/telescope.nvim', branch = "0.1.x" }
@@ -153,10 +144,6 @@ return require('packer').startup(function(use, use_rocks)
   use { 'tjdevries/colorbuddy.nvim' }
   use { os.getenv("HOME") .. '/hobbies/plugins/showmethat' }
 
-  -- === Actual programming ===
-  use { 'vim-test/vim-test' }
-
-
   -- === neovim as PDE ===
   use { 'renerocksai/telekasten.nvim' }
   use {
@@ -165,6 +152,7 @@ return require('packer').startup(function(use, use_rocks)
       'm00qek/baleia.nvim' -- this enables background color
     },
   }
+  use { "keaising/im-select.nvim", } -- navigation in normal mode with Japanese
 
   -- === Misc ===
   use { 'fladson/vim-kitty' } -- keyword highlighting of kitty.conf

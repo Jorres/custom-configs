@@ -73,15 +73,16 @@ setter({
 
 -- Harpoon
 local harpoon_pref = leader .. "h"
+local harpoon = require "harpoon"
 
 local loud_opts = { silent = false }
 
-set("n", harpoon_pref .. "m", require "harpoon.ui".toggle_quick_menu, loud_opts)
-set("n", harpoon_pref .. "a", require "harpoon.mark".add_file, loud_opts)
+set("n", harpoon_pref .. "m", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, loud_opts)
+set("n", harpoon_pref .. "a", function() harpoon:list():append() end, loud_opts)
 
-for i = 1, 8, 1 do
+for i = 1, 4, 1 do
   set("n", leader .. i, function()
-    require "harpoon.ui".nav_file(i)
+    harpoon:list():select(i)
   end, default_opt)
 end
 
@@ -136,10 +137,10 @@ setter({
 
 -- Yanky
 
-set({"n","x"}, "p", "<Plug>(YankyPutAfter)")
-set({"n","x"}, "P", "<Plug>(YankyPutBefore)")
-set({"n","x"}, "gp", "<Plug>(YankyGPutAfter)")
-set({"n","x"}, "gP", "<Plug>(YankyGPutBefore)")
+set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
+set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
+set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
+set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
 
 set("n", "<c-n>", "<Plug>(YankyCycleForward)")
 set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
@@ -150,7 +151,7 @@ set("n", leader .. "y", ":Telescope yank_history<CR>")
 
 local ok_showmethat, msg = pcall(require, "showmethat")
 if not ok_showmethat then
-  -- It would be perfect to log this without explicitly print()'ing 
+  -- It would be perfect to log this without explicitly print()'ing
   -- this to interrupt user flow
 else
   local showmethat = require("showmethat")
@@ -158,7 +159,7 @@ else
 end
 
 -- set("n", "/", ":SearchBoxMatchAll title=Match clear_matches=false<CR>")
-vim.keymap.set({"n","x"}, "y", "<Plug>(YankyYank)")
+vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
 
 -- Try to make link opening work
 -- TODO for some mysterious reason, works on Matebook but not on Thinkpad
