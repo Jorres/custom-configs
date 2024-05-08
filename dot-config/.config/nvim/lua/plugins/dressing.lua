@@ -43,7 +43,6 @@
         ["<CR>"] = "Confirm",
       },
       i = {
-        ["<C-c>"] = "Close",
         ["<CR>"] = "Confirm",
         ["<Up>"] = "HistoryPrev",
         ["<Down>"] = "HistoryNext",

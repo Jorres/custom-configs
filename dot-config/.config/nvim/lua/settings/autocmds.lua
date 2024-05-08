@@ -24,11 +24,11 @@ end
 local api = require("nvim-tree.api")
 local Event = api.events.Event
 api.events.subscribe(Event.TreeOpen, function()
-    local hl_path = make_hl_file_path()
-    vim.cmd(string.format("Hi load %s", hl_path))
+  local hl_path = make_hl_file_path()
+  vim.cmd(string.format("Hi load %s", hl_path))
 end)
 
-vim.api.nvim_create_autocmd({"WinLeave", "VimLeave"}, {
+vim.api.nvim_create_autocmd({ "WinLeave", "VimLeave" }, {
   pattern = "*",
   callback = function()
     if vim.api.nvim_buf_get_option(0, 'filetype') == "NvimTree" then
@@ -51,6 +51,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function()
     local hl_path = make_hl_file_path()
     vim.cmd(string.format("Hi save %s", hl_path))
+  end,
+})
+
+-- Make some built-in vim highlighting activate for salt files
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.sls",
+  callback = function()
+    vim.cmd("set filetype=jinja")
   end,
 })
 

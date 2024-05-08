@@ -32,8 +32,6 @@ local function on_attach(bufnr)
   vim.keymap.set('n', 's', api.node.run.system, opts('Run System'))
   vim.keymap.set('n', 'q', api.tree.close, opts('Close'))
   vim.keymap.set('n', 'g?', api.tree.toggle_help, opts('Help'))
-  vim.keymap.set('n', 'W', api.tree.collapse_all, opts('Collapse'))
-
 end
 
 require 'nvim-tree'.setup {

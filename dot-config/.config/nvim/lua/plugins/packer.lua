@@ -71,8 +71,6 @@ return require('packer').startup(function(use, use_rocks)
   use { 'edluffy/specs.nvim' }       -- cursor jump landing visualization
   use { 'kyazdani42/nvim-tree.lua' } --File explorer
   use { 'azabiong/vim-highlighter' }
-  -- use { 'Pocco81/HighStr.nvim' } -- highlight words on a whim
-  -- use { 'PeterRincker/vim-searchlight' } -- Highlight current hlsearch pattern differently
   use { 'echasnovski/mini.nvim' }
   use { "andrewferrier/wrapping.nvim" }
 
@@ -93,8 +91,6 @@ return require('packer').startup(function(use, use_rocks)
     opt = false,
     requires = { { 'ThePrimeagen/harpoon' } }
   }
-
-  use { "lukas-reineke/headlines.nvim" }
 
   -- === Colorschemes === --
   use { 'morhetz/gruvbox' }

@@ -42,7 +42,6 @@ load_list_safely({
   "plugins.mini-indent",
   "plugins.mini-highlight",
   "plugins.flash",
-  "plugins.headlines",
   "plugins.japanese",
 
   -- PDE

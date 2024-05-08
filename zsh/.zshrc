@@ -77,13 +77,6 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
 export EDITOR='nvim'
 
 export PATH="$HOME/lua-5.4.3/src/:$PATH"
@@ -95,11 +88,8 @@ export PATH="$PATH:$HOME/work/nebius/kikimr-tools"
 export PATH="$PATH:$HOME/nebo"
 export PATH="$PATH:$(go env GOPATH)/bin"
 
-# [ -s "$HOME/yandex-cloud/completion.zsh.inc" ] && \. "$HOME/yandex-cloud/completion.zsh.inc"  # This loads yc bash_completionaa
-
 DOTFILES_PATH=$HOME/custom-configs
 export PATH="$PATH:$DOTFILES_PATH/utilities"
-export PATH="$PATH:$HOME/local-installations/squashfs-root/usr/bin"
 
 alias sourcerc="source ~/.zshrc"
 
@@ -107,6 +97,7 @@ alias tfapp="terraform apply --auto-approve"
 alias tfa="terraform apply"
 alias kaf="kubectl apply -f "
 alias kdf="kubectl delete -f "
+
 export KUBECONFIG=$HOME/.kube/config
 
 alias ast="arc status"
@@ -116,17 +107,11 @@ alias al="arc pull"
 alias aa="arc add"
 alias acmsg="arc commit -m"
 
-alias glow="glow -w 100"
-
-alias pysource="source ./env/bin/activate"
-
-alias rgc="rg --hidden --files   | rg"
 alias rgh="rg --hidden --files ~ | rg"
 alias rgr="sudo rg --hidden --files / | rg"
 
 alias ls="exa -la --icons"
 alias lst="exa --tree --level=2 --long --icons"
-# alias screenkey="/home/tarasov-egor/screenkey/screenkey -s small --mods-mode emacs --ignore Ctrl -g '1000x1000+100+100'"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
@@ -140,19 +125,9 @@ bindkey '^ ' _atuin_search_widget
 
 eval "$(navi widget zsh)"
 
-# The next line updates PATH for Yandex Cloud CLI.
-if [ -f '$HOME/yandex-cloud/path.bash.inc' ]; then source '$HOME/yandex-cloud/path.bash.inc'; fi
-# # The next line enables shell command completion for yc.
-# if [ -f '$HOME/yandex-cloud/completion.zsh.inc' ]; then source '$HOME/yandex-cloud/completion.zsh.inc'; fi
-# The next line updates PATH for Yandex Cloud Private CLI.
-if [ -f '$HOME/ycp/path.bash.inc' ]; then source '$HOME/ycp/path.bash.inc'; fi
-
 PATH="$HOME/arcadia:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# The next line updates PATH for Yandex Cloud YDB CLI.
-if [ -f '/home/tarasov-egor/ydb/path.bash.inc' ]; then source '/home/tarasov-egor/ydb/path.bash.inc'; fi
 
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
@@ -160,6 +135,8 @@ xset r rate 150 30
 
 # Needed so I can call 'nvim' from INSIDE nvim and not open an nvim inside nvim, uses nvr
 alias nvim='if [[ -z "$NVIM" ]]; then XXX="nvim" && YYY="" else XXX="nvr" && YYY="-l" fi && $XXX $YYY'
+
+alias nvim_plugins="z packer start"
 
 alias nnn='nnn -e'
 export NNN_BMS="c:~/custom-configs/;d:~/Downloads/;t:~/Downloads/Telegram Desktop/"
@@ -204,28 +181,12 @@ export QT_IM_MODULE='ibus'
 export XMODIFIERS='@im=ibus'
 export GLFW_IM_MODULE='ibus'
 
-# export GTK_IM_MODULE='ibus'
-# export QT_IM_MODULE='ibus'
-# export XMODIFIERS=@im='ibus'
-
 export PATH=$PATH:~/work/nebius/ydb-ops/
 
-alias ycptkten='ycp --profile testing --folder-id yc.ydb.kten-folder'
-
-alias issh="pssh --no-bastion --no-yubikey"
-
 # zprof
-
-# The next line updates PATH for CLI.
-if [ -f '/home/tarasov-egor/yandex-cloud/path.bash.inc' ]; then source '/home/tarasov-egor/yandex-cloud/path.bash.inc'; fi
-
-# The next line enables shell command completion for yc.
-if [ -f '/home/tarasov-egor/yandex-cloud/completion.zsh.inc' ]; then source '/home/tarasov-egor/yandex-cloud/completion.zsh.inc'; fi
-
 
 # The next line updates PATH for CLI.
 if [ -f '/home/jorres/nebius-cloud/path.bash.inc' ]; then source '/home/jorres/nebius-cloud/path.bash.inc'; fi
 
 # The next line enables shell command completion for ncp.
 if [ -f '/home/jorres/nebius-cloud/completion.zsh.inc' ]; then source '/home/jorres/nebius-cloud/completion.zsh.inc'; fi
-

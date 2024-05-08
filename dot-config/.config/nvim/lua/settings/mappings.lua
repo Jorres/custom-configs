@@ -78,7 +78,7 @@ local harpoon = require "harpoon"
 local loud_opts = { silent = false }
 
 set("n", harpoon_pref .. "m", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, loud_opts)
-set("n", harpoon_pref .. "a", function() harpoon:list():append() end, loud_opts)
+set("n", harpoon_pref .. "a", function() harpoon:list():add() end, loud_opts)
 
 for i = 1, 4, 1 do
   set("n", leader .. i, function()

@@ -173,24 +173,22 @@ for direction_vim, direction_word in pairs(tmux_moves) do
   }
 end
 
-if os.getenv("OPENAI_API_KEY") ~= nil then
-  named_keymaps.run_chat_gpt = {
-    "<C-c>",
-    function()
-      vim.api.nvim_command(":GpChatToggle")
-      if chat.active then
-        chat.active = false
-        vim.api.nvim_command('stopinsert')
-      else
-        vim.api.nvim_command('startinsert')
-        chat.active = true
-      end
-    end,
-    mode = { "n", "i" },
-    description = "Open/close ChatGPT window",
-    opts = default_opts
-  }
-end
+named_keymaps.run_chat_gpt = {
+  "<C-c>",
+  function()
+    vim.api.nvim_command(":GpChatToggle")
+    if chat.active then
+      chat.active = false
+      vim.api.nvim_command('stopinsert')
+    else
+      vim.api.nvim_command('startinsert')
+      chat.active = true
+    end
+  end,
+  mode = { "n", "i" },
+  description = "Open/close ChatGPT window",
+  opts = default_opts
+}
 
 named_keymaps.exit_terminal_1 = {
   "<c-[>",

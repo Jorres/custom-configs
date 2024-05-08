@@ -13,11 +13,10 @@ require("gp").setup({
 					.. "You are required to respond in the following way:\n\n"
 					.. "- If you're unsure don't guess and say you don't know instead.\n"
 					.. "- Ask question if you need clarification to provide better answer.\n"
-					.. "- Think deeply and carefully from first principles step by step.\n"
-					.. "- Zoom out first to see the big picture and then zoom in to details.\n"
 					.. "- Don't elide any code from your output if the answer requires coding.\n"
 					.. "- Try to give your reply succintly. No need to paraphrase what you have already said.\n"
 					.. "- Assume the user is educated and smart, no need to explain minute details.\n"
+          .. "- For questions that can be answered with a single sentence or single example, you must do so without writing several hundred words"
 					.. "- Take a deep breath; You've got this!\n",
 		},
 		{ name = "ChatGPT3.5", },

@@ -26,7 +26,10 @@ require "gitlinker".setup({
         end
       end
 
-      local base = "https://arcanum.nebius.dev/nebo/bb/cloud/bootstrap-templates/"
+      -- url_data.repo looks like 'bb-cloud-<repo-name>'
+      -- so I have to strip the first 9 characters 'bb-cloud-'
+      local base = "https://arcanum.nebius.dev/nebo/bb/cloud/" .. string.sub(url_data.repo, 10) .. "/"
+
       return base .. url_data.file .. lines
     end,
   },

@@ -41,7 +41,7 @@ https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-prop
 	# make
 	# make install
 
-sudo snap install firefox telegram-desktop vlc skype discord
+sudo snap install firefox telegram-desktop vlc skype discord slack
 
 # Download zoom deb from official site, and then 
 # sudo apt install ./zoom_amd64.deb
