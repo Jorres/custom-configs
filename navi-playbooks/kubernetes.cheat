@@ -22,3 +22,6 @@ kubectl create <resource> <name> --dry-run=client -o yaml > <name>.yaml
 
 # kubectl view current context and namespace
 kubectl config get-contexts | head -n 1 && kubectl config get-contexts | grep "*"
+
+# kubectl display nodes by label
+kubectl get nodes --selector=<label_selector>
