@@ -102,6 +102,7 @@ export KUBECONFIG=$HOME/.kube/config
 
 alias ast="arc status"
 alias ad="arc diff"
+alias ads="arc diff --staged"
 alias ap="arc push"
 alias al="arc pull"
 alias aa="arc add"
