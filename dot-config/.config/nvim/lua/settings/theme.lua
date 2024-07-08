@@ -1,5 +1,5 @@
 vim.opt.background = "dark"
-vim.cmd [[colorscheme bluloco]]
+vim.cmd [[colorscheme synthweave]]
 
 -- kanagawa-wave
 -- gruvbox
@@ -7,3 +7,4 @@ vim.cmd [[colorscheme bluloco]]
 -- duskfox
 -- bamboo
 -- oxocarbon
+-- bluloco

@@ -46,7 +46,7 @@ require 'nvim-tree'.setup {
     indent_markers = {
       enable = true,
     },
-    special_files = { 'init.lua', 'packer.lua', 'entrypoint.md' }
+    special_files = { 'init.lua', 'entrypoint.md', 'lazy.lua', 'pluginspec.lua' }
   },
   -- disables netrw completely
   disable_netrw        = true,

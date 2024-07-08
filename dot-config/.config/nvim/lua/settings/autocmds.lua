@@ -1,10 +1,3 @@
-local packer_group = vim.api.nvim_create_augroup("observe packer changes", { clear = true })
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "packer.lua" },
-  command = "luafile %",
-  group = packer_group
-})
-
 local colorscheme_group = vim.api.nvim_create_augroup("colorscheme changes", { clear = true })
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = { "*" },
@@ -54,7 +47,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- Make some built-in vim highlighting activate for salt files
+-- Make some built-in vim highlighting activate for salt files 
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = "*.sls",
   callback = function()
@@ -91,12 +84,3 @@ vim.api.nvim_create_autocmd("VimLeave", {
       empty_vim_highlighter_header_length)
   end,
 })
-
--- local prettify_prettify = vim.api.nvim_create_augroup("auto Prettify md", {clear = true})
--- vim.api.nvim_create_autocmd({"BufWritePost"}, {
---   pattern = { "*.md" },
---   callback = function ()
---     vim.cmd [[ Prettier ]]
---   end,
---   group = prettify_group
--- })

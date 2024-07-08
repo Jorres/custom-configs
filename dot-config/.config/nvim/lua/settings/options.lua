@@ -26,6 +26,7 @@ local options = {
   fileencoding = "utf-8",
   equalalways = false,
   lazyredraw = true,
+
   mouse = "a",
   ch = 0,
 }

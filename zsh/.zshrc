@@ -106,6 +106,7 @@ alias ads="arc diff --staged"
 alias ap="arc push"
 alias al="arc pull"
 alias aa="arc add"
+alias aco="arc checkout"
 alias acmsg="arc commit -m"
 
 alias rgh="rg --hidden --files ~ | rg"
@@ -136,8 +137,6 @@ xset r rate 150 30
 
 # Needed so I can call 'nvim' from INSIDE nvim and not open an nvim inside nvim, uses nvr
 alias nvim='if [[ -z "$NVIM" ]]; then XXX="nvim" && YYY="" else XXX="nvr" && YYY="-l" fi && $XXX $YYY'
-
-alias nvim_plugins="z packer start"
 
 alias nnn='nnn -e'
 export NNN_BMS="c:~/custom-configs/;d:~/Downloads/;t:~/Downloads/Telegram Desktop/"
@@ -191,3 +190,11 @@ if [ -f '/home/jorres/nebius-cloud/path.bash.inc' ]; then source '/home/jorres/n
 
 # The next line enables shell command completion for ncp.
 if [ -f '/home/jorres/nebius-cloud/completion.zsh.inc' ]; then source '/home/jorres/nebius-cloud/completion.zsh.inc'; fi
+
+# The next line updates PATH for Yandex Cloud CLI.
+if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
+
+# The next line enables shell command completion for yc.
+if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
+
+

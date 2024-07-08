@@ -56,11 +56,11 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	}
 )
 
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
+  require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
   if vim.bo[bufnr].filetype == "helm" then
     vim.diagnostic.disable(bufnr)
   end
-  client.server_capabilities.semanticTokensProvider = nil
 end
 
 vim.cmd [[
@@ -79,7 +79,6 @@ local zero_setup_servers = {
   "dockerls",
   "terraformls",
   "tsserver",
-  "golangci_lint_ls",
   "pyright",
 }
 

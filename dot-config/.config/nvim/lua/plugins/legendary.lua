@@ -5,23 +5,6 @@ local default_opts = {
   silent = true
 }
 
-named_keymaps.highlight = {
-  "<leader>hl",
-  ":<c-u>HSHighlight 1<CR>",
-  mode = { "v" },
-  description = "Do visual highlight",
-  opts = default_opts
-}
-
-named_keymaps.remove_highlight = {
-  "<leader>hr",
-  ":<c-u>HSRmHighlight<CR>",
-  mode = { "v" },
-  description = "Remove visual highlight",
-  opts = default_opts
-}
-
-
 named_keymaps.print_var = {
   "<leader>rv",
   function() require('refactoring').debug.print_var() end,
@@ -102,25 +85,9 @@ named_keymaps.lsp_hover = {
   opts = default_opts
 }
 
--- named_keymaps.lsp_prev_diagnostic = {
---   "dk",
---   vim.lsp.diagnostic.goto_prev,
---   mode = { "n" },
---   description = "Go to previous diagnostic",
---   opts = default_opts
--- }
-
--- named_keymaps.lsp_next_diagnostic = {
---   "dj",
---   vim.lsp.diagnostic.goto_next,
---   mode = { "n" },
---   description = "Go to next diagnostic",
---   opts = default_opts
--- }
-
 named_keymaps.lsp_view_all_diagnostics = {
-  "dl",
-  ":Telescope diagnostics<CR>",
+  "<leader>ds",
+  vim.diagnostic.setqflist,
   mode = { "n" },
   description = "Show all diagnostics",
   opts = default_opts
@@ -135,6 +102,10 @@ named_keymaps.show_legendary = {
 }
 
 local tmux_moves = {
+  -- this one is a hack. I use QMK to override ctrl+h to send a backspace. 
+  -- but I use tmux to send C-h to vim anyway when tmux detects backspace.
+  -- that's why it works here without a custom reaction to backspace, vim never
+  -- sees backspace in the first place
   h = "Left",
   j = "Down",
   k = "Up",
@@ -143,10 +114,6 @@ local tmux_moves = {
 
 -- Have to explicitly disable standard mappings of this plugin:
 vim.api.nvim_command("let g:tmux_navigator_no_mappings = 1")
-
-local chat = {
-  active = false,
-}
 
 for direction_vim, direction_word in pairs(tmux_moves) do
   named_keymaps["jump_window_" .. direction_word] = {
@@ -172,6 +139,11 @@ for direction_vim, direction_word in pairs(tmux_moves) do
     opts = default_opts
   }
 end
+
+
+local chat = {
+  active = false,
+}
 
 named_keymaps.run_chat_gpt = {
   "<C-c>",
@@ -222,14 +194,6 @@ named_keymaps.file_sequence_toggle = {
   opts = default_opts
 }
 
-named_keymaps.packer_sync = {
-  "<leader>Ps",
-  ":PackerSync<CR>",
-  mode = { "n" },
-  description = "PackerSync, but shorter",
-  opts = default_opts
-}
-
 named_keymaps.lua_test_file = {
   "<leader><leader>lt",
   function()
@@ -261,14 +225,6 @@ named_keymaps.increment = {
   "<c-a>",
   mode = { "n" },
   description = "Increment next number",
-  opts = default_opts
-}
-
-named_keymaps.open_nnn_picker = {
-  "<leader>p",
-  "<cmd>NnnPicker<CR>",
-  mode = { "n" },
-  description = "Open Nnn Picker",
   opts = default_opts
 }
 

@@ -19,10 +19,6 @@ setter({ ["<leader>p"] = "\"_dP" }, { "x" })
 setter({ ["<leader>d"] = "\"_d" }, { "n" })
 setter({ ["<leader>d"] = "\"_d" }, { "v" })
 
--- Smoothscroll replacement
--- setter({ ['<C-Y>'] = "<C-Y><C-Y><C-Y><C-Y><C-Y>" }, { "n" })
--- setter({ ['<C-E>'] = "<C-E><C-E><C-E><C-E><C-E>" }, { "n" })
-
 setter({
   -- make Y behave and yank till the end
   ["Y"] = "yg",
@@ -32,11 +28,11 @@ setter({
   ["!"] = "!<c-g>u",
   ["?"] = "?<c-g>u",
   -- quickfixlist remaps
-  ["["] = function()
+  ["]"] = function()
     pcall(del, { "n", "i", "v" }, "[%")
     vim.cmd("cnext")
   end,
-  ["]"] = function()
+  ["["] = function()
     pcall(del, { "n", "i", "v" }, "]%")
     vim.cmd("cprev")
   end,
@@ -100,41 +96,6 @@ setter({
   -- [leader .. "d"] =  gitsigns.toggle_deleted,
 }, { "n" })
 
--- Telekasten
-
-local kasten_prefix = leader .. "z"
-local telekasten = require 'telekasten'
-
-setter({
-  [kasten_prefix .. "n"] = telekasten.new_note,
-  -- [kasten_prefix .. "f"] = telekasten.follow_link,
-  [kasten_prefix .. "f"] = telekasten.find_notes, -- think 'search'
-  [kasten_prefix .. "s"] = telekasten.search_notes, -- think 'search'
-  [kasten_prefix .. "ip"] = telekasten.paste_img_and_link,
-  [kasten_prefix .. "#"] = telekasten.show_tags,
-  [kasten_prefix .. "r"] = telekasten.rename_note,
-
-  -- [kasten_prefix .. "d"] = telekasten.goto_today,
-  -- [kasten_prefix .. "w"] = telekasten.goto_thisweek,
-  -- [kasten_prefix .. "b"] = telekasten.show_backlinks,
-  -- [kasten_prefix .. "l"] = telekasten.insert_link, -- {i = true}
-  -- [kasten_prefix .. "c"] = telekasten.show_calendar,
-}, { "n" })
-
--- zd find_daily_notes
--- zg search_notes
--- zw find_weekly_notes
--- zN new_templated_note
--- zy yank_notelink
--- zc show_calendar
--- zt toggle_todo
--- zb show_backlinks
--- zF find_friends
--- zp preview_img
--- zm browse_media
--- zC :CalendarT
--- #  show_tags
-
 -- Yanky
 
 set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
@@ -161,12 +122,11 @@ end
 -- set("n", "/", ":SearchBoxMatchAll title=Match clear_matches=false<CR>")
 vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
 
--- Try to make link opening work
--- TODO for some mysterious reason, works on Matebook but not on Thinkpad
-set("n", 'gx', [[:execute '!xdg-open ' . shellescape(expand('<cfile>'), 1)<CR>]])
-
-vim.api.nvim_command [[
-  let HiSet   = '<leader>hl'
-  let HiErase = '<leader>hr'
-  let HiSetSL = '<leader>ho'
-]]
+-- for some reason, remapping this does not work, so here it is for reference only:
+vim.cmd([[
+   let HiSet   = 'f<CR>'
+   let HiErase = 'f<BS>'
+   let HiClear = 'f<C-L>'
+   let HiFind  = 'f<Tab>'
+   let HiSetSL = 't<CR>'
+ ]])

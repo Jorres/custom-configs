@@ -89,14 +89,6 @@ cmp.setup {
     native_menu = false,
     ghost_text = false,
   },
-  -- window = {
-  --   completion = {
-  --     border = "solid",
-  --   },
-  --   documentation = {
-  --     border = "solid",
-  --   }
-  -- }
 }
 
 cmp.setup.filetype({ 'markdown' }, {

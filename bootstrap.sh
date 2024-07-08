@@ -33,6 +33,10 @@ git clone git@github.com:Jorres/showmethat.nvim.git ~/hobbies/plugins/showmethat
 # Do this to fix xbacklight:
 https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
 
+# NNN:
+sh -c "$(curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs)"
+# then, move dot-config/.config/nnn/plugins to ~/.config/nnn/plugins
+
 # This will be installed along with stow-bin stuff. But in case something breaks, here is how to reinstall dragon for nnn:
 	# Install drag-n-drop dependency for nnn
 	# sudo apt-get install libgtk-3-dev
@@ -168,7 +172,7 @@ echo 'jorres_patches' >> ~/.arcignore
 # How to setup neovim properly 
 
 # 1. open neovim, click "enter" until errors stop
-# 2. invoke `:PackerInstall` and pray
+# 2. invoke `:Lazy`, press install and pray
 # 3. dance a little bit with vim-highlighter, grep `abc.txt` in my configs
 
 # Setup keyboard repeat rate
@@ -176,7 +180,7 @@ echo 'jorres_patches' >> ~/.arcignore
 # OR search for 'typing' or 'universal access' or 'repeat keys' section and adjust the sliders here
 # OR just blindly apply the following:
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
-gsettings set org.gnome.desktop.peripherals.keyboard delay 150
+gsettings set org.gnome.desktop.peripherals.keyboard delay 180
 
 # Setup tailscale at Nebius
 curl -fsSL https://tailscale.com/install.sh | sh

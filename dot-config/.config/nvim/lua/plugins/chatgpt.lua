@@ -7,7 +7,7 @@ require("gp").setup({
 			chat = true,
 			command = true,
 			-- string with model name or table with model name and parameters
-			model = { model = "gpt-4-turbo", temperature = 0.8, top_p = 1 },
+			model = { model = "gpt-4o", temperature = 0.8, top_p = 1 },
 			-- system prompt (use this to specify the persona/role of the AI)
 			system_prompt = "You are a general very capable AI assistant.\n\n"
 					.. "You are required to respond in the following way:\n\n"

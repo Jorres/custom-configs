@@ -1,21 +1,15 @@
 require 'nvim-treesitter.configs'.setup {
   ensure_installed = {
-    "c",
     "lua",
-    "javascript",
-    "typescript",
-    "tsx",
-    "json",
+    "cpp",
     "go",
+    "markdown",
+    "javascript",
     "html",
     "css",
     "rust",
     "bash",
-    "markdown",
-    "cpp",
-    "java",
     "python",
-    "vim",
   },
   sync_install = true,
   ignore_install = {},
@@ -24,22 +18,15 @@ require 'nvim-treesitter.configs'.setup {
     disable = { "markdown", "help", "vimdoc" },
   },
   incremental_selection = {
-    enable = true,
-    disable = { "markdown", "help", "vimdoc" },
-    keymaps = {
-      init_selection = "gnn",
-      node_incremental = "grn",
-      scope_incremental = "grc",
-      node_decremental = "grm",
-    },
+    enable = false,
   },
   indent = {
-    enable = true,
-    disable = { "markdown", "help", "vimdoc" },
+    enable = false,
   },
   textobjects = {
     enable = false
   },
+  build = ":TSUpdate",
   playground = {
     enable = false,
     disable = { "markdown", "help", "vimdoc" },

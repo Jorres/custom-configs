@@ -16,8 +16,10 @@ require('lualine').setup {
       separator = " ",
     } },
     lualine_x = { 'encoding' },
-    lualine_y = { 'filetype', 'filesize' },
-    lualine_z = { { 'location', padding = 2 } }
+    lualine_y = { 'filetype', 'filesize', require("recorder").displaySlots, },
+    lualine_z = {
+      require("recorder").recordingStatus,
+    }
   },
   inactive_sections = {
     lualine_a = { 'filename' },
@@ -27,10 +29,5 @@ require('lualine').setup {
     lualine_y = {},
     lualine_z = {}
   },
-  -- tabline = {
-  --   lualine_b = {'branch'},
-  --   lualine_x = {},
-  --   lualine_y = {},
-  -- },
   extensions = { 'fugitive', 'quickfix', 'nvim-tree' }
 }

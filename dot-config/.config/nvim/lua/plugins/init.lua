@@ -7,7 +7,7 @@ local load_list_safely = function(plugins)
   end
 end
 
-require("plugins.packer")
+require("plugins.lazy")
 
 load_list_safely({
   -- Core
@@ -43,11 +43,14 @@ load_list_safely({
   "plugins.mini-highlight",
   "plugins.flash",
   "plugins.japanese",
+  "plugins.workspace-diagnostics",
+  "plugins.macro-recorder",
+  "plugins.img-clip",
 
   -- PDE
-  "plugins.telekasten",
   "plugins.prettier",
 
   --- MY OWN PLUGINS
-  "showmethat"
+  "showmethat",
+  "academy",
 })

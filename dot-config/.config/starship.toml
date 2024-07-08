@@ -28,6 +28,9 @@ disabled = true
 [git_state]
 disabled = true
 
+[aws]
+disabled = true
+
 [line_break]
 disabled = true
 

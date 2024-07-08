@@ -5,3 +5,6 @@ docker run -it --entrypoint /bin/bash <container_name>
 
 # Attach to an existing docker container with bash 
 docker exec -it <container_name> /bin/bash
+
+# Remove docker containers from machine
+docker rm -f $(docker ps -aq)
