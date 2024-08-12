@@ -218,7 +218,9 @@ python3 -m pip install libtmux --user
 # Japanese input
 # Just execute precisely this link: https://help.ubuntu.com/community/JapaneseInput
 # And everything will work even in a terminal.
-
+# UPD some time later: no it does not work in the terminal and I have absolutely zero clue when did it break.
+# But updating mozc to a latest version is enough to at least never enable `direct input` feature.
+# https://www.reddit.com/r/linux4noobs/comments/w5rjc7/somewhat_ugly_hack_for_ubuntu_2204_to_get_default/ # almost this, but there is a good dockerfile 22.04 and you don't need to copy resulting binaries one by one, just copy the mozc.zip file (grep it here https://github.com/google/mozc/blob/master/docs/build_mozc_in_docker.md)
 
 # Flameshot
 sudo apt install flameshot
