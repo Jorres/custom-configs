@@ -104,7 +104,16 @@ git config --global credential.helper "cache --timeout=3600"
 # Anki
 # Here's the manual no installing Anki
 # https://docs.ankiweb.net/platform/linux/installing.html
-python3 -m pip install markdown-anki-deck
+#
+# This installs mdankideck tool
+git clone git@github.com:lukesmurray/markdown-anki-decks.git
+curl -sSL https://install.python-poetry.org | python3 -
+poetry install
+poetry build
+pip install myproject-0.1-py3-none-any.whl
+pip install ./dist/markdown_anki_decks-1.1.1-py3-none-any.whl
+# Install this addon to be able to use mdankideck --sync
+# https://ankiweb.net/shared/info/2055492159
 
 # This install atuin, do this interactively
 # bash <(curl https://raw.githubusercontent.com/ellie/atuin/main/install.sh)

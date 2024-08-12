@@ -34,6 +34,6 @@ resp=s
 all="--all"
 
 if [ "$resp" = "s" ]; then
-    sed -z 's|'"$PWD/"'||g' < "$selection" | xargs -0 "$dnd" "$all" &
+    sed -z 's|'"$PWD/"'||g' < "$selection" | xargs -0 "$dnd" "$all" "--on-top" "--and-exit" &
 fi
 
