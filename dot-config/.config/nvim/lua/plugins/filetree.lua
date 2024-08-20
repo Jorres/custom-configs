@@ -81,9 +81,9 @@ require 'nvim-tree'.setup {
   },
 
   view = {
-    adaptive_size = false,
+    adaptive_size = true,
     centralize_selection = false,
-    width = 30,
+    -- width = 30,
     -- side of the tree, can be one of 'left' | 'right' | 'top' | 'bottom'
     side = 'left',
     preserve_window_proportions = true,
