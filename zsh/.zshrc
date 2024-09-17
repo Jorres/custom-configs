@@ -181,7 +181,7 @@ export QT_IM_MODULE='ibus'
 export XMODIFIERS='@im=ibus'
 export GLFW_IM_MODULE='ibus'
 
-export PATH=$PATH:~/work/nebius/ydb-ops/
+export PATH="$PATH:/home/jorres/work/nebius/ydbops"
 
 # zprof
 
