@@ -1,6 +1,0 @@
-engines {
-  name : "mozc-jp"
-  longname : "Mozc"
-  layout : "default"
-  composition_mode : "HIRAGANA"
-}

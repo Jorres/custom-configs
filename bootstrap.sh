@@ -1,7 +1,7 @@
 ## Do this all from regular ubuntu, and hopefully everything will work after you relogin to awesome
 
 sudo apt-get update 
-sudo apt-get install -y vim-gtk3 stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip easytag xautomation build-essential feh simplescreenrecorder libfuse2 fuse curl copyq copyq-plugins mplayer gnome-control-center
+sudo apt-get install -y vim-gtk3 stow git gnome-tweaks zsh tmux ruby-full font-manager libusb-dev bat net-tools gimp cpulimit iotop xclip easytag xautomation build-essential feh simplescreenrecorder libfuse2 fuse curl copyq copyq-plugins mplayer gnome-control-center traceroute
 
 git clone https://github.com/Jorres/dotfiles ~/custom-configs
 
@@ -18,8 +18,6 @@ sudo apt install -y -o Dpkg::Options::="--force-overwrite" ripgrep
 
 # generate new ssh key pair, add to github account
 # initialize /home/username/.ssh/config, take examples on the previous machine
-# 
-# 
 
 mkdir ~/hobbies
 mkdir ~/hobbies/plugins
@@ -136,6 +134,7 @@ rm ./du-dust_0.9.0-1_amd64.deb
 # Install golang (binary from site, or some outdated version in apt)
 # Install any go modules that you need like this:
 go install github.com/charmbracelet/glow@latest
+go install github.com/miniscruff/changie@latest
 
 # Setup Moonlander tooling
 #####
@@ -177,6 +176,9 @@ pip3 install neovim-remote
 # Nebius specific
 echo 'Session.vim' >> ~/.arcignore
 echo 'jorres_patches' >> ~/.arcignore
+echo 'changing-balancers' >> ~/.arcignore
+echo 'meta' >> ~/.arcignore
+echo 'oidc_proxy' >> ~/.arcignore
 
 # How to setup neovim properly 
 
@@ -216,23 +218,16 @@ python3 -m pip install libtmux --user
 
 
 # Japanese input
-# Just execute precisely this link: https://help.ubuntu.com/community/JapaneseInput
-# And everything will work even in a terminal.
-# UPD some time later: no it does not work in the terminal and I have absolutely zero clue when did it break.
-# But updating mozc to a latest version is enough to at least never enable `direct input` feature.
-# https://www.reddit.com/r/linux4noobs/comments/w5rjc7/somewhat_ugly_hack_for_ubuntu_2204_to_get_default/ # almost this, but there is a good dockerfile 22.04 and you don't need to copy resulting binaries one by one, just copy the mozc.zip file (grep it here https://github.com/google/mozc/blob/master/docs/build_mozc_in_docker.md)
+# Wayland, 2nd day default mozc installation, works just fine
+# Set additional shortcut as https://askubuntu.com/questions/561486/how-do-i-switch-input-modes-in-mozc-without-going-to-the-ibus-menu
 
 # Flameshot
 sudo apt install flameshot
+# In wayland, set a shortcut as:
+# `script --command "/usr/bin/flameshot gui" /dev/null`  rather than "/usr/bin/flameshot gui"
 
 # Install `gh` Github CLI
-(type -p wget >/dev/null || (sudo apt update && sudo apt-get install wget -y)) \
-&& sudo mkdir -p -m 755 /etc/apt/keyrings \
-&& wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
-&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
-&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-&& sudo apt update \
-&& sudo apt install gh -y
+# Visit official docs, you have to add a repo
 # Install `act` runner
 gh extension install https://github.com/nektos/gh-act
 # run it like:

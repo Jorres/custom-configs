@@ -1,0 +1,9 @@
+engines {
+  name : "mozc-jp"
+  longname : "Mozc"
+  layout : "ja"  # or "us"
+  layout_variant : ""
+  layout_option : ""
+  rank : 80
+}
+active_on_launch: True
