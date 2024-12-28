@@ -27,7 +27,6 @@ load_list_safely({
   "plugins.alpha",
   "plugins.statusline",
   "plugins.smoothscroll",
-  "plugins.cursor-landing",
   "plugins.toggleterm",
   "plugins.gitsigns",
   "plugins.harpoon",

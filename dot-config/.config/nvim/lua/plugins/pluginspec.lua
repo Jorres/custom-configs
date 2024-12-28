@@ -55,7 +55,6 @@ local pluginspec = {
   -- === UI === --
   { 'hoob3rt/lualine.nvim' },
   { 'karb94/neoscroll.nvim' },                          -- smooth scroll
-  { 'edluffy/specs.nvim' },                             -- cursor jump landing visualization
   { 'kyazdani42/nvim-tree.lua',           pin = true }, --File explorer
   { 'azabiong/vim-highlighter' },
   { 'echasnovski/mini.nvim' },
