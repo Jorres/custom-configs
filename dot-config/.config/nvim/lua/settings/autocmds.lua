@@ -1,4 +1,7 @@
-local colorscheme_group = vim.api.nvim_create_augroup("colorscheme changes", { clear = true })
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
+local colorscheme_group = augroup("colorscheme changes", { clear = true })
 vim.api.nvim_create_autocmd("ColorScheme", {
   pattern = { "*" },
   callback = function()
@@ -14,41 +17,41 @@ local function make_hl_file_path()
   return string.format("%s/.vim/after/vim-highlighter/%s", home_dir, safe_path)
 end
 
-local api = require("nvim-tree.api")
-local Event = api.events.Event
-api.events.subscribe(Event.TreeOpen, function()
-  local hl_path = make_hl_file_path()
-  vim.cmd(string.format("Hi load %s", hl_path))
-end)
+-- local api = require("nvim-tree.api")
+-- local Event = api.events.Event
+-- api.events.subscribe(Event.TreeOpen, function()
+--   local hl_path = make_hl_file_path()
+--   vim.cmd(string.format("Hi load %s", hl_path))
+-- end)
 
-vim.api.nvim_create_autocmd({ "WinLeave", "VimLeave" }, {
-  pattern = "*",
-  callback = function()
-    if vim.api.nvim_buf_get_option(0, 'filetype') == "NvimTree" then
-      local hl_path = make_hl_file_path()
-      vim.cmd(string.format("Hi save %s", hl_path))
-    end
-  end,
-})
+-- autocmd({ "WinLeave", "VimLeave" }, {
+--   pattern = "*",
+--   callback = function()
+--     if vim.api.nvim_buf_get_option(0, 'filetype') == "NvimTree" then
+--       local hl_path = make_hl_file_path()
+--       vim.cmd(string.format("Hi save %s", hl_path))
+--     end
+--   end,
+-- })
 
-vim.api.nvim_create_autocmd("BufReadPost", {
-  pattern = "*",
-  callback = function()
-    local hl_path = make_hl_file_path()
-    vim.cmd(string.format("Hi load %s", hl_path))
-  end,
-})
+-- autocmd("BufReadPost", {
+--   pattern = "*",
+--   callback = function()
+--     local hl_path = make_hl_file_path()
+--     vim.cmd(string.format("Hi load %s", hl_path))
+--   end,
+-- })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    local hl_path = make_hl_file_path()
-    vim.cmd(string.format("Hi save %s", hl_path))
-  end,
-})
+-- autocmd("BufWritePre", {
+--   pattern = "*",
+--   callback = function()
+--     local hl_path = make_hl_file_path()
+--     vim.cmd(string.format("Hi save %s", hl_path))
+--   end,
+-- })
 
 -- Make some built-in vim highlighting activate for salt files 
-vim.api.nvim_create_autocmd("BufEnter", {
+autocmd("BufEnter", {
   pattern = "*.sls",
   callback = function()
     vim.cmd("set filetype=jinja")
@@ -75,12 +78,43 @@ local function delete_files_of_size(directory, size)
   end
 end
 
-vim.api.nvim_create_autocmd("VimLeave", {
+autocmd("VimLeave", {
   pattern = "*",
   callback = function()
     -- if it stops working, just do a :Hi save ./abc.txt on an empty file and
     local empty_vim_highlighter_header_length = 26
     delete_files_of_size(string.format("%s/.vim/after/vim-highlighter", os.getenv("HOME")),
       empty_vim_highlighter_header_length)
+  end,
+})
+
+local view_group = augroup("auto_view", { clear = true })
+autocmd({ "BufWinLeave", "BufWritePost", "WinLeave" }, {
+  desc = "Save view with mkview for real files",
+  group = view_group,
+  callback = function(args)
+    if vim.b[args.buf].view_activated then vim.cmd.mkview { mods = { emsg_silent = true } } end
+  end,
+})
+autocmd("BufWinEnter", {
+  desc = "Try to load file view if available and enable view saving for real files",
+  group = view_group,
+  callback = function(args)
+    if not vim.b[args.buf].view_activated then
+      local filetype = vim.api.nvim_get_option_value("filetype", { buf = args.buf })
+      local buftype = vim.api.nvim_get_option_value("buftype", { buf = args.buf })
+      local ignore_filetypes = { "gitcommit", "gitrebase", "svg", "hgcommit" }
+      if buftype == "" and filetype and filetype ~= "" and not vim.tbl_contains(ignore_filetypes, filetype) then
+        vim.b[args.buf].view_activated = true
+        vim.cmd.loadview { mods = { emsg_silent = true } }
+      end
+    end
+  end,
+})
+
+autocmd("BufWritePost", {
+  pattern = "*kitty.conf",
+  callback = function()
+    vim.fn.system("kill -SIGUSR1 $(pgrep kitty)")
   end,
 })

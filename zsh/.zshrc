@@ -87,6 +87,11 @@ export PATH="$PATH:$HOME/ycp/bin"
 export PATH="$PATH:$HOME/work/nebius/kikimr-tools"
 export PATH="$PATH:$HOME/nebo"
 export PATH="$PATH:$(go env GOPATH)/bin"
+export PATH="$PATH:$HOME/work/nebius/ydbops/bin"
+export PATH="$PATH:$HOME/hobbies/history-everywhere/"
+export PATH="$PATH:$HOME/hobbies/jops/"
+export PATH="$PATH:$HOME/work/nebo/"
+export PATH="$HOME/.npm-global/bin:$PATH"
 
 DOTFILES_PATH=$HOME/custom-configs
 export PATH="$PATH:$DOTFILES_PATH/utilities"
@@ -95,8 +100,10 @@ alias sourcerc="source ~/.zshrc"
 
 alias tfapp="terraform apply --auto-approve"
 alias tfa="terraform apply"
+alias tfp="terraform plan"
 alias kaf="kubectl apply -f "
 alias kdf="kubectl delete -f "
+alias tsp="tsh --proxy=bastion.pa10.nebiusinfra.net:443 "
 
 export KUBECONFIG=$HOME/.kube/config
 
@@ -182,6 +189,7 @@ export XMODIFIERS='@im=ibus'
 export GLFW_IM_MODULE='ibus'
 
 export PATH="$PATH:/home/jorres/work/nebius/ydbops"
+export PATH="$PATH:/home/jorres/.local/bin"
 
 # zprof
 
@@ -198,3 +206,15 @@ if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/y
 if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
 
 
+
+# The next line updates PATH for Nebius Private CLI.
+if [ -f '/home/jorres/.config/newbius/path.bash.inc' ]; then source '/home/jorres/.config/newbius/path.bash.inc'; fi
+# The next line enables shell command completion for Nebius Private CLI.
+if [ -f '/home/jorres/.config/newbius/completion.zsh.inc' ]; then source '/home/jorres/.config/newbius/completion.zsh.inc'; fi
+
+export GLFW_IM_MODULE=ibus kitty
+
+# Custom completions
+source $HOME/completions/_jops_k_completion.zsh
+
+export ANTHROPIC_API_KEY=$(cat $HOME/anthropic_api_key)

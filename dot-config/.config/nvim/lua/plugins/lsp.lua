@@ -1,12 +1,17 @@
 require("mason").setup()
 
-local lua_library = vim.api.nvim_get_runtime_file("", true)
-lua_library['/usr/share/nvim/runtime/lua'] = true
-lua_library['/usr/share/nvim/runtime/lua/lsp'] = true
-lua_library['/usr/share/awesome/lib'] = true
+local lspconfig = require "lspconfig"
 
+-- Here is the mapping between mason names and lspconfig names:
+-- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
+-- In this table, you can only specify SERVERS, not general tools :(
+-- For stuff like `prettify`, you still have to do it manually
 local servers = {
   gopls = {},
+  bashls = {},
+  dockerls = {},
+  terraformls = {},
+  pyright = {},
   lua_ls = {
     Lua = {
       runtime = {
@@ -37,7 +42,11 @@ local servers = {
         },
       },
       workspace = {
-        library = lua_library,
+        library = {
+          '/usr/share/nvim/runtime/lua',
+          '/usr/share/nvim/runtime/lua/lsp',
+          '/usr/share/awesome/lib',
+        },
         checkThirdParty = false
       },
       -- Do not send telemetry data containing a randomized but unique identifier
@@ -49,15 +58,14 @@ local servers = {
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-	vim.lsp.diagnostic.on_publish_diagnostics, {
-		virtual_text = false,
-		underline = true,
-		signs = true,
-	}
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = false,
+    underline = true,
+    signs = true,
+  }
 )
 
 local on_attach = function(client, bufnr)
-  require("workspace-diagnostics").populate_workspace_diagnostics(client, bufnr)
   if vim.bo[bufnr].filetype == "helm" then
     vim.diagnostic.disable(bufnr)
   end
@@ -67,38 +75,27 @@ vim.cmd [[
   autocmd CursorHold * lua vim.diagnostic.open_float()
 ]]
 
-
-local enforce_installed = vim.tbl_keys(servers)
-
--- Here is the mapping between mason names and lspconfig names:
--- https://github.com/williamboman/mason-lspconfig.nvim/blob/main/doc/server-mapping.md
--- In this table, you can only specify SERVERS, not general tools :( 
--- For stuff like `prettify`, you still have to do it manually
-local zero_setup_servers = {
-  "bashls",
-  "dockerls",
-  "terraformls",
-  "tsserver",
-  "pyright",
-}
-
-for _, server in ipairs(zero_setup_servers) do
-  table.insert(enforce_installed, server)
-end
-
-require("mason-lspconfig").setup {
-  ensure_installed = enforce_installed,
-}
-
-require("mason-lspconfig").setup_handlers {
+local handlers = {
   function(server_name)
     require('lspconfig')[server_name].setup {
       settings = servers[server_name],
       on_attach = on_attach,
     }
   end,
+  ["golangci_lint_ls"] = function()
+    lspconfig.golangci_lint_ls.setup {
+      init_options = {
+        command = { "golangci-lint", "run", "--fast", "--out-format", "json", "-j", "2" },
+      },
+      on_attach = on_attach,
+    }
+  end
+}
+
+require("mason-lspconfig").setup {
+  ensure_installed = vim.tbl_keys(servers),
+  handlers = handlers
 }
 
 local null_ls = require "null-ls"
-
 null_ls.setup()

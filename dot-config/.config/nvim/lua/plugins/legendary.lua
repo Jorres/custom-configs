@@ -102,7 +102,7 @@ named_keymaps.show_legendary = {
 }
 
 local tmux_moves = {
-  -- this one is a hack. I use QMK to override ctrl+h to send a backspace. 
+  -- this one is a hack. I use QMK to override ctrl+h to send a backspace.
   -- but I use tmux to send C-h to vim anyway when tmux detects backspace.
   -- that's why it works here without a custom reaction to backspace, vim never
   -- sees backspace in the first place
@@ -148,17 +148,32 @@ local chat = {
 named_keymaps.run_chat_gpt = {
   "<C-c>",
   function()
-    vim.api.nvim_command(":GpChatToggle")
-    if chat.active then
-      chat.active = false
-      vim.api.nvim_command('stopinsert')
+    local filetype = vim.bo.filetype
+    if filetype == "Avante" or filetype == "AvanteInput" then
+      vim.api.nvim_command(":AvanteToggle")
     else
-      vim.api.nvim_command('startinsert')
-      chat.active = true
+      vim.api.nvim_command(":GpChatToggle")
+      if chat.active then
+        chat.active = false
+        vim.api.nvim_command('stopinsert')
+      else
+        vim.api.nvim_command('startinsert')
+        chat.active = true
+      end
     end
   end,
   mode = { "n", "i" },
   description = "Open/close ChatGPT window",
+  opts = default_opts
+}
+
+named_keymaps.change_chat_gpt_agent = {
+  "<leader>a",
+  function()
+    vim.api.nvim_command(":GpNextAgent")
+  end,
+  mode = { "n" },
+  description = "Change AI agent",
   opts = default_opts
 }
 

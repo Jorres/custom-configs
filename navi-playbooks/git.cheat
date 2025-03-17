@@ -1,6 +1,6 @@
 % git
 
-# View patches of file diff over history
+# View patches of file diff over history, log -p
 git log -p -- <filename>
 $ filename: rg --files 
 
@@ -38,9 +38,5 @@ git push -d <upstream> <br> && git branch -d <br>
 $ upstream: git remote
 $ br: git branch | sed 's/^..//' 
 
-# Goto trunk 
-arc checkout trunk && arc pull
-
-# Arc checkout other branch
-arc checkout <branch>
-$ branch: arc branch | sed 's/^..//' 
+# Delete local branches, no longer present on remote
+git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done

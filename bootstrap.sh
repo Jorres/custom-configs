@@ -59,7 +59,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Make caps-lock act as ctrl
 # Launch 'tweaks', 'keyboard and mouse', 'additional layout options', 'caps lock behaviour', 'additional ctrl'
 
-# Install kitty
+# Install kitty (or update kitty with the same command)
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # The following chunk adds an icon of Kitty to desktop app menus. Works on Ubuntu!
@@ -104,12 +104,7 @@ git config --global credential.helper "cache --timeout=3600"
 # https://docs.ankiweb.net/platform/linux/installing.html
 #
 # This installs mdankideck tool
-git clone git@github.com:lukesmurray/markdown-anki-decks.git
-curl -sSL https://install.python-poetry.org | python3 -
-poetry install
-poetry build
-pip install myproject-0.1-py3-none-any.whl
-pip install ./dist/markdown_anki_decks-1.1.1-py3-none-any.whl
+pip install --break-system-packages markdown-anki-decks
 # Install this addon to be able to use mdankideck --sync
 # https://ankiweb.net/shared/info/2055492159
 
@@ -225,6 +220,16 @@ python3 -m pip install libtmux --user
 sudo apt install flameshot
 # In wayland, set a shortcut as:
 # `script --command "/usr/bin/flameshot gui" /dev/null`  rather than "/usr/bin/flameshot gui"
+
+
+## Japanese OCR
+# install this: https://github.com/kha-white/manga-ocr?tab=readme-ov-file
+# install yomitan and enable elevated privileges \ clipboard 
+# install the dictionary https://github.com/stephenmk/Jitendex, just import the file to yomitan
+# probably install much more dictionaries from here: https://github.com/MarvNC/yomitan-dictionaries?tab=readme-ov-file#dictionary-collection
+# have in shortcuts this: script --command "/usr/bin/flameshot gui --path /home/jorres/screenshots/last_screenshot.png" /dev/null
+# while watching a movie, run a separate process `manga_ocr /home/jorres/screenshots/`
+# you are gorgeous
 
 # Install `gh` Github CLI
 # Visit official docs, you have to add a repo

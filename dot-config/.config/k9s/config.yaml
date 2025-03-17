@@ -1,5 +1,6 @@
 k9s:
   liveViewAutoRefresh: false
+  screenDumpDir: /home/jorres/.local/state/k9s/screen-dumps
   refreshRate: 2
   maxConnRetry: 5
   readOnly: false
@@ -8,42 +9,31 @@ k9s:
     enableMouse: false
     headless: false
     logoless: true
-    crumbsless: false
-    noIcons: false
+    crumbsless: true
+    reactive: false
+    noIcons: true
+    defaultsToFullScreen: false
     skin: gruvbox
-    reactive: true
   skipLatestRevCheck: false
   disablePodCounting: false
-  # ShellPod configuration applies to all your clusters
   shellPod:
     image: busybox:1.35.0
     namespace: default
     limits:
       cpu: 100m
       memory: 100Mi
-  # ImageScan config changed from v0.29.0!
   imageScans:
     enable: false
-    # Now figures exclusions ie blacklist namespaces or specific workload labels
-    blackList:
-      # Exclude the following namespaces for image vulscans!
-      namespaces:
-        - kube-system
-        - fred
-      # Exclude the following labels from image vulscans!
-      labels:
-        k8s-app:
-          - kindnet
-          - bozo
-        env:
-          - dev
+    exclusions:
+      namespaces: []
+      labels: {}
   logger:
-    tail: 100
+    tail: -1
     buffer: 5000
-    sinceSeconds: -1
-    fullScreen: false
+    sinceSeconds: 300
     textWrap: false
     showTime: false
+    fullScreen: true
   thresholds:
     cpu:
       critical: 90

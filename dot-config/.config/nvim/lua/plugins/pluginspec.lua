@@ -34,6 +34,7 @@ local pluginspec = {
     "chrisgrieser/nvim-recorder",
     dependencies = "rcarriga/nvim-notify",
   },
+  { "chentoast/marks.nvim" },
 
   { "ThePrimeagen/refactoring.nvim" },
 
@@ -74,6 +75,15 @@ local pluginspec = {
   },
   { 'mrjones2014/legendary.nvim' },
   { "asiryk/auto-hlsearch.nvim", tag = "1.1.0" },
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   lazy = false,
+
+  --   dependencies = {
+  --     "nvim-treesitter/nvim-treesitter",
+  --     "nvim-tree/nvim-web-devicons"
+  --   }
+  -- },
 
   {
     'letieu/harpoon-lualine',
@@ -110,7 +120,6 @@ local pluginspec = {
   { 'hrsh7th/cmp-nvim-lua' },
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-  { "artemave/workspace-diagnostics.nvim" },
   -- {
   --   'Zeioth/garbage-day.nvim',
   --   opts = {
@@ -145,12 +154,42 @@ local pluginspec = {
   {
     "HakonHarnes/img-clip.nvim",
     event = "VeryLazy",
-    opts = {
-      -- add options here
-      -- or leave it empty to use the default settings
-    },
     keys = {
       { "<leader>zip", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+    },
+    opts = {
+      -- recommended settings
+      default = {
+        embed_image_as_base64 = false,
+        prompt_for_file_name = false,
+        drag_and_drop = {
+          insert_mode = true,
+        },
+      },
+    },
+  },
+
+  {
+    -- dir = os.getenv("HOME") .. '/hobbies/plugins/avante.nvim',
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false,
+    build = "make",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-tree/nvim-web-devicons",
+      "zbirenbaum/copilot.lua",
+      {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "Avante" },
+        },
+        ft = { "Avante" },
+      },
     },
   },
 

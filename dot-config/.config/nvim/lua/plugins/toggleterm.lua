@@ -2,6 +2,7 @@ require("toggleterm").setup {
   open_mapping = [[<c-t>]],
   direction = "float",
   shade_terminals = true,
+  autochdir = true,
   -- -- size can be a number or function which is passed the current terminal
   -- size = 20 | function(term)
   --   if term.direction == "horizontal" then

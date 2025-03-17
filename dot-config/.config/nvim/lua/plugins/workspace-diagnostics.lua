@@ -1,5 +1,0 @@
--- require("workspace-diagnostics").setup({
---   workspace_files = function()
---     return { 'main.go' }
---   end
---})

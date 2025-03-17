@@ -20,6 +20,7 @@ load_list_safely({
   "plugins.autopairs",
   "plugins.chatgpt",
   "plugins.refactoring",
+  "plugins.avante",
 
   -- UI
   "plugins.telescope",
@@ -42,9 +43,10 @@ load_list_safely({
   "plugins.mini-highlight",
   "plugins.flash",
   "plugins.japanese",
-  "plugins.workspace-diagnostics",
   "plugins.macro-recorder",
   "plugins.img-clip",
+  "plugins.marks",
+  -- "plugins.markdown-render",
 
   -- PDE
   "plugins.prettier",

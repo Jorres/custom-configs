@@ -32,6 +32,19 @@ require "gitlinker".setup({
 
       return base .. url_data.file .. lines
     end,
+    ["gitlab.nebius.dev"] = function(url_data)
+      local lines = ""
+      if url_data.lstart then
+        lines = "#L" .. url_data.lstart
+        if url_data.lend then
+          lines = lines .. "-" .. url_data.lend
+        end
+      end
+
+      local hack = "-/blob/main"
+      local base = "https://gitlab.nebius.dev/" .. url_data.repo .. '/' .. hack .. '/'
+      return base .. url_data.file .. lines
+    end,
   },
   -- default mapping to call url generation with action_callback
   mappings = vim.g.mapleader .. "gy"
