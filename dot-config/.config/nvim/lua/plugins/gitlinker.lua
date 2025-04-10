@@ -42,6 +42,11 @@ require "gitlinker".setup({
       end
 
       local hack = "-/blob/main"
+
+      if string.find(url_data.repo, "nebo") then
+        hack = "-/blob/trunk"
+      end
+
       local base = "https://gitlab.nebius.dev/" .. url_data.repo .. '/' .. hack .. '/'
       return base .. url_data.file .. lines
     end,
