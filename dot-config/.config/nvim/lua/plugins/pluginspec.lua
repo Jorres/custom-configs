@@ -62,11 +62,11 @@ local pluginspec = {
     "azabiong/vim-highlighter",
     init = function()
       vim.cmd([[
-         let HiSet   = '<leader>t<CR>'
-         let HiErase = '<leader>t<BS>'
-         let HiClear = '<leader>t<C-L>'
-         let HiFind  = '<leader>t<Tab>'
-         let HiSetSL = '<leader>t<CR>'
+         let HiSet   = '<leader>hl'
+         let HiErase = '<leader>he'
+         let HiClear = '<leader>hc'
+         let HiFind  = '<leader>h<Tab>'
+         let HiSetSL = '<leader>h<CR>'
        ]])
     end,
   },
