@@ -5,6 +5,148 @@ local default_opts = {
   silent = true
 }
 
+local loud_opts = { silent = false }
+
+
+-- DELETING
+
+-- I don't recall using those keymaps ever, they make the quickfix list slow
+vim.keymap.del('n', '[d')
+vim.keymap.del('n', ']d')
+-- this disable ftplugin for markdown mappings, they also mess with quickfix [ and ]
+vim.g.no_markdown_maps = 1
+
+-- legendary: ,l
+-- telescope git commits: ,gc
+--   [leader .. "j"] = function() require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") } end,
+-- Fugitive
+-- set({ "n" }, "<leader>gfh", ":0Gclog<CR>", default_opt)
+-- set({ "n" }, "<leader>ge", ":Gedit<CR>", default_opt)
+-- leader d, leader p: without spoiling primary register
+
+-- Include relative jumps into jump stack for c-i\c-o
+-- Figure out how to use vim.v.count with that
+vim.cmd [[nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k']]
+vim.cmd [[nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j']]
+
+-- CREATING
+
+named_keymaps.visual_leader_p = {
+  "<leader>p",
+  "\"_dP",
+  mode = { "x" },
+  opts = default_opts,
+  description = "Paste over selection without yanking",
+}
+
+named_keymaps.normal_leader_d = {
+  "<leader>d",
+  "\"_d",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Delete to blackhole register",
+}
+
+named_keymaps.visual_leader_d = {
+  "<leader>d",
+  "\"_d",
+  mode = { "v" },
+  opts = default_opts,
+  description = "Delete to blackhole register (visual)",
+}
+
+named_keymaps.line_join_keep_pos = {
+  "J",
+  "mzJ`z",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Join line but keep cursor position",
+}
+
+named_keymaps.undo_break_exclaim = {
+  "!",
+  "!<c-g>u",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Undo break after !",
+}
+
+named_keymaps.undo_break_question = {
+  "?",
+  "?<c-g>u",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Undo break after ?",
+}
+
+named_keymaps.quickfix_next = {
+  "]",
+  function()
+    vim.cmd("cnext")
+  end,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Quickfix next",
+}
+
+named_keymaps.quickfix_prev = {
+  "[",
+  function()
+    vim.cmd("cprev")
+  end,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Quickfix prev",
+}
+
+named_keymaps.quickfix_close = {
+  "<leader>q",
+  ":cclose<CR>",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Close quickfix",
+}
+
+named_keymaps.quickfix_open5 = {
+  "<leader>o",
+  ":copen 5<CR>",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Open quickfix with height 5",
+}
+
+named_keymaps.vertical_resize_plus5 = {
+  "U",
+  ":vertical resize +5<CR>",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Increase window width by 5",
+}
+
+named_keymaps.resize_plus5 = {
+  "<leader>u",
+  ":resize +5<CR>",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Increase window height by 5",
+}
+
+named_keymaps.source_current_file = {
+  "<leader><leader>x",
+  ":source %<CR>",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Source current file",
+}
+
+named_keymaps.toggle_fold = {
+  ";",
+  "za",
+  mode = { "n" },
+  opts = default_opts,
+  description = "Toggle fold",
+}
+
 named_keymaps.print_var = {
   "<leader>rv",
   function() require('refactoring').debug.print_var() end,
@@ -140,7 +282,6 @@ for direction_vim, direction_word in pairs(tmux_moves) do
   }
 end
 
-
 local chat = {
   active = false,
 }
@@ -148,18 +289,13 @@ local chat = {
 named_keymaps.run_chat_gpt = {
   "<C-c>",
   function()
-    local filetype = vim.bo.filetype
-    if filetype == "Avante" or filetype == "AvanteInput" then
-      vim.api.nvim_command(":AvanteToggle")
+    vim.api.nvim_command(":GpChatToggle")
+    if chat.active then
+      chat.active = false
+      vim.api.nvim_command('stopinsert')
     else
-      vim.api.nvim_command(":GpChatToggle")
-      if chat.active then
-        chat.active = false
-        vim.api.nvim_command('stopinsert')
-      else
-        vim.api.nvim_command('startinsert')
-        chat.active = true
-      end
+      vim.api.nvim_command('startinsert')
+      chat.active = true
     end
   end,
   mode = { "n", "i" },
@@ -201,40 +337,6 @@ named_keymaps.file_tree_toggle = {
   opts = default_opts
 }
 
-named_keymaps.file_sequence_toggle = {
-  "<leader>ss",
-  ":lua MiniFiles.open()<CR>",
-  mode = { "n" },
-  description = "Toggle file sequence",
-  opts = default_opts
-}
-
-named_keymaps.lua_test_file = {
-  "<leader><leader>lt",
-  function()
-    require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))
-  end,
-  mode = { "n" },
-  description = "Run current lua file tests",
-  opts = default_opts
-}
-
-named_keymaps.toggleterm_send_visual_selection = {
-  "<leader>t",
-  ":ToggleTermSendVisualSelection<CR>:ToggleTerm<CR>",
-  mode = { "v" },
-  description = "Send visual selection to terminal",
-  opts = default_opts
-}
-
-named_keymaps.toggleterm_send_line = {
-  "<leader>t",
-  ":ToggleTermSendCurrentLine<CR>:ToggleTerm<CR>",
-  mode = { "n" },
-  description = "Send current line to terminal",
-  opts = default_opts
-}
-
 named_keymaps.increment = {
   "<c-f>",
   "<c-a>",
@@ -267,7 +369,7 @@ local ok_showmethat, _ = pcall(require, "showmethat")
 if not ok_showmethat then
   print('local showmethat not installed ;(')
 else
-  named_keymaps.dismiss_notify = {
+  named_keymaps.showmethat = {
     "<leader>sh",
     function()
       require('showmethat').show()
@@ -362,6 +464,96 @@ for i = 1, 4 do
   }
 end
 
+-- Telescope
+named_keymaps.telescope_live_grep_with_optional_filter = {
+  "<leader>gs",
+  require('plugins.telescope').live_grep_with_optional_filter,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Telescope live grep with optional filter",
+}
+
+named_keymaps.telescope_git_commits = {
+  "<leader>gc",
+  require('telescope.builtin').git_commits,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Telescope git commits",
+}
+
+named_keymaps.telescope_find_files_hidden = {
+  "<leader>f",
+  function() require('telescope.builtin').find_files({ hidden = true }) end,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Telescope find files (hidden)",
+}
+
+named_keymaps.telescope_grep_cword = {
+  "<leader>j",
+  function() require('telescope.builtin').grep_string { search = vim.fn.expand("<cword>") } end,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Telescope grep <cword>",
+}
+
+named_keymaps.telescope_help_tags = {
+  "<leader>vh",
+  require('telescope.builtin').help_tags,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Telescope help tags",
+}
+
+-- Gitsigns
+named_keymaps.gitsigns_stage_hunk = {
+  "<leader>hs",
+  require('gitsigns').stage_hunk,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Gitsigns stage hunk",
+}
+
+named_keymaps.gitsigns_reset_hunk = {
+  "<leader>hr",
+  require('gitsigns').reset_hunk,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Gitsigns reset hunk",
+}
+
+named_keymaps.gitsigns_undo_stage_hunk = {
+  "<leader>hu",
+  require('gitsigns').undo_stage_hunk,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Gitsigns undo stage hunk",
+}
+
+named_keymaps.gitsigns_preview_hunk = {
+  "<leader>hp",
+  require('gitsigns').preview_hunk,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Gitsigns preview hunk",
+}
+
+named_keymaps.gitsigns_next_hunk = {
+  "<leader>hn",
+  require('gitsigns').next_hunk,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Gitsigns next hunk",
+}
+
+named_keymaps.gitsigns_toggle_current_line_blame = {
+  "<leader>bl",
+  require('gitsigns').toggle_current_line_blame,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Gitsigns toggle current line blame",
+}
+
 local unnamed_keymaps = {}
 for _, v in pairs(named_keymaps) do
   table.insert(unnamed_keymaps, v)
@@ -436,7 +628,3 @@ require('legendary').setup({
   -- Directory used for caches
   cache_path = string.format('%s/legendary/', vim.fn.stdpath('cache')),
 })
-
--- I don't recall using those keymaps ever, they make the quickfix list slow
-vim.keymap.del('n', '[d')
-vim.keymap.del('n', ']d')
