@@ -254,34 +254,124 @@ named_keymaps.jump_forward = {
   description = "Jump on the screen",
 }
 
-named_keymaps.jump_forward_insert_mode = {
-  "<C-s>",
+named_keymaps.dismiss_notify = {
+  "<C-d>",
   function()
-    require("flash").jump({
-      search = { forward = true, wrap = true, multi_window = false },
-    })
+    require("notify").dismiss()
   end,
-  mode = { "i" },
-  description = "Jump on the screen insert mode",
+  mode = { "n" },
+  description = "Dismiss all notifications",
 }
+
+local ok_showmethat, _ = pcall(require, "showmethat")
+if not ok_showmethat then
+  print('local showmethat not installed ;(')
+else
+  named_keymaps.dismiss_notify = {
+    "<leader>sh",
+    function()
+      require('showmethat').show()
+    end,
+    mode = { "n" },
+    description = "Show artifact under cursor",
+  }
+end
+
+named_keymaps.yanky_put_after = {
+  "p",
+  "<Plug>(YankyPutAfter)",
+  mode = { "n", "x" },
+  description = "Override regular put with yanky put",
+}
+
+named_keymaps.yanky_put_before = {
+  "P",
+  "<Plug>(YankyPutBefore)",
+  mode = { "n", "x" },
+  description = "Override regular put before with yanky put",
+}
+
+named_keymaps.yanky_gput_after = {
+  "gp",
+  "<Plug>(YankyGPutAfter)",
+  mode = { "n", "x" },
+  description = "Yanky g-put after",
+}
+
+named_keymaps.yanky_gput_before = {
+  "gP",
+  "<Plug>(YankyGPutBefore)",
+  mode = { "n", "x" },
+  description = "Yanky g-put before",
+}
+
+named_keymaps.yanky_cycle_forward = {
+  "<c-n>",
+  "<Plug>(YankyCycleForward)",
+  mode = "n",
+  description = "Yanky cycle forward",
+}
+
+named_keymaps.yanky_cycle_backward = {
+  "<c-p>",
+  "<Plug>(YankyCycleBackward)",
+  mode = "n",
+  description = "Yanky cycle backward",
+}
+
+named_keymaps.telescope_yank_history = {
+  "<leader>y",
+  ":Telescope yank_history<CR>",
+  mode = "n",
+  description = "Telescope yank history",
+}
+
+named_keymaps.yanky_yank = {
+  "y",
+  "<Plug>(YankyYank)",
+  mode = { "n", "x" },
+  description = "Yanky yank",
+}
+
+local harpoon_pref = "<leader>h"
+local harpoon = require"harpoon"
+
+named_keymaps.harpoon_toggle_quick_menu = {
+  harpoon_pref .. "m",
+  function() harpoon.ui:toggle_quick_menu(harpoon:list()) end,
+  mode = "n",
+  opts = loud_opts,
+  description = "Toggle Harpoon quick menu",
+}
+
+named_keymaps.harpoon_add = {
+  harpoon_pref .. "a",
+  function() harpoon:list():add() end,
+  mode = "n",
+  opts = loud_opts,
+  description = "Add file to Harpoon",
+}
+
+for i = 1, 4 do
+  named_keymaps["harpoon_select_" .. i] = {
+    "<leader>" .. i,
+    function() harpoon:list():select(i) end,
+    mode = "n",
+    opts = default_opts,
+    description = "Harpoon select " .. i,
+  }
+end
 
 local unnamed_keymaps = {}
 for _, v in pairs(named_keymaps) do
   table.insert(unnamed_keymaps, v)
 end
 
-local named_commands = {}
-
-local unnamed_commands = {}
-for _, v in pairs(named_commands) do
-  table.insert(unnamed_commands, v)
-end
-
 require('legendary').setup({
   -- Initial keymaps to bind
   keymaps = unnamed_keymaps,
   -- Initial commands to bind
-  commands = unnamed_commands,
+  commands = {},
   -- Initial augroups/autocmds to bind
   autocmds = {},
   -- Initial functions to bidn

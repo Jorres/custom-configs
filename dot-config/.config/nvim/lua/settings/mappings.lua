@@ -67,20 +67,6 @@ setter({
   [leader .. "br"] = require('plugins.telescope').git_branches,
 }, { "n" })
 
--- Harpoon
-local harpoon_pref = leader .. "h"
-local harpoon = require "harpoon"
-
-local loud_opts = { silent = false }
-
-set("n", harpoon_pref .. "m", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, loud_opts)
-set("n", harpoon_pref .. "a", function() harpoon:list():add() end, loud_opts)
-
-for i = 1, 4, 1 do
-  set("n", leader .. i, function()
-    harpoon:list():select(i)
-  end, default_opt)
-end
 
 -- Gitsigns
 local gitsigns = require 'gitsigns'
@@ -95,32 +81,6 @@ setter({
   [leader .. "bl"] = gitsigns.toggle_current_line_blame,
   -- [leader .. "d"] =  gitsigns.toggle_deleted,
 }, { "n" })
-
--- Yanky
-
-set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)")
-set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)")
-set({ "n", "x" }, "gp", "<Plug>(YankyGPutAfter)")
-set({ "n", "x" }, "gP", "<Plug>(YankyGPutBefore)")
-
-set("n", "<c-n>", "<Plug>(YankyCycleForward)")
-set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
-
-set("n", leader .. "y", ":Telescope yank_history<CR>")
-
--- Custom plugins
-
-local ok_showmethat, msg = pcall(require, "showmethat")
-if not ok_showmethat then
-  -- It would be perfect to log this without explicitly print()'ing
-  -- this to interrupt user flow
-else
-  local showmethat = require("showmethat")
-  set("n", leader .. "sh", showmethat.show)
-end
-
--- set("n", "/", ":SearchBoxMatchAll title=Match clear_matches=false<CR>")
-vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)")
 
 -- for some reason, remapping this does not work, so here it is for reference only:
 vim.cmd([[
