@@ -1,7 +1,5 @@
 require("settings.autocmds")
 
-require("settings.mappings")
-
 require("settings.options")
 
 require("settings.reload")
