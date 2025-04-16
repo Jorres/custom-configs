@@ -546,14 +546,6 @@ named_keymaps.gitsigns_next_hunk = {
   description = "Gitsigns next hunk",
 }
 
-named_keymaps.gitsigns_toggle_current_line_blame = {
-  "<leader>bl",
-  require('gitsigns').toggle_current_line_blame,
-  mode = { "n" },
-  opts = default_opts,
-  description = "Gitsigns toggle current line blame",
-}
-
 local unnamed_keymaps = {}
 for _, v in pairs(named_keymaps) do
   table.insert(unnamed_keymaps, v)
