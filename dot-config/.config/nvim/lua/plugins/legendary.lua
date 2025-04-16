@@ -346,3 +346,7 @@ require('legendary').setup({
   -- Directory used for caches
   cache_path = string.format('%s/legendary/', vim.fn.stdpath('cache')),
 })
+
+-- I don't recall using those keymaps ever, they make the quickfix list slow
+vim.keymap.del('n', '[d')
+vim.keymap.del('n', ']d')
