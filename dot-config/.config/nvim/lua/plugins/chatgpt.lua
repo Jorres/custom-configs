@@ -70,14 +70,6 @@ require("gp").setup({
 			disable = true,
 		},
 		{
-			name = "o3-mini-high",
-			provider = "openai",
-			chat = true,
-			command = false,
-			model = { model = "o3-mini", reasoning_effort = "high" },
-			system_prompt = "You are a general very capable AI assistant.\n\n",
-		},
-		{
 			name = "o4-mini-high",
 			provider = "openai",
 			chat = true,
