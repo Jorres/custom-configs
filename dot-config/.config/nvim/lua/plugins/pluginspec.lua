@@ -40,6 +40,7 @@ local pluginspec = {
 
   -- { "jackMort/ChatGPT.nvim" }
   { "Robitx/gp.nvim" },
+  -- { dir = os.getenv("HOME") .. '/hobbies/gp' },
 
   -- === Vim utilities ===
   { 'lambdalisue/suda.vim' },              -- reenter sudo editing with :Suda
@@ -165,30 +166,6 @@ local pluginspec = {
         drag_and_drop = {
           insert_mode = true,
         },
-      },
-    },
-  },
-
-  {
-    -- dir = os.getenv("HOME") .. '/hobbies/plugins/avante.nvim',
-    "yetone/avante.nvim",
-    event = "VeryLazy",
-    lazy = false,
-    version = false,
-    build = "make",
-    dependencies = {
-      "stevearc/dressing.nvim",
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "hrsh7th/nvim-cmp",
-      "nvim-tree/nvim-web-devicons",
-      "zbirenbaum/copilot.lua",
-      {
-        'MeanderingProgrammer/render-markdown.nvim',
-        opts = {
-          file_types = { "Avante" },
-        },
-        ft = { "Avante" },
       },
     },
   },
