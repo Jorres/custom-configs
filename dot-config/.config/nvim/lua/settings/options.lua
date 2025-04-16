@@ -42,9 +42,10 @@ local notify = require("notify")
 notify.setup({
   background_colour = "Normal",
   fps = 120,
-  max_width = 70,
-  max_height = 10,
-  timeout = 2000
+  max_width = 90,
+  max_height = 50,
+  timeout = 10000,
+  render = "wrapped-compact",
 })
 
 -- vim.notify = notify
