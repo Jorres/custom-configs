@@ -1,0 +1,5 @@
+kcs       serviceaccount-u00ydb
+pa10      serviceaccount-e01ydb
+kef       serviceaccount-e02ydb
+man       serviceaccount-e00ydb
+testing   serviceaccount-e0tydb

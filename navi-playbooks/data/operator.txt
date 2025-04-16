@@ -1,0 +1,6 @@
+kcs       serviceaccount-u00ydb   serviceaccount-u00ydb-kubernetes-operator
+pa10      serviceaccount-e01ydb   serviceaccount-e01ydb-kubernetes-operator
+kef       serviceaccount-e02ydb   serviceaccount-e02ydb-kubernetes-operator
+man       serviceaccount-e00ydb   serviceaccount-e00ydb-kubernetes-operator
+testing   serviceaccount-e0tydb   serviceaccount-e0tydb-kubernetes-operator
+dev       serviceaccount-e0tydb   serviceaccount-e0tv2pwt7nw675626d
