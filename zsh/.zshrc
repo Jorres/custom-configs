@@ -91,6 +91,7 @@ export PATH="$PATH:$HOME/work/nebius/ydbops/bin"
 export PATH="$PATH:$HOME/hobbies/history-everywhere/"
 export PATH="$PATH:$HOME/hobbies/jops/"
 export PATH="$PATH:$HOME/work/nebo/"
+export PATH="$PATH:$HOME/hobbies/olympus/"
 export PATH="$HOME/.npm-global/bin:$PATH"
 
 DOTFILES_PATH=$HOME/custom-configs
@@ -106,6 +107,7 @@ alias kdf="kubectl delete -f "
 alias tsp="tsh --proxy=bastion.pa10.nebiusinfra.net:443 "
 
 export KUBECONFIG=$HOME/.kube/config
+export NEBO_ROOT=$HOME/work/nebo
 
 alias ast="arc status"
 alias ad="arc diff"
