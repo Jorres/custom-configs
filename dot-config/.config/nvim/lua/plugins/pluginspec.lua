@@ -58,7 +58,18 @@ local pluginspec = {
   { 'hoob3rt/lualine.nvim' },
   { 'karb94/neoscroll.nvim' },                          -- smooth scroll
   { 'kyazdani42/nvim-tree.lua',           pin = true }, --File explorer
-  { 'azabiong/vim-highlighter' },
+  {
+    "azabiong/vim-highlighter",
+    init = function()
+      vim.cmd([[
+         let HiSet   = '<leader>t<CR>'
+         let HiErase = '<leader>t<BS>'
+         let HiClear = '<leader>t<C-L>'
+         let HiFind  = '<leader>t<Tab>'
+         let HiSetSL = '<leader>t<CR>'
+       ]])
+    end,
+  },
   { 'echasnovski/mini.nvim' },
   { "andrewferrier/wrapping.nvim" },
   { "Mr-LLLLL/cool-chunk.nvim" },
@@ -76,15 +87,6 @@ local pluginspec = {
   },
   { 'mrjones2014/legendary.nvim' },
   { "asiryk/auto-hlsearch.nvim", tag = "1.1.0" },
-  -- {
-  --   "OXY2DEV/markview.nvim",
-  --   lazy = false,
-
-  --   dependencies = {
-  --     "nvim-treesitter/nvim-treesitter",
-  --     "nvim-tree/nvim-web-devicons"
-  --   }
-  -- },
 
   {
     'letieu/harpoon-lualine',
@@ -121,15 +123,6 @@ local pluginspec = {
   { 'hrsh7th/cmp-nvim-lua' },
   { 'hrsh7th/cmp-nvim-lsp' },
   { 'hrsh7th/cmp-nvim-lsp-signature-help' },
-  -- {
-  --   'Zeioth/garbage-day.nvim',
-  --   opts = {
-  --     notifications = true,
-  --     aggressive_mode = false,
-  --     grace_period = 60 * 10,
-  --     wakeup_delay = 0,
-  --   }
-  -- },
 
   -- === Treesitter ===
   { 'nvim-treesitter/nvim-treesitter',                       build = ':TSUpdate' },
