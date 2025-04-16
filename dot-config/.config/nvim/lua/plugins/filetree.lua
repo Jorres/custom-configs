@@ -5,9 +5,22 @@ local function on_attach(bufnr)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
+  vim.keymap.set('n', '<C-d>', function()
+    local node = api.tree.get_node_under_cursor()
+    api.tree.change_root_to_node()
+    if node and node.absolute_path then
+      vim.cmd("cd " .. node.absolute_path)
+    end
+  end, opts('CD'))
+
+  vim.keymap.set('n', '<C-u>', function()
+    api.tree.change_root_to_parent()
+    local cwd = vim.loop.cwd()
+    local new_path = cwd:match("(.*/)[^/]+/?$")
+    vim.cmd("cd " .. new_path)
+  end, opts('Up'))
+
   vim.keymap.set('n', '<CR>', api.node.open.edit, opts('Open'))
-  vim.keymap.set('n', '<C-d>', api.tree.change_root_to_node, opts('CD'))
-  vim.keymap.set('n', '<C-u>', api.tree.change_root_to_parent, opts('Up'))
   -- vim.keymap.set('n', 'O', api.node.open.no_window_picker, opts('Open: No Window Picker'))
   -- vim.keymap.set('n', '<C-v>', api.node.open.vertical, opts('Open: Vertical Split'))
   -- vim.keymap.set('n', '<C-x>', api.node.open.horizontal, opts('Open: Horizontal Split'))
@@ -103,7 +116,6 @@ require 'nvim-tree'.setup {
       "CODE_OF_CONDUCT.md",
       "CONTRIBUTING.md",
       "LICENSE",
-      "PROJECT",
       "AUTHORS",
       ".dockerignore",
       ".git$",
@@ -121,6 +133,10 @@ require 'nvim-tree'.setup {
   },
 
   actions              = {
+    change_dir = {
+      enable = true,
+      global = true,
+    },
     open_file = {
       resize_window = true
     }
