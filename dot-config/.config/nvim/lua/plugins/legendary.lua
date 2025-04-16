@@ -26,8 +26,10 @@ vim.g.no_markdown_maps = 1
 
 -- Include relative jumps into jump stack for c-i\c-o
 -- Figure out how to use vim.v.count with that
-vim.cmd [[nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k']]
-vim.cmd [[nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j']]
+vim.cmd [[
+  nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+  nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+]]
 
 -- CREATING
 

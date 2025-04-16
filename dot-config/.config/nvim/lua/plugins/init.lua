@@ -31,16 +31,19 @@ load_list_safely({
   "plugins.gitsigns",
   "plugins.harpoon",
   "plugins.colorscheme",
+
   "plugins.guess-indent",
   "plugins.hydra",
   "plugins.dressing",
   "plugins.gitlinker",
   "plugins.legendary",
   "plugins.noice",
+
   "plugins.auto-hlsearch",
   "plugins.mini-indent",
   "plugins.mini-highlight",
   "plugins.flash",
+
   "plugins.japanese",
   "plugins.macro-recorder",
   "plugins.img-clip",
@@ -51,5 +54,5 @@ load_list_safely({
 
   --- MY OWN PLUGINS
   "showmethat",
-  "academy",
+  -- "academy",
 })

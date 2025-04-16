@@ -12,12 +12,10 @@ local pluginspec = {
   { 'tpope/vim-surround' },        -- cs<surrounding1><surrounding2> ds<surrounding1>
   { 'b3nj5m1n/kommentary' },       -- visual select + gc
   { 'wellle/targets.vim' },        -- Additional text objects: e.g. inside *, inside comma-separated list etc.
-  { 'godlygeek/tabular' },         -- Adds :Tabularize command
   { 'MunifTanjim/prettier.nvim' }, -- :Prettier
   { 'folke/flash.nvim' },          -- Ultimate screen-jumping plugin
   { 'tpope/vim-repeat' },          -- zero-config, allows to repeat complex commands
   { 'AndrewRadev/splitjoin.vim' }, -- gJ and gS to split\join statements in multiple languages
-  { 'matze/vim-move' },            -- Allows to move lines up and down with Alt
   { 'sk1418/HowMuch' },            -- https://github.com/sk1418/HowMuch
   {
     'ThePrimeagen/harpoon',
@@ -38,7 +36,6 @@ local pluginspec = {
 
   { "ThePrimeagen/refactoring.nvim" },
 
-  -- { "jackMort/ChatGPT.nvim" }
   { "Robitx/gp.nvim" },
   -- { dir = os.getenv("HOME") .. '/hobbies/gp' },
 
@@ -52,11 +49,11 @@ local pluginspec = {
   -- === Git ===
   { 'tpope/vim-fugitive' },      -- :G
   { 'lewis6991/gitsigns.nvim' }, -- Enable git changes to be shown in sign column
-  { 'ruifm/gitlinker.nvim' },
+  { 'ruifm/gitlinker.nvim' }, -- produce browser links pointing at source
 
   -- === UI === --
   { 'hoob3rt/lualine.nvim' },
-  { 'karb94/neoscroll.nvim' },                          -- smooth scroll
+  { 'declancm/cinnamon.nvim' },                          -- smooth scroll
   { 'kyazdani42/nvim-tree.lua',           pin = true }, --File explorer
   {
     "azabiong/vim-highlighter",
@@ -71,8 +68,6 @@ local pluginspec = {
     end,
   },
   { 'echasnovski/mini.nvim' },
-  { "andrewferrier/wrapping.nvim" },
-  { "Mr-LLLLL/cool-chunk.nvim" },
 
   { 'goolord/alpha-nvim' },                  -- cool startup screen!
   { 'akinsho/toggleterm.nvim' },             -- toggle terminal per session
@@ -112,7 +107,6 @@ local pluginspec = {
   -- === TMUX === --
   { 'christoomey/vim-tmux-navigator' }, -- Allows to <C-hjkl> to move to/from tmux panes
   { 'sjl/vitality.vim' },               -- Restore FocusGained, FocusLost
-  { 'tpope/vim-obsession' },
 
   -- === LSP and completion ===
   { 'neovim/nvim-lspconfig' },
@@ -132,7 +126,6 @@ local pluginspec = {
   -- === Telescope ===
   { 'nvim-telescope/telescope.nvim',                         branch = "0.1.x" },
   { 'nvim-telescope/telescope-fzf-native.nvim',              build = 'make' },
-  { 'nvim-telescope/telescope-media-files.nvim' },
 
   -- === Language specific
   { 'hashivim/vim-terraform' }, -- just the highlighting
@@ -141,7 +134,7 @@ local pluginspec = {
   -- === Plugin \ Lua development ===
   { 'tjdevries/colorbuddy.nvim' },
   { dir = os.getenv("HOME") .. '/hobbies/plugins/showmethat' },
-  { dir = os.getenv("HOME") .. '/hobbies/academy' },
+  -- { dir = os.getenv("HOME") .. '/hobbies/academy' }, -- not yet(
 
   -- === neovim as PDE ===
   { "keaising/im-select.nvim", }, -- navigation in normal mode with Japanese
