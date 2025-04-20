@@ -7,7 +7,7 @@ local on_attach = function(_, bufnr)
 end
 
 vim.cmd [[
-  autocmd CursorHold * lua vim.diagnostic.open_float()
+  autocmd CursorHold * lua vim.diagnostic.open_float({ border = "solid" })
 ]]
 
 vim.lsp.config("*", {

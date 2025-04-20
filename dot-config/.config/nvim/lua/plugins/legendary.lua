@@ -272,7 +272,9 @@ named_keymaps.lsp_rename = {
 
 named_keymaps.lsp_hover = {
   "K",
-  vim.lsp.buf.hover,
+  function()
+    vim.lsp.buf.hover({ border = "solid" })
+  end,
   mode = { "n" },
   description = "Do hover action over element, get documentation",
   opts = default_opts

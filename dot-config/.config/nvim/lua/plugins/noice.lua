@@ -122,6 +122,7 @@ require("noice").setup({
       ["cmp.entry.get_documentation"] = false,
     },
     hover = {
+      border = "solid",
       enabled = false,
       view = nil, -- when nil, use defaults from documentation
       ---@type NoiceViewOptions
