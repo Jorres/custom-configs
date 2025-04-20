@@ -51,6 +51,5 @@ require "gitlinker".setup({
       return base .. url_data.file .. lines
     end,
   },
-  -- default mapping to call url generation with action_callback
-  mappings = vim.g.mapleader .. "gy"
+  mappings = nil,
 })
