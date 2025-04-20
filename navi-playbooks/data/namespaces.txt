@@ -1,0 +1,11 @@
+ydb-global
+ydb-common
+ydb-s3
+ydb-s3-ff
+ydb-disks-int
+ydb-disks-ext
+ydb-disks-int-a
+ydb-disks-ext-a
+ydb-dev
+ydb-slice-1
+ydb-s3-dev

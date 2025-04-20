@@ -1,21 +1,37 @@
 % ydb
 
-# export father account token
-export NEBIUS_IAM_TOKEN=<token>
-$ profile: echo "<serviceaccount>" | grep -q "e0t" && echo "newbius" || echo "newbius-prod"
-$ serviceaccount: cat $HOME/custom-configs/navi-playbooks/data/envs.txt --- --column 2
-$ token: unset NEBIUS_IAM_TOKEN && echo $(npc --profile <profile> --impersonate-service-account-id <serviceaccount> iam get-access-token)
-
 # export operator token
-export YDB_TOKEN=<token>
+export YDB_TOKEN=<token2>
 $ serviceaccount_operator: cat $HOME/custom-configs/navi-playbooks/data/operator.txt --- --column 3
 $ serviceaccount_father: cat $HOME/custom-configs/navi-playbooks/data/operator.txt | grep <serviceaccount_operator> --- --column 2
-$ profile: echo "<serviceaccount_operator>" | grep -q "e0t" && echo "newbius" || echo "newbius-prod"
-$ token: echo $(unset NEBIUS_IAM_TOKEN && NEBIUS_IAM_TOKEN=$(npc --profile <profile> --impersonate-service-account-id <serviceaccount_father> iam get-access-token) \
-  npc --profile <profile> --impersonate-service-account-id <serviceaccount_operator> iam get-access-token)
+$ profile2: echo "<serviceaccount_operator>" | grep -q "e0t" && echo "newbius" || echo "newbius-prod"
+$ token2: echo $(unset NEBIUS_IAM_TOKEN && NEBIUS_IAM_TOKEN=$(npc --profile <profile2> --impersonate-service-account-id <serviceaccount_father> iam get-access-token) npc --profile <profile2> --impersonate-service-account-id <serviceaccount_operator> iam get-access-token)
+
+
+# export father account token
+export NEBIUS_IAM_TOKEN=<token>
+$ profile: echo "<sa>" | grep -q "e0t" && echo "newbius" || echo "newbius-prod"
+$ sa: cat $HOME/custom-configs/navi-playbooks/data/envs.txt --- --column 2
+$ token: unset NEBIUS_IAM_TOKEN && echo $(npc --profile <profile> --impersonate-service-account-id <sa> iam get-access-token)
+
 
 # blobstorage init
 /opt/ydb/bin/ydbd -s grpcs://storage-grpc.<namespace>.svc.cluster.local:2135 admin blobstorage config init --yaml-file /opt/ydb/cfg/config.yaml
 
+
 # delete database
 /opt/ydb/bin/ydbd -s grpcs://storage-grpc.<namespace>.svc.cluster.local:2135 admin database <database> remove
+
+
+# change domain owner ACL
+ydb -e grpc://storage-grpc.<namespace>.svc.cluster.local:2135 -d <domain> scheme permissions chown <domain> <serviceaccount_operator>@as
+$ namespace
+$ serviceaccount_operator: cat $HOME/custom-configs/navi-playbooks/data/operator.txt --- --column 3
+$ domain
+
+
+# give mvp meta ACL describe
+ydb -e grpc://storage-grpc.<namespace>.svc.cluster.local:2135 -d <domain> scheme permissions grant <domain> <serviceaccount_mvp>@as -p ydb.granular.describe_schema
+$ namespace
+$ serviceaccount_mvp
+$ domain
