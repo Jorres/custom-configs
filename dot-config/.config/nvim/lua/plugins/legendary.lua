@@ -41,6 +41,55 @@ named_keymaps.visual_leader_p = {
   description = "Paste over selection without yanking",
 }
 
+named_keymaps.gitlinker = {
+  "<leader>gy",
+  function()
+    require"gitlinker".get_buf_range_url("n")
+  end,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Create a link to line (normal mode)",
+}
+
+named_keymaps.gitlinker_visual_range = {
+  "<leader>gy",
+  function()
+    require"gitlinker".get_buf_range_url("v")
+  end,
+  mode = { "v" },
+  opts = default_opts,
+  description = "Create a link to line (visual range)",
+}
+
+local last_diagnostic_id = 0
+
+vim.api.nvim_create_autocmd('DiagnosticChanged', {
+  callback = function(_)
+    last_diagnostic_id = 0
+  end,
+})
+
+named_keymaps.jump_next_diagnostic = {
+  "<leader>dj",
+  function()
+    local diagnostics = vim.diagnostic.get(nil)
+    if #diagnostics == 0 then
+      require"notify"("No diagnostics found :)")
+      return
+    end
+
+    last_diagnostic_id = last_diagnostic_id % (#diagnostics)
+    last_diagnostic_id = last_diagnostic_id + 1
+    local last_diagnostic = diagnostics[last_diagnostic_id]
+
+    vim.api.nvim_set_current_buf(last_diagnostic.bufnr)
+    vim.diagnostic.jump({diagnostic = last_diagnostic, float = true})
+  end,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Jump to next diagnostic",
+}
+
 named_keymaps.normal_leader_d = {
   "<leader>d",
   "\"_d",
