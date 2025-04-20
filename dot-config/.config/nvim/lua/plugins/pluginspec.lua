@@ -21,6 +21,14 @@ local pluginspec = {
     'ThePrimeagen/harpoon',
     branch = "harpoon2",
   }, -- Keep track of latest files you work with
+  {
+    "heilgar/bookmarks.nvim",
+    dependencies = {
+      "kkharji/sqlite.lua",
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim",
+    },
+  }, -- like marks but simpler, thinking about letters really sucks
   { 'kevinhwang91/nvim-bqf' },
 
   { 'mbbill/undotree' }, -- Visualize undotree
@@ -32,9 +40,9 @@ local pluginspec = {
     "chrisgrieser/nvim-recorder",
     dependencies = "rcarriga/nvim-notify",
   },
-  { "chentoast/marks.nvim" },
 
   { "ThePrimeagen/refactoring.nvim" },
+  { "meznaric/key-analyzer.nvim",       opts = {} }, -- draw a chart with unoccupied keybindingds
 
   { "Robitx/gp.nvim" },
   -- { dir = os.getenv("HOME") .. '/hobbies/gp' },
@@ -49,12 +57,12 @@ local pluginspec = {
   -- === Git ===
   { 'tpope/vim-fugitive' },      -- :G
   { 'lewis6991/gitsigns.nvim' }, -- Enable git changes to be shown in sign column
-  { 'ruifm/gitlinker.nvim' }, -- produce browser links pointing at source
+  { 'ruifm/gitlinker.nvim' },    -- produce browser links pointing at source
 
   -- === UI === --
   { 'hoob3rt/lualine.nvim' },
-  { 'declancm/cinnamon.nvim' },                          -- smooth scroll
-  { 'kyazdani42/nvim-tree.lua',           pin = true }, --File explorer
+  { 'declancm/cinnamon.nvim' },                       -- smooth scroll
+  { 'kyazdani42/nvim-tree.lua',         pin = true }, --File explorer
   {
     "azabiong/vim-highlighter",
     init = function()
@@ -120,7 +128,7 @@ local pluginspec = {
 
   -- === Treesitter ===
   { 'nvim-treesitter/nvim-treesitter',                       build = ':TSUpdate' },
-  { 'nvim-treesitter/playground' },
+  -- { 'nvim-treesitter/playground' },
   { 'hiphish/rainbow-delimiters.nvim' },
 
   -- === Telescope ===
@@ -165,7 +173,7 @@ local pluginspec = {
   { 'nvim-lua/popup.nvim' },
   { 'nvim-lua/plenary.nvim' },
   { 'onsails/lspkind-nvim' },
-  { 'jose-elias-alvarez/null-ls.nvim' },
+  -- { 'jose-elias-alvarez/null-ls.nvim' },
 }
 
 return pluginspec
