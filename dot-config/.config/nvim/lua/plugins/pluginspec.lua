@@ -8,15 +8,15 @@ local pluginspec = {
   },
 
   -- === Language agnostic editing plugins ===
-  { 'windwp/nvim-autopairs' },     -- auto-close brackets plugin
-  { 'tpope/vim-surround' },        -- cs<surrounding1><surrounding2> ds<surrounding1>
-  { import = 'plugins.comment' },  -- visual select + gc
-  { 'wellle/targets.vim' },        -- Additional text objects: e.g. inside *, inside comma-separated list etc.
-  { 'MunifTanjim/prettier.nvim' }, -- :Prettier
-  { 'folke/flash.nvim' },          -- Ultimate screen-jumping plugin
-  { 'tpope/vim-repeat' },          -- zero-config, allows to repeat complex commands
-  { 'AndrewRadev/splitjoin.vim' }, -- gJ and gS to split\join statements in multiple languages
-  { 'sk1418/HowMuch' },            -- https://github.com/sk1418/HowMuch
+  { 'windwp/nvim-autopairs',    opts = {} }, -- auto-close brackets plugin
+  { 'tpope/vim-surround' },                  -- cs<surrounding1><surrounding2> ds<surrounding1>
+  { import = 'plugins.comment' },            -- visual select + gc
+  { 'wellle/targets.vim' },                  -- Additional text objects: e.g. inside *, inside comma-separated list etc.
+  { 'MunifTanjim/prettier.nvim' },           -- :Prettier
+  { 'folke/flash.nvim' },                    -- Ultimate screen-jumping plugin
+  { 'tpope/vim-repeat' },                    -- zero-config, allows to repeat complex commands
+  { 'AndrewRadev/splitjoin.vim' },           -- gJ and gS to split\join statements in multiple languages
+  { 'sk1418/HowMuch' },                      -- https://github.com/sk1418/HowMuch
   {
     'ThePrimeagen/harpoon',
     branch = "harpoon2",
@@ -41,10 +41,11 @@ local pluginspec = {
     dependencies = "rcarriga/nvim-notify",
   },
 
-  { "ThePrimeagen/refactoring.nvim" },
+  { import = "plugins.refactoring" },
   { "meznaric/key-analyzer.nvim",   opts = {} }, -- draw a chart with unoccupied keybindingds
 
   { import = 'plugins.chatgpt', },
+  { import = 'plugins.filetree' },
 
   -- === Vim utilities ===
   { 'lambdalisue/suda.vim' }, -- reenter sudo editing with :Suda
@@ -58,8 +59,7 @@ local pluginspec = {
 
   -- === UI === --
   { 'hoob3rt/lualine.nvim' },
-  { 'declancm/cinnamon.nvim' },                   -- smooth scroll
-  { 'kyazdani42/nvim-tree.lua',     pin = true }, --File explorer
+  { import = "plugins.smoothscroll" },
   {
     "azabiong/vim-highlighter",
     init = function()

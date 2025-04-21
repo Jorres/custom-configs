@@ -605,6 +605,26 @@ named_keymaps.gitsigns_next_hunk = {
   description = "Gitsigns next hunk",
 }
 
+local keymap = {
+  ["<C-Y>"] = function()
+    require "cinnamon".scroll("5<C-Y>")
+  end,
+  ["<C-E>"] = function()
+    require "cinnamon".scroll("5<C-E>")
+  end,
+}
+
+local modes = { 'n', 'v', 'x' }
+for key, func in pairs(keymap) do
+  named_keymaps['cinnamon_scroll_' .. key] = {
+    key,
+    func,
+    mode = modes,
+    opts = default_opts,
+    description = "Cinnamon scroll " .. key
+  }
+end
+
 local unnamed_keymaps = {}
 for _, v in pairs(named_keymaps) do
   table.insert(unnamed_keymaps, v)

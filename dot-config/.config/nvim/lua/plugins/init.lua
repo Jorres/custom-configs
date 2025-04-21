@@ -10,14 +10,8 @@ end
 require("plugins.lazy")
 
 load_list_safely({
-  -- Core
-  "plugins.autopairs",
-  "plugins.refactoring",
-
   -- UI
-  "plugins.filetree",
   "plugins.statusline",
-  "plugins.smoothscroll",
   "plugins.gitsigns",
   "plugins.harpoon",
 
