@@ -53,9 +53,9 @@ local pluginspec = {
   { 'milisims/nvim-luaref' }, -- docs for lua
 
   -- === Git ===
-  { 'tpope/vim-fugitive' },      -- :G
-  { 'lewis6991/gitsigns.nvim' }, -- Enable git changes to be shown in sign column
-  { 'ruifm/gitlinker.nvim' },    -- produce browser links pointing at source
+  { 'tpope/vim-fugitive' },        -- :G
+  { import = "plugins.gitsigns" }, -- Enable git changes to be shown in sign column
+  { 'ruifm/gitlinker.nvim' },      -- produce browser links pointing at source
 
   -- === UI === --
   { 'hoob3rt/lualine.nvim' },
@@ -91,9 +91,6 @@ local pluginspec = {
     'letieu/harpoon-lualine',
     dependencies = { { 'ThePrimeagen/harpoon' } }
   },
-
-  -- === Colorschemes === --
-  { import = 'plugins.colorscheme' },
 
   -- === TMUX === --
   { 'christoomey/vim-tmux-navigator' }, -- Allows to <C-hjkl> to move to/from tmux panes
@@ -137,6 +134,9 @@ local pluginspec = {
       },
     },
   },
+
+  -- === Colorschemes === --
+  { import = 'plugins.colorscheme' },
 
   -- === Misc ===
   { 'fladson/vim-kitty' }, -- keyword highlighting of kitty.conf

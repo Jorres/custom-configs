@@ -12,7 +12,6 @@ require("plugins.lazy")
 load_list_safely({
   -- UI
   "plugins.statusline",
-  "plugins.gitsigns",
   "plugins.harpoon",
 
   "plugins.guess-indent",
