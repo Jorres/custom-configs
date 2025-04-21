@@ -11,7 +11,6 @@ require("plugins.lazy")
 
 load_list_safely({
   -- Core
-  "plugins.yank-ring",
   "plugins.autopairs",
   "plugins.refactoring",
 

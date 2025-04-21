@@ -35,7 +35,7 @@ local pluginspec = {
   -- A true blessing. Set shiftwidth to what the buffer is using
   -- instead of hardcoded 2 or hardcoded 4.
   { 'NMAC427/guess-indent.nvim' },
-  { "gbprod/yanky.nvim" }, -- yank ring-buffer
+  { import = 'plugins.yank-ring' },
   {
     "chrisgrieser/nvim-recorder",
     dependencies = "rcarriga/nvim-notify",
