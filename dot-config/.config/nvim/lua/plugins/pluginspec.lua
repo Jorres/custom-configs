@@ -2,10 +2,7 @@ local pluginspec = {
   -- Not using:
   { 'tpope/vim-abolish' }, -- :Subvert, coerce to various cases
   -- Submodes
-  {
-    'anuvyklack/hydra.nvim',
-    dependencies = 'anuvyklack/keymap-layer.nvim' -- needed only for pink hydras
-  },
+  { import = 'plugins.hydra' },
 
   -- === Language agnostic editing plugins ===
   { 'windwp/nvim-autopairs',    opts = {} }, -- auto-close brackets plugin

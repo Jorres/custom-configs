@@ -15,7 +15,6 @@ load_list_safely({
   "plugins.harpoon",
 
   "plugins.guess-indent",
-  "plugins.hydra",
   "plugins.dressing",
   "plugins.gitlinker",
   "plugins.legendary",

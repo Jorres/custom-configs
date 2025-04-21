@@ -20,7 +20,6 @@ require "img-clip".setup {
         return "anki/img"
       end
 
-      print(vim.fn.expand("%:t:r"))
       local l, r = string.find(vim.fn.expand("%:t:r"), "media")
       if l ~= nil then
         return "anki/img"
