@@ -12,6 +12,24 @@ return {
         end
       end
 
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if not client then return end
+
+          if client.supports_method('textDocument/formatting') then
+            vim.api.nvim_create_autocmd('BufWritePre', {
+              buffer = args.buf,
+              callback = function()
+                vim.lsp.buf.format({
+                  bufnr = args.buf, id = client.id
+                })
+              end
+            })
+          end
+        end
+      })
+
       vim.lsp.config("*", {
         on_attach = on_attach,
       })
@@ -19,40 +37,6 @@ return {
       vim.lsp.config("golangci_lint_ls", {
         settings = {
           cmd = { "golangci-lint", "run", "--fast", "--out-format", "json", "-j", "2" }
-        }
-      })
-
-      vim.lsp.config("lua_ls", {
-        on_init = function(client)
-          if client.workspace_folders then
-            local path = client.workspace_folders[1].name
-            if path ~= vim.fn.stdpath('config') and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc')) then
-              return
-            end
-          end
-
-          client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
-            runtime = {
-              version = 'LuaJIT'
-            },
-            diagnostics = {
-              globals = {
-                'vim', 'text', 'for_node', 'indent', 'newline',
-                'list', 'random_words', 'awesome', 'terminal',
-                'editor', 'editor_cmd', 'modkey', 'mymainmenu',
-                'client', 'screen', 'root', 'require', 'print',
-              },
-            },
-            workspace = {
-              checkThirdParty = false,
-              library = {
-                vim.env.VIMRUNTIME
-              }
-            }
-          })
-        end,
-        settings = {
-          Lua = {}
         }
       })
     end
@@ -87,5 +71,16 @@ return {
         handlers = handlers,
       }
     end
-  }
+  },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
 }
