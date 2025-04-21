@@ -15,7 +15,17 @@ require 'nvim-treesitter.configs'.setup {
   ignore_install = {},
   highlight = {
     enable = true,
-    disable = { "markdown", "help", "vimdoc" },
+    disable = function(lang, buf)
+      -- disable by language
+      -- if lang == "markdown" then
+      --   return true
+      -- end
+      local max_filesize = 100 * 1024
+      local ok, stats    = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+      if ok and stats and stats.size > max_filesize then
+        return true
+      end
+    end,
   },
   incremental_selection = {
     enable = false,
