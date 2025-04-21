@@ -37,6 +37,8 @@ M.live_multigrep = function(opts)
           '--line-number',
           '--column',
           '--smart-case',
+          '--hidden',
+          '--max-filesize=100K',
         },
       }
     end,
