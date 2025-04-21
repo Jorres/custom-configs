@@ -11,7 +11,6 @@ require("plugins.lazy")
 
 load_list_safely({
   -- Core
-  "plugins.colorbuddy",
   "plugins.autoc8n",
   "plugins.treesitter",
   "plugins.comment",
@@ -23,7 +22,6 @@ load_list_safely({
   "plugins.filetree",
   "plugins.statusline",
   "plugins.smoothscroll",
-  "plugins.toggleterm",
   "plugins.gitsigns",
   "plugins.harpoon",
 

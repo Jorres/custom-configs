@@ -130,6 +130,14 @@ named_keymaps.undo_break_question = {
   description = "Undo break after ?",
 }
 
+named_keymaps.open_terminal = {
+  "<C-t>",
+  require "plugins.terminal".toggle_terminal,
+  mode = { "n", "t", "i" },
+  opts = default_opts,
+  description = "Toggle terminal",
+}
+
 named_keymaps.quickfix_next = {
   "]",
   function()
@@ -306,6 +314,12 @@ for direction_vim, direction_word in pairs(tmux_moves) do
   named_keymaps["jump_window_" .. direction_word] = {
     "<C-" .. direction_vim .. ">",
     function()
+      if vim.bo.buftype == "terminal" or vim.fn.mode() == "t" then
+        -- todo fixbug
+        local esc = vim.api.nvim_replace_termcodes("<Esc>", true, false, true)
+        vim.api.nvim_feedkeys(esc, "n", false)
+      end
+
       vim.api.nvim_command("TmuxNavigate" .. direction_word)
     end,
     mode = { "n", "v" },

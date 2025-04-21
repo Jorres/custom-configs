@@ -2,9 +2,6 @@ require("settings.autocmds")
 
 require("settings.options")
 
--- safe to place last
-require("settings.theme")
-
 vim.api.nvim_command [[
 if has('nvim')
   let $ARC_EDITOR = 'nvr -cc split --remote-wait'
