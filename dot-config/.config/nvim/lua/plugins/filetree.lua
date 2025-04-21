@@ -2,7 +2,13 @@ local function on_attach(bufnr)
   local api = require('nvim-tree.api')
 
   local function opts(desc)
-    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+    return {
+      desc = 'nvim-tree: ' .. desc,
+      buffer = bufnr,
+      noremap = true,
+      silent = true,
+      nowait = true,
+    }
   end
 
   vim.keymap.set('n', '<C-d>', function()
@@ -15,7 +21,7 @@ local function on_attach(bufnr)
 
   vim.keymap.set('n', '<C-u>', function()
     api.tree.change_root_to_parent()
-    local cwd = vim.loop.cwd()
+    local cwd = vim.uv.cwd()
     local new_path = cwd:match("(.*/)[^/]+/?$")
     vim.cmd("cd " .. new_path)
   end, opts('Up'))
@@ -67,13 +73,11 @@ require 'nvim-tree'.setup {
   },
   -- disables netrw completely
   disable_netrw        = true,
-  -- hijack netrw window on startup
-  hijack_netrw         = true,
   auto_reload_on_write = true,
   -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
   open_on_tab          = true,
   -- hijack the cursor in the tree to put it at the start of the filename
-  hijack_cursor        = true,
+  hijack_cursor        = false,
   -- show lsp diagnostics in the signcolumn
   diagnostics          = {
     enable = false,
