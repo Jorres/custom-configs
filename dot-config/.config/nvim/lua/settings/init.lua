@@ -2,8 +2,6 @@ require("settings.autocmds")
 
 require("settings.options")
 
-require("settings.reload")
-
 -- safe to place last
 require("settings.theme")
 

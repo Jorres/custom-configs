@@ -75,7 +75,6 @@ local pluginspec = {
   { 'echasnovski/mini.nvim' },
 
   { import = 'plugins.alpha' },              -- cool startup screen!
-  { 'akinsho/toggleterm.nvim' },             -- toggle terminal per session
   { 'lukas-reineke/indent-blankline.nvim' }, -- draws small symbols for indentation
   { 'stevearc/dressing.nvim' },              -- improved vim.ui interfaces, like (select) and (input)
   {
@@ -125,7 +124,7 @@ local pluginspec = {
   { 'towolf/vim-helm' },        -- just the highlighting
 
   -- === Plugin \ Lua development ===
-  { 'tjdevries/colorbuddy.nvim' },
+  -- { 'tjdevries/colorbuddy.nvim' },
   { dir = os.getenv("HOME") .. '/hobbies/plugins/showmethat' },
   -- { dir = os.getenv("HOME") .. '/hobbies/academy' }, -- not yet(
 
