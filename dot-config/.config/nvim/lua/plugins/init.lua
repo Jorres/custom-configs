@@ -29,8 +29,6 @@ load_list_safely({
   "plugins.noice",
 
   "plugins.auto-hlsearch",
-  "plugins.mini-indent",
-  "plugins.mini-highlight",
   "plugins.flash",
 
   "plugins.japanese",

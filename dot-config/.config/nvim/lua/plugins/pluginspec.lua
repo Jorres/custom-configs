@@ -72,7 +72,7 @@ local pluginspec = {
        ]])
     end,
   },
-  { 'echasnovski/mini.nvim' },
+  { import = "plugins.mini" },
 
   { import = 'plugins.alpha' },              -- cool startup screen!
   { 'lukas-reineke/indent-blankline.nvim' }, -- draws small symbols for indentation
