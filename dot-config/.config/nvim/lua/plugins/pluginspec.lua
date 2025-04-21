@@ -51,8 +51,6 @@ local pluginspec = {
   { 'lambdalisue/suda.vim' },              -- reenter sudo editing with :Suda
   { 'nanotee/luv-vimdocs' },               -- docs for libuv
   { 'milisims/nvim-luaref' },              -- docs for lua
-  { "williamboman/mason.nvim" },           -- manager for LSP and such
-  { "williamboman/mason-lspconfig.nvim" }, -- manager for LSP and such
 
   -- === Git ===
   { 'tpope/vim-fugitive' },      -- :G
@@ -97,34 +95,22 @@ local pluginspec = {
   },
 
   -- === Colorschemes === --
-  { 'morhetz/gruvbox' },
-  { 'savq/melange' },
-  { 'EdenEast/nightfox.nvim' },
-  { 'nyoom-engineering/oxocarbon.nvim' },
-  { 'ribru17/bamboo.nvim' },
-  { 'sainnhe/everforest' },
-  { 'sainnhe/sonokai' },
-  { "rebelot/kanagawa.nvim" },
-  { "folke/tokyonight.nvim" },
-  {
-    'uloco/bluloco.nvim',
-    dependencies = { 'rktjmp/lush.nvim' },
-  },
-  { "samharju/synthweave.nvim" },
-
+  { import = 'plugins.colorscheme'},
   -- === TMUX === --
   { 'christoomey/vim-tmux-navigator' }, -- Allows to <C-hjkl> to move to/from tmux panes
   { 'sjl/vitality.vim' },               -- Restore FocusGained, FocusLost
 
   -- === LSP and completion ===
-  { 'neovim/nvim-lspconfig' },
+  { import = "plugins.lsp" },
   -- completion core and completion sources
-  { 'hrsh7th/nvim-cmp' },
-  { 'hrsh7th/cmp-buffer' },
-  { 'hrsh7th/cmp-path' },
-  { 'hrsh7th/cmp-nvim-lua' },
-  { 'hrsh7th/cmp-nvim-lsp' },
-  { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+  {
+    'saghen/blink.cmp',
+    -- optional: provides snippets for the snippet source
+    -- dependencies = { 'rafamadriz/friendly-snippets' },
+
+    -- use a release tag to download pre-built binaries
+    version = '1.*',
+  },
 
   -- === Treesitter ===
   { 'nvim-treesitter/nvim-treesitter',                       build = ':TSUpdate' },
@@ -153,7 +139,6 @@ local pluginspec = {
       { "<leader>zip", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
     },
     opts = {
-      -- recommended settings
       default = {
         embed_image_as_base64 = false,
         prompt_for_file_name = false,
@@ -173,7 +158,6 @@ local pluginspec = {
   { 'nvim-lua/popup.nvim' },
   { 'nvim-lua/plenary.nvim' },
   { 'onsails/lspkind-nvim' },
-  -- { 'jose-elias-alvarez/null-ls.nvim' },
 }
 
 return pluginspec
