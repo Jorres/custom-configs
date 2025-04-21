@@ -42,10 +42,9 @@ local pluginspec = {
   },
 
   { "ThePrimeagen/refactoring.nvim" },
-  { "meznaric/key-analyzer.nvim",   opts = {} },     -- draw a chart with unoccupied keybindingds
+  { "meznaric/key-analyzer.nvim",   opts = {} }, -- draw a chart with unoccupied keybindingds
 
   { import = 'plugins.chatgpt', },
-  -- { dir = os.getenv("HOME") .. '/hobbies/gp' },
 
   -- === Vim utilities ===
   { 'lambdalisue/suda.vim' }, -- reenter sudo editing with :Suda
@@ -59,8 +58,8 @@ local pluginspec = {
 
   -- === UI === --
   { 'hoob3rt/lualine.nvim' },
-  { 'declancm/cinnamon.nvim' },                       -- smooth scroll
-  { 'kyazdani42/nvim-tree.lua',     pin = true },     --File explorer
+  { 'declancm/cinnamon.nvim' },                   -- smooth scroll
+  { 'kyazdani42/nvim-tree.lua',     pin = true }, --File explorer
   {
     "azabiong/vim-highlighter",
     init = function()
@@ -75,7 +74,7 @@ local pluginspec = {
   },
   { 'echasnovski/mini.nvim' },
 
-  { import = 'plugins.alpha' },                  -- cool startup screen!
+  { import = 'plugins.alpha' },              -- cool startup screen!
   { 'akinsho/toggleterm.nvim' },             -- toggle terminal per session
   { 'lukas-reineke/indent-blankline.nvim' }, -- draws small symbols for indentation
   { 'stevearc/dressing.nvim' },              -- improved vim.ui interfaces, like (select) and (input)
@@ -119,8 +118,7 @@ local pluginspec = {
   { 'hiphish/rainbow-delimiters.nvim' },
 
   -- === Telescope ===
-  { 'nvim-telescope/telescope.nvim',                         branch = "0.1.x" },
-  { 'nvim-telescope/telescope-fzf-native.nvim',              build = 'make' },
+  { import = "plugins.telescope" },
 
   -- === Language specific
   { 'hashivim/vim-terraform' }, -- just the highlighting

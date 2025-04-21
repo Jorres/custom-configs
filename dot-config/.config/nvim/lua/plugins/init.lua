@@ -20,7 +20,6 @@ load_list_safely({
   "plugins.refactoring",
 
   -- UI
-  "plugins.telescope",
   "plugins.filetree",
   "plugins.statusline",
   "plugins.smoothscroll",

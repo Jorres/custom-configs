@@ -44,7 +44,7 @@ named_keymaps.visual_leader_p = {
 named_keymaps.gitlinker = {
   "<leader>gy",
   function()
-    require"gitlinker".get_buf_range_url("n")
+    require "gitlinker".get_buf_range_url("n")
   end,
   mode = { "n" },
   opts = default_opts,
@@ -54,7 +54,7 @@ named_keymaps.gitlinker = {
 named_keymaps.gitlinker_visual_range = {
   "<leader>gy",
   function()
-    require"gitlinker".get_buf_range_url("v")
+    require "gitlinker".get_buf_range_url("v")
   end,
   mode = { "v" },
   opts = default_opts,
@@ -74,7 +74,7 @@ named_keymaps.jump_next_diagnostic = {
   function()
     local diagnostics = vim.diagnostic.get(nil)
     if #diagnostics == 0 then
-      require"notify"("No diagnostics found :)")
+      require "notify" ("No diagnostics found :)")
       return
     end
 
@@ -83,7 +83,7 @@ named_keymaps.jump_next_diagnostic = {
     local last_diagnostic = diagnostics[last_diagnostic_id]
 
     vim.api.nvim_set_current_buf(last_diagnostic.bufnr)
-    vim.diagnostic.jump({diagnostic = last_diagnostic, float = true})
+    vim.diagnostic.jump({ diagnostic = last_diagnostic })
   end,
   mode = { "n" },
   opts = default_opts,
@@ -235,14 +235,6 @@ named_keymaps.telescope_lsp_references = {
   ":Telescope lsp_references<CR>",
   mode = { "n" },
   description = "Jump to references with telescope",
-  opts = default_opts
-}
-
-named_keymaps.lsp_format = {
-  "<leader>sf",
-  function() vim.lsp.buf.format({ async = true }) end,
-  mode = { "n" },
-  description = "Format file using LSP formatting",
   opts = default_opts
 }
 
@@ -489,7 +481,7 @@ named_keymaps.yanky_yank = {
 }
 
 local harpoon_pref = "<leader>h"
-local harpoon = require"harpoon"
+local harpoon = require "harpoon"
 
 named_keymaps.harpoon_toggle_quick_menu = {
   harpoon_pref .. "m",
@@ -520,7 +512,7 @@ end
 -- Telescope
 named_keymaps.telescope_live_grep_with_optional_filter = {
   "<leader>gs",
-  require('plugins.telescope').live_grep_with_optional_filter,
+  require('plugins.telescope-multigrep').live_multigrep,
   mode = { "n" },
   opts = default_opts,
   description = "Telescope live grep with optional filter",
