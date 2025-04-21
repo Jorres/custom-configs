@@ -202,7 +202,7 @@ require "noice.config.format".builtin.lsp_progress = {
   { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
 }
 require "noice.config.format".builtin.lsp_progress_done = {
-  { "✔ ",                    hl_group = "NoiceLspProgressSpinner" },
-  { "{data.progress.title} ",  hl_group = "NoiceLspProgressTitle" },
+  { "✔ ", hl_group = "NoiceLspProgressSpinner" },
+  { "{data.progress.title} ", hl_group = "NoiceLspProgressTitle" },
   { "{data.progress.client} ", hl_group = "NoiceLspProgressClient" },
 }
