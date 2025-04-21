@@ -24,7 +24,6 @@ load_list_safely({
   "plugins.flash",
 
   "plugins.japanese",
-  "plugins.macro-recorder",
   "plugins.img-clip",
   "plugins.marks",
 

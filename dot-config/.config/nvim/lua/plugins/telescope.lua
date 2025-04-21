@@ -1,7 +1,7 @@
 return {
   {
     'nvim-telescope/telescope.nvim',
-    tag = "0.1.8",
+    branch = "0.1.*",
     dependencies = {
       {
         'nvim-telescope/telescope-fzf-native.nvim',

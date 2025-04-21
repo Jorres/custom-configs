@@ -1,8 +1,6 @@
 local pluginspec = {
   -- Not using:
   { 'tpope/vim-abolish' }, -- :Subvert, coerce to various cases
-  -- Submodes
-  { import = 'plugins.hydra' },
 
   -- === Language agnostic editing plugins ===
   { 'windwp/nvim-autopairs',    opts = {} }, -- auto-close brackets plugin
@@ -33,13 +31,11 @@ local pluginspec = {
   -- instead of hardcoded 2 or hardcoded 4.
   { 'NMAC427/guess-indent.nvim' },
   { import = 'plugins.yank-ring' },
-  {
-    "chrisgrieser/nvim-recorder",
-    dependencies = "rcarriga/nvim-notify",
-  },
+
+  { import = 'plugins.macro-recorder' },
 
   { import = "plugins.refactoring" },
-  { "meznaric/key-analyzer.nvim",   opts = {} }, -- draw a chart with unoccupied keybindingds
+  { "meznaric/key-analyzer.nvim",     opts = {} }, -- draw a chart with unoccupied keybindingds
 
   { import = 'plugins.chatgpt', },
   { import = 'plugins.filetree' },
