@@ -10,7 +10,7 @@ local pluginspec = {
   -- === Language agnostic editing plugins ===
   { 'windwp/nvim-autopairs' },     -- auto-close brackets plugin
   { 'tpope/vim-surround' },        -- cs<surrounding1><surrounding2> ds<surrounding1>
-  { 'b3nj5m1n/kommentary' },       -- visual select + gc
+  { import = 'plugins.comment' },  -- visual select + gc
   { 'wellle/targets.vim' },        -- Additional text objects: e.g. inside *, inside comma-separated list etc.
   { 'MunifTanjim/prettier.nvim' }, -- :Prettier
   { 'folke/flash.nvim' },          -- Ultimate screen-jumping plugin
@@ -102,19 +102,10 @@ local pluginspec = {
   -- === LSP and completion ===
   { import = "plugins.lsp" },
   -- completion core and completion sources
-  {
-    'saghen/blink.cmp',
-    -- optional: provides snippets for the snippet source
-    -- dependencies = { 'rafamadriz/friendly-snippets' },
-
-    -- use a release tag to download pre-built binaries
-    version = '1.*',
-  },
+  { import = "plugins.autoc8n" },
 
   -- === Treesitter ===
-  { 'nvim-treesitter/nvim-treesitter',                       build = ':TSUpdate' },
-  -- { 'nvim-treesitter/playground' },
-  { 'hiphish/rainbow-delimiters.nvim' },
+  { import = 'plugins.treesitter' },
 
   -- === Telescope ===
   { import = "plugins.telescope" },

@@ -11,9 +11,6 @@ require("plugins.lazy")
 
 load_list_safely({
   -- Core
-  "plugins.autoc8n",
-  "plugins.treesitter",
-  "plugins.comment",
   "plugins.yank-ring",
   "plugins.autopairs",
   "plugins.refactoring",
