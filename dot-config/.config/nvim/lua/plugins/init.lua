@@ -17,13 +17,11 @@ load_list_safely({
   "plugins.comment",
   "plugins.yank-ring",
   "plugins.autopairs",
-  "plugins.chatgpt",
   "plugins.refactoring",
 
   -- UI
   "plugins.telescope",
   "plugins.filetree",
-  "plugins.alpha",
   "plugins.statusline",
   "plugins.smoothscroll",
   "plugins.toggleterm",

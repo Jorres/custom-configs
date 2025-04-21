@@ -42,15 +42,15 @@ local pluginspec = {
   },
 
   { "ThePrimeagen/refactoring.nvim" },
-  { "meznaric/key-analyzer.nvim",       opts = {} }, -- draw a chart with unoccupied keybindingds
+  { "meznaric/key-analyzer.nvim",   opts = {} },     -- draw a chart with unoccupied keybindingds
 
-  { "Robitx/gp.nvim" },
+  { import = 'plugins.chatgpt', },
   -- { dir = os.getenv("HOME") .. '/hobbies/gp' },
 
   -- === Vim utilities ===
-  { 'lambdalisue/suda.vim' },              -- reenter sudo editing with :Suda
-  { 'nanotee/luv-vimdocs' },               -- docs for libuv
-  { 'milisims/nvim-luaref' },              -- docs for lua
+  { 'lambdalisue/suda.vim' }, -- reenter sudo editing with :Suda
+  { 'nanotee/luv-vimdocs' },  -- docs for libuv
+  { 'milisims/nvim-luaref' }, -- docs for lua
 
   -- === Git ===
   { 'tpope/vim-fugitive' },      -- :G
@@ -60,7 +60,7 @@ local pluginspec = {
   -- === UI === --
   { 'hoob3rt/lualine.nvim' },
   { 'declancm/cinnamon.nvim' },                       -- smooth scroll
-  { 'kyazdani42/nvim-tree.lua',         pin = true }, --File explorer
+  { 'kyazdani42/nvim-tree.lua',     pin = true },     --File explorer
   {
     "azabiong/vim-highlighter",
     init = function()
@@ -75,7 +75,7 @@ local pluginspec = {
   },
   { 'echasnovski/mini.nvim' },
 
-  { 'goolord/alpha-nvim' },                  -- cool startup screen!
+  { import = 'plugins.alpha' },                  -- cool startup screen!
   { 'akinsho/toggleterm.nvim' },             -- toggle terminal per session
   { 'lukas-reineke/indent-blankline.nvim' }, -- draws small symbols for indentation
   { 'stevearc/dressing.nvim' },              -- improved vim.ui interfaces, like (select) and (input)
@@ -95,7 +95,8 @@ local pluginspec = {
   },
 
   -- === Colorschemes === --
-  { import = 'plugins.colorscheme'},
+  { import = 'plugins.colorscheme' },
+
   -- === TMUX === --
   { 'christoomey/vim-tmux-navigator' }, -- Allows to <C-hjkl> to move to/from tmux panes
   { 'sjl/vitality.vim' },               -- Restore FocusGained, FocusLost
