@@ -1,15 +1,6 @@
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
-local colorscheme_group = augroup("colorscheme changes", { clear = true })
-vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = { "*" },
-  callback = function()
-    R("plugins.colorbuddy")
-  end,
-  group = colorscheme_group
-})
-
 local function make_hl_file_path()
   local home_dir = os.getenv("HOME")
   local filepath = vim.fn.expand("%:p")
@@ -50,7 +41,7 @@ end
 --   end,
 -- })
 
--- Make some built-in vim highlighting activate for salt files 
+-- Make some built-in vim highlighting activate for salt files
 autocmd("BufEnter", {
   pattern = "*.sls",
   callback = function()
@@ -96,6 +87,7 @@ autocmd({ "BufWinLeave", "BufWritePost", "WinLeave" }, {
     if vim.b[args.buf].view_activated then vim.cmd.mkview { mods = { emsg_silent = true } } end
   end,
 })
+
 autocmd("BufWinEnter", {
   desc = "Try to load file view if available and enable view saving for real files",
   group = view_group,
