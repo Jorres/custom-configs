@@ -118,3 +118,10 @@ autocmd("BufWritePost", {
     vim.fn.system("kill -SIGUSR1 $(pgrep kitty)")
   end,
 })
+
+-- Nice small yanking animation right after yank :)
+autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end
+})
