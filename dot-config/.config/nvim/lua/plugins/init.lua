@@ -12,11 +12,9 @@ require("plugins.lazy")
 load_list_safely({
   -- UI
   "plugins.statusline",
-  "plugins.harpoon",
 
   "plugins.guess-indent",
   "plugins.dressing",
-  "plugins.gitlinker",
   "plugins.legendary",
   "plugins.noice",
 

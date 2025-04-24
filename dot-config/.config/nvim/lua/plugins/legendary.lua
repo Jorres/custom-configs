@@ -348,6 +348,12 @@ local chat = {
 named_keymaps.run_chat_gpt = {
   "<C-c>",
   function()
+    -- integration with my self-terminal
+    if vim.api.nvim_buf_get_option(0, "buftype") == "terminal" then
+      -- just don't
+      return
+    end
+
     vim.api.nvim_command(":GpChatToggle")
     if chat.active then
       chat.active = false

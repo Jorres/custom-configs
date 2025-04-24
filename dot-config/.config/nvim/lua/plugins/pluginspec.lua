@@ -12,10 +12,10 @@ local pluginspec = {
   { 'tpope/vim-repeat' },                    -- zero-config, allows to repeat complex commands
   { 'AndrewRadev/splitjoin.vim' },           -- gJ and gS to split\join statements in multiple languages
   { 'sk1418/HowMuch' },                      -- https://github.com/sk1418/HowMuch
+
   {
-    'ThePrimeagen/harpoon',
-    branch = "harpoon2",
-  }, -- Keep track of latest files you work with
+    import = 'plugins.harpoon',
+  },
   {
     "heilgar/bookmarks.nvim",
     dependencies = {
@@ -46,9 +46,9 @@ local pluginspec = {
   { 'milisims/nvim-luaref' }, -- docs for lua
 
   -- === Git ===
-  { 'tpope/vim-fugitive' },        -- :G
-  { import = "plugins.gitsigns" }, -- Enable git changes to be shown in sign column
-  { 'ruifm/gitlinker.nvim' },      -- produce browser links pointing at source
+  { 'tpope/vim-fugitive' },         -- :G
+  { import = "plugins.gitsigns" },  -- Enable git changes to be shown in sign column
+  { import = "plugins.gitlinker" }, -- create browser links from current line
 
   -- === UI === --
   { 'hoob3rt/lualine.nvim' },
