@@ -1,3 +1,4 @@
+# Enable profiling:
 # zmodload zsh/zprof
 
 # If you come from bash you might have to change your $PATH.
@@ -193,30 +194,18 @@ export GLFW_IM_MODULE='ibus'
 export PATH="$PATH:/home/jorres/work/nebius/ydbops"
 export PATH="$PATH:/home/jorres/.local/bin"
 
-# zprof
-
-# The next line updates PATH for CLI.
-if [ -f '/home/jorres/nebius-cloud/path.bash.inc' ]; then source '/home/jorres/nebius-cloud/path.bash.inc'; fi
-
-# The next line enables shell command completion for ncp.
-if [ -f '/home/jorres/nebius-cloud/completion.zsh.inc' ]; then source '/home/jorres/nebius-cloud/completion.zsh.inc'; fi
-
-# The next line updates PATH for Yandex Cloud CLI.
-if [ -f '/home/jorres/yandex-cloud/path.bash.inc' ]; then source '/home/jorres/yandex-cloud/path.bash.inc'; fi
-
-# The next line enables shell command completion for yc.
-if [ -f '/home/jorres/yandex-cloud/completion.zsh.inc' ]; then source '/home/jorres/yandex-cloud/completion.zsh.inc'; fi
-
-
-
-# The next line updates PATH for Nebius Private CLI.
+# Path and completions for npc
 if [ -f '/home/jorres/.config/newbius/path.bash.inc' ]; then source '/home/jorres/.config/newbius/path.bash.inc'; fi
-# The next line enables shell command completion for Nebius Private CLI.
-if [ -f '/home/jorres/.config/newbius/completion.zsh.inc' ]; then source '/home/jorres/.config/newbius/completion.zsh.inc'; fi
+if [ -f ~/.config/newbius/completion.zsh.inc ]; then
+  source ~/.config/newbius/completion.zsh.inc
+fi
+
+source $HOME/completions/_jops_k_completion.zsh
+
 
 export GLFW_IM_MODULE=ibus kitty
 
-# Custom completions
-source $HOME/completions/_jops_k_completion.zsh
-
 export ANTHROPIC_API_KEY=$(cat $HOME/anthropic_api_key)
+
+# Profiling:
+# zprof

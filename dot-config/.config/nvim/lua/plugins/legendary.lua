@@ -605,6 +605,14 @@ named_keymaps.gitsigns_next_hunk = {
   description = "Gitsigns next hunk",
 }
 
+named_keymaps.execute_visual = {
+  "<leader>x",
+  ":lua<CR>",
+  mode = { "v" },
+  opts = default_opts,
+  description = "execute visual selection in lua",
+}
+
 local keymap = {
   ["<C-Y>"] = function()
     require "cinnamon".scroll("5<C-Y>")
