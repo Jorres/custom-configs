@@ -7,6 +7,9 @@ $ filename: rg --files
 # Stash into patch
 git stash show "stash@{0}" -p > changes.patch && git stash drop
 
+# Stash into named stash
+git stash push -m <name>
+
 # Change remote repository url
 git remote set-url origin <new_url>
 

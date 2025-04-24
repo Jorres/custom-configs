@@ -35,3 +35,7 @@ ydb -e grpc://storage-grpc.<namespace>.svc.cluster.local:2135 -d <domain> scheme
 $ namespace
 $ serviceaccount_mvp
 $ domain
+
+# jops
+jops k <cluster>
+$ cluster: yq eval '.clusters | keys[]' $HOME/hobbies/jops/config.yaml
