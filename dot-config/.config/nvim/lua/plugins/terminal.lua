@@ -35,4 +35,23 @@ M.send_stuff = function()
   vim.fn.chansend(state.term.job_id, "ls -lah\r\n")
 end
 
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  callback = function()
+    if vim.api.nvim_win_is_valid(state.term.win) then
+      local cur_win = vim.api.nvim_get_current_win()
+      vim.api.nvim_set_current_win(state.term.win)
+      vim.cmd.wincmd("J")
+      vim.api.nvim_set_current_win(cur_win)
+    end
+  end
+})
+
+vim.api.nvim_create_autocmd("TermClose", {
+  callback = function()
+    if vim.api.nvim_win_is_valid(state.term.win) then
+      vim.api.nvim_win_close(state.term.win, false)
+    end
+  end
+})
+
 return M

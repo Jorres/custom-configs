@@ -322,7 +322,7 @@ for direction_vim, direction_word in pairs(tmux_moves) do
 
       vim.api.nvim_command("TmuxNavigate" .. direction_word)
     end,
-    mode = { "n", "v" },
+    mode = { "n", "v", "t" },
     description = "Easier switching between windows",
     opts = default_opts
   }
