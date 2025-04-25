@@ -25,9 +25,6 @@ load_list_safely({
   "plugins.img-clip",
   "plugins.marks",
 
-  -- PDE
-  "plugins.prettier",
-
   --- MY OWN PLUGINS
   "showmethat",
   -- "academy",

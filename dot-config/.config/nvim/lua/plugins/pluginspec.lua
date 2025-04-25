@@ -7,7 +7,6 @@ local pluginspec = {
   { 'tpope/vim-surround' },                  -- cs<surrounding1><surrounding2> ds<surrounding1>
   { import = 'plugins.comment' },            -- visual select + gc
   { 'wellle/targets.vim' },                  -- Additional text objects: e.g. inside *, inside comma-separated list etc.
-  { 'MunifTanjim/prettier.nvim' },           -- :Prettier
   { 'folke/flash.nvim' },                    -- Ultimate screen-jumping plugin
   { 'tpope/vim-repeat' },                    -- zero-config, allows to repeat complex commands
   { 'AndrewRadev/splitjoin.vim' },           -- gJ and gS to split\join statements in multiple languages
@@ -127,6 +126,8 @@ local pluginspec = {
       },
     },
   },
+
+  { import = "plugins.prettier" },
 
   -- === Colorschemes === --
   { import = 'plugins.colorscheme' },

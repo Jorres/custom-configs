@@ -1,39 +1,57 @@
-local prettier = require("prettier")
-
-prettier.setup({
-  bin = 'prettier', -- or `prettierd`
-  filetypes = {
-    -- "css",
-    -- "graphql",
-    -- "html",
-    -- "javascript",
-    -- "javascriptreact",
-    -- "json",
-    -- "less",
-    "markdown",
-    "md",
-    -- "scss",
-    -- "typescript",
-    -- "typescriptreact",
-    -- "yaml",
-  },
-
-  -- prettier format options (you can use config files too. ex: `.prettierrc`)
-  --
-  -- arrow_parens = "always",
-  -- bracket_spacing = true,
-  -- embedded_language_formatting = "auto",
-  -- end_of_line = "lf",
-  -- html_whitespace_sensitivity = "css",
-  -- jsx_bracket_same_line = false,
-  -- jsx_single_quote = false,
-  print_width = 85,
-  prose_wrap = "always",
-  -- quote_props = "as-needed",
-  -- semi = true,
-  -- single_quote = false,
-  tab_width = 2,
-  -- trailing_comma = "es5",
-  -- use_tabs = false,
-  -- vue_indent_script_and_style = false,
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "*.md",
+  command = "FormatWrite",
 })
+
+return {
+  {
+    'mhartington/formatter.nvim',
+    config = function()
+      -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
+      require("formatter").setup {
+        -- Enable or disable logging
+        logging = true,
+        -- Set the log level
+        log_level = vim.log.levels.WARN,
+        -- All formatter configurations are opt-in
+        filetype = {
+          -- Formatter configurations for filetype "lua" go here
+          -- and will be executed in order
+          markdown = {
+            -- You can also define your own configuration
+            function()
+              -- Supports conditional formatting
+              -- if require "formatter.util".get_current_buffer_file_name() == "special.lua" then
+              --   return nil
+              -- end
+
+              -- Full specification of configurations is down below and in Vim help
+              -- files
+              return {
+                exe = "prettier",
+                args = {
+                  -- "--search-parent-directories",
+                  -- "--stdin-filepath",
+                  require "formatter.util".escape_path(require "formatter.util".get_current_buffer_file_path()),
+                  -- "--",
+                  -- "-",
+                },
+                stdin = true,
+              }
+            end
+          },
+
+          -- Use the special "*" filetype for defining formatter configurations on
+          -- any filetype
+          -- ["*"] = {
+          --   -- "formatter.filetypes.any" defines default configurations for any
+          --   -- filetype
+          --   require("formatter.filetypes.any").remove_trailing_whitespace,
+          --   -- Remove trailing whitespace without 'sed'
+          --   -- require("formatter.filetypes.any").substitute_trailing_whitespace,
+          -- }
+        }
+      }
+    end
+  },
+}
