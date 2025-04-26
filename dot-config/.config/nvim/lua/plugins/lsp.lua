@@ -39,6 +39,14 @@ return {
           cmd = { "golangci-lint", "run", "--fast", "--out-format", "json", "-j", "2" }
         }
       })
+
+
+      -- Weird, but this is an official way to unmap default lsp mappings
+      -- see vim.lsp help, search for grr
+      local defaultLspMappings = { "grn", "gra", "grr", "gri", "gO" }
+      for _, lhs in ipairs(defaultLspMappings) do
+        vim.keymap.del("n", lhs)
+      end
     end
   },
   {

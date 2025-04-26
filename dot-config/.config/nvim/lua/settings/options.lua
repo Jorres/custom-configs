@@ -27,7 +27,6 @@ local options = {
   equalalways = false,
   lazyredraw = true,
   laststatus = 3,
-
   mouse = "a",
   ch = 0,
 }

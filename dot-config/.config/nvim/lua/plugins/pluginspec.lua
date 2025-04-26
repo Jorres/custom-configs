@@ -129,6 +129,8 @@ local pluginspec = {
 
   { import = "plugins.prettier" },
 
+  { import = "plugins.folding" },
+
   -- === Colorschemes === --
   { import = 'plugins.colorscheme' },
 
