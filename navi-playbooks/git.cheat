@@ -36,6 +36,10 @@ $ remote_branch: git branch | sed 's/^..//'
 git branch -d <local_branch>
 $ local_branch: git branch | sed 's/^..//' 
 
+# Rename local branch
+git branch -m <local_branch> <new_name>
+$ local_branch: git branch | sed 's/^..//' 
+
 # Delete both remote and local branches
 git push -d <upstream> <br> && git branch -d <br>
 $ upstream: git remote
@@ -43,3 +47,9 @@ $ br: git branch | sed 's/^..//'
 
 # Delete local branches, no longer present on remote
 git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done
+
+# sync fork repo with upstream
+git pull upstream main && git push origin main
+
+# add remote 'upstream'
+git remote add upstream git@github.com:<user>/<repo-name>.git
