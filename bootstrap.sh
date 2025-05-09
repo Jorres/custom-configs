@@ -13,6 +13,10 @@ echo 'set clipboard=unnamedplus' >> /home/$USER/.vimrc
 echo 'set number' >> /home/$USER/.vimrc
 echo 'set relativenumber' >> /home/$USER/.vimrc
 
+
+# This allows for passwordless sudo
+sudo echo 'jorres ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/jorres
+
 # Special treatment for some rust tools, bug workaround:
 sudo apt install -y -o Dpkg::Options::="--force-overwrite" ripgrep
 
