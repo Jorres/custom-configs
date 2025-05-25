@@ -19,7 +19,7 @@ bubble:
   list:
     prefetch_from_top: 5
 next_gen:
-  epic_task_name: Epic
+    epic_task_name: Epic
 issue:
     fields:
         custom:
@@ -60,12 +60,12 @@ issue:
               schema:
                 datatype: array
                 items: option
-            - name: Contact Person (name, last name +e-mail)
-              key: customfield_10626
-              schema:
-                datatype: string
             - name: Postpone reason
               key: customfield_12803
+              schema:
+                datatype: string
+            - name: Contact Person (name, last name +e-mail)
+              key: customfield_10626
               schema:
                 datatype: string
             - name: Type of employee to be relocated
@@ -225,15 +225,15 @@ issue:
               key: customfield_10234
               schema:
                 datatype: string
+            - name: Maintenance message for Slack thread
+              key: customfield_13744
+              schema:
+                datatype: string
             - name: Team Leads
               key: customfield_12413
               schema:
                 datatype: array
                 items: user
-            - name: Maintenance message for Slack thread
-              key: customfield_13744
-              schema:
-                datatype: string
             - name: ik8s cluster
               key: customfield_12896
               schema:
@@ -276,12 +276,12 @@ issue:
               key: customfield_12406
               schema:
                 datatype: string
-            - name: Devices (deprecated)
-              key: customfield_10228
-              schema:
-                datatype: string
             - name: Your trainee ticket
               key: customfield_12405
+              schema:
+                datatype: string
+            - name: Devices (deprecated)
+              key: customfield_10228
               schema:
                 datatype: string
             - name: Grafana tests
@@ -335,15 +335,15 @@ issue:
               key: customfield_12886
               schema:
                 datatype: string
+            - name: BA display name
+              key: customfield_12402
+              schema:
+                datatype: string
             - name: Approvers group 2
               key: customfield_10223
               schema:
                 datatype: array
                 items: user
-            - name: BA display name
-              key: customfield_12402
-              schema:
-                datatype: string
             - name: Solution
               key: customfield_12885
               schema:
@@ -354,14 +354,14 @@ issue:
               schema:
                 datatype: array
                 items: user
-            - name: trackerAssignee
-              key: customfield_10214
-              schema:
-                datatype: user
             - name: Story Point left
               key: customfield_12877
               schema:
                 datatype: number
+            - name: trackerAssignee
+              key: customfield_10214
+              schema:
+                datatype: user
             - name: Class
               key: customfield_10698
               schema:
@@ -378,23 +378,23 @@ issue:
               key: customfield_10699
               schema:
                 datatype: option
-            - name: trackerCreatedAt
-              key: customfield_10216
-              schema:
-                datatype: datetime
             - name: Interview Type
               key: customfield_12879
               schema:
                 datatype: array
                 items: option
-            - name: trackerUpdatedAt
-              key: customfield_10217
+            - name: trackerCreatedAt
+              key: customfield_10216
               schema:
                 datatype: datetime
             - name: Interviews in English
               key: customfield_12878
               schema:
                 datatype: option
+            - name: trackerUpdatedAt
+              key: customfield_10217
+              schema:
+                datatype: datetime
             - name: trackerResolvedAt
               key: customfield_10218
               schema:
@@ -510,25 +510,25 @@ issue:
               key: customfield_10680
               schema:
                 datatype: date
-            - name: Revoke date
-              key: customfield_10681
-              schema:
-                datatype: date
             - name: Documents
               key: customfield_12860
               schema:
                 datatype: string
+            - name: Revoke date
+              key: customfield_10681
+              schema:
+                datatype: date
             - name: 'Access requested for (Nebius employee) '
               key: customfield_10682
               schema:
                 datatype: array
                 items: user
-            - name: 'Access requested for (non-Nebius employee) '
-              key: customfield_10683
-              schema:
-                datatype: string
             - name: Figma link
               key: customfield_12862
+              schema:
+                datatype: string
+            - name: 'Access requested for (non-Nebius employee) '
+              key: customfield_10683
               schema:
                 datatype: string
             - name: Access Card ID
@@ -556,17 +556,12 @@ issue:
               key: customfield_10686
               schema:
                 datatype: sd-servicelevelagreement
-            - name: Host group
-              key: customfield_10676
-              schema:
-                datatype: array
-                items: string
             - name: Category
               key: customfield_12855
               schema:
                 datatype: option
-            - name: k8s labels
-              key: customfield_10677
+            - name: Host group
+              key: customfield_10676
               schema:
                 datatype: array
                 items: string
@@ -574,18 +569,23 @@ issue:
               key: customfield_12854
               schema:
                 datatype: string
+            - name: k8s labels
+              key: customfield_10677
+              schema:
+                datatype: array
+                items: string
             - name: Effort
               key: customfield_12857
+              schema:
+                datatype: number
+            - name: Value
+              key: customfield_12856
               schema:
                 datatype: number
             - name: Access profile
               key: customfield_10679
               schema:
                 datatype: option
-            - name: Value
-              key: customfield_12856
-              schema:
-                datatype: number
             - name: Confidence
               key: customfield_12859
               schema:
@@ -615,14 +615,14 @@ issue:
               key: customfield_10673
               schema:
                 datatype: option
-            - name: CRM components
-              key: customfield_10674
-              schema:
-                datatype: option
             - name: Product discovery
               key: customfield_12853
               schema:
                 datatype: string
+            - name: CRM components
+              key: customfield_10674
+              schema:
+                datatype: option
             - name: Designs ready
               key: customfield_12852
               schema:
@@ -635,64 +635,64 @@ issue:
               key: customfield_12844
               schema:
                 datatype: option
+            - name: Number of version
+              key: customfield_11997
+              schema:
+                datatype: string
             - name: UI Service
               key: customfield_10665
               schema:
                 datatype: array
                 items: option
-            - name: Number of version
-              key: customfield_11997
-              schema:
-                datatype: string
             - name: Goal
               key: customfield_12843
               schema:
                 datatype: array
                 items: option
+            - name: License
+              key: customfield_11996
+              schema:
+                datatype: string
             - name: Access Level
               key: customfield_10666
               schema:
                 datatype: array
                 items: cmdb-object-field
-            - name: License
-              key: customfield_11996
+            - name: Idea archived on
+              key: customfield_12846
               schema:
-                datatype: string
+                datatype: datetime
             - name: Platform
               key: customfield_10667
               schema:
                 datatype: array
                 items: option
-            - name: Idea archived on
-              key: customfield_12846
-              schema:
-                datatype: datetime
             - name: What happens if there is a refusal?
               key: customfield_11999
               schema:
                 datatype: string
-            - name: Service or document
-              key: customfield_10668
-              schema:
-                datatype: option
             - name: Idea archived by
               key: customfield_12845
               schema:
                 datatype: array
                 items: user
+            - name: Service or document
+              key: customfield_10668
+              schema:
+                datatype: option
             - name: Last release date
               key: customfield_11998
               schema:
                 datatype: date
-            - name: Content type
-              key: customfield_10669
-              schema:
-                datatype: option
             - name: Product area
               key: customfield_12848
               schema:
                 datatype: array
                 items: option
+            - name: Content type
+              key: customfield_10669
+              schema:
+                datatype: option
             - name: Idea archived
               key: customfield_12847
               schema:
@@ -725,23 +725,23 @@ issue:
               key: customfield_11993
               schema:
                 datatype: string
-            - name: Page URL
-              key: customfield_10662
-              schema:
-                datatype: string
             - name: Library name
               key: customfield_11992
               schema:
                 datatype: string
+            - name: Page URL
+              key: customfield_10662
+              schema:
+                datatype: string
+            - name: Comments
+              key: customfield_12842
+              schema:
+                datatype: number
             - name: IP Version
               key: customfield_10663
               schema:
                 datatype: array
                 items: option
-            - name: Comments
-              key: customfield_12842
-              schema:
-                datatype: number
             - name: Description of need
               key: customfield_11995
               schema:
@@ -772,24 +772,28 @@ issue:
               key: customfield_10655
               schema:
                 datatype: date
-            - name: Change request
-              key: customfield_11985
-              schema:
-                datatype: option
             - name: Your request is about
               key: customfield_12832
               schema:
                 datatype: option-with-child
-            - name: SKU Specification
-              key: customfield_11988
+            - name: Change request
+              key: customfield_11985
               schema:
-                datatype: string
+                datatype: option
             - name: Atlas project
               key: customfield_12835
               schema:
                 datatype: string
+            - name: SKU Specification
+              key: customfield_11988
+              schema:
+                datatype: string
             - name: Source language
               key: customfield_10656
+              schema:
+                datatype: string
+            - name: Atlas goals
+              key: customfield_12834
               schema:
                 datatype: string
             - name: Implement reviewer
@@ -797,10 +801,6 @@ issue:
               schema:
                 datatype: array
                 items: user
-            - name: Atlas goals
-              key: customfield_12834
-              schema:
-                datatype: string
             - name: Target language
               key: customfield_10657
               schema:
@@ -813,14 +813,14 @@ issue:
               key: customfield_10658
               schema:
                 datatype: option
-            - name: H100 Platform
-              key: customfield_11989
-              schema:
-                datatype: option
             - name: Atlas project status
               key: customfield_12836
               schema:
                 datatype: number
+            - name: H100 Platform
+              key: customfield_11989
+              schema:
+                datatype: option
             - name: Describe the task in details
               key: customfield_10659
               schema:
@@ -833,30 +833,30 @@ issue:
               key: customfield_12838
               schema:
                 datatype: number
-            - name: Transfer (drop off and pick up from the airport)
-              key: customfield_10650
-              schema:
-                datatype: option
             - name: Customer/Buyer
               key: customfield_11982
               schema:
                 datatype: string
-            - name: Pet transportation
-              key: customfield_10651
+            - name: Transfer (drop off and pick up from the airport)
+              key: customfield_10650
               schema:
                 datatype: option
             - name: Provider/Seller
               key: customfield_11981
               schema:
                 datatype: string
-            - name: Transportation of personal belongings
-              key: customfield_10652
+            - name: Pet transportation
+              key: customfield_10651
               schema:
                 datatype: option
             - name: Slack thread summary
               key: customfield_12831
               schema:
                 datatype: string
+            - name: Transportation of personal belongings
+              key: customfield_10652
+              schema:
+                datatype: option
             - name: Compensation for realtor services (search for long-term housing)
               key: customfield_10653
               schema:
@@ -879,14 +879,18 @@ issue:
               key: customfield_10644
               schema:
                 datatype: date
-            - name: Incident_IL_DCs
-              key: customfield_11974
-              schema:
-                datatype: sd-servicelevelagreement
             - name: Automation rule operations
               key: customfield_12821
               schema:
                 datatype: option
+            - name: Incident_IL_DCs
+              key: customfield_11974
+              schema:
+                datatype: sd-servicelevelagreement
+            - name: Requirements Gathering start date
+              key: customfield_12824
+              schema:
+                datatype: string
             - name: Related tasks
               key: customfield_10645
               schema:
@@ -895,24 +899,20 @@ issue:
               key: customfield_11977
               schema:
                 datatype: string
-            - name: Requirements Gathering start date
-              key: customfield_12824
-              schema:
-                datatype: string
             - name: Light disable pipeline
               key: customfield_11976
               schema:
                 datatype: array
                 items: option
-            - name: Relocation bonus
-              key: customfield_10646
-              schema:
-                datatype: string
             - name: Slack user ID
               key: customfield_12823
               schema:
                 datatype: array
                 items: string
+            - name: Relocation bonus
+              key: customfield_10646
+              schema:
+                datatype: string
             - name: Currency
               key: customfield_10647
               schema:
@@ -950,14 +950,14 @@ issue:
               key: customfield_11970
               schema:
                 datatype: string
-            - name: 'NEBITPROD: new Request message'
-              key: customfield_11973
-              schema:
-                datatype: string
             - name: Type of request (EAP)
               key: customfield_12820
               schema:
                 datatype: option
+            - name: 'NEBITPROD: new Request message'
+              key: customfield_11973
+              schema:
+                datatype: string
             - name: What business is this task for?
               key: customfield_11964
               schema:
@@ -1012,20 +1012,20 @@ issue:
               key: customfield_12817
               schema:
                 datatype: string
-            - name: Environment
-              key: customfield_10639
+            - name: cc
+              key: customfield_12816
               schema:
-                datatype: array
-                items: option
+                datatype: string
             - name: 'List the full names of individuals it should be assigned to (if applicable:'
               key: customfield_11969
               schema:
                 datatype: array
                 items: user
-            - name: cc
-              key: customfield_12816
+            - name: Environment
+              key: customfield_10639
               schema:
-                datatype: string
+                datatype: array
+                items: option
             - name: Infra RT
               key: customfield_12819
               schema:
@@ -1153,14 +1153,14 @@ issue:
               key: customfield_12351
               schema:
                 datatype: string
-            - name: 'Team Name '
-              key: customfield_12354
-              schema:
-                datatype: string
             - name: Linked issues
               key: customfield_13685
               schema:
                 datatype: number
+            - name: 'Team Name '
+              key: customfield_12354
+              schema:
+                datatype: string
             - name: Environment
               key: customfield_12353
               schema:
@@ -1186,6 +1186,10 @@ issue:
               key: customfield_12355
               schema:
                 datatype: option
+            - name: Gatekeeper record
+              key: customfield_14536
+              schema:
+                datatype: string
             - name: CRM owner name (text)
               key: customfield_12357
               schema:
@@ -1203,12 +1207,12 @@ issue:
               key: customfield_12348
               schema:
                 datatype: string
-            - name: Change type*
-              key: customfield_10162
-              schema:
-                datatype: option
             - name: Place of Client's Business (NebiusBV)
               key: customfield_12341
+              schema:
+                datatype: option
+            - name: Change type*
+              key: customfield_10162
               schema:
                 datatype: option
             - name: Service agreement effective date (NebiusBV)
@@ -1231,12 +1235,12 @@ issue:
               key: customfield_12344
               schema:
                 datatype: string
-            - name: Newbius Platform version
-              key: customfield_12347
-              schema:
-                datatype: option
             - name: Idea archived
               key: customfield_13678
+              schema:
+                datatype: option
+            - name: Newbius Platform version
+              key: customfield_12347
               schema:
                 datatype: option
             - name: Are there any contract changes expected? (Nebius BV)
@@ -1280,12 +1284,12 @@ issue:
               key: customfield_10153
               schema:
                 datatype: date
-            - name: Country
-              key: customfield_10154
-              schema:
-                datatype: string
             - name: Planned cost
               key: customfield_12331
+              schema:
+                datatype: string
+            - name: Country
+              key: customfield_10154
               schema:
                 datatype: string
             - name: Planned Activity
@@ -1336,28 +1340,32 @@ issue:
               key: customfield_12328
               schema:
                 datatype: string
-            - name: 'Bootcamp Leader #3'
-              key: customfield_10140
-              schema:
-                datatype: user
             - name: The project contains migrated tickets
               key: customfield_13650
               schema:
                 datatype: option
+            - name: 'Bootcamp Leader #3'
+              key: customfield_10140
+              schema:
+                datatype: user
             - name: 'Bootcamp Leader #4'
               key: customfield_10141
               schema:
                 datatype: user
-            - name: Business Entity
-              key: customfield_10142
+            - name: Archived permission scheme is used
+              key: customfield_13652
               schema:
                 datatype: option
             - name: Head of department/Function
               key: customfield_12321
               schema:
                 datatype: user
-            - name: Archived permission scheme is used
-              key: customfield_13652
+            - name: Business Entity
+              key: customfield_10142
+              schema:
+                datatype: option
+            - name: There are only migrated tickets in the project
+              key: customfield_13651
               schema:
                 datatype: option
             - name: Residential address line 1
@@ -1368,10 +1376,6 @@ issue:
               key: customfield_12320
               schema:
                 datatype: string
-            - name: There are only migrated tickets in the project
-              key: customfield_13651
-              schema:
-                datatype: option
             - name: Perforator edit link
               key: customfield_12323
               schema:
@@ -1384,30 +1388,35 @@ issue:
               key: customfield_12322
               schema:
                 datatype: string
-            - name: City of resindence
-              key: customfield_10145
+            - name: Approved by
+              key: customfield_14503
               schema:
-                datatype: string
+                datatype: array
+                items: user
             - name: Deletion results
               key: customfield_13653
               schema:
                 datatype: string
-            - name: Residential Zip/Post/Postal code
-              key: customfield_10146
+            - name: City of resindence
+              key: customfield_10145
               schema:
                 datatype: string
             - name: What if we don't do it?
               key: customfield_12325
               schema:
                 datatype: string
-            - name: Residential State/Province/Region
-              key: customfield_10147
+            - name: Residential Zip/Post/Postal code
+              key: customfield_10146
               schema:
                 datatype: string
             - name: Estimates approval status
               key: customfield_12324
               schema:
                 datatype: option
+            - name: Residential State/Province/Region
+              key: customfield_10147
+              schema:
+                datatype: string
             - name: In bootcamp
               key: customfield_10137
               schema:
@@ -1416,14 +1425,14 @@ issue:
               key: customfield_13647
               schema:
                 datatype: string
-            - name: 'Bootcamp Leader #1'
-              key: customfield_10138
-              schema:
-                datatype: user
             - name: Training field 1
               key: customfield_12799
               schema:
                 datatype: string
+            - name: 'Bootcamp Leader #1'
+              key: customfield_10138
+              schema:
+                datatype: user
             - name: Number of migrated tickets in the project
               key: customfield_13646
               schema:
@@ -1472,14 +1481,14 @@ issue:
               key: customfield_10131
               schema:
                 datatype: user
-            - name: Recruiter
-              key: customfield_10132
-              schema:
-                datatype: user
             - name: Roadmap
               key: customfield_12793
               schema:
                 datatype: option
+            - name: Recruiter
+              key: customfield_10132
+              schema:
+                datatype: user
             - name: Teams
               key: customfield_12796
               schema:
@@ -1497,14 +1506,14 @@ issue:
               key: customfield_10134
               schema:
                 datatype: string
-            - name: Telegram Account
-              key: customfield_10135
-              schema:
-                datatype: string
             - name: Trained field
               key: customfield_12798
               schema:
                 datatype: option
+            - name: Telegram Account
+              key: customfield_10135
+              schema:
+                datatype: string
             - name: Total number of tickets in the project
               key: customfield_13645
               schema:
@@ -1778,6 +1787,10 @@ issue:
                 items: group
             - name: Workflow
               key: customfield_12389
+              schema:
+                datatype: option
+            - name: Design Review
+              key: customfield_14569
               schema:
                 datatype: option
             - name: Field configuration
@@ -2065,10 +2078,6 @@ issue:
               key: customfield_13190
               schema:
                 datatype: string
-            - name: customfield_66666
-              key: customfield_14044
-              schema:
-                datatype: number
             - name: Story Points est
               key: customfield_14046
               schema:
@@ -2312,20 +2321,20 @@ issue:
               key: customfield_10530
               schema:
                 datatype: string
-            - name: Request category
-              key: customfield_10531
-              schema:
-                datatype: option
             - name: If external, Please indicate the Course Link or the name of the course
               key: customfield_12710
               schema:
                 datatype: string
-            - name: New Tickets in Jira
-              key: customfield_10522
+            - name: Request category
+              key: customfield_10531
               schema:
                 datatype: option
             - name: BUYIT SLA
               key: customfield_12701
+              schema:
+                datatype: option
+            - name: New Tickets in Jira
+              key: customfield_10522
               schema:
                 datatype: option
             - name: Marketing tooltip
@@ -2357,12 +2366,12 @@ issue:
               key: customfield_12705
               schema:
                 datatype: option
-            - name: trackerIssueKey
-              key: customfield_10527
-              schema:
-                datatype: string
             - name: Account
               key: customfield_12704
+              schema:
+                datatype: string
+            - name: trackerIssueKey
+              key: customfield_10527
               schema:
                 datatype: string
             - name: trackerIssueKey
@@ -2473,6 +2482,10 @@ issue:
               key: customfield_12257
               schema:
                 datatype: option
+            - name: Contact person
+              key: customfield_14437
+              schema:
+                datatype: user
             - name: Need individual adjustments?
               key: customfield_12256
               schema:
@@ -2557,6 +2570,10 @@ issue:
               schema:
                 datatype: array
                 items: option
+            - name: Severity
+              key: customfield_14899
+              schema:
+                datatype: option
             - name: How are you going to get your data to YT?
               key: customfield_12237
               schema:
@@ -2598,41 +2615,41 @@ issue:
               key: customfield_13551
               schema:
                 datatype: option
+            - name: Microsoft365 Desktop (Outlook, Word, Excel, PowerPoint)
+              key: customfield_13550
+              schema:
+                datatype: option
             - name: Affected services
               key: customfield_10042
               schema:
                 datatype: array
                 items: service-entity-field
-            - name: Microsoft365 Desktop (Outlook, Word, Excel, PowerPoint)
-              key: customfield_13550
-              schema:
-                datatype: option
             - name: Responsible for registration
               key: customfield_12222
               schema:
                 datatype: array
                 items: user
-            - name: Time to resolution
-              key: customfield_10043
-              schema:
-                datatype: sd-servicelevelagreement
             - name: Slack
               key: customfield_13553
               schema:
                 datatype: option
+            - name: Time to resolution
+              key: customfield_10043
+              schema:
+                datatype: sd-servicelevelagreement
             - name: Client type
               key: customfield_12221
               schema:
                 datatype: array
                 items: option
-            - name: Time to first response
-              key: customfield_10044
-              schema:
-                datatype: sd-servicelevelagreement
             - name: Jira
               key: customfield_13552
               schema:
                 datatype: option
+            - name: Time to first response
+              key: customfield_10044
+              schema:
+                datatype: sd-servicelevelagreement
             - name: Story Points
               key: customfield_10045
               schema:
@@ -2646,15 +2663,15 @@ issue:
               schema:
                 datatype: array
                 items: user
+            - name: Zoom (License)
+              key: customfield_13554
+              schema:
+                datatype: option
             - name: Responders
               key: customfield_10046
               schema:
                 datatype: array
                 items: string
-            - name: Zoom (License)
-              key: customfield_13554
-              schema:
-                datatype: option
             - name: Service account ID
               key: customfield_12217
               schema:
@@ -2691,35 +2708,35 @@ issue:
               key: customfield_10030
               schema:
                 datatype: number
-            - name: Total forms
-              key: customfield_10031
-              schema:
-                datatype: number
             - name: Maintenance ticket reaction
               key: customfield_12692
               schema:
                 datatype: sd-servicelevelagreement
+            - name: Total forms
+              key: customfield_10031
+              schema:
+                datatype: number
             - name: Approvals
               key: customfield_10032
               schema:
                 datatype: sd-approvals
-            - name: Technical
-              key: customfield_12211
-              schema:
-                datatype: number
             - name: Instance was stopped by
               key: customfield_12695
               schema:
                 datatype: option
+            - name: Technical
+              key: customfield_12211
+              schema:
+                datatype: number
+            - name: Please, attach interview tasks description for barraisers (unless you have added tasks to the hackerrank interview via the tasks library)
+              key: customfield_12210
+              schema:
+                datatype: string
             - name: Request participants
               key: customfield_10033
               schema:
                 datatype: array
                 items: user
-            - name: Please, attach interview tasks description for barraisers (unless you have added tasks to the hackerrank interview via the tasks library)
-              key: customfield_12210
-              schema:
-                datatype: string
             - name: Maintenance time confirmed by the Customer
               key: customfield_12694
               schema:
@@ -2740,16 +2757,20 @@ issue:
               key: customfield_12696
               schema:
                 datatype: string
-            - name: Project overview key
-              key: customfield_10036
+            - name: Device
+              key: customfield_13546
               schema:
-                datatype: string
+                datatype: option
             - name: Linked ticket 4
               key: customfield_12699
               schema:
                 datatype: string
-            - name: Device
-              key: customfield_13546
+            - name: Project overview key
+              key: customfield_10036
+              schema:
+                datatype: string
+            - name: Do you have a legal ticket?
+              key: customfield_12698
               schema:
                 datatype: option
             - name: Project overview status
@@ -2760,16 +2781,12 @@ issue:
               key: customfield_12214
               schema:
                 datatype: number
-            - name: Do you have a legal ticket?
-              key: customfield_12698
-              schema:
-                datatype: option
-            - name: Work category
-              key: customfield_10027
-              schema:
-                datatype: string
             - name: Creating a solution (comments)
               key: customfield_12206
+              schema:
+                datatype: string
+            - name: Work category
+              key: customfield_10027
               schema:
                 datatype: string
             - name: 'Required role in Navan '
@@ -2780,14 +2797,14 @@ issue:
               key: customfield_10028
               schema:
                 datatype: number
-            - name: Open forms
-              key: customfield_10029
-              schema:
-                datatype: number
             - name: Quality of the code (comments)
               key: customfield_12208
               schema:
                 datatype: string
+            - name: Open forms
+              key: customfield_10029
+              schema:
+                datatype: number
             - name: Assessment of algorithmic complexity (comments)
               key: customfield_12207
               schema:
@@ -2804,13 +2821,17 @@ issue:
               key: customfield_12682
               schema:
                 datatype: string
+            - name: SAs to exchange delegation token
+              key: customfield_12681
+              schema:
+                datatype: string
             - name: Sprint
               key: customfield_10020
               schema:
                 datatype: array
                 items: json
-            - name: SAs to exchange delegation token
-              key: customfield_12681
+            - name: Delegation token Time to live
+              key: customfield_12684
               schema:
                 datatype: string
             - name: Flagged
@@ -2818,10 +2839,6 @@ issue:
               schema:
                 datatype: array
                 items: option
-            - name: Delegation token Time to live
-              key: customfield_12684
-              schema:
-                datatype: string
             - name: Scan of valid documents
               key: customfield_12200
               schema:
@@ -2847,14 +2864,18 @@ issue:
               key: customfield_12685
               schema:
                 datatype: option
-            - name: '[CHART] Date of First Response'
-              key: customfield_10024
+            - name: Stream
+              key: customfield_14866
               schema:
-                datatype: datetime
+                datatype: option
             - name: Type of contract
               key: customfield_12201
               schema:
                 datatype: option
+            - name: '[CHART] Date of First Response'
+              key: customfield_10024
+              schema:
+                datatype: datetime
             - name: '[CHART] Time in Status'
               key: customfield_10025
               schema:
@@ -2868,14 +2889,14 @@ issue:
               key: customfield_12687
               schema:
                 datatype: string
-            - name: Story point estimate
-              key: customfield_10016
-              schema:
-                datatype: number
             - name: Deps
               key: customfield_13526
               schema:
                 datatype: option-with-child
+            - name: Story point estimate
+              key: customfield_10016
+              schema:
+                datatype: number
             - name: Estimated start date
               key: customfield_12679
               schema:
@@ -2917,15 +2938,15 @@ issue:
               key: customfield_12670
               schema:
                 datatype: user
-            - name: Request Type
-              key: customfield_10010
-              schema:
-                datatype: sd-customerrequesttype
             - name: Slack channel ID
               key: customfield_13520
               schema:
                 datatype: array
                 items: string
+            - name: Request Type
+              key: customfield_10010
+              schema:
+                datatype: sd-customerrequesttype
             - name: Supervising IM
               key: customfield_12672
               schema:
@@ -2934,16 +2955,20 @@ issue:
               key: customfield_13522
               schema:
                 datatype: string
-            - name: Epic Status
-              key: customfield_10012
+            - name: old status ID
+              key: customfield_12675
               schema:
-                datatype: option
+                datatype: string
             - name: User
               key: customfield_10496
               schema:
                 datatype: user
-            - name: old status ID
-              key: customfield_12675
+            - name: Epic Status
+              key: customfield_10012
+              schema:
+                datatype: option
+            - name: Merge request
+              key: customfield_13521
               schema:
                 datatype: string
             - name: trackerComponents
@@ -2951,10 +2976,6 @@ issue:
               schema:
                 datatype: array
                 items: string
-            - name: Merge request
-              key: customfield_13521
-              schema:
-                datatype: string
             - name: Epic Color
               key: customfield_10013
               schema:
@@ -2963,10 +2984,6 @@ issue:
               key: customfield_12674
               schema:
                 datatype: string
-            - name: Reaction (NEBIT)
-              key: customfield_10498
-              schema:
-                datatype: sd-servicelevelagreement
             - name: Nationality
               key: customfield_12677
               schema:
@@ -2975,18 +2992,22 @@ issue:
               key: customfield_13524
               schema:
                 datatype: option
+            - name: Reaction (NEBIT)
+              key: customfield_10498
+              schema:
+                datatype: sd-servicelevelagreement
             - name: Start date
               key: customfield_10015
               schema:
                 datatype: date
-            - name: Resolution (NEBIT)
-              key: customfield_10499
-              schema:
-                datatype: sd-servicelevelagreement
             - name: Surname and name of the candidate
               key: customfield_12676
               schema:
                 datatype: string
+            - name: Resolution (NEBIT)
+              key: customfield_10499
+              schema:
+                datatype: sd-servicelevelagreement
             - name: Sub-category
               key: customfield_13523
               schema:
@@ -3162,10 +3183,25 @@ issue:
               key: customfield_13140
               schema:
                 datatype: string
+            - name: Physical Security approvers
+              key: customfield_14472
+              schema:
+                datatype: array
+                items: user
+            - name: Ethics & Compliance approvers
+              key: customfield_14470
+              schema:
+                datatype: array
+                items: user
             - name: IAM Container ID
               key: customfield_13141
               schema:
                 datatype: string
+            - name: ISMO approvers
+              key: customfield_14471
+              schema:
+                datatype: array
+                items: user
             - name: IAM Project ID
               key: customfield_13144
               schema:
@@ -3204,6 +3240,10 @@ issue:
               schema:
                 datatype: array
                 items: user
+            - name: Logistics location
+              key: customfield_14460
+              schema:
+                datatype: option
             - name: Bootcamp Team 3
               key: customfield_12283
               schema:
@@ -3250,6 +3290,10 @@ issue:
               key: customfield_12271
               schema:
                 datatype: string
+            - name: Risk Impact
+              key: customfield_14450
+              schema:
+                datatype: option
             - name: 'DC:'
               key: customfield_13120
               schema:
@@ -3266,6 +3310,10 @@ issue:
               key: customfield_13121
               schema:
                 datatype: option
+            - name: Story Points Normalized
+              key: customfield_14455
+              schema:
+                datatype: string
             - name: Billing Label
               key: customfield_12277
               schema:
@@ -3276,6 +3324,10 @@ issue:
               schema:
                 datatype: array
                 items: option
+            - name: Technical Complexity
+              key: customfield_14452
+              schema:
+                datatype: option
             - name: Story point actual
               key: customfield_13123
               schema:
@@ -3284,10 +3336,18 @@ issue:
               key: customfield_12276
               schema:
                 datatype: date
+            - name: Organizational Complexity
+              key: customfield_14453
+              schema:
+                datatype: option
             - name: Budget
               key: customfield_13126
               schema:
                 datatype: number
+            - name: Business Value
+              key: customfield_14458
+              schema:
+                datatype: option
             - name: Business Value
               key: customfield_12279
               schema:
@@ -3300,8 +3360,20 @@ issue:
               key: customfield_12278
               schema:
                 datatype: date
+            - name: Priority Score
+              key: customfield_14459
+              schema:
+                datatype: string
             - name: Event type
               key: customfield_13128
+              schema:
+                datatype: option
+            - name: Implementation Cost
+              key: customfield_14456
+              schema:
+                datatype: option
+            - name: Dependencies
+              key: customfield_14457
               schema:
                 datatype: option
             - name: Inventories
@@ -3312,6 +3384,14 @@ issue:
               key: customfield_13118
               schema:
                 datatype: string
+            - name: Risk Likelihood
+              key: customfield_14449
+              schema:
+                datatype: option
+            - name: ICO
+              key: customfield_14440
+              schema:
+                datatype: option
             - name: ' Please let us know the venue you''ve selected for your event (indicate the name or the link):'
               key: customfield_12262
               schema:
@@ -3320,34 +3400,74 @@ issue:
               key: customfield_12264
               schema:
                 datatype: option
+            - name: 3rd party customer
+              key: customfield_14443
+              schema:
+                datatype: string
             - name: 'Event date start:'
               key: customfield_12263
+              schema:
+                datatype: date
+            - name: Resale period start
+              key: customfield_14444
               schema:
                 datatype: date
             - name: Location of the event
               key: customfield_12266
               schema:
                 datatype: option
+            - name: Employees
+              key: customfield_14441
+              schema:
+                datatype: option
             - name: 'Event date end:'
               key: customfield_12265
               schema:
                 datatype: date
+            - name: ICO LE
+              key: customfield_14442
+              schema:
+                datatype: string
             - name: Support that is required during the team event
               key: customfield_12268
               schema:
                 datatype: option
+            - name: Incoterms code
+              key: customfield_14447
+              schema:
+                datatype: string
             - name: Number of people which participate in the event
               key: customfield_12267
               schema:
                 datatype: number
+            - name: Ownership transfer date
+              key: customfield_14448
+              schema:
+                datatype: date
             - name: K8s-cluster
               key: customfield_13117
               schema:
                 datatype: option
+            - name: Resale period end
+              key: customfield_14445
+              schema:
+                datatype: date
             - name: ' Provide any additional information that would be helpful for organizing the event.'
               key: customfield_12269
               schema:
                 datatype: string
+            - name: Transit date
+              key: customfield_14446
+              schema:
+                datatype: date
+            - name: Activation date
+              key: customfield_14438
+              schema:
+                datatype: date
+            - name: Disposal date
+              key: customfield_14439
+              schema:
+                datatype: date
             - name: Mentor Bootcamp 1
               key: customfield_10870
               schema:
@@ -3589,32 +3709,36 @@ issue:
               key: customfield_10471
               schema:
                 datatype: option
-            - name: Stage
-              key: customfield_10472
-              schema:
-                datatype: option
             - name: Solution Design Due Date
               key: customfield_12651
               schema:
                 datatype: date
-            - name: What do they want to get?
-              key: customfield_10473
+            - name: Stage
+              key: customfield_10472
               schema:
-                datatype: string
+                datatype: option
             - name: Product design type
               key: customfield_12650
               schema:
                 datatype: array
                 items: option
+            - name: What do they want to get?
+              key: customfield_10473
+              schema:
+                datatype: string
+            - name: Business UI project migrated
+              key: customfield_12653
+              schema:
+                datatype: string
             - name: What services are affected?
               key: customfield_10474
               schema:
                 datatype: array
                 items: option
-            - name: Business UI project migrated
-              key: customfield_12653
+            - name: Stage
+              key: customfield_14833
               schema:
-                datatype: string
+                datatype: option
             - name: Definition of Done
               key: customfield_10475
               schema:
@@ -3669,40 +3793,40 @@ issue:
               key: customfield_10460
               schema:
                 datatype: date
-            - name: Feedback Score
-              key: customfield_10461
-              schema:
-                datatype: string
             - name: Maintenance SLA duration
               key: customfield_12640
+              schema:
+                datatype: string
+            - name: Feedback Score
+              key: customfield_10461
               schema:
                 datatype: string
             - name: Cloud Feedback 2
               key: customfield_10462
               schema:
                 datatype: string
-            - name: Cloud Feedback 3
-              key: customfield_10463
-              schema:
-                datatype: string
             - name: Program
               key: customfield_12642
               schema:
                 datatype: option
-            - name: Feedback Comments
-              key: customfield_10464
+            - name: Cloud Feedback 3
+              key: customfield_10463
               schema:
                 datatype: string
             - name: Nebius Pathfinder
               key: customfield_12641
               schema:
                 datatype: user
-            - name: Cloud Feedback
-              key: customfield_10465
+            - name: Feedback Comments
+              key: customfield_10464
               schema:
                 datatype: string
             - name: Customer email
               key: customfield_12644
+              schema:
+                datatype: string
+            - name: Cloud Feedback
+              key: customfield_10465
               schema:
                 datatype: string
             - name: Deactivation Date
@@ -3767,6 +3891,11 @@ issue:
               key: customfield_12626
               schema:
                 datatype: option
+            - name: Data owner
+              key: customfield_14801
+              schema:
+                datatype: array
+                items: cmdb-object-field
             - name: Priority
               key: customfield_10448
               schema:
@@ -3804,6 +3933,11 @@ issue:
               schema:
                 datatype: array
                 items: option
+            - name: System administrators
+              key: customfield_14800
+              schema:
+                datatype: array
+                items: cmdb-object-field
             - name: Story point fact
               key: customfield_10443
               schema:
@@ -4144,14 +4278,14 @@ issue:
               key: customfield_13450
               schema:
                 datatype: datetime
-            - name: Operational categorization
-              key: customfield_12121
-              schema:
-                datatype: option-with-child
             - name: The reason of implementation stuck (if any)
               key: customfield_13452
               schema:
                 datatype: string
+            - name: Operational categorization
+              key: customfield_12121
+              schema:
+                datatype: option-with-child
             - name: Product categorization
               key: customfield_12120
               schema:
@@ -4176,15 +4310,15 @@ issue:
               key: customfield_12125
               schema:
                 datatype: option
-            - name: Country of origin
-              key: customfield_12124
-              schema:
-                datatype: string
             - name: Status Light
               key: customfield_14305
               schema:
                 datatype: array
                 items: string
+            - name: Country of origin
+              key: customfield_12124
+              schema:
+                datatype: string
             - name: Short description of the product or service
               key: customfield_12127
               schema:
@@ -4309,36 +4443,40 @@ issue:
               schema:
                 datatype: array
                 items: user
-            - name: Waiting for bank details
-              key: customfield_12100
-              schema:
-                datatype: sd-servicelevelagreement
             - name: SOX Approvers
               key: customfield_12584
               schema:
                 datatype: array
                 items: user
-            - name: Next touch time
-              key: customfield_12103
+            - name: Waiting for bank details
+              key: customfield_12100
               schema:
-                datatype: datetime
+                datatype: sd-servicelevelagreement
             - name: PO number
               key: customfield_12587
               schema:
                 datatype: string
+            - name: Next touch time
+              key: customfield_12103
+              schema:
+                datatype: datetime
+            - name: Time to review normal change
+              key: customfield_14767
+              schema:
+                datatype: sd-servicelevelagreement
             - name: Corpsec Approvers
               key: customfield_12586
               schema:
                 datatype: array
                 items: user
-            - name: Country the business visa is needed for
-              key: customfield_12105
-              schema:
-                datatype: option
             - name: Please specify the market and the name of profession (e.g. DA USA)
               key: customfield_12589
               schema:
                 datatype: string
+            - name: Country the business visa is needed for
+              key: customfield_12105
+              schema:
+                datatype: option
             - name: in case you have the request to get the training program for some skills, please specify it here
               key: customfield_12588
               schema:
@@ -4391,15 +4529,15 @@ issue:
               key: customfield_10398
               schema:
                 datatype: string
-            - name: Contract ID
-              key: customfield_10399
-              schema:
-                datatype: string
             - name: Applicable Frameworks
               key: customfield_12578
               schema:
                 datatype: array
                 items: option
+            - name: Contract ID
+              key: customfield_10399
+              schema:
+                datatype: string
             - name: User Type
               key: customfield_12577
               schema:
@@ -4425,15 +4563,15 @@ issue:
               key: customfield_10382
               schema:
                 datatype: string
-            - name: Supplier's email
-              key: customfield_10383
-              schema:
-                datatype: string
             - name: OPIL issue
               key: customfield_12560
               schema:
                 datatype: array
                 items: string
+            - name: Supplier's email
+              key: customfield_10383
+              schema:
+                datatype: string
             - name: Category (Former Purchase Category)
               key: customfield_10384
               schema:
@@ -4462,18 +4600,30 @@ issue:
               key: customfield_10389
               schema:
                 datatype: option
-            - name: Is this a new supplier?
-              key: customfield_10379
-              schema:
-                datatype: option
             - name: Describe the purpose of the payment
               key: customfield_12558
               schema:
                 datatype: string
+            - name: Risk Score
+              key: customfield_14737
+              schema:
+                datatype: number
+            - name: Is this a new supplier?
+              key: customfield_10379
+              schema:
+                datatype: option
             - name: Tier
               key: customfield_12557
               schema:
                 datatype: option
+            - name: Complexity
+              key: customfield_14735
+              schema:
+                datatype: number
+            - name: Risk score mapping scale
+              key: customfield_14736
+              schema:
+                datatype: number
             - name: Problem Type
               key: customfield_10370
               schema:
@@ -4542,12 +4692,12 @@ issue:
               key: customfield_10378
               schema:
                 datatype: string
-            - name: Service Link
-              key: customfield_10368
-              schema:
-                datatype: string
             - name: Validation
               key: customfield_13878
+              schema:
+                datatype: string
+            - name: Service Link
+              key: customfield_10368
               schema:
                 datatype: string
             - name: Line Item ID
@@ -4605,14 +4755,14 @@ issue:
               key: customfield_12542
               schema:
                 datatype: sd-servicelevelagreement
-            - name: Problem Type
-              key: customfield_10366
-              schema:
-                datatype: option-with-child
             - name: AppSec Platform link
               key: customfield_13876
               schema:
                 datatype: string
+            - name: Problem Type
+              key: customfield_10366
+              schema:
+                datatype: option-with-child
             - name: 'Your initiative will include the following assets (multiple choice):'
               key: customfield_12545
               schema:
@@ -4828,13 +4978,13 @@ issue:
               schema:
                 datatype: array
                 items: user
-            - name: BU team
-              key: customfield_12166
+            - name: CRM Deal Subject Matter Expert
+              key: customfield_14343
               schema:
                 datatype: array
                 items: user
-            - name: CRM Deal Subject Matter Expert
-              key: customfield_14343
+            - name: BU team
+              key: customfield_12166
               schema:
                 datatype: array
                 items: user
@@ -4892,12 +5042,12 @@ issue:
               schema:
                 datatype: array
                 items: option
-            - name: Verdict
-              key: customfield_12157
-              schema:
-                datatype: string
             - name: CRM deal csa emails (text)
               key: customfield_14338
+              schema:
+                datatype: string
+            - name: Verdict
+              key: customfield_12157
               schema:
                 datatype: string
             - name: Start date of the contract
@@ -5036,12 +5186,12 @@ issue:
               key: customfield_10738
               schema:
                 datatype: string
-            - name: Type of payment
-              key: customfield_10739
-              schema:
-                datatype: option
             - name: Are you sure that your attachment stores in password-protected archive?
               key: customfield_12918
+              schema:
+                datatype: option
+            - name: Type of payment
+              key: customfield_10739
               schema:
                 datatype: option
             - name: BOBCHANGE Notice
@@ -5090,14 +5240,14 @@ issue:
               key: customfield_10724
               schema:
                 datatype: string
-            - name: Candidate's expectations total
-              key: customfield_10725
-              schema:
-                datatype: string
             - name: Strike Count
               key: customfield_12902
               schema:
                 datatype: option
+            - name: Candidate's expectations total
+              key: customfield_10725
+              schema:
+                datatype: string
             - name: Codastre Project Name
               key: customfield_12905
               schema:
@@ -5114,22 +5264,22 @@ issue:
               key: customfield_10727
               schema:
                 datatype: option
-            - name: Work group exists
-              key: customfield_10728
-              schema:
-                datatype: option
             - name: Codebase URL
               key: customfield_12907
               schema:
                 datatype: string
-            - name: Working group exists
-              key: customfield_10729
+            - name: Work group exists
+              key: customfield_10728
               schema:
                 datatype: option
             - name: Project Name(s)
               key: customfield_12906
               schema:
                 datatype: string
+            - name: Working group exists
+              key: customfield_10729
+              schema:
+                datatype: option
             - name: Primary goal
               key: customfield_12909
               schema:
@@ -5218,12 +5368,12 @@ issue:
               key: customfield_10352
               schema:
                 datatype: string
-            - name: Ports
-              key: customfield_10353
-              schema:
-                datatype: string
             - name: Data center location [deprecated]
               key: customfield_12532
+              schema:
+                datatype: string
+            - name: Ports
+              key: customfield_10353
               schema:
                 datatype: string
             - name: Briefly describe why you need the access
@@ -5282,13 +5432,17 @@ issue:
               key: customfield_10341
               schema:
                 datatype: string
+            - name: BIT internal reference
+              key: customfield_12521
+              schema:
+                datatype: string
             - name: Actions (ITDC Incident)
               key: customfield_10342
               schema:
                 datatype: array
                 items: option
-            - name: BIT internal reference
-              key: customfield_12521
+            - name: vLLM version
+              key: customfield_14701
               schema:
                 datatype: string
             - name: Workstream
@@ -5305,14 +5459,14 @@ issue:
               key: customfield_10344
               schema:
                 datatype: option
-            - name: Incident - MAN - workdays
-              key: customfield_10345
-              schema:
-                datatype: sd-servicelevelagreement
             - name: Ticket summary
               key: customfield_12522
               schema:
                 datatype: string
+            - name: Incident - MAN - workdays
+              key: customfield_10345
+              schema:
+                datatype: sd-servicelevelagreement
             - name: AppSec Project
               key: customfield_13845
               schema:
@@ -5331,15 +5485,15 @@ issue:
               schema:
                 datatype: array
                 items: option
-            - name: Project
-              key: customfield_10337
-              schema:
-                datatype: string
             - name: Label
               key: customfield_12516
               schema:
                 datatype: array
                 items: string
+            - name: Project
+              key: customfield_10337
+              schema:
+                datatype: string
             - name: Project
               key: customfield_10338
               schema:
@@ -5508,20 +5662,20 @@ issue:
               key: customfield_10302
               schema:
                 datatype: string
-            - name: grant/discount details
-              key: customfield_10786
-              schema:
-                datatype: string
             - name: Events website
               key: customfield_13812
               schema:
                 datatype: string
-            - name: Approve required
-              key: customfield_10303
+            - name: grant/discount details
+              key: customfield_10786
               schema:
                 datatype: string
             - name: Term of grant
               key: customfield_10787
+              schema:
+                datatype: string
+            - name: Approve required
+              key: customfield_10303
               schema:
                 datatype: string
             - name: Primary goal
@@ -5536,12 +5690,12 @@ issue:
               key: customfield_10788
               schema:
                 datatype: string
-            - name: Taxonomy
-              key: customfield_10305
-              schema:
-                datatype: string
             - name: Quotas Safe Limits
               key: customfield_13813
+              schema:
+                datatype: string
+            - name: Taxonomy
+              key: customfield_10305
               schema:
                 datatype: string
             - name: Message source
@@ -5568,6 +5722,10 @@ issue:
               key: customfield_10783
               schema:
                 datatype: option
+            - name: Provider's email
+              key: customfield_13810
+              schema:
+                datatype: string
             - name: support_remarks
               key: customfield_10300
               schema:
@@ -5576,10 +5734,6 @@ issue:
               key: customfield_10784
               schema:
                 datatype: option
-            - name: Provider's email
-              key: customfield_13810
-              schema:
-                datatype: string
             - name: supervisor_required
               key: customfield_10301
               schema:
@@ -5738,12 +5892,12 @@ issue:
               key: customfield_12497
               schema:
                 datatype: option
-            - name: Clients website
-              key: customfield_12012
-              schema:
-                datatype: string
             - name: Access Review Frequency
               key: customfield_12496
+              schema:
+                datatype: string
+            - name: Clients website
+              key: customfield_12012
               schema:
                 datatype: string
             - name: Reviewers
@@ -5772,6 +5926,11 @@ issue:
               schema:
                 datatype: array
                 items: user
+            - name: Software list
+              key: customfield_14669
+              schema:
+                datatype: array
+                items: cmdb-object-field
             - name: Product Type
               key: customfield_12009
               schema:
@@ -5805,6 +5964,10 @@ issue:
               key: customfield_12488
               schema:
                 datatype: option
+            - name: Type of software procurement request
+              key: customfield_14668
+              schema:
+                datatype: option
             - name: Business Justification
               key: customfield_12487
               schema:
@@ -5821,14 +5984,14 @@ issue:
               key: customfield_10290
               schema:
                 datatype: string
-            - name: Partner
-              key: customfield_10292
-              schema:
-                datatype: string
             - name: External reaction
               key: customfield_12471
               schema:
                 datatype: sd-servicelevelagreement
+            - name: Partner
+              key: customfield_10292
+              schema:
+                datatype: string
             - name: Feedback 1
               key: customfield_10293
               schema:
@@ -5853,12 +6016,12 @@ issue:
               key: customfield_10295
               schema:
                 datatype: string
-            - name: Feedback 4
-              key: customfield_10296
-              schema:
-                datatype: string
             - name: Software Vendor Name
               key: customfield_12475
+              schema:
+                datatype: string
+            - name: Feedback 4
+              key: customfield_10296
               schema:
                 datatype: string
             - name: Customer segment
@@ -5897,14 +6060,14 @@ issue:
               key: customfield_13317
               schema:
                 datatype: option
-            - name: DevOptions
-              key: customfield_12469
-              schema:
-                datatype: option
             - name: Monthly Compensation in local currency
               key: customfield_13316
               schema:
                 datatype: string
+            - name: DevOptions
+              key: customfield_12469
+              schema:
+                datatype: option
             - name: Link to the HiBob profile
               key: customfield_13319
               schema:
@@ -5938,12 +6101,12 @@ issue:
               key: customfield_13793
               schema:
                 datatype: option
-            - name: Status Summary
-              key: customfield_10284
-              schema:
-                datatype: string
             - name: Document name
               key: customfield_12461
+              schema:
+                datatype: string
+            - name: Status Summary
+              key: customfield_10284
               schema:
                 datatype: string
             - name: Billing Customer ID (label)
@@ -5968,12 +6131,16 @@ issue:
               key: customfield_12466
               schema:
                 datatype: string
+            - name: Billing Contract ID (text)
+              key: customfield_12465
+              schema:
+                datatype: string
             - name: Referrer
               key: customfield_10288
               schema:
                 datatype: string
-            - name: Billing Contract ID (text)
-              key: customfield_12465
+            - name: Task breakdown
+              key: customfield_13315
               schema:
                 datatype: string
             - name: Passport login
@@ -5985,10 +6152,6 @@ issue:
               schema:
                 datatype: array
                 items: user
-            - name: Task breakdown
-              key: customfield_13315
-              schema:
-                datatype: string
             - name: Goals
               key: customfield_12467
               schema:
@@ -5998,15 +6161,20 @@ issue:
               key: customfield_12459
               schema:
                 datatype: string
-            - name: Expiration
-              key: customfield_12458
-              schema:
-                datatype: date
             - name: Infra team requests
               key: customfield_13789
               schema:
                 datatype: array
                 items: option
+            - name: Expiration
+              key: customfield_12458
+              schema:
+                datatype: date
+            - name: Requestor
+              key: customfield_14636
+              schema:
+                datatype: array
+                items: cmdb-object-field
             - name: Planned start (migrated)
               key: customfield_10270
               schema:
@@ -6032,24 +6200,24 @@ issue:
               key: customfield_13782
               schema:
                 datatype: string
-            - name: Backout plan
-              key: customfield_10273
-              schema:
-                datatype: string
             - name: Shipping company name
               key: customfield_13781
+              schema:
+                datatype: string
+            - name: Backout plan
+              key: customfield_10273
               schema:
                 datatype: string
             - name: External support
               key: customfield_12453
               schema:
                 datatype: string
-            - name: Test plan (migrated)
-              key: customfield_10274
-              schema:
-                datatype: string
             - name: Contact information of the relevant Nebius employee
               key: customfield_13784
+              schema:
+                datatype: string
+            - name: Test plan (migrated)
+              key: customfield_10274
               schema:
                 datatype: string
             - name: Source (migrated)
@@ -6088,6 +6256,15 @@ issue:
               key: customfield_13785
               schema:
                 datatype: string
+            - name: Credit request, $
+              key: customfield_14635
+              schema:
+                datatype: string
+            - name: Enterprise Applications team request
+              key: customfield_13788
+              schema:
+                datatype: array
+                items: option
             - name: Workaround (migrated)
               key: customfield_10278
               schema:
@@ -6096,11 +6273,6 @@ issue:
               key: customfield_12457
               schema:
                 datatype: string
-            - name: Enterprise Applications team request
-              key: customfield_13788
-              schema:
-                datatype: array
-                items: option
             - name: Product categorization (migrated)
               key: customfield_10279
               schema:
@@ -6126,7 +6298,7 @@ issue:
               key: customfield_12447
               schema:
                 datatype: date
-            - name: KCR
+            - name: Issues & Notes
               key: customfield_13778
               schema:
                 datatype: string
@@ -6138,25 +6310,25 @@ issue:
               key: customfield_10262
               schema:
                 datatype: option
-            - name: Urgency
-              key: customfield_10265
-              schema:
-                datatype: option
             - name: Date of first reminder
               key: customfield_12444
               schema:
                 datatype: date
+            - name: Urgency
+              key: customfield_10265
+              schema:
+                datatype: option
+            - name: Grade(Select)
+              key: customfield_12443
+              schema:
+                datatype: option
             - name: Approver groups (migrated)
               key: customfield_10266
               schema:
                 datatype: array
                 items: group
-            - name: Grade(Select)
-              key: customfield_12443
-              schema:
-                datatype: option
-            - name: Pending reason (migrated)
-              key: customfield_10267
+            - name: Tier
+              key: customfield_13777
               schema:
                 datatype: option
             - name: Sentiment
@@ -6164,8 +6336,8 @@ issue:
               schema:
                 datatype: array
                 items: sd-sentiment
-            - name: Tier
-              key: customfield_13777
+            - name: Pending reason (migrated)
+              key: customfield_10267
               schema:
                 datatype: option
             - name: Severity (migrated)
@@ -6198,42 +6370,42 @@ issue:
               schema:
                 datatype: array
                 items: string
-            - name: Cloud ID (text)
-              key: customfield_10253
-              schema:
-                datatype: string
             - name: Tenant ID (text)
               key: customfield_12430
               schema:
                 datatype: string
-            - name: Access scope
-              key: customfield_10254
+            - name: Cloud ID (text)
+              key: customfield_10253
               schema:
                 datatype: string
             - name: Platform Service
               key: customfield_12433
               schema:
                 datatype: option
-            - name: Entity Type
-              key: customfield_10255
+            - name: Access scope
+              key: customfield_10254
               schema:
                 datatype: string
-            - name: Entity ID
-              key: customfield_10256
+            - name: Entity Type
+              key: customfield_10255
               schema:
                 datatype: string
             - name: Line Manager email
               key: customfield_12435
               schema:
                 datatype: string
-            - name: Support line
-              key: customfield_10257
+            - name: Entity ID
+              key: customfield_10256
               schema:
-                datatype: option
+                datatype: string
             - name: HRBP email
               key: customfield_12434
               schema:
                 datatype: string
+            - name: Support line
+              key: customfield_10257
+              schema:
+                datatype: option
             - name: Billing ID (text)
               key: customfield_10247
               schema:
@@ -6284,6 +6456,10 @@ issue:
               key: customfield_10244
               schema:
                 datatype: option
+            - name: Support Center Resource ID
+              key: customfield_14602
+              schema:
+                datatype: string
             - name: Cloud Organization ID (text)
               key: customfield_10245
               schema:
@@ -6301,16 +6477,16 @@ issue:
               schema:
                 datatype: array
                 items: option
-            - name: Trip Participants
-              key: customfield_12414
-              schema:
-                datatype: array
-                items: user
             - name: Platform Service multi-select
               key: customfield_12898
               schema:
                 datatype: array
                 items: option
+            - name: Trip Participants
+              key: customfield_12414
+              schema:
+                datatype: array
+                items: user
             - name: Preparing for change plan
               key: customfield_10237
               schema:
@@ -6571,23 +6747,23 @@ issue:
               key: customfield_14210
               schema:
                 datatype: option
-            - name: Possible Date of Rotation
-              key: customfield_12034
-              schema:
-                datatype: date
             - name: Do you or your close relatives own 10% or more of the Nebius's voting shares?
               key: customfield_14211
               schema:
                 datatype: option
-            - name: Current Team Lead
-              key: customfield_12037
+            - name: Possible Date of Rotation
+              key: customfield_12034
               schema:
-                datatype: user
+                datatype: date
             - name: If a conflict of interest is identified, the HR Business Partner, together with the Line Manager may provide the following mitigation actions with a dedicated timeframe to manage the COI
               key: customfield_14216
               schema:
                 datatype: array
                 items: option
+            - name: Current Team Lead
+              key: customfield_12037
+              schema:
+                datatype: user
             - name: Perspective Team Lead
               key: customfield_12036
               schema:
@@ -6600,14 +6776,14 @@ issue:
               key: customfield_14214
               schema:
                 datatype: option
-            - name: Perspective HRBP
-              key: customfield_12038
-              schema:
-                datatype: user
             - name: Please select which applies to you
               key: customfield_14215
               schema:
                 datatype: option
+            - name: Perspective HRBP
+              key: customfield_12038
+              schema:
+                datatype: user
             - name: Are you or your close relatives/friends currently engaged in any type of paid or other compensated work for Yandex Group during business or non-business hours
               key: customfield_14209
               schema:
@@ -6674,3 +6850,20 @@ issue:
               schema:
                 datatype: array
                 items: option
+    types:
+        - id: "10494"
+          name: Task
+          handle: Task
+          subtask: false
+        - id: "10495"
+          name: Epic
+          handle: Epic
+          subtask: false
+        - id: "10496"
+          name: Subtask
+          handle: Subtask
+          subtask: true
+        - id: "10497"
+          name: Release
+          handle: Release
+          subtask: false
