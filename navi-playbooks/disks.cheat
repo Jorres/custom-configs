@@ -1,0 +1,31 @@
+% disks
+
+# Filesystem info
+df
+
+# Get filesystem ids
+blkid
+
+# Filesystem info of current dif
+df .
+
+# LVM, list volume groups
+sudo vgs
+
+# LVM, list volume groups, more detail
+sudo vgdisplay
+
+# LVM, list physical volumes
+sudo pvs
+
+# LVM, list physical volumes, more detail
+sudo pvdisplay
+
+# LVM, list volume groups, more detail
+sudo vgdisplay
+
+# LVM, list logical volumes
+sudo lvs
+
+# LVM, list logical volumes, more detail
+sudo lvdisplay

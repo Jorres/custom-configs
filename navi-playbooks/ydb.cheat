@@ -24,18 +24,33 @@ $ token: unset NEBIUS_IAM_TOKEN && echo $(npc --profile <profile> --impersonate-
 
 
 # change domain owner ACL
-ydb -e grpc://storage-grpc.<namespace>.svc.cluster.local:2135 -d <domain> scheme permissions chown <domain> <serviceaccount_operator>@as
+ydb -e grpcs://storage-grpc.<namespace>.svc.cluster.local:2135 -d <domain> scheme permissions chown <domain> <serviceaccount_operator>@as
 $ namespace
 $ serviceaccount_operator: cat $HOME/custom-configs/navi-playbooks/data/operator.txt --- --column 3
 $ domain
 
 
 # give mvp meta ACL describe
-ydb -e grpc://storage-grpc.<namespace>.svc.cluster.local:2135 -d <domain> scheme permissions grant <domain> <serviceaccount_mvp>@as -p ydb.granular.describe_schema
+ydb -e grpcs://storage-grpc.<namespace>.svc.cluster.local:2135 -d <domain> scheme permissions grant <domain> <serviceaccount_mvp>@as -p ydb.granular.describe_schema
 $ namespace
-$ serviceaccount_mvp
+$ serviceaccount_mvp: cat $HOME/custom-configs/navi-playbooks/data/mvp.txt --- --column 2
 $ domain
 
 # jops
 jops k <cluster>
 $ cluster: yq eval '.clusters | keys[]' $HOME/hobbies/jops/config.yaml
+
+# fetch dynconfig
+ydb -e grpcs://storage-grpc.<namespace>.svc.cluster.local:2135 -d <domain> admin config fetch
+
+# replace dynconfig
+ydb -e grpcs://storage-grpc.<namespace>.svc.cluster.local:2135 -d <domain> admin config replace -f <file>
+
+# enable external blobs
+ydbd -s grpc://localhost:2135 db schema exec ./external_blobs.db.txt
+
+# Give more groups to the database
+ydb-dstool -e <storage-grpc-endpoint> group add --pool-name <pool-name> --groups <additional-groups>
+
+# Balance vdisks over cluster
+dstool cluster balance --max-replicating-pdisks 10 --max-donors-per-pdisk 1
