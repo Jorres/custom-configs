@@ -7,29 +7,6 @@ local state = {
   resizing_active = false,
 }
 
--- M.toggle_terminal = function()
---   if not vim.api.nvim_buf_is_valid(state.buf) then
---     state.buf = vim.api.nvim_create_buf(false, true)
---   end
-
---   if not vim.api.nvim_win_is_valid(state.win) then
---     vim.cmd("split")
---     state.win = vim.api.nvim_get_current_win()
---     vim.api.nvim_win_set_buf(state.win, state.buf)
-
---     if vim.bo[state.buf].buftype ~= "terminal" then
---       vim.cmd.term()
---     end
-
---     vim.cmd.wincmd("J")
---     vim.api.nvim_win_set_height(0, 25)
---     vim.cmd('startinsert')
---     state.job_id = vim.bo.channel
---   else
---     vim.api.nvim_win_hide(state.win)
---   end
--- end
-
 function M.toggle_terminal()
   if not vim.api.nvim_buf_is_valid(state.buf) then
     state.buf = vim.api.nvim_create_buf(false, true)
