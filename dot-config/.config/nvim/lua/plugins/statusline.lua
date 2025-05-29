@@ -10,7 +10,13 @@ require('lualine').setup {
     -- lualine_a = {{'mode', fmt = function(str) return str:sub(1,1) end }},
     lualine_a = { { 'mode', padding = 2 } },
     lualine_b = { 'branch', 'diff', 'diagnostics' },
-    lualine_c = { { 'filename', path = 3 }, '%=', {
+    lualine_c = { {
+      'filename',
+      path = 3,
+      cond = function()
+        return vim.bo.buftype ~= 'terminal'
+      end,
+    }, '%=', {
       "harpoon2",
       icon = '♥',
       separator = " ",
