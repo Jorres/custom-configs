@@ -62,6 +62,7 @@ named_keymaps.gitlinker_visual_range = {
 }
 
 local last_diagnostic_id = 0
+local last_local_diagnostic_id = 0
 
 vim.api.nvim_create_autocmd('DiagnosticChanged', {
   callback = function(_)
@@ -71,6 +72,27 @@ vim.api.nvim_create_autocmd('DiagnosticChanged', {
 
 named_keymaps.jump_next_diagnostic = {
   "<leader>dj",
+  function()
+    local diagnostics = vim.diagnostic.get(0)
+    if #diagnostics == 0 then
+      require "notify" ("No diagnostics in current file found :)")
+      return
+    end
+
+    last_local_diagnostic_id = last_local_diagnostic_id % (#diagnostics)
+    last_local_diagnostic_id = last_local_diagnostic_id + 1
+    local last_local_diagnostic = diagnostics[last_local_diagnostic_id]
+
+    vim.api.nvim_set_current_buf(last_local_diagnostic.bufnr)
+    vim.diagnostic.jump({ diagnostic = last_local_diagnostic })
+  end,
+  mode = { "n" },
+  opts = default_opts,
+  description = "Jump to next diagnostic (current file)",
+}
+
+named_keymaps.jump_next_diagnostic_global = {
+  "<leader>dJ",
   function()
     local diagnostics = vim.diagnostic.get(nil)
     if #diagnostics == 0 then
@@ -87,7 +109,7 @@ named_keymaps.jump_next_diagnostic = {
   end,
   mode = { "n" },
   opts = default_opts,
-  description = "Jump to next diagnostic",
+  description = "Jump to next diagnostic (across files)",
 }
 
 named_keymaps.normal_leader_d = {
