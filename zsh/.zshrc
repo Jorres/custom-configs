@@ -147,6 +147,8 @@ xset r rate 150 30
 
 # Needed so I can call 'nvim' from INSIDE nvim and not open an nvim inside nvim, uses nvr
 alias nvim='if [[ -z "$NVIM" ]]; then XXX="nvim" && YYY="" else XXX="nvr" && YYY="-l" fi && $XXX $YYY'
+alias nvi='if [[ -z "$NVIM" ]]; then XXX="nvim" && YYY="" else XXX="nvr" && YYY="-l" fi && $XXX $YYY'
+alias tickets='jira issues list'
 
 alias nnn='nnn -e'
 export NNN_BMS="c:~/custom-configs/;d:~/Downloads/;t:~/Downloads/Telegram Desktop/"
@@ -201,11 +203,13 @@ if [ -f ~/.config/newbius/completion.zsh.inc ]; then
 fi
 
 source $HOME/completions/_jops_k_completion.zsh
-
+source $HOME/completions/_jira_completion.zsh
 
 export GLFW_IM_MODULE=ibus kitty
 
 export ANTHROPIC_API_KEY=$(cat $HOME/anthropic_api_key)
+export JIRA_API_TOKEN=$(cat $HOME/jira_api_key)
+export JIRA_BROWSER="google-chrome"
 
 # Profiling:
 # zprof
